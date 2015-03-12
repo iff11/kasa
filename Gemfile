@@ -36,7 +36,8 @@ gem 'simple_form', git: 'https://github.com/plataformatec/simple_form'
 gem 'font-awesome-sass'
 gem 'redcarpet'
 gem 'enum_help'
-gem 'ember-cli-rails', "~> 0.1.10"
+# gem 'ember-cli-rails', git: 'https://github.com/blake-education/ember-cli-rails.git', branch: 'feature/various-fixes'
+gem 'ember-cli-rails'
 gem 'active_model_serializers', '~> 0.9.3'
 gem "paranoia", "~> 2.0"
 
@@ -59,15 +60,11 @@ group :development, :test do
   gem 'rails-erd'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
-
-  gem 'guard'
-  gem 'guard-livereload'
-  gem 'quiet_assets'
 end
 
 group :production do
   gem 'rails_12factor'
   gem 'pg'
   gem 'unicorn'
-  gem 'skylight'
+  # gem 'skylight'
 end
