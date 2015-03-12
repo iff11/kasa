@@ -36,7 +36,7 @@ gem 'simple_form', git: 'https://github.com/plataformatec/simple_form'
 gem 'font-awesome-sass'
 gem 'redcarpet'
 gem 'enum_help'
-gem 'ember-cli-rails', git: 'https://github.com/rubylibre/ember-cli-rails.git'
+gem 'ember-cli-rails', "~> 0.1.10"
 gem 'active_model_serializers', '~> 0.9.3'
 gem "paranoia", "~> 2.0"
 

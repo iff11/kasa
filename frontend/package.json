@@ -10,7 +10,9 @@
   "scripts": {
     "start": "ember server",
     "build": "ember build",
-    "test": "ember test"
+    "test": "ember test",
+    "scripts": {
+    }
   },
   "repository": "",
   "engines": {
@@ -44,7 +46,6 @@
     "liquid-fire": "^0.18.0"
   },
   "dependencies": {
-    "rails-csrf": "^2.0.1",
-    "ember-cli-rails-addon": "0.0.11"
+    "rails-csrf": "^2.0.1"
   }
 }
