@@ -1,0 +1,69 @@
+<h2>{{t 'items.all'}}</h2>
+
+<table class="admin-items table table-hover">
+  <thead>
+    <tr>
+      <th class="col-lg-3">{{t 'item.name'}}</th>
+      <th class="col-lg-3 text-right">{{t 'item.barcode'}}</th>
+      <th class="col-lg-2 text-right">{{t 'item.unlimited_or_stock'}}</th>
+      <th class="col-lg-2 text-right">{{t 'item.default_price'}}</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each item in attrs.items}}
+      <tr>
+        <td>
+          <button class="delete btn btn-danger btn-xs" {{action 'deleteItem' item}}>
+            {{fa-icon 'times'}}
+          </button>
+
+          {{item.name}}
+        </td>
+        <td class="text-right">{{item.barcode}}</td>
+        <td class="text-right">
+          {{#if item.unlimited}}
+            &#8734;
+          {{else}}
+            {{item.stock}}
+          {{/if}}
+        </td>
+        <td class="text-right">
+          {{x-price value=item.default_price}}
+        </td>
+      </tr>
+    {{/each}}
+
+    <tr>
+      <td>{{input value=newName placeholder=(t 'items.newName') class="form-control"}}</td>
+      <td>{{input value=newBarcode placeholder=(t 'items.newBarcode') class="form-control text-right"}}</td>
+      <td>
+        <div class="input-group">
+          <span class="input-group-addon">
+            {{input
+                checked=newUnlimited
+                type="checkbox"}}
+          </span>
+          {{input
+              value=newStock
+              placeholder=(t 'items.newStock')
+              class="form-control text-right"
+              disabled=newUnlimited}}
+        </div>
+      </td>
+      <td>
+        <div class="input-group">
+          {{input value=newDefaultPrice placeholder=(t 'items.newDefaultPrice') class="form-control text-right"}}
+          <span class="input-group-addon">{{t 'currency'}}</span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4" class="text-right">
+        <button class="btn btn-success" {{action 'createItem'}}>
+          {{fa-icon 'plus-square'}} {{t 'items.add'}}
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

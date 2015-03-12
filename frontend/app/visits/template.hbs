@@ -1,0 +1,38 @@
+<h2>Open visits</h2>
+
+<div class="row">
+  {{#each visit in attrs.visits}}
+    <div class="col-lg-4">
+      <div class="well">
+      <h3>
+        {{#link-to 'visit' visit}}
+          {{visit-human-name visit=visit}}
+        {{/link-to}}
+      </h3>
+      <span class="avatar">
+        ?
+        {{!fa-icon visit.customer.sex}}
+      </span>
+      <time>{{date-and-time visit.date ENV.APP.locale}}</time>
+      <p class="price">{{visit.total_price}}</p>
+      </div>
+    </div>
+  {{/each}}
+
+  <div class="col-lg-4">
+    <div class="input-group">
+      {{view "select"
+          value=newVisitCustomer
+          content=customers
+          class="form-control"
+          prompt="-- Select customer --"
+          optionValuePath="content.id"
+          optionLabelPath="content.full_name"}}
+      <span class="input-group-btn">
+        <button type="button" class='btn btn-primary btn-default' {{action 'createVisit'}}>
+          {{fa-icon 'plus-circle'}} New visit
+        </button>
+      </span>
+    </div>
+  </div>
+</div>

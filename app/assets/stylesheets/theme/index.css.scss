@@ -1,0 +1,97 @@
+@import "variables";
+@import "mixins";
+
+@import url(http://fonts.googleapis.com/css?family=Qwigley&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville&subset=latin,latin-ext);
+
+h1, h2 {
+  border: dotted 0 $heading-color;
+  border-bottom-width: 1px;
+  padding-bottom: 10px;
+  font-family: 'Libre Baskerville', serif;
+  color: $heading-color;
+}
+
+h1 {
+  padding-left: .5em;
+}
+
+h2 {
+  padding-top: .2em;
+}
+
+.top-nav {
+  margin-bottom: 1em;
+}
+
+.navbar-brand {
+  font-family: 'Qwigley', cursive;
+}
+
+.navbar-default, .sidebar, #main, body > div {
+  margin-bottom: 0;
+  margin-top: 0;
+
+  a {
+    color: $brand-color;
+  }
+}
+
+.navbar-default {
+  border: none;
+}
+
+.sidebar .nav-second-level li a {
+  padding-left: 4em;
+}
+
+.well {
+  h3 {
+    margin-top: 0;
+  }
+
+  .avatar {
+    width: 1.5em;
+    height: 1.5em;
+    position: absolute;
+    right: 1em;
+    top: .4em;
+    font-size: 2em;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 1em;
+    color: $avatar-color;
+    background-color: $avatar-background;
+  }
+}
+
+table.table > tbody > tr > td {
+  vertical-align: middle;
+}
+
+.item-count > div {
+  display: inline-flex;
+}
+
+.active {
+  background-color: #eee;
+}
+
+table.admin-items {
+  button.delete {
+    display: none;
+  }
+
+  tr:hover {
+    button.delete {
+      display: inline-block;
+    }
+  }
+}
+
+.flashMessage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}

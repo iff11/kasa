@@ -1,0 +1,56 @@
+<h1>
+  {{fa-icon "scissors"}}
+  <a href="#">Top Style</a>
+</h1>
+
+<h2 class='hide'>{{t 'sidebar.heading.navigation'}}</h2>
+
+<h3 class='hide'>{{t 'sidebar.heading.employee'}}</h3>
+<ul class="nav nav-pills nav-stacked sidebar">
+  <li>
+    {{#link-to 'customers'}}
+      {{fa-icon 'users'}}
+      All customers
+    {{/link-to}}
+  </li>
+
+  <li>
+    {{#link-to 'items'}}
+      {{fa-icon 'tags'}}
+      Items
+    {{/link-to}}
+  </li>
+
+  <li>
+    {{#link-to 'visits'}}
+      {{fa-icon 'coffee'}}
+      Open visits
+      <span class="pull-right label label-success">
+        {{open_visits}}x
+        {{fa-icon 'user'}}
+      </span>
+    {{/link-to}}
+    <ul class="nav nav-second-level nav-pills nav-stacked">
+      {{#each visit in visits}}
+        <li>
+          {{#link-to 'visit' visit}}
+            {{visit-human-name visit=visit}}
+          {{/link-to}}
+        </li>
+      {{/each}}
+    </ul>
+  </li>
+</ul>
+
+<h3 class='hide'>
+  {{fa-icon 'user'}}
+  {{t 'sidebar.heading.admin'}}
+</h3>
+<ul class="nav nav-pills nav-stacked sidebar">
+  <li>
+    {{#link-to 'admin.items'}}
+      {{fa-icon 'dropbox'}}
+      {{t 'sidebar.admin.items'}}
+    {{/link-to}}
+  </li>
+</ul>
