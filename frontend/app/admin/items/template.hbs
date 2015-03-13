@@ -12,26 +12,7 @@
 
   <tbody>
     {{#each item in attrs.items}}
-      <tr>
-        <td>
-          <button class="delete btn btn-danger btn-xs" {{action 'deleteItem' item}}>
-            {{fa-icon 'times'}}
-          </button>
-
-          {{item.name}}
-        </td>
-        <td class="text-right">{{item.barcode}}</td>
-        <td class="text-right">
-          {{#if item.unlimited}}
-            &#8734;
-          {{else}}
-            {{item.stock}}
-          {{/if}}
-        </td>
-        <td class="text-right">
-          {{x-price value=item.default_price}}
-        </td>
-      </tr>
+      {{admin-edit-item item=item update="updateItem" delete="deleteItem"}}
     {{/each}}
 
     <tr>

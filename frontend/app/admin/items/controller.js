@@ -47,6 +47,16 @@ export default Ember.Controller.extend({
       }, function(response) {
         flash.danger('Item cannot be deleted! ' + response.responseText);
       });
+    },
+
+    updateItem: function(item) {
+      var flash = Ember.get(this, 'flashes');
+
+      item.save().then(function() {
+        flash.success('Item updated');
+      }, function(response) {
+        flash.danger('Item cannot be updated! ' + response.responseText);
+      });
     }
   }
 });

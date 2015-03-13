@@ -1,0 +1,36 @@
+<tr {{action "edit" on="doubleClick"}}>
+  <td>
+    {{#if isEditting}}
+      <button style="position: relative; left: -2em;" class="delete btn btn-danger btn-xs" {{action 'delete'}}>
+        {{fa-icon 'times'}}
+      </button>
+      {{input value=item.name class='form-control'}}
+    {{else}}
+      {{item.name}}
+    {{/if}}
+
+  </td>
+  <td class="text-right">
+    {{#if isEditting}}
+      {{input value=item.barcode class='form-control'}}
+    {{else}}
+      {{item.barcode}}
+    {{/if}}
+  </td>
+  <td class="text-right">
+    {{#if item.unlimited}}
+      &#8734;
+    {{else}}
+      {{item.stock}}
+    {{/if}}
+  </td>
+  <td class="text-right">
+    {{x-price value=item.default_price}}
+    {{#if isEditting}}
+      <button class="btn btn-success btn-xs" {{action 'update'}}>
+        {{fa-icon 'check'}}
+      </button>
+    {{/if}}
+  </td>
+</tr>
+
