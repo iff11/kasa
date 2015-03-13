@@ -33,7 +33,10 @@ export default {
       navigation: 'Navigace',
       employee: 'Zaměstnanec',
       admin: 'Administrátor'
-    }
+    },
+    customers: 'Zákazníci',
+    items: 'Sklad',
+    visits: 'Otevřené zakázky'
   },
 
   currency: 'Kč'

@@ -5,26 +5,26 @@
 
 <h2 class='hide'>{{t 'sidebar.heading.navigation'}}</h2>
 
-<h3 class='hide'>{{t 'sidebar.heading.employee'}}</h3>
-<ul class="nav nav-pills nav-stacked sidebar">
+<h3>{{t 'sidebar.heading.employee'}}</h3>
+<ul class="nav nav-pills nav-stacked">
   <li>
     {{#link-to 'customers'}}
       {{fa-icon 'users'}}
-      All customers
+      {{t 'sidebar.customers'}}
     {{/link-to}}
   </li>
 
   <li>
     {{#link-to 'items'}}
       {{fa-icon 'tags'}}
-      Items
+      {{t 'sidebar.items'}}
     {{/link-to}}
   </li>
 
   <li>
     {{#link-to 'visits'}}
       {{fa-icon 'coffee'}}
-      Open visits
+      {{t 'sidebar.visits'}}
       <span class="pull-right label label-success">
         {{open_visits}}x
         {{fa-icon 'user'}}
@@ -42,11 +42,11 @@
   </li>
 </ul>
 
-<h3 class='hide'>
+<h3>
   {{fa-icon 'user'}}
   {{t 'sidebar.heading.admin'}}
 </h3>
-<ul class="nav nav-pills nav-stacked sidebar">
+<ul class="nav nav-pills nav-stacked">
   <li>
     {{#link-to 'admin.items'}}
       {{fa-icon 'dropbox'}}
