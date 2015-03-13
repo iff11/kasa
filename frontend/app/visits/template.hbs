@@ -2,7 +2,7 @@
 
 <div class="row">
   {{#each visit in attrs.visits}}
-    <div class="col-lg-4">
+    <div class="col-xs-4">
       <div class="well">
       <h3>
         {{#link-to 'visit' visit}}
@@ -19,7 +19,7 @@
     </div>
   {{/each}}
 
-  <div class="col-lg-4">
+  <div class="col-xs-4">
     <div class="input-group">
       {{view "select"
           value=newVisitCustomer

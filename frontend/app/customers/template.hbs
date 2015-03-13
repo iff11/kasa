@@ -1,2 +1,30 @@
-mirek
-{{outlet}}
+<h2>{{t 'customers.all'}}</h2>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th class="col-xs-2">{{t 'customers.name'}}</th>
+      <th class="col-xs-2">{{t 'customers.birth'}}</th>
+      <th class="col-xs-2 text-right">{{t 'customers.birthday_in'}}</th>
+      <th class="col-xs-6">{{t 'customers.note'}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each customer in attrs.customers}}
+      <tr>
+        <td>
+          {{customer.first_name}} {{customer.last_name}}
+        </td>
+        <td>
+          {{customer.birth}}
+        </td>
+        <td class="text-right">
+          {{customer-birthday customer=customer}}
+        </td>
+        <td>
+          {{customer.note}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

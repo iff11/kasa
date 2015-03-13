@@ -1,4 +1,12 @@
 export default {
+  customers: {
+    all: 'Všichni zákazníci',
+    name: 'Jméno',
+    birth: 'Datum narození',
+    note: 'Poznámka',
+    birthday_in: 'Narozeniny za'
+  },
+
   items: {
     all: 'Všechny položky na skladě',
     add: 'Přidat',

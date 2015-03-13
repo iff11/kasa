@@ -11,16 +11,25 @@ me = Customer.create(
     first_name: 'Michal',
     last_name: 'Bryxí',
     note: 'Já a jenom já',
-    birth: '1986-07-31'
+    birth: '1986-03-18'
   }
 )
 
 john = Customer.create(
   {
+    first_name: 'John',
+    last_name: 'Doe',
+    note: 'Somebody',
+    birth: '2001-05-18'
+  }
+)
+
+jane = Customer.create(
+  {
     first_name: 'Jane',
     last_name: 'Doe',
     note: 'Somebody',
-    birth: '2001-06-06'
+    birth: '2001-09-18'
   }
 )
 
