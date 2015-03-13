@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  tagName: '',
+  tagName: 'tr',
 
   actions: {
     edit: function() {
@@ -9,9 +9,11 @@ export default Ember.Component.extend({
     },
     delete: function() {
       this.sendAction('delete', this.get('item'));
+      this.toggleProperty('isEditting');
     },
     update: function() {
       this.sendAction('update', this.get('item'));
+      this.toggleProperty('isEditting');
     }
   }
 });

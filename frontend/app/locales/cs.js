@@ -1,7 +1,7 @@
 export default {
   items: {
     all: 'Všechny položky na skladě',
-    add: 'Přidat položku',
+    add: 'Přidat',
     newName: 'Nová položka',
     newBarcode: '123456789',
     newStock: '10',
@@ -13,7 +13,8 @@ export default {
     stock: 'Skladem',
     default_price: 'Výchozí cena',
     barcode: 'Čárový kód',
-    unlimited_or_stock: 'Neomezeně / Skladem'
+    unlimited_or_stock: 'Neomezeně / Skladem',
+    action: 'Akce'
   },
 
   sidebar: {
