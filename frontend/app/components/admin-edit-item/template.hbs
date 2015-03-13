@@ -19,11 +19,11 @@
     {{input value=item.default_price class='form-control'}}
   </td>
   <td class="text-right">
-    <button class="btn btn-success btn-xs" {{action 'update'}}>
-      {{fa-icon 'check'}}
-    </button>
     <button class="delete btn btn-danger btn-xs" {{action "delete" on="doubleClick"}}>
       {{fa-icon 'times'}}
+    </button>
+    <button class="btn btn-success btn-xs" {{action 'update'}}>
+      {{fa-icon 'check'}}
     </button>
   </td>
 {{else}}

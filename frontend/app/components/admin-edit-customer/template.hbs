@@ -1,0 +1,26 @@
+{{#if isEditting}}
+  <td>{{input value=customer.first_name class='form-control'}}</td>
+  <td>{{input value=customer.last_name class='form-control'}}</td>
+  <td>{{input value=customer.birth class='form-control'}}</td>
+  <td>{{input value=customer.phone class='form-control'}}</td>
+  <td>{{input value=customer.mail class='form-control'}}</td>
+  <td class="text-right">
+    <button class="delete btn btn-danger btn-xs" {{action "delete" on="doubleClick"}}>
+      {{fa-icon 'times'}}
+    </button>
+    <button class="btn btn-success btn-xs" {{action 'update'}}>
+      {{fa-icon 'check'}}
+    </button>
+  </td>
+{{else}}
+  <td>{{customer.first_name}}</td>
+  <td>{{customer.last_name}}</td>
+  <td>{{customer.birth}}</td>
+  <td>{{customer.phone}}</td>
+  <td>{{customer.mail}}</td>
+  <td class="text-right">
+    <button {{action "edit"}} class="btn btn-default btn-xs">
+      {{fa-icon 'pencil'}}
+    </button>
+  </td>
+{{/if}}

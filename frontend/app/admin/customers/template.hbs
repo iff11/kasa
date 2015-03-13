@@ -1,0 +1,33 @@
+<h2>{{t 'customers.all'}}</h2>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th class="col-xs-2">{{t 'customer.first_name'}}</th>
+      <th class="col-xs-2">{{t 'customer.last_name'}}</th>
+      <th class="col-xs-2">{{t 'customer.birth'}}</th>
+      <th class="col-xs-2">{{t 'customer.phone'}}</th>
+      <th class="col-xs-3">{{t 'customer.mail'}}</th>
+      <th class="col-xs-1 text-right">{{t 'customer.action'}}</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each customer in attrs.customers}}
+      {{admin-edit-customer customer=customer update="updateCustomer" delete="deleteCustomer"}}
+    {{/each}}
+
+    <tr>
+      <td>{{input value=heap.firstName placeholder=(t 'customer.first_name') class="form-control"}}</td>
+      <td>{{input value=heap.lastName placeholder=(t 'customer.last_name') class="form-control"}}</td>
+      <td>{{input value=heap.birth placeholder=(t 'customer.birth') class="form-control"}}</td>
+      <td>{{input value=heap.phone placeholder=(t 'customer.phone') class="form-control"}}</td>
+      <td>{{input value=heap.mail placeholder=(t 'customer.mail') class="form-control"}}</td>
+      <td class="text-right">
+        <button class="btn btn-success" {{action 'createCustomer'}}>
+          {{fa-icon 'plus-square'}} {{t 'customer.add'}}
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

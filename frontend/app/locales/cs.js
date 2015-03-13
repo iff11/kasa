@@ -1,10 +1,19 @@
 export default {
   customers: {
-    all: 'Všichni zákazníci',
-    name: 'Jméno',
+    all: 'Všichni zákazníci'
+  },
+
+  customer: {
+    first_name: 'Jméno',
+    last_name: 'Příjmení',
+    full_name: 'Jméno',
     birth: 'Datum narození',
     note: 'Poznámka',
-    birthday_in: 'Narozeniny za'
+    birthday_in: 'Narozeniny',
+    phone: 'Telefon',
+    mail: 'E-mail',
+    action: 'Akce',
+    add: 'Přidat'
   },
 
   items: {
@@ -27,7 +36,8 @@ export default {
 
   sidebar: {
     admin: {
-      items: 'Sklad'
+      items: 'Sklad',
+      customers: 'Zákazníci'
     },
     heading: {
       navigation: 'Navigace',

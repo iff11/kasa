@@ -5,7 +5,10 @@ export default DS.Model.extend({
   last_name: DS.attr(),
   note: DS.attr(),
   birth: DS.attr(),
-  url: DS.attr(),
+  phone: DS.attr(),
+  mail: DS.attr(),
+  note: DS.attr()
+  // url: DS.attr(),
 
   full_name: function() {
     return this.get('first_name') + " " + this.get('last_name');
