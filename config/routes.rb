@@ -1,16 +1,8 @@
 Rails.application.routes.draw do
   resources :employees
-
-  get 'sells/show'
-
-  get 'sells/index'
-
-  resources :visits do
-    resource :sells
-  end
-
+  resources :sells
+  resources :visits
   resources :customers
-
   resources :items
 
   # The priority is based upon order of creation: first created -> highest priority.
