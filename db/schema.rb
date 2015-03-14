@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150313230608) do
     t.date     "birth"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
-    t.string   "phone",      limit: 25
+    t.string   "phone",      limit: 50
     t.string   "mail",       limit: 50
   end
 
