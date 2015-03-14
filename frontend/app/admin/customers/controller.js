@@ -7,11 +7,12 @@ export default Ember.Controller.extend({
   actions: {
     createCustomer: function() {
       var customer = this.store.createRecord('customer', {
-        first_name: this.get('heap.firstName'),
-        last_name: this.get('heap.lastName'),
+        first_name: this.get('heap.first_name'),
+        last_name: this.get('heap.last_name'),
         birth: this.get('heap.birth'),
         phone: this.get('heap.phone'),
-        mail: this.get('heap.mail')
+        mail: this.get('heap.mail'),
+        note: this.get('heap.note')
       });
 
       var that = this;
