@@ -1,10 +1,16 @@
+{{#if isEditingNote}}
+  <td colspan="5">
+    {{input placeholder=(t 'customer.note') type='textarea' value=customer.note class='form-control'}}
+  </td>
+{{else}}
   <td>{{input placeholder=(t 'customer.first_name') value=customer.firstName class='form-control'}}</td>
   <td>{{input placeholder=(t 'customer.last_name') value=customer.lastName class='form-control'}}</td>
   <td>{{input placeholder=(t 'customer.birth') value=customer.birth class='form-control'}}</td>
   <td>{{input placeholder=(t 'customer.phone') value=customer.phone class='form-control'}}</td>
   <td>{{input placeholder=(t 'customer.mail') value=customer.mail class='form-control'}}</td>
   <td>
-    {{#x-modal title="My modal #1"}}
-      This is the content of my modal #1
-    {{/x-modal}}
+    <button class='btn' {{action "toggleNote"}}>
+      {{fa-icon 'note'}}
+    </button>
   </td>
+{{/if}}

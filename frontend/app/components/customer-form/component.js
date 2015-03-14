@@ -1,5 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  tagName: ''
+  tagName: '',
+
+  actions: {
+    toggleNote: function() {
+      this.toggleProperty('isEditingNote');
+    }
+  }
 });
