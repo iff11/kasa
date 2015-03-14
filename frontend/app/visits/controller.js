@@ -14,12 +14,14 @@ export default Ember.Controller.extend({
   actions: {
     createVisit: function() {
       var customer_id = this.get('newVisitCustomer');
+      var employee_id = this.get('newVisitEmployee')
       var that = this;
 
       this.store.find('customer', customer_id).then(
         function(result) {
           var visit = that.store.createRecord('visit', {
-            customer: result
+            customer: result,
+            employee: employee_id
           });
           visit.save();
         },
