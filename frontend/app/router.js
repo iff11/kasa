@@ -15,6 +15,7 @@ Router.map(function() {
   this.route('admin', function() {
     this.route('items');
     this.route('customers');
+    this.route('employees');
   });
 });
 

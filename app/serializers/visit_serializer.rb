@@ -4,6 +4,7 @@ class VisitSerializer < ActiveModel::Serializer
   attributes :id, :note, :completed, :date
 
   has_one :customer
+  has_one :employee
   has_many :sells
 
   def date

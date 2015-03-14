@@ -28,6 +28,13 @@
           prompt="-- Select customer --"
           optionValuePath="content.id"
           optionLabelPath="content.full_name"}}
+      {{!view "select"
+          value=newVisitEmployee
+          content=employees
+          class="form-control"
+          prompt="-- Select employee --"
+          optionValuePath="employee.id"
+          optionLabelPath="employee.full_name"}}
       <span class="input-group-btn">
         <button type="button" class='btn btn-primary btn-default' {{action 'createVisit'}}>
           {{fa-icon 'plus-circle'}} New visit

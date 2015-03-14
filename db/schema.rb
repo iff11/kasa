@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150313230608) do
+ActiveRecord::Schema.define(version: 20150314083054) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "first_name"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20150313230608) do
     t.string   "phone",      limit: 50
     t.string   "mail",       limit: 50
   end
+
+  create_table "employees", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "photo_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+  end
+
+  add_index "employees", ["deleted_at"], name: "index_employees_on_deleted_at"
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
@@ -50,9 +61,13 @@ ActiveRecord::Schema.define(version: 20150313230608) do
   create_table "visits", force: :cascade do |t|
     t.text     "note"
     t.integer  "customer_id",                 null: false
+    t.integer  "employee_id",                 null: false
     t.boolean  "completed",   default: false, null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.datetime "deleted_at"
   end
+
+  add_index "visits", ["deleted_at"], name: "index_visits_on_deleted_at"
 
 end

@@ -29,16 +29,27 @@ jane = Customer.create(
     birth: '2001-09-18'
   }
 )
+
+mirek = Employee.create(
+  {
+    first_name: 'Mirek',
+    last_name: 'Kubelka',
+    photo_url: 'http://placekitten.com/g/64/64'
+  }
+)
+
 my_visit = Visit.create(
   {
     note: 'Příjemná návštěva',
     customer: me,
+    employee: mirek
   }
 )
 johns_visit = Visit.create(
   {
     note: 'John Doe je zde',
     customer: john,
+    employee: mirek
   }
 )
 sampon = Item.create(

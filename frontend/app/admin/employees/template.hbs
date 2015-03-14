@@ -1,0 +1,27 @@
+<h2>{{t 'employees.all'}}</h2>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th class="col-xs-4">{{t 'employee.first_name'}}</th>
+      <th class="col-xs-4">{{t 'employee.last_name'}}</th>
+      <th class="col-xs-3">{{t 'employee.photo_url'}}</th>
+      <th class="col-xs-1 text-right">{{t 'employee.action'}}</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each employee in attrs.employees}}
+      {{admin-edit-employee employee=employee update="updateEmployee" delete="deleteEmployee"}}
+    {{/each}}
+
+    <tr>
+      {{employee-form employee=heap}}
+      <td class="text-right">
+        <button class="btn btn-success" {{action 'createEmployee'}}>
+          {{fa-icon 'plus-square'}} {{t 'employee.add'}}
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

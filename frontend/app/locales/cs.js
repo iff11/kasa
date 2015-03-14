@@ -34,10 +34,23 @@ export default {
     action: 'Akce'
   },
 
+  employee: {
+    first_name: 'Jméno',
+    last_name: 'Příjmení',
+    photo_url: 'Odkaz na fotku',
+    action: 'Akce',
+    add: 'Přidat'
+  },
+
+  employees: {
+    all: 'Zaměstnanci'
+  },
+
   sidebar: {
     admin: {
       items: 'Sklad',
-      customers: 'Zákazníci'
+      customers: 'Zákazníci',
+      employees: 'Zaměstnanci'
     },
     heading: {
       navigation: 'Navigace',

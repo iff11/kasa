@@ -7,6 +7,10 @@ export default Ember.Controller.extend({
     return this.store.find('customer');
   }.property(),
 
+  employees: function() {
+    return this.store.find('employee');
+  }.property(),
+
   actions: {
     createVisit: function() {
       var customer_id = this.get('newVisitCustomer');

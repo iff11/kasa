@@ -7,5 +7,6 @@ export default DS.Model.extend({
   date: DS.attr(),
 
   customer: DS.belongsTo('customer', {async: true}),
+  employee: DS.belongsTo('employee', {async: true}),
   sells: DS.hasMany('sell', {async: true})
 });
