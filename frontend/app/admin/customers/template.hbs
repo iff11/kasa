@@ -7,7 +7,8 @@
       <th class="col-xs-2">{{t 'customer.last_name'}}</th>
       <th class="col-xs-2">{{t 'customer.birth'}}</th>
       <th class="col-xs-2">{{t 'customer.phone'}}</th>
-      <th class="col-xs-3">{{t 'customer.mail'}}</th>
+      <th class="col-xs-2">{{t 'customer.mail'}}</th>
+      <th class="col-xs-1">{{t 'customer.note'}}</th>
       <th class="col-xs-1 text-right">{{t 'customer.action'}}</th>
     </tr>
   </thead>
@@ -18,11 +19,7 @@
     {{/each}}
 
     <tr>
-      <td>{{input value=heap.firstName placeholder=(t 'customer.first_name') class="form-control"}}</td>
-      <td>{{input value=heap.lastName placeholder=(t 'customer.last_name') class="form-control"}}</td>
-      <td>{{input value=heap.birth placeholder=(t 'customer.birth') class="form-control"}}</td>
-      <td>{{input value=heap.phone placeholder=(t 'customer.phone') class="form-control"}}</td>
-      <td>{{input value=heap.mail placeholder=(t 'customer.mail') class="form-control"}}</td>
+      {{customer-form customer=heap}}
       <td class="text-right">
         <button class="btn btn-success" {{action 'createCustomer'}}>
           {{fa-icon 'plus-square'}} {{t 'customer.add'}}

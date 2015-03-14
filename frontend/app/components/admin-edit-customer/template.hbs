@@ -1,9 +1,5 @@
 {{#if isEditting}}
-  <td>{{input value=customer.first_name class='form-control'}}</td>
-  <td>{{input value=customer.last_name class='form-control'}}</td>
-  <td>{{input value=customer.birth class='form-control'}}</td>
-  <td>{{input value=customer.phone class='form-control'}}</td>
-  <td>{{input value=customer.mail class='form-control'}}</td>
+  {{customer-form customer=customer}}
   <td class="text-right">
     <button class="delete btn btn-danger btn-xs" {{action "delete" on="doubleClick"}}>
       {{fa-icon 'times'}}
