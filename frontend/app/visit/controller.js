@@ -3,22 +3,29 @@ import formatMoney from "accounting/format-money"
 
 export default Ember.Controller.extend({
   attrs: [],
-  heap: {},
+
+  heap: function() {
+    return this.store.createRecord('sell', {
+      visit: this.get('attrs.visit'),
+      count: 1,
+      price: 0
+    });
+  }.property('attrs.visit'),
+
+  items: function() {
+    return this.store.find('item');
+  }.property(),
 
   actions: {
     createSell: function() {
-      var sell = this.store.createRecord('sell', {
-        item: this.get('heap.item'),
-        visit: this.get('heap.visit'),
-        price: this.get('heap.price'),
-        count: this.get('heap.count')
-      });
+      console.log('fooo');
+      var sell = this.get('heap');
 
       var that = this;
       var flash = Ember.get(this, 'flashes');
 
       sell.save().then(function() {
-        that.set('heap', {});
+        that.set('resetHeap', true);
         flash.success('Successfully saved!');
       }, function(response) {
         flash.danger('Something went wrong!');

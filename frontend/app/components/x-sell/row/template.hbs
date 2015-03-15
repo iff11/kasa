@@ -1,5 +1,5 @@
 {{#if isEditting}}
-  {{x-sell/row/form sell=sell}}
+  {{x-sell/row/form sell=sell items=items}}
   <td class="text-right">
     <button class="delete btn btn-danger btn-xs" {{action "delete" on="doubleClick"}}>
       {{fa-icon 'times'}}

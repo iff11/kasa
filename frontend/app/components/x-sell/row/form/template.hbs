@@ -1,4 +1,12 @@
-<td>{{sell.item.name}}</td>
+<td>
+  {{view "select"
+       content=items
+       optionValuePath="content"
+       optionLabelPath="content.name"
+       selection=sell.item
+       class="form-control"
+       prompt=(t 'sell.select_item')}}
+</td>
 <td class="text-right">
   <div class="input-group">
     {{input value=sell.price class='form-control text-right' type='number'}}

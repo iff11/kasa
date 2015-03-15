@@ -39,13 +39,14 @@
 
       <tbody>
         {{#each sell in attrs.visit.sells}}
-          {{x-sell/row sell=sell update="updateSell" delete="deleteSell"}}
+          {{x-sell/row sell=sell items=items update="updateSell" delete="deleteSell"}}
         {{/each}}
 
         <tr>
-          {{x-sell/row/form sell=heap}}
+          {{x-sell/row/form sell=heap items=items}}
           <td class="text-right">
-            <button class="btn btn-success">
+            <button class="btn btn-success btn-xs" {{action "createSell"}}>
+            sd
               {{fa-icon 'plus'}}
             </button>
           </td>

@@ -41,7 +41,8 @@ export default {
     unit_price: 'Cena / ks',
     count: 'Kusů',
     sum_price: 'Cena',
-    action: 'Akce'
+    action: 'Akce',
+    select_item: '-- Vyber položku --'
   },
 
   item: {

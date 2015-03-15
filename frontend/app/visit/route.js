@@ -8,8 +8,4 @@ export default Ember.Route.extend({
   setupController: function(controller, model) {
     controller.set('attrs.visit', model);
   }
-
-  // renderTemplate: function() {
-  //   this.render({ outlet: 'foo' });
-  // }
 });
