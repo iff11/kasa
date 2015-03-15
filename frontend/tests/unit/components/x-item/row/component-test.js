@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('x-item/price', {
+moduleForComponent('x-item/row', {
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
 });

@@ -50,7 +50,7 @@
               </button>
             </td>
             <td class="text-right">
-              {{x-price value=sell.sellPrice}}
+              {{x-item/price value=sell.sellPrice}}
             </td>
           </tr>
         {{/each}}
@@ -73,7 +73,7 @@
             Total price:
           </th>
           <th class="text-right">
-            {{total-price visit=attrs.visit}}
+            {{x-visit/total-price visit=attrs.visit}}
           </th>
         </tr>
       </tfoot>

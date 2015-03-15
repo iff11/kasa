@@ -15,11 +15,11 @@
 
   <tbody>
     {{#each customer in attrs.customers}}
-      {{admin-edit-customer customer=customer update="updateCustomer" delete="deleteCustomer"}}
+      {{x-customer/row customer=customer update="updateCustomer" delete="deleteCustomer"}}
     {{/each}}
 
     <tr>
-      {{customer-form customer=heap}}
+      {{x-customer/row/form customer=heap}}
       <td class="text-right">
         <button class="btn btn-success" {{action 'createCustomer'}}>
           {{fa-icon 'plus-square'}} {{t 'customer.add'}}

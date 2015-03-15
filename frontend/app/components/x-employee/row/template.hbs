@@ -1,5 +1,5 @@
 {{#if isEditting}}
-  {{item-form item=item}}
+  {{x-employee/row/form employee=employee}}
   <td class="text-right">
     <button class="delete btn btn-danger btn-xs" {{action "delete" on="doubleClick"}}>
       {{fa-icon 'times'}}
@@ -9,21 +9,9 @@
     </button>
   </td>
 {{else}}
-  <td>{{item.name}}</td>
-  <td class="text-right">
-    {{#if item.unlimited}}
-      &#8734;
-    {{else}}
-      {{item.stock}}
-    {{/if}}
-  </td>
-  <td class="text-right">
-    {{x-price value=item.purchase_price}}
-  </td>
-  <td class="text-right">
-    {{x-price value=item.selling_price}}
-  </td>
-  <td class="text-right">{{item.barcode}}</td>
+  <td>{{employee.first_name}}</td>
+  <td>{{employee.last_name}}</td>
+  <td>{{employee.photo_url}}</td>
   <td class="text-right">
     <button {{action "edit"}} class="btn btn-default btn-xs">
       {{fa-icon 'pencil'}}

@@ -14,11 +14,11 @@
 
   <tbody>
     {{#each item in attrs.items}}
-      {{admin-edit-item item=item update="updateItem" delete="deleteItem"}}
+      {{x-item/row item=item update="updateItem" delete="deleteItem"}}
     {{/each}}
 
     <tr>
-      {{item-form item=heap}}
+      {{x-item/row/form item=heap}}
       <td class="text-right">
         <button class="btn btn-success" {{action 'createItem'}}>
           {{fa-icon 'plus-square'}} {{t 'items.add'}}

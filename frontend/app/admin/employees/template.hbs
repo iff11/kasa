@@ -12,11 +12,11 @@
 
   <tbody>
     {{#each employee in attrs.employees}}
-      {{admin-edit-employee employee=employee update="updateEmployee" delete="deleteEmployee"}}
+      {{x-employee/row employee=employee update="updateEmployee" delete="deleteEmployee"}}
     {{/each}}
 
     <tr>
-      {{employee-form employee=heap}}
+      {{x-employee/row/form employee=heap}}
       <td class="text-right">
         <button class="btn btn-success" {{action 'createEmployee'}}>
           {{fa-icon 'plus-square'}} {{t 'employee.add'}}
