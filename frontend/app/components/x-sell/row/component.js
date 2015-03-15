@@ -3,6 +3,11 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   tagName: 'tr',
 
+  sellName: function() {
+    console.log('foosdfsd');
+    return this.get('sell.item.name');
+  }.property('sell', 'sell.item', 'sell.item.name'),
+
   actions: {
     edit: function() {
       this.toggleProperty('isEditting');

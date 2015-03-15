@@ -4,13 +4,14 @@ import formatMoney from "accounting/format-money"
 export default Ember.Controller.extend({
   attrs: [],
 
-  heap: function() {
-    return this.store.createRecord('sell', {
-      visit: this.get('attrs.visit'),
-      count: 1,
-      price: 0
-    });
-  }.property('attrs.visit'),
+  heap: {},
+  // heap: function() {
+  //   return {
+  //     visit: this.get('attrs.visit'),
+  //     count: 1,
+  //     price: 0
+  //   };
+  // }.property('attrs.visit'),
 
   items: function() {
     return this.store.find('item');
@@ -18,11 +19,16 @@ export default Ember.Controller.extend({
 
   actions: {
     createSell: function() {
-      console.log('fooo');
-      var sell = this.get('heap');
 
-      var that = this;
-      var flash = Ember.get(this, 'flashes');
+      var sell = this.store.createRecord('sell', {
+        visit: this.get('attrs.visit'),
+        item: thsi.get('heap.item'),
+        count: this.get('heap.count'),
+        price: this.get('heap.price')
+      });
+
+      var flash = Ember.get(that, 'flashes'),
+          that = this;
 
       sell.save().then(function() {
         that.set('resetHeap', true);

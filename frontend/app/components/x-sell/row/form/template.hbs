@@ -1,11 +1,11 @@
 <td>
   {{view "select"
-       content=items
-       optionValuePath="content"
-       optionLabelPath="content.name"
-       selection=sell.item
-       class="form-control"
-       prompt=(t 'sell.select_item')}}
+        value=sell.item
+        content=items
+        optionValuePath="content"
+        optionLabelPath="content.name"
+        class="form-control"
+        prompt=(t 'sell.select_item')}}
 </td>
 <td class="text-right">
   <div class="input-group">
