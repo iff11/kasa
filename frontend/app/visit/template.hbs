@@ -1,17 +1,25 @@
 <h2>
-  Visit of {{visit-human-name visit=attrs.visit}} <small>- {{date-and-time attrs.visit.date ENV.locale}}</small>
+  <strong>
+    {{attrs.visit.customer.full_name}}
+  </strong>
+  -
+  <small>
+    {{date-and-time attrs.visit.date ENV.locale}}
+  </small>
 </h2>
 
 <div class="row">
   <div class="col-xs-6">
     {{#link-to 'visits' class="btn btn-default"}}
-      {{fa-icon 'arrow-left'}} All visits
+      {{fa-icon 'arrow-left'}}
+      {{t 'visit.all_visits'}}
     {{/link-to}}
   </div>
 
   <div class="col-xs-6 text-right">
     {{#link-to 'visits' class="btn btn-primary"}}
-      Checkout {{fa-icon 'shopping-cart'}}
+      {{t 'visit.checkout'}}
+      {{fa-icon 'shopping-cart'}}
     {{/link-to}}
   </div>
 </div>
@@ -21,44 +29,21 @@
     <table class="table">
       <thead>
         <tr>
-          <th class="col-xs-5">Item</th>
-          <th class="col-xs-3 text-right">Unit price</th>
-          <th class="col-xs-2 text-right">Count</th>
-          <th class="col-xs-2 text-right">Price</th>
+          <th class="col-xs-5">{{t 'sell.item'}}</th>
+          <th class="col-xs-2 text-right">{{t 'sell.unit_price'}}</th>
+          <th class="col-xs-2 text-right">{{t 'sell.count'}}</th>
+          <th class="col-xs-2 text-right">{{t 'sell.sum_price'}}</th>
+          <th class="col-xs-1 text-right">{{t 'sell.action'}}</th>
         </tr>
       </thead>
 
       <tbody>
         {{#each sell in attrs.visit.sells}}
-          <tr>
-            <td>{{sell.item.name}}</td>
-            <td class="text-right">
-              <div class="input-group">
-                {{input value=sell.price class='form-control text-right' type='number'}}
-                <span class="input-group-addon">{{t 'currency'}}</span>
-              </div>
-            </td>
-            <td class="text-right">
-              <span class="item-count">
-                {{liquid-bind sell.count}}
-              </span>
-              <button class='btn-link' {{action 'decreaseCount' sell}}>
-                {{fa-icon 'minus-square-o'}}
-              </button>
-              <button class='btn-link' {{action 'increaseCount' sell}}>
-                {{fa-icon 'plus-square-o'}}
-              </button>
-            </td>
-            <td class="text-right">
-              {{x-item/price value=sell.sellPrice}}
-            </td>
-          </tr>
+          {{x-sell/row sell=sell update="updateSell" delete="deleteSell"}}
         {{/each}}
 
         <tr>
-          <td colspan="3">
-            ---
-          </td>
+          {{x-sell/row/form sell=heap}}
           <td class="text-right">
             <button class="btn btn-success">
               {{fa-icon 'plus'}}

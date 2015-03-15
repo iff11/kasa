@@ -17,6 +17,8 @@ export default {
   },
 
   visit: {
+    all_visits: 'Všechny zakázky',
+    checkout: 'K pokladně',
     customer: 'Zákazník',
     employee: 'Zaměstnanec',
     all_open: 'Všechny otevřené zakázky',
@@ -32,6 +34,14 @@ export default {
     newBarcode: '123456789',
     newStock: '10',
     newDefaultPrice: '100'
+  },
+
+  sell: {
+    item: 'Položka',
+    unit_price: 'Cena / ks',
+    count: 'Kusů',
+    sum_price: 'Cena',
+    action: 'Akce'
   },
 
   item: {
