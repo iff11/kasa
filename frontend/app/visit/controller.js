@@ -5,13 +5,14 @@ export default Ember.Controller.extend({
   attrs: [],
 
   heap: {},
-  // heap: function() {
-  //   return {
-  //     visit: this.get('attrs.visit'),
-  //     count: 1,
-  //     price: 0
-  //   };
-  // }.property('attrs.visit'),
+
+  resetHeap: function() {
+    this.set('heap', {
+      visit: this.get('attrs.visit'),
+      count: 1,
+      price: 0
+    });
+  }.on('init'),
 
   items: function() {
     return this.store.find('item');
@@ -22,16 +23,16 @@ export default Ember.Controller.extend({
 
       var sell = this.store.createRecord('sell', {
         visit: this.get('attrs.visit'),
-        item: thsi.get('heap.item'),
+        item: this.get('heap.item'),
         count: this.get('heap.count'),
         price: this.get('heap.price')
       });
 
-      var flash = Ember.get(that, 'flashes'),
+      var flash = Ember.get(this, 'flashes'),
           that = this;
 
       sell.save().then(function() {
-        that.set('resetHeap', true);
+        that.resetHeap();
         flash.success('Successfully saved!');
       }, function(response) {
         flash.danger('Something went wrong!');

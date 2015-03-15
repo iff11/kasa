@@ -33,6 +33,6 @@ class SellsController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def sell_params
-      params.require(:sell).permit(:sell_id, :visit_id, :count, :price)
+      params.require(:sell).permit(:sell_id, :visit_id, :item_id, :count, :price)
     end
 end

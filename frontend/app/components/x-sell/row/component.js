@@ -4,7 +4,9 @@ export default Ember.Component.extend({
   tagName: 'tr',
 
   sellName: function() {
-    console.log('foosdfsd');
+    console.log(this.get('sell'));
+    console.log(this.get('sell.item'));
+    console.log(this.get('sell.item.name'));
     return this.get('sell.item.name');
   }.property('sell', 'sell.item', 'sell.item.name'),
 
