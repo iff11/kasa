@@ -24,6 +24,7 @@ export default {
     all_open: 'Všechny otevřené zakázky',
     auto_complete: 'Hledej...',
     select_employee: '-- Vyber --',
+    total_price: 'Celková cena',
     new: 'Nová zakázka'
   },
 

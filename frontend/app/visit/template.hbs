@@ -6,6 +6,8 @@
   <small>
     {{date-and-time attrs.visit.date ENV.locale}}
   </small>
+  -
+  <img class="avatar img-circle img-thumbnail" {{bind-attr src="attrs.visit.employee.photo_url"}} />
 </h2>
 
 <div class="row">
@@ -55,11 +57,12 @@
       <tfoot>
         <tr class="info">
           <th colspan="3">
-            Total price:
+            {{t 'visit.total_price'}}
           </th>
           <th class="text-right">
             {{x-visit/total-price visit=attrs.visit}}
           </th>
+          <th></th>
         </tr>
       </tfoot>
     </table>

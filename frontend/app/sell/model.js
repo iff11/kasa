@@ -7,7 +7,7 @@ export default DS.Model.extend({
   item: DS.belongsTo('item'),
   visit: DS.belongsTo('visit'),
 
-  sellPrice: function() {
+  sum: function() {
     return this.get('count') * this.get('price');
   }.property('count', 'price')
 });
