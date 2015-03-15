@@ -28,9 +28,10 @@ export default {
   item: {
     name: 'Název',
     stock: 'Skladem',
-    default_price: 'Výchozí cena',
+    purchase_price: 'Nákup',
+    selling_price: 'Prodej',
     barcode: 'Čárový kód',
-    unlimited_or_stock: 'Neomezeně / Skladem',
+    unlimited_or_stock: '∞ / kusů',
     action: 'Akce'
   },
 

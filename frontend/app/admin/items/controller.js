@@ -2,36 +2,36 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   attrs: {},
+  heap: {
+    unlimited: false
+  },
 
-  newUnlimited: false,
-  setInfiniteStock: function() {
-    if(this.get('newUnlimited') === true) {
-      this.set('newStock', '∞');
-    } else {
-      this.set('newStock', 1)
-    }
-  }.observes('newUnlimited'),
+  // newUnlimited: false,
+  // setInfiniteStock: function() {
+  //   if(this.get('newUnlimited') === true) {
+  //     this.set('newStock', '∞');
+  //   } else {
+  //     this.set('newStock', 1)
+  //   }
+  // }.observes('newUnlimited'),
 
 
   actions: {
     createItem: function() {
       var item = this.store.createRecord('item', {
-        name: this.get('newName'),
-        barcode: this.get('newBarcode'),
-        stock: this.get('newStock'),
-        default_price: this.get('newDefaultPrice'),
-        unlimited: this.get('newUnlimited')
+        name: this.get('heap.name'),
+        barcode: this.get('heap.barcode'),
+        stock: this.get('heap.stock'),
+        purchase_price: this.get('heap.purchase_price'),
+        selling_price: this.get('heap.selling_price'),
+        unlimited: this.get('heap.unlimited')
       });
 
       var that = this;
       var flash = Ember.get(this, 'flashes');
 
       item.save().then(function() {
-        that.set('newName', null);
-        that.set('newBarcode', null);
-        that.set('newStock', null);
-        that.set('newDefaultPrice', null);
-        that.set('newUnlimited', null);
+        that.set('heap', {unlimited: false});
         flash.success('Successfully saved!');
       }, function(response) {
         flash.danger('Something went wrong!');

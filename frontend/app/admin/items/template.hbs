@@ -4,9 +4,10 @@
   <thead>
     <tr>
       <th class="col-xs-3">{{t 'item.name'}}</th>
-      <th class="col-xs-3 text-right">{{t 'item.barcode'}}</th>
       <th class="col-xs-2 text-right">{{t 'item.unlimited_or_stock'}}</th>
-      <th class="col-xs-2 text-right">{{t 'item.default_price'}}</th>
+      <th class="col-xs-2 text-right">{{t 'item.purchase_price'}}</th>
+      <th class="col-xs-2 text-right">{{t 'item.selling_price'}}</th>
+      <th class="col-xs-2 text-right">{{t 'item.barcode'}}</th>
       <th class="col-xs-1 text-right">{{t 'item.action'}}</th>
     </tr>
   </thead>
@@ -17,28 +18,7 @@
     {{/each}}
 
     <tr>
-      <td>{{input value=newName placeholder=(t 'items.newName') class="form-control"}}</td>
-      <td>{{input value=newBarcode placeholder=(t 'items.newBarcode') class="form-control text-right"}}</td>
-      <td>
-        <div class="input-group">
-          <span class="input-group-addon">
-            {{input
-                checked=newUnlimited
-                type="checkbox"}}
-          </span>
-          {{input
-              value=newStock
-              placeholder=(t 'items.newStock')
-              class="form-control text-right"
-              disabled=newUnlimited}}
-        </div>
-      </td>
-      <td>
-        <div class="input-group">
-          {{input value=newDefaultPrice placeholder=(t 'items.newDefaultPrice') class="form-control text-right"}}
-          <span class="input-group-addon">{{t 'currency'}}</span>
-        </div>
-      </td>
+      {{item-form item=heap}}
       <td class="text-right">
         <button class="btn btn-success" {{action 'createItem'}}>
           {{fa-icon 'plus-square'}} {{t 'items.add'}}

@@ -3,7 +3,8 @@ class CreateItems < ActiveRecord::Migration
     create_table :items do |t|
       t.string :name
       t.text :description
-      t.float :default_price
+      t.float :purchase_price
+      t.float :selling_price
       t.integer :stock, default: nil
       t.boolean :unlimited, default: true
       t.string :barcode, default: nil

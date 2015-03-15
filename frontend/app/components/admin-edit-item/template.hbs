@@ -1,23 +1,5 @@
 {{#if isEditting}}
-  <td>
-    {{input value=item.name class='form-control'}}
-  </td>
-  <td class="text-right">
-    {{input value=item.barcode class='form-control'}}
-  </td>
-  <td class="text-right">
-    <div class="input-group">
-      <span class="input-group-addon">
-        {{input
-            checked=item.unlimited
-            type="checkbox"}}
-      </span>
-      {{input value=item.stock class='form-control' disabled=item.unlimited}}
-    </div>
-  </td>
-  <td class="text-right">
-    {{input value=item.default_price class='form-control'}}
-  </td>
+  {{item-form item=item}}
   <td class="text-right">
     <button class="delete btn btn-danger btn-xs" {{action "delete" on="doubleClick"}}>
       {{fa-icon 'times'}}
@@ -28,7 +10,6 @@
   </td>
 {{else}}
   <td>{{item.name}}</td>
-  <td class="text-right">{{item.barcode}}</td>
   <td class="text-right">
     {{#if item.unlimited}}
       &#8734;
@@ -37,8 +18,12 @@
     {{/if}}
   </td>
   <td class="text-right">
-    {{x-price value=item.default_price}}
+    {{x-price value=item.purchase_price}}
   </td>
+  <td class="text-right">
+    {{x-price value=item.selling_price}}
+  </td>
+  <td class="text-right">{{item.barcode}}</td>
   <td class="text-right">
     <button {{action "edit"}} class="btn btn-default btn-xs">
       {{fa-icon 'pencil'}}

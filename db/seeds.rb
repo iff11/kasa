@@ -56,7 +56,7 @@ sampon = Item.create(
   {
     name: 'Šampón',
     description: 'Vytváří šampónky',
-    default_price: 789.0,
+    selling_price: 789.0,
     stock: 10,
     unlimited: false,
     barcode: '20055318'
@@ -66,7 +66,7 @@ strihani = Item.create(
   {
     name: 'Stříhání standard',
     description: 'Prostě nůžkama',
-    default_price: 100.0,
+    selling_price: 100.0,
     unlimited: true,
     barcode: '203757723572'
   }
@@ -75,7 +75,7 @@ barva = Item.create(
   {
     name: 'Barva na vlasy',
     description: 'Intensive mega color creme',
-    default_price: 999.0,
+    selling_price: 999.0,
     stock: 1,
     unlimited: false
   }
@@ -84,7 +84,7 @@ kondicioner = Item.create(
   {
     name: 'Kondicioner',
     description: 'Intensive mega color creme',
-    default_price: 123.0,
+    selling_price: 123.0,
     stock: 3,
     unlimited: false
   }
