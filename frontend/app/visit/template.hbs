@@ -10,6 +10,8 @@
   <img class="avatar img-circle img-thumbnail" {{bind-attr src="attrs.visit.employee.photo_url"}} />
 </h2>
 
+{{liquid-outlet}}
+
 <div class="row">
   <div class="col-xs-6">
     {{#link-to 'visits' class="btn btn-default"}}
@@ -19,7 +21,7 @@
   </div>
 
   <div class="col-xs-6 text-right">
-    {{#link-to 'visits' class="btn btn-primary"}}
+    {{#link-to 'visit.checkout' attrs.visit class="btn btn-primary"}}
       {{t 'visit.checkout'}}
       {{fa-icon 'shopping-cart'}}
     {{/link-to}}

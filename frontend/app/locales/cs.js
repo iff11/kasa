@@ -25,7 +25,12 @@ export default {
     auto_complete: 'Hledej...',
     select_employee: '-- Vyber --',
     total_price: 'Celková cena',
-    new: 'Nová zakázka'
+    new: 'Nová zakázka',
+    close_warning: 'Zakázka bude uzavřena. Již nebude možno přidávat, odebírat ani měnit položky.',
+    close: 'Uzavřít',
+    note: 'Poznámka',
+    back_to_visit: 'Zpátky do zakázky',
+    sum_price_is: 'Celková částka k zaplacení:'
   },
 
   items: {

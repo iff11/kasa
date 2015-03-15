@@ -21,4 +21,10 @@ export default function(){
     this.childOf('.item-count'),
     this.use('fade')
   );
+
+  this.transition(
+    this.toRoute('sell/checkout'),
+    this.use('toDown'),
+    this.reverse('toUp')
+  );
 };

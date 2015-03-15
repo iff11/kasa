@@ -10,7 +10,9 @@ Router.map(function() {
   this.route('customers', function() {});
 
   this.route('visits', {path: 'visits'}, function() {});
-  this.route('visit', {path: '/visit/:id'}, function() {});
+  this.route('visit', {path: '/visit/:id'}, function() {
+    this.route('checkout');
+  });
 
   this.route('admin', function() {
     this.route('items');

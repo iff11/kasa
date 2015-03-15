@@ -2,7 +2,7 @@ class VisitsController < ApplicationController
   before_action :set_visit, only: [:show, :edit, :update, :destroy]
 
   def index
-    render json: Visit.all
+    render json: Visit.opened
   end
 
   def show
@@ -10,8 +10,14 @@ class VisitsController < ApplicationController
   end
 
   def create
-    @visit = Visit.new(visit_params)
-    if @visit.save
+    visit = Visit.new(visit_params)
+    if visit.save
+      render json: visit
+    end
+  end
+
+  def update
+    if @visit.update(visit_params)
       render json: @visit
     end
   end
