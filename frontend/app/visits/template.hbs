@@ -1,4 +1,4 @@
-<h2>Open visits</h2>
+<h2>{{t 'visit.all_open'}}</h2>
 
 <div class="row">
   {{#each visit in attrs.visits}}
@@ -17,22 +17,34 @@
   {{/each}}
 
   <div class="col-xs-4">
-    {{view "select"
-        value=newVisitCustomer
-        content=customers
-        class="form-control"
-        prompt="-- Select customer --"
-        optionValuePath="content.id"
-        optionLabelPath="content.full_name"}}
-    {{view "select"
-        value=newVisitEmployee
-        content=employees
-        class="form-control"
-        prompt="-- Select employee --"
-        optionValuePath="content"
-        optionLabelPath="content.full_name"}}
-      <button type="button" class='btn btn-primary btn-block' {{action 'createVisit'}}>
-        {{fa-icon 'plus-circle'}} New visit
-      </button>
+    <div class="well">
+      <div class="form-group">
+        <label for="customer">{{t 'visit.customer'}}</label>
+        {{#x-customer/auto-complete
+            id="customer"
+            options=customers
+            selectedValue=heap.customer_id
+            placeHolderText=(t 'visit.auto_complete')
+            noMesssagePlaceHolderText="No things are found" as |result|}}
+          <p>{{result.full_name}} <small>{{result.birth}}</small></p>
+        {{/x-customer/auto-complete}}
+      </div>
+
+      <div class="form-group">
+        <label for="employee">{{t 'visit.employee'}}</label>
+        {{view "select"
+            id="employee"
+            value=heap.employee
+            content=employees
+            class="form-control"
+            prompt=(t 'visit.select_employee')
+            optionValuePath="content"
+            optionLabelPath="content.full_name"}}
+      </div>
+        <button type="button" class='btn btn-primary btn-block' {{action 'createVisit'}}>
+          {{fa-icon 'plus-circle'}}
+          {{t 'visit.new'}}
+        </button>
+      </div>
   </div>
 </div>

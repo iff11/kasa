@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   attrs: [],
+  heap: {},
 
   customers: function() {
     return this.store.find('customer');
@@ -13,20 +14,18 @@ export default Ember.Controller.extend({
 
   actions: {
     createVisit: function() {
-      var customer_id = this.get('newVisitCustomer');
-      var employee_id = this.get('newVisitEmployee')
-      var that = this;
+      var customer_id = this.get('heap.customer_id'),
+          customer = this.store.find('customer', customer_id),
+          that = this;
 
-      this.store.find('customer', customer_id).then(
-        function(result) {
-          var visit = that.store.createRecord('visit', {
-            customer: result,
-            employee: employee_id
-          });
-          visit.save();
-        },
-        function() {}
-      );
+      // TODO: I don't really like the fact we need to wait for the promise to resolve
+      customer.then(function(record) {
+        var visit = that.store.createRecord('visit', {
+          customer: record,
+          employee: that.get('heap.employee')
+        });
+        visit.save();
+      });
     }
   }
 });

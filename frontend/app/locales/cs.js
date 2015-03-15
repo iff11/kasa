@@ -16,6 +16,15 @@ export default {
     add: 'Přidat'
   },
 
+  visit: {
+    customer: 'Zákazník',
+    employee: 'Zaměstnanec',
+    all_open: 'Všechny otevřené zakázky',
+    auto_complete: 'Hledej...',
+    select_employee: '-- Vyber --',
+    new: 'Nová zakázka'
+  },
+
   items: {
     all: 'Všechny položky na skladě',
     add: 'Přidat',
