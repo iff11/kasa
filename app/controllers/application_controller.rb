@@ -4,16 +4,15 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
 
-  before_filter :authenticate_user_from_token!
+  # before_filter :authenticate_user_from_token!
 
   # Enter the normal Devise authentication path,
   # using the token authenticated user if available
-  before_filter :authenticate_user!
+  # before_filter :authenticate_user!
 
   private
 
   def authenticate_user_from_token!
-    logger.debug('fooooo')
     authenticate_with_http_token do |token, options|
       user_email = options[:email].presence
       user = user_email && User.find_by_email(user_email)
