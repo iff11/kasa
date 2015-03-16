@@ -45,9 +45,7 @@
     "ember-data": "1.0.0-beta.15",
     "ember-export-application-global": "^1.0.2",
     "emberx-select": "1.0.1",
-    "liquid-fire": "^0.18.0"
-  },
-  "dependencies": {
+    "liquid-fire": "^0.18.0",
     "rails-csrf": "^2.0.1"
   }
 }
