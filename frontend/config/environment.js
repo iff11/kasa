@@ -2,6 +2,12 @@
 
 module.exports = function(environment) {
   var ENV = {
+    // No need to overload yet
+    // 'simple-auth-devise': {
+    // },
+    'simple-auth': {
+      authorizer: 'simple-auth-authorizer:devise'
+    },
     modulePrefix: 'frontend',
     // podModulePrefix: 'frontend',
     environment: environment,

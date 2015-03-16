@@ -27,7 +27,6 @@ gem 'active_model_serializers', '~> 0.9.3'
 gem "paranoia", "~> 2.0"
 
 gem 'devise'
-gem 'omniauth'
 gem 'cancan'
 
 gem 'nokogiri'
