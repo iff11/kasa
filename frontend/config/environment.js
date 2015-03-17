@@ -5,6 +5,9 @@ module.exports = function(environment) {
     'simple-auth': {
       authorizer: 'simple-auth-authorizer:devise'
     },
+    'simple-auth-devise': {
+      identificationAttributeName: 'email'
+    },
     modulePrefix: 'frontend',
     // podModulePrefix: 'frontend',
     environment: environment,
