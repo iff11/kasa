@@ -2,9 +2,6 @@
 
 module.exports = function(environment) {
   var ENV = {
-    // No need to overload yet
-    // 'simple-auth-devise': {
-    // },
     'simple-auth': {
       authorizer: 'simple-auth-authorizer:devise'
     },
@@ -50,6 +47,10 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+
+  // ENV['simple-auth'] = {
+  //   authorizer: 'simple-auth-authorizer:devise'
+  // }
 
   return ENV;
 };
