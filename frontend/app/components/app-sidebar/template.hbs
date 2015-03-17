@@ -66,3 +66,15 @@
     {{/link-to}}
   </li>
 </ul>
+
+<h3>
+  {{t 'sidebar.heading.profile'}}
+</h3>
+<ul class="nav nav-pills nav-stacked">
+  <li>
+    <a {{action 'logout'}} href="">
+      {{fa-icon 'sign-out'}}
+      {{t 'sidebar.logout'}}
+    </a>
+  </li>
+</ul>

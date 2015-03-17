@@ -5,5 +5,11 @@ export default Ember.Component.extend({
 
   open_visits: function() {
     return this.get('visits.length');
-  }.property('visits.@each')
+  }.property('visits.@each'),
+
+  actions: {
+    logout: function() {
+      this.sendAction('logout');
+    }
+  }
 });

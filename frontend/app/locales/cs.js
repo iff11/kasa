@@ -73,6 +73,10 @@ export default {
     all: 'Zaměstnanci'
   },
 
+  login: {
+    header: 'Přihlášení'
+  },
+
   sidebar: {
     admin: {
       items: 'Sklad',
@@ -82,11 +86,13 @@ export default {
     heading: {
       navigation: 'Navigace',
       employee: 'Zaměstnanec',
-      admin: 'Administrátor'
+      admin: 'Administrátor',
+      profile: 'Profil'
     },
     customers: 'Zákazníci',
     items: 'Sklad',
-    visits: 'Otevřené zakázky'
+    visits: 'Otevřené zakázky',
+    logout: 'Odhlásit'
   },
 
   currency: 'Kč'
