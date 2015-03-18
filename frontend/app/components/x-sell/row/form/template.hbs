@@ -1,5 +1,12 @@
 <td>
-  {{view "select"
+  {{#x-item/auto-complete
+        selectedValue=sell.item
+        options=items
+        noMessagePlaceholderText="No item found" as |result|}}
+    <p>{{result.name}} - <small>{{result.barcode}}</small></p>
+  {{/x-item/auto-complete}}
+
+  {{!view "select"
         value=sell.item
         content=items
         optionValuePath="content"
