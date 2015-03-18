@@ -43,7 +43,7 @@
 
       <tbody>
         {{#each sell in attrs.visit.sells}}
-          {{x-sell/row sell=sell items=itemsSorted update="updateSell" delete="deleteSell"}}
+          {{x-sell/row sell=sell items=items update="updateSell" delete="deleteSell"}}
         {{/each}}
 
         <tr>

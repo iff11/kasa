@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
     return this.store.find('item');
   }.property(),
 
-  itemsSorted: Ember.computed.sort('items', 'name'),
+  // itemsSorted: Ember.computed.sort('items', 'name'),
 
   actions: {
     createSell: function() {
