@@ -3,13 +3,24 @@ import AutoComplete from "ember-cli-auto-complete/components/auto-complete";
 export default AutoComplete.extend({
   valueProperty: "id",
   suggestions: function() {
-      var count = 0;
+      var count = 0,
+          firstName,
+          lastName,
+          found = false;
       var inputVal = this.get("inputVal") || "";
 
       return this.get("options").filter(function(item) {
-        if(count++ < 10) {
-          return item.get("first_name").toLowerCase().indexOf(inputVal.toLowerCase()) > -1 ||
-                 item.get("last_name").toLowerCase().indexOf(inputVal.toLowerCase()) > -1 ;
+        if(count < 10) {
+          firstName = item.get("first_name") || "";
+          lastName = item.get("last_name") || "";
+
+          found =  firstName.toLowerCase().indexOf(inputVal.toLowerCase()) > -1 ||
+                   lastName.toLowerCase().indexOf(inputVal.toLowerCase()) > -1 ;
+
+          if(found) {
+            count++;
+          }
+          return found;
         }
       });
   }.property("inputVal", "options.@each"),

@@ -26,7 +26,7 @@
             selectedValue=heap.customer_id
             placeHolderText=(t 'visit.auto_complete')
             noMesssagePlaceHolderText="No things are found" as |result|}}
-          <p>{{result.full_name}} <small>{{result.birth}}</small></p>
+          <p>{{result.full_name}} - <small>{{result.birth}}</small> - {{result.id}}</p>
         {{/x-customer/auto-complete}}
       </div>
 
