@@ -7,7 +7,10 @@ export default AutoComplete.extend({
       var inputVal = this.get("inputVal") || "";
 
       return this.get("options").filter(function(item) {
-          return item.get("first_name").toLowerCase().indexOf(inputVal.toLowerCase()) > -1 && count++ < 10;
+        if(count++ < 10) {
+          return item.get("first_name").toLowerCase().indexOf(inputVal.toLowerCase()) > -1 ||
+                 item.get("last_name").toLowerCase().indexOf(inputVal.toLowerCase()) > -1 ;
+        }
       });
   }.property("inputVal", "options.@each"),
   optionsToMatch: function() {
