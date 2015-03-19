@@ -1,18 +1,10 @@
 <td>
-  {{#x-item/auto-complete
-        selectedValue=sell.item
-        options=items
-        noMessagePlaceholderText="No item found" as |result|}}
-    <p>{{result.name}} - <small>{{result.barcode}}</small></p>
-  {{/x-item/auto-complete}}
-
-  {{!view "select"
-        value=sell.item
-        content=items
-        optionValuePath="content"
-        optionLabelPath="content.name"
-        class="form-control"
-        prompt=(t 'sell.select_item')}}
+  {{ember-selectize
+      content=items
+      optionValuePath="content"
+      optionLabelPath="content.name"
+      selection=sell.item
+      placeholder="Select an item" }}
 </td>
 <td class="text-right">
   <div class="input-group">

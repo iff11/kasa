@@ -14,18 +14,11 @@ export default Ember.Controller.extend({
 
   actions: {
     createVisit: function() {
-      var customer_id = this.get('heap.customer_id'),
-          customer = this.store.find('customer', customer_id),
-          that = this;
-
-      // TODO: I don't really like the fact we need to wait for the promise to resolve
-      customer.then(function(record) {
-        var visit = that.store.createRecord('visit', {
-          customer: record,
-          employee: that.get('heap.employee')
-        });
-        visit.save();
+      var visit = this.store.createRecord('visit', {
+        customer: this.get('heap.customer'),
+        employee: this.get('heap.employee')
       });
+      visit.save();
     }
   }
 });

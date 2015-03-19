@@ -20,14 +20,12 @@
     <div class="well">
       <div class="form-group">
         <label for="customer">{{t 'visit.customer'}}</label>
-        {{#x-customer/auto-complete
-            id="customer"
-            options=customers
-            selectedValue=heap.customer_id
-            placeHolderText=(t 'visit.auto_complete')
-            noMesssagePlaceHolderText="No things are found" as |result|}}
-          <p>{{result.full_name}} - <small>{{result.birth}}</small> - {{result.id}}</p>
-        {{/x-customer/auto-complete}}
+        {{ember-selectize
+            content=customers
+            optionValuePath="content"
+            optionLabelPath="content.full_name"
+            selection=heap.customer
+            placeholder="Select a customer" }}
       </div>
 
       <div class="form-group">
