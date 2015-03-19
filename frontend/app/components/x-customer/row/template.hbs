@@ -1,4 +1,5 @@
 {{#if isEditting}}
+  <td>{{customer.visits.length}}</td>
   {{x-customer/row/form customer=customer}}
   <td class="text-right">
     <button class="delete btn btn-danger btn-xs" {{action "delete" on="doubleClick"}}>
@@ -9,7 +10,7 @@
     </button>
   </td>
 {{else}}
-  <td>{{customer.id}}</td>
+  <td>{{customer.visits.length}}</td>
   <td>{{customer.first_name}}</td>
   <td>{{customer.last_name}}</td>
   <td>{{customer.birth}}</td>

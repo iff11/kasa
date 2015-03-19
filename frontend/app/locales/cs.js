@@ -13,7 +13,8 @@ export default {
     phone: 'Telefon',
     mail: 'E-mail',
     action: 'Akce',
-    add: 'Přidat'
+    add: 'Přidat',
+    visits_length: 'Návštěv'
   },
 
   visit: {
