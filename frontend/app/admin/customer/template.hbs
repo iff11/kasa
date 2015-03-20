@@ -1,0 +1,15 @@
+    {{textarea placeholder=(t 'customer.note') rows="5" value=attrs.customer.note class='form-control'}}
+  <td>{{input placeholder=(t 'customer.first_name') value=attrs.customer.first_name class='form-control'}}</td>
+  <td>{{input placeholder=(t 'customer.last_name') value=attrs.customer.last_name class='form-control'}}</td>
+  <td>{{input placeholder=(t 'customer.birth') value=attrs.customer.birth class='form-control'}}</td>
+  <td>{{input placeholder=(t 'customer.phone') value=attrs.customer.phone class='form-control'}}</td>
+  <td>{{input placeholder=(t 'customer.mail') value=attrs.customer.mail class='form-control'}}</td>
+
+  <td class="text-right">
+    <button class="delete btn btn-danger btn-xs" {{action "delete" on="doubleClick"}}>
+      {{fa-icon 'times'}}
+    </button>
+    <button class="btn btn-success btn-xs" {{action 'update'}}>
+      {{fa-icon 'check'}}
+    </button>
+  </td>

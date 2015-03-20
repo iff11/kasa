@@ -2,29 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   attrs: {},
-  heap: {},
 
   actions: {
-    createCustomer: function() {
-      var customer = this.store.createRecord('customer', {
-        first_name: this.get('heap.first_name'),
-        last_name: this.get('heap.last_name'),
-        birth: this.get('heap.birth'),
-        phone: this.get('heap.phone'),
-        mail: this.get('heap.mail'),
-        note: this.get('heap.note')
-      });
-
-      var that = this;
-      var flash = Ember.get(this, 'flashes');
-
-      customer.save().then(function() {
-        that.set('heap', {});
-        flash.success('Successfully saved!');
-      }, function(response) {
-        flash.danger('Something went wrong!');
-      });
-    },
 
     deleteCustomer: function(customer) {
       var flash = Ember.get(this, 'flashes');
