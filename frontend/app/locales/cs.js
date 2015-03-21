@@ -14,7 +14,8 @@ export default {
     mail: 'E-mail',
     action: 'Akce',
     add: 'Přidat',
-    visits_length: 'Návštěv'
+    visits_length: 'Návštěv',
+    all_customers: 'Seznam zákazníků'
   },
 
   visit: {

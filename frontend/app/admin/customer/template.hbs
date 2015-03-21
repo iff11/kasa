@@ -1,15 +1,50 @@
-    {{textarea placeholder=(t 'customer.note') rows="5" value=attrs.customer.note class='form-control'}}
-  <td>{{input placeholder=(t 'customer.first_name') value=attrs.customer.first_name class='form-control'}}</td>
-  <td>{{input placeholder=(t 'customer.last_name') value=attrs.customer.last_name class='form-control'}}</td>
-  <td>{{input placeholder=(t 'customer.birth') value=attrs.customer.birth class='form-control'}}</td>
-  <td>{{input placeholder=(t 'customer.phone') value=attrs.customer.phone class='form-control'}}</td>
-  <td>{{input placeholder=(t 'customer.mail') value=attrs.customer.mail class='form-control'}}</td>
+<h2>
+  {{attrs.customer.full_name}}
+</h2>
 
-  <td class="text-right">
-    <button class="delete btn btn-danger btn-xs" {{action "delete" on="doubleClick"}}>
-      {{fa-icon 'times'}}
+<div class="row">
+  <div class="col-xs-6">
+    {{#link-to 'visits' class="btn btn-default"}}
+      {{fa-icon 'arrow-left'}}
+      {{t 'customer.all_customers'}}
+    {{/link-to}}
+  </div>
+
+  <div class="col-xs-6 text-right">
+    <button class="delete btn btn-danger btn-sm" {{action "delete" attrs.customer on="doubleClick"}}>
+      {{fa-icon 'trash'}}
     </button>
-    <button class="btn btn-success btn-xs" {{action 'update'}}>
+    <button class="btn btn-success btn-sm" {{action 'updateCustomer' attrs.customer}}>
       {{fa-icon 'check'}}
     </button>
-  </td>
+  </div>
+</div>
+
+<div class="form-group">
+  <label>{{t 'customer.note'}}</label>
+  {{textarea placeholder=(t 'customer.note') rows="5" value=attrs.customer.note class='form-control'}}
+</div>
+
+<div class="row">
+  <div class="form-group col-md-3">
+    <label>{{t 'customer.first_name'}}</label>
+    {{input placeholder=(t 'customer.first_name') value=attrs.customer.first_name class='form-control'}}
+  </div>
+  <div class="form-group col-md-3">
+    <label>{{t 'customer.last_name'}}</label>
+    {{input placeholder=(t 'customer.last_name') value=attrs.customer.last_name class='form-control'}}
+  </div>
+  <div class="form-group col-md-3">
+    <label>{{t 'customer.birth'}}</label>
+    {{bootstrap-datepicker format="dd.mm.yyyy" placeholder=(t 'customer.birth') class="form-control" value=attrs.customer.birth}}
+  </div>
+  <div class="form-group col-md-3">
+    <label>{{t 'customer.phone'}}</label>
+    {{input placeholder=(t 'customer.phone') value=attrs.customer.phone class='form-control'}}
+  </div>
+  <div class="form-group col-md-3">
+    <label>{{t 'customer.mail'}}</label>
+    {{input placeholder=(t 'customer.mail') value=attrs.customer.mail class="form-control"}}
+  </div>
+</div>
+
