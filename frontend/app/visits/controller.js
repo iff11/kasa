@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
 
   openVisits: function() {
     return this.get('attrs.visits').filterBy('completed', false);
-  }.property('attrs.visits.@each'),
+  }.property('attrs.visits.@each.completed'),
 
   actions: {
     createVisit: function() {

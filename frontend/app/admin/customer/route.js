@@ -24,12 +24,8 @@ export default Ember.Route.extend({
     },
 
     rollbackCustomer: function(customer) {
-      var flash = Ember.get(this, 'flashes'),
-          that = this;
-
       customer.rollback();
-      flash.success('Changes were not saved');
-      that.transitionTo('admin.customers');
+      this.transitionTo('admin.customers');
     },
 
     updateCustomer: function(customer) {

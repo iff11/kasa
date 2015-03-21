@@ -1,0 +1,60 @@
+<h2>
+  {{t 'visit.visit_of'}}:
+  {{attrs.visit.customer.full_name}}
+  <small>@{{date-and-time attrs.visit.date}}</small>
+</h2>
+
+<div class="row padding-bottom">
+  <div class="col-xs-6">
+    {{#link-to 'admin.customer' attrs.visit.customer class="btn btn-default"}}
+      {{fa-icon 'arrow-left'}}
+      {{t 'visit.back_to_customer'}}
+    {{/link-to}}
+  </div>
+
+  <div class="col-xs-6 text-right">
+    {{#if attrs.visit.completed}}
+      <button class="btn btn-warning" {{action "reopenVisit" attrs.visit}}>
+        {{fa-icon 'folder-open'}}
+        {{t 'visit.reopen'}}
+      </button>
+    {{/if}}
+    <button class="delete btn btn-danger" {{action "deleteVisit" attrs.visit on="doubleClick"}}>
+      {{fa-icon 'trash'}}
+    </button>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th class="col-xs-6">{{t 'sell.item'}}</th>
+      <th class="col-xs-2 text-right">{{t 'sell.unit_price'}}</th>
+      <th class="col-xs-2 text-right">{{t 'sell.count'}}</th>
+      <th class="col-xs-2 text-right">{{t 'sell.sum_price'}}</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each sell in attrs.visit.sells}}
+      <tr>
+        <td>{{sell.item.name}}</td>
+        <td class="text-right">{{x-item/price value=sell.price}}</td>
+        <td class="text-right">{{sell.count}}</td>
+        <td class="text-right">{{x-sell/sum sell=sell}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+
+  <tfoot>
+    <tr class="info">
+      <th colspan="3">
+        {{t 'visit.total_price'}}
+      </th>
+      <th class="text-right">
+        {{x-visit/total-price visit=attrs.visit}}
+      </th>
+      <th></th>
+    </tr>
+  </tfoot>
+</table>

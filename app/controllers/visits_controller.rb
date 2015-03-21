@@ -22,6 +22,13 @@ class VisitsController < ApplicationController
     end
   end
 
+  def destroy
+    visit = Visit.find(params[:id])
+    if visit.delete
+      render json: visit
+    end
+  end
+
   # def new
   #   @visit = Visit.new
   # end
@@ -55,14 +62,6 @@ class VisitsController < ApplicationController
   #       format.html { render :edit }
   #       format.json { render json: @visit.errors, status: :unprocessable_entity }
   #     end
-  #   end
-  # end
-
-  # def destroy
-  #   @visit.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to visits_url, notice: 'Visit was successfully destroyed.' }
-  #     format.json { head :no_content }
   #   end
   # end
 

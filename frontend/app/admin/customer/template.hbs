@@ -57,6 +57,12 @@
       <ul class="list-group">
         {{#each attrs.customer.visits as |visit|}}
           <li class="list-group-item">
+            {{#if visit.completed}}
+              {{fa-icon 'folder'}}
+            {{else}}
+              {{fa-icon 'folder-open'}}
+            {{/if}}
+
             {{#link-to 'admin.visit' visit}}
               {{month-and-day visit.date}} - {{number-to-currency value=visit.total_price}}
             {{/link-to}}
