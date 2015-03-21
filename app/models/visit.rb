@@ -5,5 +5,5 @@ class Visit < ActiveRecord::Base
   belongs_to :employee
   has_many :sells
 
-  scope :opened, -> { where(completed: false) }
+  # scope :opened, -> { where(completed: false) }
 end

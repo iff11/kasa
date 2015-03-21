@@ -12,6 +12,10 @@ export default Ember.Controller.extend({
     return this.store.find('employee');
   }.property(),
 
+  openVisits: function() {
+    return this.get('attrs.visits').filterBy('completed', false);
+  }.property('attrs.visits.@each'),
+
   actions: {
     createVisit: function() {
       var visit = this.store.createRecord('visit', {

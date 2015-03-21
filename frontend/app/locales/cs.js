@@ -15,7 +15,8 @@ export default {
     action: 'Akce',
     add: 'Přidat',
     visits_length: 'Návštěv',
-    all_customers: 'Seznam zákazníků'
+    all_customers: 'Seznam zákazníků',
+    all_visits: 'Seznam návštěv'
   },
 
   visit: {
