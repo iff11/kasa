@@ -6,4 +6,8 @@ class Visit < ActiveRecord::Base
   has_many :sells
 
   # scope :opened, -> { where(completed: false) }
+
+  def total_price
+    sells.sum(:price)
+  end
 end

@@ -2,7 +2,7 @@
   {{attrs.customer.full_name}}
 </h2>
 
-<div class="row">
+<div class="row padding-bottom">
   <div class="col-xs-6">
     <button class="btn btn-default" {{action "rollbackCustomer" attrs.customer}}>
       {{fa-icon 'arrow-left'}}
@@ -57,9 +57,9 @@
       <ul class="list-group">
         {{#each attrs.customer.visits as |visit|}}
           <li class="list-group-item">
-            <a href="#" class="">
-              {{visit.note}}
-            </a>
+            {{#link-to 'admin.visit' visit}}
+              {{month-and-day visit.date}} - {{number-to-currency value=visit.total_price}}
+            {{/link-to}}
           </li>
         {{/each}}
       </ul>

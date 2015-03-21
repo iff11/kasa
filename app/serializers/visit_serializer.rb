@@ -1,7 +1,7 @@
 class VisitSerializer < ActiveModel::Serializer
   embed :ids
 
-  attributes :id, :note, :completed, :date
+  attributes :id, :note, :completed, :date, :total_price
 
   has_one :customer
   has_one :employee

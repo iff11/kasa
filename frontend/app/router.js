@@ -20,7 +20,8 @@ Router.map(function() {
     this.route('items');
     this.route('customers');
     this.route('employees');
-    // this.route('customer');
+
+    this.route('visit', {path: 'visit/:id'});
     this.route('customer', {path: 'customer/:id'});
   });
 });
