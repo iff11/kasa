@@ -7,7 +7,7 @@ export default DS.Model.extend({
   birth: DS.attr(),
   phone: DS.attr(),
   mail: DS.attr(),
-  visits_size: DS.attr(),
+  visits_count: DS.attr(),
   // url: DS.attr(),
 
   full_name: function() {
