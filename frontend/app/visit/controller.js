@@ -62,6 +62,16 @@ export default Ember.Controller.extend({
       }, function(response) {
         flash.danger('Sell cannot be updated! ' + response.responseText);
       });
+    },
+
+    saveNote: function() {
+      var flash = Ember.get(this, 'flashes');
+
+      this.get('attrs.visit').save().then(function() {
+        flash.success('Note updated');
+      }, function(response) {
+        flash.danger('Note cannot be updated! ' + response.responseText);
+      });
     }
   }
 });

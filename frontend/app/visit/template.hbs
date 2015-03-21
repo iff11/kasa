@@ -72,3 +72,8 @@
     </table>
   </div>
 </div>
+
+{{textarea value=attrs.visit.note class="form-control" placeholder=(t 'visit.note') rows="5"}}
+<button class="btn btn-success" {{action "saveNote"}}>
+  {{fa-icon 'floppy-o'}}
+</button>

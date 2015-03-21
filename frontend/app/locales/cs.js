@@ -36,7 +36,7 @@ export default {
     sum_price_is: 'Celková částka k zaplacení:',
     back_to_customer: 'Zpátky na zákazníka',
     reopen: 'Znovu otevřít',
-    visit_of: 'Návštěva'
+    visit_of: 'Návštěva',
   },
 
   items: {
