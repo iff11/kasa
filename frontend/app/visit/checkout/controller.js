@@ -11,7 +11,6 @@ export default Ember.Controller.extend({
 
       var flash = Ember.get(this, 'flashes');
       visit.save().then(function() {
-        visit.unloadRecord();
         flash.success('Successfully saved!');
         that.transitionToRoute('visits');
       }, function(response) {
