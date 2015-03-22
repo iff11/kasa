@@ -8,6 +8,6 @@ class Visit < ActiveRecord::Base
   # scope :opened, -> { where(completed: false) }
 
   def total_price
-    sells.sum(:price)
+    sells.sum("count * price")
   end
 end
