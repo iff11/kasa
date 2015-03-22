@@ -4,14 +4,14 @@
   {{#each openVisits as |visit|}}
     <div class="col-xs-4">
       <div class="well">
-      <h3>
-        {{#link-to 'visit' visit}}
-          {{visit-human-name visit=visit}}
-        {{/link-to}}
-      </h3>
-      <img class="avatar img-circle img-thumbnail" {{bind-attr src="visit.employee.photo_url"}} />
-      <time>{{date-and-time visit.date ENV.APP.locale}}</time>
-      <p class="price">{{visit.total_price}}</p>
+        <h3>
+          {{#link-to 'visit' visit}}
+            {{visit-human-name visit=visit}}
+          {{/link-to}}
+        </h3>
+        <img class="avatar img-circle img-thumbnail" {{bind-attr src="visit.employee.photo_url"}} />
+        <time>{{date-and-time visit.date ENV.APP.locale}}</time>
+        <p>{{number-to-currency value=visit.total_price}}</p>
       </div>
     </div>
   {{/each}}
