@@ -13,7 +13,6 @@
     "ember-qunit-notifications": "0.0.7",
     "qunit": "~1.17.1",
     "ember-cli-moment-shim": "~0.0.3",
-    "bootstrap-datepicker": "~1.4.0",
     "ember-simple-auth": "0.7.3",
     "selectize": "~0.12.0"
   }
