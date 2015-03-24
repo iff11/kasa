@@ -8,5 +8,9 @@ export default DS.Model.extend({
   stock: DS.attr(),
   unlimited: DS.attr(),
   barcode: DS.attr(),
-  actual_count: DS.attr()
+  actual_count: DS.attr(),
+
+  scanner_string: function() {
+    return this.get('name') + ' - ' + this.get('barcode');
+  }.property('name', 'barcode')
 });
