@@ -1,14 +1,14 @@
 <h2 {{bind-attr title=(date-and-time attrs.visit.date ENV.locale)}} class="row">
-  <div class="col-xs-4">
-    {{fa-icon 'scissors'}}
-    {{attrs.visit.employee.full_name}}
+  <div class="col-xs-5">
+    {{fa-icon 'user'}}
+    {{attrs.visit.customer.full_name}}
   </div>
   <div class="col-xs-2">
     <img class="avatar img-circle img-thumbnail" {{bind-attr src="attrs.visit.employee.photo_url"}} />
   </div>
-  <div class="col-xs-6">
-    {{fa-icon 'user'}}
-    {{attrs.visit.customer.full_name}}
+  <div class="col-xs-5">
+    {{fa-icon 'scissors'}}
+    {{attrs.visit.employee.full_name}}
   </div>
 </h2>
 
@@ -36,8 +36,8 @@
       <thead>
         <tr>
           <th class="col-xs-5">{{t 'sell.item'}}</th>
-          <th class="col-xs-2 text-right">{{t 'sell.unit_price'}}</th>
           <th class="col-xs-2 text-right">{{t 'sell.count'}}</th>
+          <th class="col-xs-2 text-right">{{t 'sell.unit_price'}}</th>
           <th class="col-xs-2 text-right">{{t 'sell.sum_price'}}</th>
           <th class="col-xs-1 text-right">{{t 'sell.action'}}</th>
         </tr>

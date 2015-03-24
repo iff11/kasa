@@ -7,13 +7,13 @@
       placeholder="Select an item" }}
 </td>
 <td class="text-right">
+  {{input value=sell.count class='form-control text-right' type='number'}}
+</td>
+<td class="text-right">
   <div class="input-group">
     {{input value=sell.price class='form-control text-right' type='number'}}
     <span class="input-group-addon">{{t 'currency'}}</span>
   </div>
-</td>
-<td class="text-right">
-  {{input value=sell.count class='form-control text-right' type='number'}}
 </td>
 <td class="text-right">
   {{x-sell/sum sell=sell}}

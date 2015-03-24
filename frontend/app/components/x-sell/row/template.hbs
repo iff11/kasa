@@ -10,8 +10,8 @@
   </td>
 {{else}}
   <td>{{sell.item.name}}</td>
-  <td class="text-right">{{x-item/price value=sell.price}}</td>
   <td class="text-right">{{sell.count}}</td>
+  <td class="text-right">{{x-item/price value=sell.price}}</td>
   <td class="text-right">{{x-sell/sum sell=sell}}</td>
   <td class="text-right">
     <button {{action "edit"}} class="btn btn-default btn-xs">
