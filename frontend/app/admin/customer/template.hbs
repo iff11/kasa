@@ -64,7 +64,9 @@
             {{/if}}
 
             {{#link-to 'admin.visit' visit}}
-              {{month-and-day visit.date}} - {{number-to-currency value=visit.total_price}}
+              {{month-and-day visit.date}}
+              -
+              {{format-money visit.total_price symbol=(t 'currency') format="%v %s"}}
             {{/link-to}}
           </li>
         {{/each}}

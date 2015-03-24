@@ -10,8 +10,12 @@
           {{/link-to}}
         </h3>
         <img class="avatar img-circle img-thumbnail" {{bind-attr src="visit.employee.photo_url"}} />
-        <time>{{date-and-time visit.date ENV.APP.locale}}</time>
-        <p>{{number-to-currency value=visit.total_price}}</p>
+        <time>{{date-and-time visit.date 'cs'}}</time>
+        <p>
+          <em>
+            {{format-money visit.total_price symbol=(t 'currency') format="%v %s"}}
+          </em>
+        </p>
       </div>
     </div>
   {{/each}}
