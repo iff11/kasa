@@ -15,6 +15,9 @@
       &#8734;
     {{else}}
       {{item.stock}}
+      <em {{bind-attr title=(t 'item.actualCount')}}>
+        ({{item.actual_count}})
+      </em>
     {{/if}}
   </td>
   <td class="text-right">

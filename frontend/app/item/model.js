@@ -7,5 +7,6 @@ export default DS.Model.extend({
   selling_price: DS.attr(),
   stock: DS.attr(),
   unlimited: DS.attr(),
-  barcode: DS.attr()
+  barcode: DS.attr(),
+  actual_count: DS.attr()
 });

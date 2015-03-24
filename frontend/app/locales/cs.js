@@ -45,7 +45,7 @@ export default {
     newName: 'Nová položka',
     newBarcode: '123456789',
     newStock: '10',
-    newDefaultPrice: '100'
+    newDefaultPrice: '100',
   },
 
   sell: {
@@ -64,7 +64,8 @@ export default {
     selling_price: 'Prodej',
     barcode: 'Čárový kód',
     unlimited_or_stock: '∞ / kusů',
-    action: 'Akce'
+    action: 'Akce',
+    actualCount: 'skladem'
   },
 
   employee: {
