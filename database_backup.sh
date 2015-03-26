@@ -1,6 +1,6 @@
 #!/bin/bash
 
-now=$(date +"%Y_%m_%d")
+now=$(date +"%Y.%m.%d_%H:%M")
 file="/Users/michal/Google Drive/Projekty/topstylesalon.cz/backups/backup_${now}"
 
 heroku pg:backups capture

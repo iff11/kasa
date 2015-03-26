@@ -33,7 +33,7 @@
     <ul class="nav nav-second-level nav-pills nav-stacked">
       {{#each visits as |visit|}}
         <li>
-          {{#link-to 'visit' visit}}
+          {{#link-to 'visit.show' visit}}
             {{visit-human-name visit=visit}}
           {{/link-to}}
         </li>

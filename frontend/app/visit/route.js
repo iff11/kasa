@@ -5,7 +5,7 @@ export default Ember.Route.extend({
     return this.store.find('visit', params.id);
   },
 
-  setupController: function(controller, model) {
+  setupController(controller, model) {
     controller.set('attrs.visit', model);
   }
 });
