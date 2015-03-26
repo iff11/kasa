@@ -2,6 +2,8 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   total_price: DS.attr('number'),
+  price_with_tip: DS.attr('number'),
+  received_amount: DS.attr('number'),
   completed: DS.attr(),
   date: DS.attr(),
   note: DS.attr(),

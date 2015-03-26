@@ -5,15 +5,78 @@
       {{t 'visit.back_to_visit'}}
     {{/link-to}}
 
-    <div class="jumbotron">
-      <p>
+    <div class="alert alert-warning" role="alert">
         {{t 'visit.close_warning'}}
-        {{t 'visit.sum_price_is'}}
-        <strong>
-          {{x-visit/total-price visit=attrs.visit}}
-        </strong>
-      </p>
-      <button class="btn btn-primary" {{action "confirmCheckout"}}>{{t 'visit.close'}}</button>
     </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th class="col-xs-4">{{t 'sell.item'}}</th>
+          <th class="col-xs-2 text-right">{{t 'sell.count'}}</th>
+          <th class="col-xs-3 text-right">{{t 'sell.unit_price'}}</th>
+          <th class="col-xs-3 text-right">{{t 'sell.sum_price'}}</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each sell in attrs.visit.sells}}
+        <tr>
+          <td>{{sell.item.name}}</td>
+          <td class="text-right">{{sell.count}}</td>
+          <td class="text-right">{{x-item/price value=sell.price}}</td>
+          <td class="text-right">{{x-sell/sum sell=sell}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-xs-6">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th class="col-xs-7">{{t 'visit.element'}}</th>
+          <th class="col-xs-5 text-right">{{t 'visit.number'}}</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>{{t 'visit.sum_price_is'}}</td>
+          <td class="text-right">{{x-visit/total-price visit=attrs.visit}}</td>
+        </tr>
+        <tr>
+          <td>{{t 'visit.sum_with_tip_is'}}</td>
+          <td class="text-right">
+            <div class="input-group">
+              {{input class='form-control text-right' value=attrs.visit.price_with_tip}}
+              <span class="input-group-addon">{{t 'currency'}}</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>{{t 'visit.received_amount'}}</td>
+          <td class="text-right">
+            <div class="input-group">
+              {{input class='form-control text-right' value=attrs.visit.received_amount}}
+              <span class="input-group-addon">{{t 'currency'}}</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>{{t 'visit.return_amount'}}</td>
+          <td class="text-right">
+            {{format-money return_amount symbol=(t 'currency') format="%v %s"}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button class="btn btn-primary" {{action "confirmCheckout"}}>{{t 'visit.close'}}</button>
   </div>
 </div>

@@ -33,10 +33,15 @@ export default {
     close: 'Uzavřít',
     note: 'Poznámka',
     back_to_visit: 'Zpátky do zakázky',
-    sum_price_is: 'Celková částka k zaplacení:',
+    sum_price_is: 'Celková částka k zaplacení',
+    sum_with_tip_is: 'Celková částka i s dýškem',
     back_to_customer: 'Zpátky na zákazníka',
     reopen: 'Znovu otevřít',
     visit_of: 'Návštěva',
+    element: 'Položka',
+    number: 'Hodnota',
+    received_amount: 'Přijatá částka',
+    return_amount: 'K vrácení'
   },
 
   items: {
