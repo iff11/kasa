@@ -21,37 +21,35 @@
 </div>
 
 <div class="row">
-  <div class="col-xs-9">
+  <div class="col-xs-3">
     <div class="form-group">
       <label>{{t 'customer.note'}}</label>
       {{textarea placeholder=(t 'customer.note') rows="5" value=attrs.customer.note class='form-control'}}
     </div>
 
-    <div class="row">
-      <div class="form-group col-md-3">
-        <label>{{t 'customer.first_name'}}</label>
-        {{input placeholder=(t 'customer.first_name') value=attrs.customer.first_name class='form-control'}}
-      </div>
-      <div class="form-group col-md-3">
-        <label>{{t 'customer.last_name'}}</label>
-        {{input placeholder=(t 'customer.last_name') value=attrs.customer.last_name class='form-control'}}
-      </div>
-      <div class="form-group col-md-3">
-        <label>{{t 'customer.birth'}}</label>
-        {{input placeholder='1984-12-24' value=attrs.customer.birth class="form-control" type="date"}}
-      </div>
-      <div class="form-group col-md-3">
-        <label>{{t 'customer.phone'}}</label>
-        {{input placeholder=(t 'customer.phone') value=attrs.customer.phone class='form-control'}}
-      </div>
-      <div class="form-group col-md-3">
-        <label>{{t 'customer.mail'}}</label>
-        {{input placeholder=(t 'customer.mail') value=attrs.customer.mail class="form-control"}}
-      </div>
+    <div class="form-group">
+      <label>{{t 'customer.first_name'}}</label>
+      {{input placeholder=(t 'customer.first_name') value=attrs.customer.first_name class='form-control'}}
+    </div>
+    <div class="form-group">
+      <label>{{t 'customer.last_name'}}</label>
+      {{input placeholder=(t 'customer.last_name') value=attrs.customer.last_name class='form-control'}}
+    </div>
+    <div class="form-group">
+      <label>{{t 'customer.birth'}}</label>
+      {{input placeholder='1984-12-24' value=attrs.customer.birth class="form-control" type="date"}}
+    </div>
+    <div class="form-group">
+      <label>{{t 'customer.phone'}}</label>
+      {{input placeholder=(t 'customer.phone') value=attrs.customer.phone class='form-control'}}
+    </div>
+    <div class="form-group">
+      <label>{{t 'customer.mail'}}</label>
+      {{input placeholder=(t 'customer.mail') value=attrs.customer.mail class="form-control"}}
     </div>
   </div>
 
-  <div class="col-xs-3">
+  <div class="col-xs-9">
     <div class="panel panel-default">
       <div class="panel-heading">{{t 'customer.all_visits'}}</div>
       <ul class="list-group">
@@ -68,6 +66,10 @@
               -
               {{format-money visit.total_price symbol=(t 'currency') format="%v %s"}}
             {{/link-to}}
+
+            <small>
+              {{visit.note}}
+            </small>
           </li>
         {{/each}}
       </ul>

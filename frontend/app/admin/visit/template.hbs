@@ -25,36 +25,58 @@
   </div>
 </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th class="col-xs-6">{{t 'sell.item'}}</th>
-      <th class="col-xs-2 text-right">{{t 'sell.unit_price'}}</th>
-      <th class="col-xs-2 text-right">{{t 'sell.count'}}</th>
-      <th class="col-xs-2 text-right">{{t 'sell.sum_price'}}</th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-xs-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col-xs-6">{{t 'sell.item'}}</th>
+          <th class="col-xs-2 text-right">{{t 'sell.unit_price'}}</th>
+          <th class="col-xs-2 text-right">{{t 'sell.count'}}</th>
+          <th class="col-xs-2 text-right">{{t 'sell.sum_price'}}</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    {{#each sell in attrs.visit.sells}}
+      <tbody>
+        {{#each sell in attrs.visit.sells}}
+          <tr>
+            <td>{{sell.item.name}}</td>
+            <td class="text-right">{{x-item/price value=sell.price}}</td>
+            <td class="text-right">{{sell.count}}</td>
+            <td class="text-right">{{x-sell/sum sell=sell}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+
+      <tfoot>
+        <tr class="info">
+          <th colspan="3">
+            {{t 'visit.total_price'}}
+          </th>
+          <th class="text-right">
+            {{x-visit/total-price visit=attrs.visit}}
+          </th>
+          <th></th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <div class="col-xs-6">
+    <table class="table table-hover">
       <tr>
-        <td>{{sell.item.name}}</td>
-        <td class="text-right">{{x-item/price value=sell.price}}</td>
-        <td class="text-right">{{sell.count}}</td>
-        <td class="text-right">{{x-sell/sum sell=sell}}</td>
+        <td>{{t 'visit.sum_with_tip_is'}}</td>
+        <td>{{format-money attrs.visit.price_with_tip symbol=(t 'currency') format="%v %s"}}</td>
       </tr>
-    {{/each}}
-  </tbody>
+      <tr>
+        <td>{{t 'visit.received_amount'}}</td>
+        <td>{{format-money attrs.visit.received_amount symbol=(t 'currency') format="%v %s"}}</td>
+      </tr>
+    </table>
 
-  <tfoot>
-    <tr class="info">
-      <th colspan="3">
-        {{t 'visit.total_price'}}
-      </th>
-      <th class="text-right">
-        {{x-visit/total-price visit=attrs.visit}}
-      </th>
-      <th></th>
-    </tr>
-  </tfoot>
-</table>
+    <h4>{{t 'visit.note'}}</h4>
+    <div class="well">
+      {{attrs.visit.note}}
+    </div>
+  </div>
+</div>
