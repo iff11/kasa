@@ -2,6 +2,14 @@
 
 module.exports = function(environment) {
   var ENV = {
+    flashMessageDefaults: {
+      timeout      : 10000,
+      priority     : 200,
+      sticky       : true,
+      showProgress : true,
+      type         : 'foobar',
+      types        : [ 'success', 'danger' ]
+    },
     'simple-auth': {
       authorizer: 'simple-auth-authorizer:devise'
     },

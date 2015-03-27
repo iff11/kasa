@@ -9,9 +9,11 @@
         <div class="row">
           <div class="col-xs-12">
 
-            {{#each flashes.queue as |flash|}}
-              {{flash-message flash=flash}}
-            {{/each}}
+            <div class="flash-container">
+              {{#each flashes.queue as |flash|}}
+                {{flash-message flash=flash}}
+              {{/each}}
+            </div>
 
             {{liquid-outlet}}
           </div>

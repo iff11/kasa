@@ -92,11 +92,15 @@ table.table > tbody > tr > td {
   background-color: #eee;
 }
 
-.flashMessage {
+.flash-container {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  right: 0;
+  width: 30em;
+  z-index: 20;
+
+  .flashMessage {
+    margin-bottom: 1px;
+  }
 }
 
 .typeahead-wrap {
