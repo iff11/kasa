@@ -24,7 +24,7 @@ gem 'simple_form', git: 'https://github.com/plataformatec/simple_form'
 gem 'font-awesome-sass'
 gem 'ember-cli-rails'
 gem 'active_model_serializers', '~> 0.9.3'
-gem "paranoia", "~> 2.0"
+gem "paranoia", :git => 'https://github.com/radar/paranoia.git', :branch => 'rails4'
 
 gem 'devise'
 gem 'cancan'

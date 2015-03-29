@@ -6,6 +6,14 @@ GIT
       actionpack (~> 4.0)
       activemodel (~> 4.0)
 
+GIT
+  remote: https://github.com/radar/paranoia.git
+  revision: df42daa3d95f4a387c7656a23d8f878eddb8cea8
+  branch: rails4
+  specs:
+    paranoia (2.1.1)
+      activerecord (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -92,8 +100,6 @@ GEM
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
-    paranoia (2.1.0)
-      activerecord (~> 4.0)
     pg (0.18.1)
     rack (1.6.0)
     rack-test (0.6.3)
@@ -182,7 +188,7 @@ DEPENDENCIES
   font-awesome-sass
   jquery-rails
   nokogiri
-  paranoia (~> 2.0)
+  paranoia!
   pg
   rails (= 4.2.0)
   rails-erd
