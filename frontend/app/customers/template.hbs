@@ -3,14 +3,17 @@
 <table class='table'>
   <thead>
     <tr>
-      <th class="col-xs-2">{{t 'customer.full_name'}}</th>
+      <th class="col-xs-3">{{t 'customer.full_name'}}</th>
       <th class="col-xs-2">{{t 'customer.birth'}}</th>
-      <th class="col-xs-2 text-right">{{t 'customer.birthday_in'}}</th>
-      <th class="col-xs-6">{{t 'customer.note'}}</th>
+      <th class="col-xs-2 text-right">
+        {{fa-icon "caret-down"}}
+        {{t 'customer.birthday_in'}}
+      </th>
+      <th class="col-xs-5">{{t 'customer.note'}}</th>
     </tr>
   </thead>
   <tbody>
-    {{#each customer in attrs.customers}}
+    {{#each customer in pagedContent}}
       <tr>
         <td>
           {{customer.full_name}}
@@ -28,3 +31,5 @@
     {{/each}}
   </tbody>
 </table>
+
+{{page-numbers content=pagedContent}}

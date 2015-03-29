@@ -84,6 +84,10 @@ table.table > tbody > tr > td {
   vertical-align: middle;
 }
 
+table.table > thead > tr > th {
+  cursor: pointer;
+}
+
 .item-count > div {
   display: inline-flex;
 }

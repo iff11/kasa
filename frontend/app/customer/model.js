@@ -29,6 +29,12 @@ export default DS.Model.extend({
     }
   }.property('birth'),
 
+  nextBirthdayInDays: function() {
+    var now = moment();
+
+    return this.get('nextBirthday').diff(now, 'days');
+  }.property('nextBirthday'),
+
   // momentjs object of customer's birthday
   birthday: function() {
     return moment(this.get('birth'), 'YYYY-MM-DD');
