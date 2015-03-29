@@ -3,7 +3,7 @@ class VisitsCounterCache < ActiveRecord::Migration
     add_column :customers, :visits_count, :integer
 
     Customer.all.each do |customer|
-      customer.reset_counters(:visits)
+      Customer.reset_counters(customer.id, :visits)
     end
   end
 end
