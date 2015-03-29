@@ -6,30 +6,16 @@ export default Ember.Component.extend({
   attributeBindings: ['title'],
   tagName: 'span',
 
-  nextBirthDay: function() {
-    var birth = moment(this.get('customer.birth'), 'YYYY-MM-DD'),
-        now = moment(),
-        currYear = now.year(),
-        thisYearBirthDay = birth.clone().year(currYear),
-        nextYearBirthDay = birth.clone().year(currYear + 1);
-
-    if(now.diff(thisYearBirthDay, 'days') > 0) {
-      return nextYearBirthDay
-    } else {
-      return thisYearBirthDay
-    }
-  }.property('customer.birth'),
-
   toFutureHuman: function() {
     var now = moment();
 
-    return this.get('nextBirthDay').from(now);
+    return this.get('customer.nextBirthday').from(now);
   }.property('customer.birth'),
 
   toFutureDays: function() {
     var now = moment();
 
-    return this.get('nextBirthDay').diff(now, 'days');
+    return this.get('customer.nextBirthday').diff(now, 'days');
   }.property('customer.birth'),
 
   title: function() {
