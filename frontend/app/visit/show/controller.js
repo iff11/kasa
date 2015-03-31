@@ -32,7 +32,7 @@ export default Ember.Controller.extend({
         price: this.get('heap.price')
       });
 
-      var flash = Ember.get(this, 'flashes'),
+      var flash = Ember.get(this, 'flashMessages'),
           that = this;
 
       sell.save().then(function() {
@@ -44,7 +44,7 @@ export default Ember.Controller.extend({
     },
 
     deleteSell: function(sell) {
-      var flash = Ember.get(this, 'flashes');
+      var flash = Ember.get(this, 'flashMessages');
 
       sell.deleteRecord();
       sell.save().then(function() {
@@ -55,7 +55,7 @@ export default Ember.Controller.extend({
     },
 
     updateSell: function(sell) {
-      var flash = Ember.get(this, 'flashes');
+      var flash = Ember.get(this, 'flashMessages');
 
       sell.save().then(function() {
         flash.success('Sell updated');
@@ -65,7 +65,7 @@ export default Ember.Controller.extend({
     },
 
     saveNote: function() {
-      var flash = Ember.get(this, 'flashes');
+      var flash = Ember.get(this, 'flashMessages');
 
       this.get('attrs.visit').save().then(function() {
         flash.success('Note updated');

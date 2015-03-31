@@ -11,7 +11,7 @@ export default Ember.Route.extend({
 
   actions: {
     deleteVisit: function(visit) {
-      var flash = Ember.get(this, 'flashes'),
+      var flash = Ember.get(this, 'flashMessages'),
           that = this,
           customer = visit.get('customer');
 
@@ -25,7 +25,7 @@ export default Ember.Route.extend({
     },
 
     reopenVisit: function(visit) {
-      var flash = Ember.get(this, 'flashes'),
+      var flash = Ember.get(this, 'flashMessages'),
           that = this;
 
       visit.set('completed', false);

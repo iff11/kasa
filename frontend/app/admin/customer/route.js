@@ -11,7 +11,7 @@ export default Ember.Route.extend({
 
   actions: {
     deleteCustomer: function(customer) {
-      var flash = Ember.get(this, 'flashes'),
+      var flash = Ember.get(this, 'flashMessages'),
           that = this;
 
       customer.deleteRecord();
@@ -29,7 +29,7 @@ export default Ember.Route.extend({
     },
 
     updateCustomer: function(customer) {
-      var flash = Ember.get(this, 'flashes'),
+      var flash = Ember.get(this, 'flashMessages'),
           that = this;
 
       customer.save().then(function() {

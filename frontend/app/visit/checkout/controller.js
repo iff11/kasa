@@ -13,7 +13,7 @@ export default Ember.Controller.extend({
           that = this;
       visit.set('completed', true);
 
-      var flash = Ember.get(this, 'flashes');
+      var flash = Ember.get(this, 'flashMessages');
       visit.save().then(function() {
         flash.success('Successfully saved!');
         that.transitionToRoute('visits');

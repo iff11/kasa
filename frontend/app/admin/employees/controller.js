@@ -16,7 +16,7 @@ export default Ember.Controller.extend({
       });
 
       var that = this;
-      var flash = Ember.get(this, 'flashes');
+      var flash = Ember.get(this, 'flashMessages');
 
       employee.save().then(function() {
         that.set('heap', {});
@@ -27,7 +27,7 @@ export default Ember.Controller.extend({
     },
 
     deleteEmployee: function(employee) {
-      var flash = Ember.get(this, 'flashes');
+      var flash = Ember.get(this, 'flashMessages');
 
       employee.deleteRecord();
       employee.save().then(function() {
@@ -38,7 +38,7 @@ export default Ember.Controller.extend({
     },
 
     updateEmployee: function(employee) {
-      var flash = Ember.get(this, 'flashes');
+      var flash = Ember.get(this, 'flashMessages');
 
       employee.save().then(function() {
         flash.success('Employee updated');
