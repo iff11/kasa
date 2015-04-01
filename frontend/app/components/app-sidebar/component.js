@@ -29,7 +29,7 @@ export default Ember.Component.extend({
         return true;
       }
     });
-  }.property('customers'),
+  }.property('customers.@each'),
 
   actions: {
     logout: function() {
