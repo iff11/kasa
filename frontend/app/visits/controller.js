@@ -22,7 +22,11 @@ export default Ember.Controller.extend({
         customer: this.get('heap.customer'),
         employee: this.get('heap.employee')
       });
-      visit.save();
+      var that = this;
+
+      visit.save().then(function() {
+        that.transitionToRoute('visit.show', visit);
+      });
     }
   }
 });
