@@ -9,6 +9,7 @@ class Visit < ActiveRecord::Base
 
   # scope :opened, -> { where(completed: false) }
 
+  # TODO: this should be standalone column
   def total_price
     sells.sum("count * price")
   end

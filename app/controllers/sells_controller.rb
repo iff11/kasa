@@ -6,7 +6,7 @@ class SellsController < ApplicationController
   end
 
   def show
-    render json: Sell.where(visit_id: params[:visit_id]).all
+    render json: Sell.find(params[:id])
   end
 
   def create
