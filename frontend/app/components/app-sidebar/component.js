@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   // TODO: this should not be here!!!
   // this should be passed into component as attribute, but this would
   // fail as unauthorized user should not create any HTTP request
+  // probably good solution is to use different controller for the sidebar
   visits: function() {
     return this.get('targetObject.store').find('visit');
   }.property(),
@@ -14,6 +15,10 @@ export default Ember.Component.extend({
   customers: function() {
     return this.get('targetObject.store').find('customer');
   }.property(),
+
+  openVisits: function() {
+    return this.get('visits').filterBy('completed', false);
+  }.property('visits.@each.completed'),
 
   birthdaysInWeek: function() {
     return this.get('customers').filter(function(customer) {
