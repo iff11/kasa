@@ -12,11 +12,22 @@
 
   <tbody>
     {{#each employee in attrs.employees}}
-      {{x-employee/row employee=employee update="updateEmployee" delete="deleteEmployee"}}
+      <tr>
+        <td>{{employee.first_name}}</td>
+        <td>{{employee.last_name}}</td>
+        <td>{{employee.photo_url}}</td>
+        <td class="text-right">
+          {{#link-to 'admin.employee' employee class="btn btn-default btn-xs"}}
+            {{fa-icon 'pencil'}}
+          {{/link-to}}
+        </td>
+      </tr>
     {{/each}}
 
     <tr>
-      {{x-employee/row/form employee=heap}}
+      <td>{{input placeholder=(t 'employee.first_name') value=employee.first_name class='form-control'}}</td>
+      <td>{{input placeholder=(t 'employee.last_name') value=employee.last_name class='form-control'}}</td>
+      <td>{{input placeholder=(t 'employee.photo_url') value=employee.photo_url class='form-control'}}</td>
       <td class="text-right">
         <button class="btn btn-success" {{action 'createEmployee'}}>
           {{fa-icon 'plus-square'}} {{t 'employee.add'}}

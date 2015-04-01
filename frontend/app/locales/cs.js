@@ -41,7 +41,9 @@ export default {
     element: 'Položka',
     number: 'Hodnota',
     received_amount: 'Přijatá částka',
-    return_amount: 'K vrácení'
+    return_amount: 'K vrácení',
+    date: 'Datum',
+    employee_margin: 'Podíl zaměstnance'
   },
 
   items: {
@@ -78,7 +80,9 @@ export default {
     last_name: 'Příjmení',
     photo_url: 'Odkaz na fotku',
     action: 'Akce',
-    add: 'Přidat'
+    add: 'Přidat',
+    all_employees: 'Všichni zaměstnanci',
+    all_visits: 'Všechny zakázky'
   },
 
   employees: {

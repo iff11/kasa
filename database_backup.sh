@@ -1,7 +1,7 @@
 #!/bin/bash
 
 now=$(date +"%Y.%m.%d_%H:%M")
-file="/Users/michal/Google Drive/Projekty/topstylesalon.cz/backups/backup_${now}"
+file="/Users/michal/Google Drive/Project/topstylesalon.cz/backups/backup_${now}"
 
 heroku pg:backups capture
 line=`heroku pg:backups 2> /dev/null | sed -n 4,1p`

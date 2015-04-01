@@ -1,0 +1,76 @@
+<h2>
+  {{attrs.employee.full_name}}
+</h2>
+
+<div class="row padding-bottom">
+  <div class="col-xs-6">
+    <button class="btn btn-default" {{action "rollbackEmployee" attrs.employee}}>
+      {{fa-icon 'arrow-left'}}
+      {{t 'employee.all_employees'}}
+    </button>
+  </div>
+
+  <div class="col-xs-6 text-right">
+    <button class="delete btn btn-danger btn-xs" {{action "deleteEmployee" attrs.employee on="doubleClick"}}>
+      {{fa-icon 'times'}}
+    </button>
+    <button class="btn btn-success btn-xs" {{action 'updateEmployee' attrs.employee}}>
+      {{fa-icon 'check'}}
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-4">
+    <div class="form-group">
+      <label>{{t 'employee.first_name'}}</label>
+      {{input value=attrs.employee.first_name class='form-control'}}
+    </div>
+
+    <div class="form-group">
+      <label>{{t 'employee.last_name'}}</label>
+      {{input value=attrs.employee.last_name class='form-control'}}
+    </div>
+
+    <div class="form-group">
+      <label>{{t 'employee.photo_url'}}</label>
+      {{input value=attrs.employee.photo_url class='form-control'}}
+    </div>
+  </div>
+
+  <div class="col-xs-8">
+    <h3>{{t 'employee.all_visits'}}</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>{{t 'visit.date'}}</th>
+          <th class="text-right">{{t 'visit.total_price'}}</th>
+          <th class="text-right">{{t 'visit.employee_margin'}}</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each attrs.employee.visits as |visit|}}
+          <tr>
+            <td>{{date-and-time visit.date 'cs'}}</td>
+            <td class="text-right">{{format-money visit.total_price symbol=(t 'currency') format="%v %s"}}</td>
+            <td class="text-right">{{format-money visit.employee_share symbol=(t 'currency') format="%v %s"}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td></td>
+          <td class="text-right">
+            {{x-employee/visits-sum employee=attrs.employee}}
+          </td>
+          <td class="text-right">
+            {{x-employee/share employee=attrs.employee}}
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+

@@ -24,27 +24,6 @@ export default Ember.Controller.extend({
       }, function(response) {
         flash.danger('Something went wrong!');
       });
-    },
-
-    deleteEmployee: function(employee) {
-      var flash = Ember.get(this, 'flashMessages');
-
-      employee.deleteRecord();
-      employee.save().then(function() {
-        flash.success('Employee deleted');
-      }, function(response) {
-        flash.danger('Employee cannot be deleted! ' + response.responseText);
-      });
-    },
-
-    updateEmployee: function(employee) {
-      var flash = Ember.get(this, 'flashMessages');
-
-      employee.save().then(function() {
-        flash.success('Employee updated');
-      }, function(response) {
-        flash.danger('Employee cannot be updated! ' + response.responseText);
-      });
     }
   }
 });

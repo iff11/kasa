@@ -10,5 +10,10 @@ export default DS.Model.extend({
 
   customer: DS.belongsTo('customer', {async: true}),
   employee: DS.belongsTo('employee', {async: true}),
-  sells: DS.hasMany('sell', {async: true})
+  sells: DS.hasMany('sell', {async: true}),
+
+  ratio: 0.1,
+  employee_share: function() {
+    return this.get('total_price') * this.get('ratio');
+  }.property('ratio', 'total_price')
 });
