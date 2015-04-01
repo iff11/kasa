@@ -5,7 +5,7 @@ module.exports = function(environment) {
     flashMessageDefaults: {
       timeout      : 10000,
       priority     : 200,
-      sticky       : true,
+      sticky       : false,
       showProgress : true,
       type         : 'foobar',
       types        : [ 'success', 'danger' ]
