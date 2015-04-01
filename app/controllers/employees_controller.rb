@@ -24,6 +24,10 @@ class EmployeesController < ApplicationController
     end
   end
 
+  def show
+    render json: Employee.find(params[:id])
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
