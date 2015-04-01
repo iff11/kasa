@@ -1,7 +1,8 @@
 {{#if session.isAuthenticated}}
   <div class="row">
     <div class="col-xs-3 sidebar-wrapper">
-      {{app-sidebar visits=openVisits customers=attrs.customers logout="invalidateSession"}}
+      {{!app-sidebar visits=openVisits customers=attrs.customers logout="invalidateSession"}}
+      {{app-sidebar logout="invalidateSession"}}
     </div>
 
     <main role="main" id="page-wrapper" class="col-xs-9">

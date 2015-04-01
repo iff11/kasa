@@ -1,7 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  attrs: {},
+  attrs: {
+    visits: [],
+    customers: []
+  },
 
   openVisits: function() {
     return this.get('attrs.visits').filterBy('completed', false);
