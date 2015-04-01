@@ -22,6 +22,22 @@
 
   <div class="col-xs-4">
     <div class="well">
+      <img {{bind-attr src=heap.employee.photo_url}} class="avatar img-circle img-thumbnail" />
+
+      <div class="row">
+        <div class="form-group col-xs-9">
+          <label for="employee">{{t 'visit.employee'}}</label>
+          {{view "select"
+              id="employee"
+              value=heap.employee
+              content=employees
+              class="form-control"
+              prompt=(t 'visit.select_employee')
+              optionValuePath="content"
+              optionLabelPath="content.full_name"}}
+        </div>
+      </div>
+
       <div class="form-group">
         <label for="customer">{{t 'visit.customer'}}</label>
         {{ember-selectize
@@ -32,17 +48,6 @@
             placeholder="Select a customer" }}
       </div>
 
-      <div class="form-group">
-        <label for="employee">{{t 'visit.employee'}}</label>
-        {{view "select"
-            id="employee"
-            value=heap.employee
-            content=employees
-            class="form-control"
-            prompt=(t 'visit.select_employee')
-            optionValuePath="content"
-            optionLabelPath="content.full_name"}}
-      </div>
         <button type="button" class='btn btn-primary btn-block' {{action 'createVisit'}}>
           {{fa-icon 'plus-circle'}}
           {{t 'visit.new'}}

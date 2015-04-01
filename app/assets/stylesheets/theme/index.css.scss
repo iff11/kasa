@@ -77,6 +77,8 @@ a {
     position: absolute;
     right: 0;
     top: -1em;
+    background-image: url('http://pixabay.com/get/f09a51965c82ae7216fa/1427926401/moustache-303571_1280.png?direct');
+    background-size: 7em 7em;
   }
 }
 
@@ -112,7 +114,7 @@ table.table > thead > tr > th {
 }
 
 
-div.liquid-container {
+div.liquid-container, div.liquid-child{
   overflow: visible;
 }
 
