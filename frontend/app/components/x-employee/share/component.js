@@ -7,5 +7,5 @@ export default Ember.Component.extend({
     return this.get('employee.visits').reduce(function(previousValue, visit){
         return previousValue + visit.get("employee_share");
       }, 0);
-  }.property('employee.@each.total_price')
+  }.property('employee.visits.@each.total_price')
 });

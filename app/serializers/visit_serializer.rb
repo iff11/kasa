@@ -1,5 +1,5 @@
 class VisitSerializer < ActiveModel::Serializer
-  attributes :id, :note, :completed, :date, :total_price, :price_with_tip, :received_amount, :customer_id, :employee_id
+  attributes :id, :note, :completed, :date, :price_with_tip, :received_amount, :customer_id, :employee_id
 
   #, :links
 
