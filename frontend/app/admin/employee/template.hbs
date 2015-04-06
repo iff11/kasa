@@ -44,6 +44,7 @@
       <thead>
         <tr>
           <th>{{t 'visit.date'}}</th>
+          <th>{{t 'visit.customer'}}</th>
           <th class="text-right">{{t 'visit.total_price'}}</th>
           <th class="text-right">{{t 'visit.employee_margin'}}</th>
         </tr>
@@ -52,7 +53,17 @@
       <tbody>
         {{#each attrs.employee.visits as |visit|}}
           <tr>
-            <td>{{date-and-time visit.date 'cs'}}</td>
+            <td>
+              {{#link-to 'visit.show' visit.id}}
+                {{x-visit/completed visit=visit}}
+                {{date-and-time visit.date 'cs'}}
+              {{/link-to}}
+            </td>
+            <td>
+              {{#link-to 'admin.customer' visit.customer}}
+                {{visit.customer.full_name}}
+              {{/link-to}}
+            </td>
             <td class="text-right">{{format-money visit.total_price symbol=(t 'currency') format="%v %s"}}</td>
             <td class="text-right">{{format-money visit.employee_share symbol=(t 'currency') format="%v %s"}}</td>
           </tr>
@@ -61,7 +72,7 @@
 
       <tfoot>
         <tr>
-          <td></td>
+          <td colspan="2"></td>
           <td class="text-right">
             {{x-employee/visits-sum employee=attrs.employee}}
           </td>
