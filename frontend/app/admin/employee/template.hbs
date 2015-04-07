@@ -39,6 +39,11 @@
   </div>
 
   <div class="col-xs-8">
+  {{view Ember.Select
+       content=months
+       optionValuePath="content.value"
+       optionLabelPath="content.text"
+       selection=selectedMonth}}
     <h3>{{t 'employee.all_visits'}}</h3>
     <table class="table table-hover">
       <thead>
@@ -51,7 +56,7 @@
       </thead>
 
       <tbody>
-        {{#each attrs.employee.visits as |visit|}}
+        {{#each visits as |visit|}}
           <tr>
             <td>
               {{#link-to 'visit.show' visit.id}}
@@ -74,10 +79,10 @@
         <tr>
           <td colspan="2"></td>
           <td class="text-right">
-            {{x-employee/visits-sum employee=attrs.employee}}
+            {{x-visits/sum visits=visits}}
           </td>
           <td class="text-right">
-            {{x-employee/share employee=attrs.employee}}
+            {{x-visits/employee-share visits=visits}}
           </td>
         </tr>
       </tfoot>
