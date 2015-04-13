@@ -26,6 +26,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    item = Item.find(params[:id])
+    render json: item
+  end
+
   private
     def item_params
       params.require(:item).permit(:name, :purchase_price, :selling_price, :stock, :unlimited, :barcode)

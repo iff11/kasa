@@ -1,0 +1,24 @@
+{{#with attrs.item as |item|}}
+  <h2>
+    {{item.name}}
+  </h2>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>{{sell.count}}</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each item.sells as |sell|}}
+        <tr>
+          <td>{{sell.count}}</td>
+          <td>{{sell.price}}</td>
+          <td>{{sell.visit.customer.full_name}}</td>
+          <td>{{sell.visit.date}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{/with}}

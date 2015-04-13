@@ -9,7 +9,11 @@
     </button>
   </td>
 {{else}}
-  <td>{{item.name}}</td>
+  <td>
+    {{#link-to 'admin.item' item}}
+      {{item.name}}
+    {{/link-to}}
+  </td>
   <td class="text-right">
     {{#if item.unlimited}}
       &#8734;

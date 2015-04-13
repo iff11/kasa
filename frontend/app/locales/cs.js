@@ -61,7 +61,9 @@ export default {
     count: 'Kusů',
     sum_price: 'Cena',
     action: 'Akce',
-    select_item: '-- Vyber položku --'
+    select_item: '-- Vyber položku --',
+    customer: 'Zákazník',
+    date: 'Datum'
   },
 
   item: {

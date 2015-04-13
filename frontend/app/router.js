@@ -19,6 +19,8 @@ Router.map(function() {
 
   this.route('admin', function() {
     this.route('items');
+    this.route('item', {path: 'item/:id'});
+
     this.route('customers');
     this.route('employees');
 
