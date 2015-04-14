@@ -63,7 +63,9 @@ export default {
     action: 'Akce',
     select_item: '-- Vyber položku --',
     customer: 'Zákazník',
-    date: 'Datum'
+    date: 'Datum',
+    employee: 'Zeměstnanec',
+    visit: 'Zakázka'
   },
 
   item: {

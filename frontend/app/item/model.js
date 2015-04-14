@@ -10,7 +10,7 @@ export default DS.Model.extend({
   barcode: DS.attr(),
   actual_count: DS.attr(),
 
-  sells: DS.hasMany('sell'),
+  sells: DS.hasMany('sell', {async: true}),
 
   scanner_string: function() {
     return this.get('name') + ' - ' + this.get('barcode');

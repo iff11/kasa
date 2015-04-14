@@ -6,7 +6,13 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>{{sell.count}}</th>
+        <th>{{t 'sell.count'}}</th>
+        <th>{{t 'sell.unit_price'}}</th>
+        <th>{{t 'sell.sum_price'}}</th>
+        <th>{{t 'sell.customer'}}</th>
+        <th>{{t 'sell.employee'}}</th>
+        <th>{{t 'sell.date'}}</th>
+        <th>{{t 'sell.visit'}}</th>
       </tr>
     </thead>
 
@@ -14,9 +20,24 @@
       {{#each item.sells as |sell|}}
         <tr>
           <td>{{sell.count}}</td>
-          <td>{{sell.price}}</td>
-          <td>{{sell.visit.customer.full_name}}</td>
+          <td>{{x-item/price value=sell.price}}</td>
+          <td>{{x-sell/sum sell=sell}}</td>
+          <td>
+            {{#link-to 'admin.customer' sell.visit.customer}}
+              {{sell.visit.customer.full_name}}
+            {{/link-to}}
+          </td>
+          <td>
+            {{#link-to 'admin.employee' sell.visit.employee}}
+              {{sell.visit.employee.full_name}}
+            {{/link-to}}
+          </td>
           <td>{{sell.visit.date}}</td>
+          <td>
+            {{#link-to 'visit.show' sell.visit}}
+              {{fa-icon 'external-link'}}
+            {{/link-to}}
+          </td>
         </tr>
       {{/each}}
     </tbody>

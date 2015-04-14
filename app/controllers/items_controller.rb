@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    item = Item.find(params[:id])
+    item = Item.includes(:sells).find(params[:id])
     render json: item
   end
 
