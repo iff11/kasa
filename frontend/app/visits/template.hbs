@@ -22,7 +22,11 @@
 
   <div class="col-xs-4">
     <div class="well">
-      <img {{bind-attr src=heap.employee.photo_url}} class="avatar img-circle img-thumbnail" />
+      {{#if heap.employee}}
+        <img {{bind-attr src=heap.employee.photo_url}} class="avatar img-circle img-thumbnail" />
+      {{else}}
+        <img src="/assets/scissors40.png" class="avatar img-circle img-thumbnail" />
+      {{/if}}
 
       <div class="row">
         <div class="form-group col-xs-9">
