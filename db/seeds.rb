@@ -10172,6 +10172,1341 @@ Customer.create(
     first_name:"  ",
     phone:"",
     mail:"",
+  },
+  {
+    first_name:"školení s Janou",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Janou na retex a kerasmooth konzultace",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Janou prodej",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Janou prodej + natáčení na dvojče",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Jarkou",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Jarkou - salon Privilege",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Jarkou - salon Privilege atd., vše co bude třeba ukázat a vysvětlit, plus pomoc kadeřníkům a pozorování při práci",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Jarkou a pak pomáhat Janě se Zuberovou",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Kristý",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Kristý - i modelové",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s M.K. rezervační systém",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s M.M. drdoly",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s manažerkou",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Mirkou Křesťanů",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s MK",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s MK, prozkoušení Toma na melír modelka a střih a MM zkouší Janu",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s MM",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s MM drdoly",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s MO K",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Mončou",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Monikou",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Monikou - modelka",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Monikou - pánský střih",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Monikou - pánský střih - model",
+    phone:"723501243",
+    mail:""
+  },
+  {
+    first_name:"školení s Monikou modelka střih barva melír",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Monikou modelka střih barva melír - slečna Dominika",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Monikou modelka střih barva melír - slečna Jubová",
+    phone:"608447371",
+    mail:""
+  },
+  {
+    first_name:"školení s Monikou teorie",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s novou kolegyní",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Terezou",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Terkou",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Terkou - GL",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Terkou - modelka",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Terkou - objemka",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Terkou - pánský střih",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"školení s Terkou - pánský střih - model",
+    phone:"723501243",
+    mail:""
+  },
+  {
+    first_name:"Šlachtová Michaela",
+    phone:"604187070",
+    mail:""
+  },
+  {
+    first_name:"Šlachtová Michaela, NK",
+    phone:"603187070",
+    mail:""
+  },
+  {
+    first_name:"Šlehofer",
+    phone:"776851133, 776880663",
+    mail:""
+  },
+  {
+    first_name:"šlohoferová - pohovor",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Šmídová",
+    phone:"731537310",
+    mail:""
+  },
+  {
+    first_name:"Šmídová Jitka",
+    phone:"602227481",
+    mail:""
+  },
+  {
+    first_name:"Šmídová Jitka",
+    phone:"",
+    mail:"jitka-smidova@seznam.cz"
+  },
+  {
+    first_name:"Šmolíková",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Šmolíková NK",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Šmolíková Silvie",
+    phone:"723516590",
+    mail:""
+  },
+  {
+    first_name:"Šperlová",
+    phone:"777245792",
+    mail:""
+  },
+  {
+    first_name:"Špetová",
+    phone:"731807167",
+    mail:""
+  },
+  {
+    first_name:"Šrámková",
+    phone:"737500141",
+    mail:""
+  },
+  {
+    first_name:"Šrámková",
+    phone:"",
+    mail:"pavla.sramkova@seznam.cz"
+  },
+  {
+    first_name:"Šrhořová",
+    phone:"724160780",
+    mail:""
+  },
+  {
+    first_name:"Štádlerová Jana",
+    phone:"602419838",
+    mail:""
+  },
+  {
+    first_name:"Štainbach",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"štambera",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Štefanová",
+    phone:"724651901",
+    mail:""
+  },
+  {
+    first_name:"Štěpánková",
+    phone:"777177009",
+    mail:""
+  },
+  {
+    first_name:"Štěpánková k MM",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Štěpanová Monika",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"štrekrová NK",
+    phone:"608030686",
+    mail:""
+  },
+  {
+    first_name:"šuláková",
+    phone:"724621334",
+    mail:""
+  },
+  {
+    first_name:"Šulcová",
+    phone:"607832656",
+    mail:""
+  },
+  {
+    first_name:"Šulková Irena",
+    phone:"724037846",
+    mail:""
+  },
+  {
+    first_name:"Šulková Irena",
+    phone:"734253364",
+    mail:""
+  },
+  {
+    first_name:"Švábová",
+    phone:"603882345",
+    mail:""
+  },
+  {
+    first_name:"Švédová Klára",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"telekonference s Monikou",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"teorie - co bude třeba rychle vysvětlit - Terka",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"teorie - s Monikou",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"teorie - Tereza",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"teorie - Tereza s Monikou",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tereza",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tereza - s Monikou",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tereza Pechátová",
+    phone:"732548168",
+    mail:""
+  },
+  {
+    first_name:"Tereza Pechová",
+    phone:"721426687",
+    mail:""
+  },
+  {
+    first_name:"Terka - nemoc!",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Terka - stáž",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Terka - ÚP",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Teřl Dominik",
+    phone:"721589479",
+    mail:"dominik.terl@gmail.com"
+  },
+  {
+    first_name:"Tesařová",
+    phone:"739200557",
+    mail:""
+  },
+  {
+    first_name:"Tokárová Markéta",
+    phone:"724821656",
+    mail:""
+  },
+  {
+    first_name:"Tom - dokonalý střih",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tom - dokonalý střih a přeliv",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"TOM - DOVOLENÁ",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tom - lékař",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tom - prosvětlení vlasů",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tom - stáž",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tom - ÚP",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tom cvičení GL",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tom musí končit! - doktor",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tomáš Jarkins",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tomáš Pravda",
+    phone:"",
+    mail:"pepa.demo@seznam.cz"
+  },
+  {
+    first_name:"Tomášek - vlásky!",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tomášková E.",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tomášková Eva",
+    phone:"737938672",
+    mail:""
+  },
+  {
+    first_name:"Tomášková Eva",
+    phone:"",
+    mail:"E.Tomaskova@seznam.cz"
+  },
+  {
+    first_name:"Tomášková Eva II",
+    phone:"777594694",
+    mail:""
+  },
+  {
+    first_name:"Tomčík",
+    phone:"606456457",
+    mail:""
+  },
+  {
+    first_name:"Tomešková - pohovor",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tomešková - předvede, co umí",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tomík - barva a střih",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tomovo vlasy",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tomšíčková Edita",
+    phone:"723211232",
+    mail:""
+  },
+  {
+    first_name:"Topinková Markéta",
+    phone:"773617013",
+    mail:"marketka.raketka@seznam.cz"
+  },
+  {
+    first_name:"Toráčová",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Touš Václav",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tranová",
+    phone:"776368678",
+    mail:""
+  },
+  {
+    first_name:"Trénik školení Hanka, melír + barva a střih paní",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Trénik školení Hanka, melír + barva a střih paní Pálková",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Trénik školení Hanka, melír + barva a střih žena",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink - panna - Jarka zadá, co jí udělat",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink - panna - Jarka zadá, co jí udělat + úklid",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink - ringy",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink - vlny žehličkou",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink drdolu na panně",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink GL",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Trénink Great Lenghts + úklid",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink koláží + koučink s Jarkou",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink na copánky příští týden",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink na panně",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink na panně - natáčení na natáčky",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink na panně a koukat na Janu",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink na panně, plus projít obrázky v ipadu",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink na seniora",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink natáčení - panna",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink natáčení na dvojče",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink pásků na panně",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink prodlužování vlasů - na panně",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink s Jarkou",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink účesů na panně",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénink účesu na soutěž",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénovat na panně",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"trénovat vlny na panně + drdol - vše vyfotit",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Trnková Kristýna",
+    phone:"604242993",
+    mail:""
+  },
+  {
+    first_name:"Trojanová Pavlína",
+    phone:"739072843",
+    mail:""
+  },
+  {
+    first_name:"Trojanová Pavlína, NK",
+    phone:"739072843",
+    mail:""
+  },
+  {
+    first_name:"Tronerová",
+    phone:"72323311",
+    mail:""
+  },
+  {
+    first_name:"Tučáková Olga",
+    phone:"602942189",
+    mail:"olgatucak@gmail.com"
+  },
+  {
+    first_name:"Tůmová jitka",
+    phone:"606836936",
+    mail:""
+  },
+  {
+    first_name:"Tůmová, NK",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tylová",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Tytltová",
+    phone:"602488558",
+    mail:""
+  },
+  {
+    first_name:"Ubry, NK",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"účes Jarce - na večer",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"udělat discipline Jelči vlasem",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"udělat koláže",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"udělat přípravu na školení",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"udělat si navzájem vlasy",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"udělat vlasy Janě",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"udělat vlasy Kristýně",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Uchytilová - konzultace",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"ukázat Terce GL a udělat účes na panně",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"ukl",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"ukli",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"úklid",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"úklid, vystavení balíčků, koláže, případně pak trénink GL",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"uklizeci povinnosti",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"úklízení",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Ulč Tomáš",
+    phone:"725143131",
+    mail:""
+  },
+  {
+    first_name:"Ulrychová Martina - modelka na RETEX",
+    phone:"775232594",
+    mail:""
+  },
+  {
+    first_name:"umýt Jarce vlasy - odpol účes",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Ungrová Milena",
+    phone:"602420047",
+    mail:""
+  },
+  {
+    first_name:"Urbanová",
+    phone:"608509038",
+    mail:""
+  },
+  {
+    first_name:"Úřad Práce",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Vacková",
+    phone:"777766652",
+    mail:""
+  },
+  {
+    first_name:"Vacková - maturák",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Vacková Eva",
+    phone:"777766652",
+    mail:""
+  },
+  {
+    first_name:"Vacková Eva",
+    phone:"",
+    mail:"evicka.vackova@seznam.cz"
+  },
+  {
+    first_name:"Vacovská Martina",
+    phone:"732850566",
+    mail:""
+  },
+  {
+    first_name:"Valdesová",
+    phone:"777619447",
+    mail:""
+  },
+  {
+    first_name:"Valečková",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Valentová",
+    phone:"723167979",
+    mail:""
+  },
+  {
+    first_name:"Vališová",
+    phone:"776599023",
+    mail:""
+  },
+  {
+    first_name:"Vališová",
+    phone:"",
+    mail:"marie.valisova@volny.cz"
+  },
+  {
+    first_name:"Valtr",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Vavřičková",
+    phone:"728956957",
+    mail:""
+  },
+  {
+    first_name:"Vavřichová",
+    phone:"722177166",
+    mail:""
+  },
+  {
+    first_name:"Vedelbergrová",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"velký úklid - prach na produktech + vlastní úklid",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"velky uklid / zbytek odpoledne",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Venasová Kateřina",
+    phone:"774941574",
+    mail:""
+  },
+  {
+    first_name:"Vendelbergerova",
+    phone:"739436607",
+    mail:""
+  },
+  {
+    first_name:"Vendelbergerova",
+    phone:"",
+    mail:"xvenl@seznam.cz"
+  },
+  {
+    first_name:"Věra Rappová",
+    phone:"605289598",
+    mail:""
+  },
+  {
+    first_name:"Veselá",
+    phone:"602650589",
+    mail:""
+  },
+  {
+    first_name:"Vetchá Vladimíra",
+    phone:"730548598",
+    mail:""
+  },
+  {
+    first_name:"Veverková",
+    phone:"605909162",
+    mail:""
+  },
+  {
+    first_name:"videokonference s Monikou - všichni",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Virka",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Vitáková Pavlína",
+    phone:"602624711",
+    mail:""
+  },
+  {
+    first_name:"Vlasáková",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Vlasáková - nebere tel",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Vlasáková Veronika",
+    phone:"602476878",
+    mail:"verun@seznam.cz"
+  },
+  {
+    first_name:"VLasatý",
+    phone:"731911169",
+    mail:""
+  },
+  {
+    first_name:"VLasatý",
+    phone:"",
+    mail:"vlasaty.lukas@gmail.com"
+  },
+  {
+    first_name:"vlasy - dělá Tom",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"vlasy Janě",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"vlasy Janě - Tom",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"vlasy Jarce",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"vlasy Jarce - odrost a střih",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"vlasy Terce",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"vlasy Tomovi",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Vodička",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Vokolková",
+    phone:"734188838",
+    mail:""
+  },
+  {
+    first_name:"Volařík",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Voldřichová",
+    phone:"608520220",
+    mail:""
+  },
+  {
+    first_name:"Voldřichová",
+    phone:"",
+    mail:"silviemil@volny.cz"
+  },
+  {
+    first_name:"Volínová",
+    phone:"702041032",
+    mail:""
+  },
+  {
+    first_name:"Volínová",
+    phone:"702041032",
+    mail:"volinova.tereza@seznam.cz"
+  },
+  {
+    first_name:"volno",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Voltrlová",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Vopatová Veronika",
+    phone:"603991389",
+    mail:""
+  },
+  {
+    first_name:"Voráčková",
+    phone:"777972093",
+    mail:""
+  },
+  {
+    first_name:"Vorlová Pavlína",
+    phone:"731121606",
+    mail:""
+  },
+  {
+    first_name:"Vorlová Pavlína",
+    phone:"",
+    mail:"pavlina.vorlova@centrum.cz"
+  },
+  {
+    first_name:"Voříšková",
+    phone:"606636381",
+    mail:""
+  },
+  {
+    first_name:"Votrlová",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Vozár Zdeněk",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Vožehová Silvie",
+    phone:"721309464",
+    mail:""
+  },
+  {
+    first_name:"Vraná hana",
+    phone:"604965056",
+    mail:""
+  },
+  {
+    first_name:"Vraštilová",
+    phone:"739756566",
+    mail:""
+  },
+  {
+    first_name:"Vyletová",
+    phone:"604611375",
+    mail:""
+  },
+  {
+    first_name:"Vyletová",
+    phone:"604611375",
+    mail:"e.sipova@seznam.cz"
+  },
+  {
+    first_name:"výplata - Hanka",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"výplata - Jana",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"výplata - Monika",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"výplata - Terka",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"výplata - Tom",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"výplaty",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"vytřít",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"vytřít úklid",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"vytvořit paně 2 až 3 drdoly TRénink",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"vyzkoušet si drdol na panně - na čtvrteční školení",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Walter",
+    phone:"737265943",
+    mail:""
+  },
+  {
+    first_name:"Zborníková",
+    phone:"605935497",
+    mail:""
+  },
+  {
+    first_name:"Zborníková",
+    phone:"",
+    mail:"eva.zbornikova1@seznam.cz"
+  },
+  {
+    first_name:"Zdeňková",
+    phone:"602364351",
+    mail:""
+  },
+  {
+    first_name:"Zdeňková",
+    phone:"724329362",
+    mail:""
+  },
+  {
+    first_name:"Zdeňková - byla k Tomovi",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Zdeňková Hana",
+    phone:"724329362",
+    mail:""
+  },
+  {
+    first_name:"Zdeňková, NK",
+    phone:"724329362",
+    mail:""
+  },
+  {
+    first_name:"Zdenková, wonder",
+    phone:"602364351",
+    mail:"jana.zdenkova@post.cz"
+  },
+  {
+    first_name:"Zemanová",
+    phone:"731485933",
+    mail:""
+  },
+  {
+    first_name:"Zíková",
+    phone:"777117447",
+    mail:""
+  },
+  {
+    first_name:"Zimanová Wanda",
+    phone:"605173799",
+    mail:"nairuwana@gmail.com"
+  },
+  {
+    first_name:"Zimová",
+    phone:"724758825",
+    mail:"zimovaka@seznam.cz"
+  },
+  {
+    first_name:"zkouška účesu na panně - viz FB",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"zkusit drdol na panně",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"zkuste zavola Pitrové, jestli by mohla dřív",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"zkuste zavolat Pitrové, jestli by mohla dřív",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Zlámalová",
+    phone:"608325389",
+    mail:""
+  },
+  {
+    first_name:"zpětná vazba na fotky - všichni s Jarkou",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"zpětná vazba s Jarkou",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"zpětná vazba s Jarkou na novou kadeřnici",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"zubař",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Zuberová Zuzana",
+    phone:"603404010",
+    mail:""
+  },
+  {
+    first_name:"Zuberová Zuzana",
+    phone:"",
+    mail:"zu.zuberova@gmail.com"
+  },
+  {
+    first_name:"Zuberová Zuzana - konzultace",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"zvedání telefonů, náplň práce za recepcí",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Zvědělíková Alice",
+    phone:"775214455",
+    mail:""
+  },
+  {
+    first_name:"Zvědělíková Alice",
+    phone:"",
+    mail:"a.zvedelikova@email.cz"
+  },
+  {
+    first_name:"Žáčková Ivona",
+    phone:"723985935",
+    mail:""
+  },
+  {
+    first_name:"Žebrakovský Michal",
+    phone:"603965498",
+    mail:"mohony.blatno@hmail.com"
+  },
+  {
+    first_name:"žibřidová",
+    phone:"604275657",
+    mail:""
+  },
+  {
+    first_name:"Žibřidová Zuzana",
+    phone:"604275657",
+    mail:"zibridova@gmail.com"
+  },
+  {
+    first_name:"Žižková",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"Strana 2 / 2",
+    phone:"",
+    mail:""
+  },
+  {
+    first_name:"",
+    phone:"",
+    mail:""
   }
 ]
 )
