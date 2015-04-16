@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413081629) do
+ActiveRecord::Schema.define(version: 20150416062637) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "first_name"
@@ -66,6 +66,17 @@ ActiveRecord::Schema.define(version: 20150413081629) do
 
   add_index "sells", ["deleted_at"], name: "index_sells_on_deleted_at"
 
+  create_table "supplies", force: :cascade do |t|
+    t.float    "purchase_price", default: 0.0, null: false
+    t.integer  "quantity",       default: 1,   null: false
+    t.integer  "item_id",                      null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.datetime "deleted_at"
+  end
+
+  add_index "supplies", ["deleted_at"], name: "index_supplies_on_deleted_at"
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -79,8 +90,8 @@ ActiveRecord::Schema.define(version: 20150413081629) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "authentication_token"
     t.datetime "deleted_at"
+    t.string   "authentication_token"
     t.boolean  "is_admin",               default: false, null: false
   end
 
