@@ -4,6 +4,7 @@ class CreateSupplies < ActiveRecord::Migration
       t.float :purchase_price, default: 0, null: false
       t.integer :quantity, default: 1, null: false
       t.integer :item_id, null: false
+      t.integer :vat, null: false, default: 21
 
       t.timestamps null: false
     end

@@ -27,6 +27,7 @@ Router.map(function() {
     this.route('visit', {path: 'visit/:id'});
     this.route('customer', {path: 'customer/:id'});
     this.route('employee', {path: 'employee/:id'});
+    this.route('supply');
   });
 });
 

@@ -89,6 +89,14 @@ export default {
     all_visits: 'Všechny zakázky'
   },
 
+  supply: {
+    heading: 'Naskladnění',
+    purchase_price: 'Nákupní cena',
+    quantity: 'Množství',
+    vat: 'DPH',
+    item: 'Položka skladu'
+  },
+
   employees: {
     all: 'Zaměstnanci'
   },
@@ -101,7 +109,8 @@ export default {
     admin: {
       items: 'Sklad',
       customers: 'Zákazníci',
-      employees: 'Zaměstnanci'
+      employees: 'Zaměstnanci',
+      supply: 'Naskladnění'
     },
     heading: {
       navigation: 'Navigace',
@@ -115,5 +124,6 @@ export default {
     logout: 'Odhlásit'
   },
 
-  currency: 'Kč'
+  currency: 'Kč',
+  pieces: 'ks'
 };

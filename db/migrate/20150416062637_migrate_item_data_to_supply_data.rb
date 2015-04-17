@@ -17,5 +17,7 @@ class MigrateItemDataToSupplyData < ActiveRecord::Migration
       supply.updated_at = item.updated_at
       supply.save!
     end
+
+    remove_column :items, :purchase_price
   end
 end
