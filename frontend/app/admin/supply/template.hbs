@@ -1,6 +1,17 @@
 <h2>{{t 'supply.heading'}}</h2>
 
 <div class="jumbotron">
+
+  <div class="form-group">
+    <label>{{t 'supply.item'}}</label>
+    {{ember-selectize
+        content=items
+        optionValuePath="content"
+        optionLabelPath="content.scanner_string"
+        selection=attrs.supply.item
+        placeholder=(t 'supply.item') }}
+  </div>
+
   <div class="form-group">
     <label>{{t 'supply.purchase_price'}}</label>
     <div class="input-group">
@@ -24,4 +35,8 @@
       <span class="input-group-addon">%</span>
     </div>
   </div>
+
+  <button {{action "createSupply"}} class="btn btn-primary">
+    {{t 'supply.create'}}
+  </button>
 </div>

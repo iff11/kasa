@@ -94,7 +94,8 @@ export default {
     purchase_price: 'Nákupní cena',
     quantity: 'Množství',
     vat: 'DPH',
-    item: 'Položka skladu'
+    item: 'Položka skladu',
+    create: 'Naskladnit'
   },
 
   employees: {
