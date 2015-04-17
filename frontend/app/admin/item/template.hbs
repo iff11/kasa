@@ -3,6 +3,8 @@
     {{item.name}}
   </h2>
 
+  <h3>{{t 'item.sold'}}</h3>
+
   <table class="table table-hover">
     <thead>
       <tr>
@@ -38,6 +40,33 @@
               {{fa-icon 'external-link'}}
             {{/link-to}}
           </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <h3>{{t 'item.bought'}}</h3>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th class="text-right">{{t 'supply.created_at'}}</th>
+        <th class="text-right">{{t 'supply.purchase_price'}}</th>
+        <th class="text-right">{{t 'supply.quantity'}}</th>
+        <th class="text-right">{{t 'supply.vat'}}</th>
+        <th class="text-right">{{t 'supply.sum'}}</th>
+        <th class="text-right">{{t 'supply.sum_with_vat'}}</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each item.supplies as |supply|}}
+        <tr>
+          <td class="text-right">{{supply.createdAt}}</td>
+          <td class="text-right">{{format-money supply.purchase_price symbol=(t 'currency') format="%v %s"}}</td>
+          <td class="text-right">{{supply.quantity}}</td>
+          <td class="text-right">{{supply.vat}}%</td>
+          <td class="text-right">{{format-money supply.sum symbol=(t 'currency') format="%v %s"}}</td>
+          <td class="text-right">{{format-money supply.sum_with_vat symbol=(t 'currency') format="%v %s"}}</td>
         </tr>
       {{/each}}
     </tbody>

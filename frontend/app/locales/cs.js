@@ -76,7 +76,9 @@ export default {
     barcode: 'Čárový kód',
     unlimited_or_stock: 'Neomezeně / Počet skladem',
     action: 'Akce',
-    actualCount: 'Skladem'
+    actualCount: 'Skladem',
+    sold: 'Prodáno',
+    bought: 'Naskladněno'
   },
 
   employee: {
@@ -95,7 +97,10 @@ export default {
     quantity: 'Množství',
     vat: 'DPH',
     item: 'Položka skladu',
-    create: 'Naskladnit'
+    create: 'Naskladnit',
+    created_at: 'Naskladněno',
+    sum: 'Celková cena',
+    sum_with_vat: 'Celková cena s DPH'
   },
 
   employees: {
