@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150416062637) do
+ActiveRecord::Schema.define(version: 20150417165514) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "first_name"
@@ -39,19 +39,8 @@ ActiveRecord::Schema.define(version: 20150416062637) do
 
   add_index "employees", ["deleted_at"], name: "index_employees_on_deleted_at"
 
-  create_table "items", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.float    "selling_price"
-    t.integer  "stock"
-    t.boolean  "unlimited",     default: true
-    t.string   "barcode"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.datetime "deleted_at"
-  end
-
-  add_index "items", ["deleted_at"], name: "index_items_on_deleted_at"
+# Could not dump table "items" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "sells", force: :cascade do |t|
     t.integer  "item_id"

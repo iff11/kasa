@@ -20,11 +20,11 @@ gem 'unicorn'
 
 gem 'bootstrap-sass'
 
-gem 'simple_form', git: 'https://github.com/plataformatec/simple_form'
 gem 'font-awesome-sass'
 gem 'ember-cli-rails'
 gem 'active_model_serializers', '~> 0.9.3'
-gem "paranoia", :git => 'https://github.com/radar/paranoia.git', :branch => 'rails4'
+gem 'paranoia', :git => 'https://github.com/radar/paranoia.git', :branch => 'rails4'
+gem 'counter_culture', '~> 0.1.23'
 
 gem 'devise'
 gem 'cancan'
@@ -38,13 +38,13 @@ group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 
-  gem "rails-erd"
+  gem 'rails-erd'
 end
 
 group :production do
   gem 'rails_12factor'
   gem 'pg'
-  gem "skylight"
+  gem 'skylight'
   # gem 'unicorn'
   # gem 'skylight'
 end

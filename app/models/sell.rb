@@ -3,4 +3,5 @@ class Sell < ActiveRecord::Base
 
   belongs_to :item
   belongs_to :visit
+  counter_culture :item, column_name: 'sold', delta_column: 'count'
 end

@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/plataformatec/simple_form
-  revision: ad83ff9207afd79234ed8bb4c706e404081fe6a7
-  specs:
-    simple_form (3.1.0)
-      actionpack (~> 4.0)
-      activemodel (~> 4.0)
-
-GIT
   remote: https://github.com/radar/paranoia.git
   revision: df42daa3d95f4a387c7656a23d8f878eddb8cea8
   branch: rails4
@@ -54,6 +46,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    after_commit_action (1.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
     arel (6.0.0)
     autoprefixer-rails (5.1.7)
       execjs
@@ -65,6 +60,10 @@ GEM
     builder (3.2.2)
     cancan (1.6.10)
     choice (0.1.7)
+    counter_culture (0.1.33)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      after_commit_action (~> 1.0.0)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -185,6 +184,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.9.3)
   bootstrap-sass
   cancan
+  counter_culture (~> 0.1.23)
   devise
   ember-cli-rails
   font-awesome-sass
@@ -196,7 +196,6 @@ DEPENDENCIES
   rails-erd
   rails_12factor
   sass-rails (~> 5.0)
-  simple_form!
   skylight
   spring
   sqlite3
