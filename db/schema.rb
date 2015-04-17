@@ -39,8 +39,20 @@ ActiveRecord::Schema.define(version: 20150417165514) do
 
   add_index "employees", ["deleted_at"], name: "index_employees_on_deleted_at"
 
-# Could not dump table "items" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "items", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.float    "selling_price"
+    t.boolean  "unlimited",     default: true
+    t.string   "barcode"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.datetime "deleted_at"
+    t.integer  "bought",        default: 0
+    t.integer  "sold",          default: 0
+  end
+
+  add_index "items", ["deleted_at"], name: "index_items_on_deleted_at"
 
   create_table "sells", force: :cascade do |t|
     t.integer  "item_id"
