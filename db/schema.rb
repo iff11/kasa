@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150417165514) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "customers", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150417165514) do
     t.integer  "visits_count"
   end
 
-  add_index "customers", ["deleted_at"], name: "index_customers_on_deleted_at"
+  add_index "customers", ["deleted_at"], name: "index_customers_on_deleted_at", using: :btree
 
   create_table "employees", force: :cascade do |t|
     t.string   "first_name"
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 20150417165514) do
     t.datetime "deleted_at"
   end
 
-  add_index "employees", ["deleted_at"], name: "index_employees_on_deleted_at"
+  add_index "employees", ["deleted_at"], name: "index_employees_on_deleted_at", using: :btree
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
@@ -52,7 +55,7 @@ ActiveRecord::Schema.define(version: 20150417165514) do
     t.integer  "sold",          default: 0
   end
 
-  add_index "items", ["deleted_at"], name: "index_items_on_deleted_at"
+  add_index "items", ["deleted_at"], name: "index_items_on_deleted_at", using: :btree
 
   create_table "sells", force: :cascade do |t|
     t.integer  "item_id"
@@ -64,7 +67,7 @@ ActiveRecord::Schema.define(version: 20150417165514) do
     t.datetime "deleted_at"
   end
 
-  add_index "sells", ["deleted_at"], name: "index_sells_on_deleted_at"
+  add_index "sells", ["deleted_at"], name: "index_sells_on_deleted_at", using: :btree
 
   create_table "supplies", force: :cascade do |t|
     t.float    "purchase_price", default: 0.0, null: false
@@ -76,7 +79,7 @@ ActiveRecord::Schema.define(version: 20150417165514) do
     t.datetime "deleted_at"
   end
 
-  add_index "supplies", ["deleted_at"], name: "index_supplies_on_deleted_at"
+  add_index "supplies", ["deleted_at"], name: "index_supplies_on_deleted_at", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -96,9 +99,9 @@ ActiveRecord::Schema.define(version: 20150417165514) do
     t.boolean  "is_admin",               default: false, null: false
   end
 
-  add_index "users", ["deleted_at"], name: "index_users_on_deleted_at"
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "visits", force: :cascade do |t|
     t.text     "note"
@@ -112,6 +115,6 @@ ActiveRecord::Schema.define(version: 20150417165514) do
     t.float    "received_amount"
   end
 
-  add_index "visits", ["deleted_at"], name: "index_visits_on_deleted_at"
+  add_index "visits", ["deleted_at"], name: "index_visits_on_deleted_at", using: :btree
 
 end
