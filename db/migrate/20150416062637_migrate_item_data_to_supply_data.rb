@@ -1,7 +1,10 @@
 class MigrateItemDataToSupplyData < ActiveRecord::Migration
   def change
+    add_column :items, :bought, :integer, nil: false, default: 0
+    add_column :items, :sold, :integer, nil: false, default: 0
+
     Item.all.with_deleted.each do |item|
-      if item.purchase_price == item.selling_price
+      if item.purchase_price == item.selling_price && !item.selling_price.nil?
         item.selling_price = item.selling_price * 1.21
         item.save!
       end

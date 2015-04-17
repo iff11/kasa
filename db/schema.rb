@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(version: 20150417165514) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "deleted_at"
     t.string   "authentication_token"
+    t.datetime "deleted_at"
     t.boolean  "is_admin",               default: false, null: false
   end
 
