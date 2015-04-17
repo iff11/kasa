@@ -1,6 +1,13 @@
 class MigrateItemDataToSupplyData < ActiveRecord::Migration
   def change
     Item.all.with_deleted.each do |item|
+      if item.purchase_price == item.selling_price
+        item.selling_price = item.selling_price * 1.21
+        item.save!
+      end
+    end
+
+    Item.all.with_deleted.each do |item|
       supply = Supply.new
       supply.item_id = item.id
 

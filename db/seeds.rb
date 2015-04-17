@@ -87,10 +87,10 @@ kondicioner = Item.create(
   {
     name: 'Kondicioner',
     description: 'Intensive mega color creme',
-    selling_price: 123.0,
+    selling_price: 100,
     stock: 3,
     unlimited: false,
-    purchase_price: 12.3
+    purchase_price: 100
   }
 )
 Sell.create(

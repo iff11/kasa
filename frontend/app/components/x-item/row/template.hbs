@@ -18,14 +18,8 @@
     {{#if item.unlimited}}
       &#8734;
     {{else}}
-      {{item.stock}}
-      <em {{bind-attr title=(t 'item.actualCount')}}>
-        ({{item.actual_count}})
-      </em>
+      {{item.actual_count}}
     {{/if}}
-  </td>
-  <td class="text-right">
-    {{x-item/price value=item.purchase_price}}
   </td>
   <td class="text-right">
     {{x-item/price value=item.selling_price}}

@@ -72,11 +72,11 @@ export default {
     name: 'Název',
     stock: 'Skladem',
     purchase_price: 'Nákup',
-    selling_price: 'Prodej',
+    selling_price: 'Cena prodej',
     barcode: 'Čárový kód',
-    unlimited_or_stock: '∞ / kusů',
+    unlimited_or_stock: 'Neomezeně / Počet skladem',
     action: 'Akce',
-    actualCount: 'skladem'
+    actualCount: 'Skladem'
   },
 
   employee: {

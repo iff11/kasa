@@ -3,25 +3,7 @@
 </td>
 
 <td class="text-right">
-  <div class="input-group">
-    <span class="input-group-addon">
-      {{input
-          checked=item.unlimited
-          type="checkbox"}}
-    </span>
-    {{input
-        value=item.stock
-        placeholder=(t 'items.newStock')
-        class="form-control text-right"
-        disabled=item.unlimited}}
-  </div>
-</td>
-
-<td class="text-right">
-  <div class="input-group">
-    {{input value=item.purchase_price placeholder=(t 'items.newDefaultPrice') class="form-control text-right"}}
-    <span class="input-group-addon">{{t 'currency'}}</span>
-  </div>
+  {{input checked=item.unlimited type="checkbox"}}
 </td>
 
 <td class="text-right">
