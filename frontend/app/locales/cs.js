@@ -49,10 +49,11 @@ export default {
   items: {
     all: 'Všechny položky na skladě',
     add: 'Přidat',
+    new: 'Nová položka skladu',
     newName: 'Nová položka',
     newBarcode: '123456789',
     newStock: '10',
-    newDefaultPrice: '100',
+    newSellingPrice: '100'
   },
 
   sell: {
@@ -72,7 +73,8 @@ export default {
     name: 'Název',
     stock: 'Skladem',
     purchase_price: 'Nákup',
-    selling_price: 'Cena prodej',
+    unlimited: 'Neomezené množství',
+    selling_price: 'Prodejní cena',
     barcode: 'Čárový kód',
     unlimited_or_stock: 'Neomezeně / Počet skladem',
     action: 'Akce',

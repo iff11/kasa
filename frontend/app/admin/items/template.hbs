@@ -1,4 +1,22 @@
-<h2>{{t 'items.all'}}</h2>
+<h2>
+  <div class="row">
+    <div class="col-xs-6">
+      {{t 'items.all'}}
+    </div>
+
+    <div class="col-xs-6 text-right">
+      <a {{action 'toggleRouteNew'}} class='btn btn-success'>
+        {{t 'items.new'}} {{fa-icon toggleIconNew}}
+      </a>
+    </div>
+  </div>
+</h2>
+
+{{#if isShowingNewForm}}
+  <div class="well">
+    {{outlet}}
+  </div>
+{{/if}}
 
 <table class="table table-hover">
   <thead>
@@ -12,17 +30,10 @@
   </thead>
 
   <tbody>
-    {{#each item in attrs.items}}
+    {{#each item in pagedContent}}
       {{x-item/row item=item update="updateItem" delete="deleteItem"}}
     {{/each}}
-
-    <tr>
-      {{x-item/row/form item=heap}}
-      <td class="text-right">
-        <button class="btn btn-success" {{action 'createItem'}}>
-          {{fa-icon 'plus-square'}} {{t 'items.add'}}
-        </button>
-      </td>
-    </tr>
   </tbody>
 </table>
+
+{{page-numbers content=pagedContent}}

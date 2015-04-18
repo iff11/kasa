@@ -1,43 +1,27 @@
 import Ember from 'ember';
+import pagedArray from 'ember-cli-pagination/computed/paged-array';
 
 export default Ember.Controller.extend({
-  attrs: {},
-  heap: {
-    unlimited: false
-  },
+  attrs: {items: []},
 
-  // newUnlimited: false,
-  // setInfiniteStock: function() {
-  //   if(this.get('newUnlimited') === true) {
-  //     this.set('newStock', '∞');
-  //   } else {
-  //     this.set('newStock', 1)
-  //   }
-  // }.observes('newUnlimited'),
+  isShowingNewForm: false,
+
+  toggleIconNew: function() {
+    if(this.get('isShowingNewForm')) {
+      return 'chevron-down';
+    } else {
+      return 'chevron-up';
+    }
+  }.property('isShowingNewForm'),
+
+  queryParams: ["page", "perPage"],
+  page: 1,
+  perPage: 20,
+  pagedContent: pagedArray("attrs.items", {pageBinding: "page", perPageBinding: "perPage"}),
+  totalPagesBinding: "pagedContent.totalPages",
 
 
   actions: {
-    createItem: function() {
-      var item = this.store.createRecord('item', {
-        name: this.get('heap.name'),
-        barcode: this.get('heap.barcode'),
-        stock: this.get('heap.stock'),
-        purchase_price: this.get('heap.purchase_price'),
-        selling_price: this.get('heap.selling_price'),
-        unlimited: this.get('heap.unlimited')
-      });
-
-      var that = this;
-      var flash = Ember.get(this, 'flashMessages');
-
-      item.save().then(function() {
-        that.set('heap', {unlimited: false});
-        flash.success('Successfully saved!');
-      }, function(response) {
-        flash.danger('Something went wrong!');
-      });
-    },
-
     deleteItem: function(item) {
       var flash = Ember.get(this, 'flashMessages');
 
@@ -57,6 +41,15 @@ export default Ember.Controller.extend({
       }, function(response) {
         flash.danger('Item cannot be updated! ' + response.responseText);
       });
+    },
+
+    toggleRouteNew: function() {
+      this.toggleProperty('isShowingNewForm');
+      if(this.get('isShowingNewForm')) {
+        this.transitionTo('admin.items.new');
+      } else {
+        this.transitionTo('admin.items');
+      }
     }
   }
 });
