@@ -1,6 +1,6 @@
 <h2>{{t 'supply.heading'}}</h2>
 
-<div class="jumbotron">
+<div class="jumbotron col-xs-12">
 
   <div class="form-group">
     <label>{{t 'supply.item'}}</label>
@@ -15,7 +15,7 @@
   <div class="form-group">
     <label>{{t 'supply.purchase_price'}}</label>
     <div class="input-group">
-      {{input placeholder=(t 'supply.purchase_price') value=attrs.supply.purchase_price class='form-control'}}
+      {{input placeholder=(t 'supply.purchase_price') value=attrs.supply.purchase_price class='form-control text-right'}}
       <span class="input-group-addon">{{t 'currency'}}</span>
     </div>
   </div>
@@ -23,7 +23,7 @@
   <div class="form-group">
     <label>{{t 'supply.quantity'}}</label>
     <div class="input-group">
-      {{input placeholder=(t 'supply.quantity') value=attrs.supply.quantity class='form-control'}}
+      {{input placeholder=(t 'supply.quantity') value=attrs.supply.quantity class='form-control text-right'}}
       <span class="input-group-addon">{{t 'pieces'}}</span>
     </div>
   </div>
@@ -31,7 +31,7 @@
   <div class="form-group">
     <label>{{t 'supply.vat'}}</label>
     <div class="input-group">
-      {{input placeholder=(t 'supply.vat') value='21' disabled='true' class='form-control'}}
+      {{input placeholder=(t 'supply.vat') value='21' disabled='true' class='form-control text-right'}}
       <span class="input-group-addon">%</span>
     </div>
   </div>

@@ -19,5 +19,9 @@ export default DS.Model.extend({
 
   stock: function() {
     return this.get('bought') - this.get('sold');
-  }.property('bought', 'sold')
+  }.property('bought', 'sold'),
+
+  lastSupply: function() {
+    return this.get('supplies').get('lastObject');
+  }.property('supplies.@each')
 });
