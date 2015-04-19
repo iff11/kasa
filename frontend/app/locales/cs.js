@@ -49,7 +49,6 @@ export default {
   items: {
     all: 'Všechny položky na skladě',
     add: 'Přidat',
-    new: 'Nová položka skladu',
     newName: 'Nová položka',
     newBarcode: '123456789',
     newStock: '10',
@@ -70,6 +69,7 @@ export default {
   },
 
   item: {
+    new: 'Nová položka skladu',
     name: 'Název',
     stock: 'Skladem',
     purchase_price: 'Nákup',

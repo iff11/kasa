@@ -21,7 +21,11 @@ Router.map(function() {
     this.route('items', function() {
       this.route('new');
     });
-    this.route('item', {path: 'item/:id'});
+    this.route('item', function () {
+      this.route('new');
+      this.route('show', {path: '/:id'});
+    });
+
 
     this.route('customers');
     this.route('employees');

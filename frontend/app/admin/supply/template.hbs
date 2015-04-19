@@ -1,4 +1,16 @@
-<h2>{{t 'supply.heading'}}</h2>
+<h2>
+  <div class="row">
+    <div class="col-xs-6">
+      {{t 'supply.heading'}}
+    </div>
+
+    <div class="col-xs-6 text-right">
+      {{#link-to 'admin.item.new' class='btn btn-success'}}
+        {{t 'item.new'}} {{fa-icon 'plus'}}
+      {{/link-to}}
+    </div>
+  </div>
+</h2>
 
 <div class="jumbotron col-xs-12">
 
