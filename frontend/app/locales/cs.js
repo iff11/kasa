@@ -76,7 +76,7 @@ export default {
     unlimited: 'Neomezené množství',
     selling_price: 'Prodejní cena',
     barcode: 'Čárový kód',
-    unlimited_or_stock: 'Neomezeně / Počet skladem',
+    unlimited_or_stock: 'Koupeno - Prodáno = Skladem',
     action: 'Akce',
     actualCount: 'Skladem',
     sold: 'Prodáno',
