@@ -1,15 +1,9 @@
 class VisitSerializer < ActiveModel::Serializer
-  attributes :id, :note, :completed, :date, :price_with_tip, :received_amount, :customer_id, :employee_id
+  attributes :id, :note, :completed, :date, :price_with_tip, :received_amount
 
-  #, :links
-
-  # has_one :customer
-  # has_one :employee
-  has_many :sells, embed_in_root: false
-
-  # def links
-  #   { sells: sells_path(id) }
-  # end
+  has_one :customer
+  has_one :employee
+  has_many :sells
 
   def date
     object.created_at
