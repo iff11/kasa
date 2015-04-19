@@ -52,7 +52,8 @@ export default {
     newName: 'Nová položka',
     newBarcode: '123456789',
     newStock: '10',
-    newSellingPrice: '100'
+    newSellingPrice: '100',
+    newWarningThreshold: '5'
   },
 
   sell: {
@@ -80,7 +81,8 @@ export default {
     action: 'Akce',
     actualCount: 'Skladem',
     sold: 'Prodáno',
-    bought: 'Naskladněno'
+    bought: 'Naskladněno',
+    warningThreshold: 'Minimálně skladem'
   },
 
   employee: {

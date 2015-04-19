@@ -33,6 +33,6 @@ class ItemsController < ApplicationController
 
   private
     def item_params
-      params.require(:item).permit(:name, :purchase_price, :selling_price, :unlimited, :barcode)
+      params.require(:item).permit(:name, :purchase_price, :selling_price, :unlimited, :barcode, :warning_threshold)
     end
 end

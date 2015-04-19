@@ -24,10 +24,11 @@
   </thead>
 
   <tbody>
-    {{#each item in pagedContent}}
+    {{!#each item in pagedContent}}
+    {{#each item in attrs.items}}
       {{x-item/row item=item update="updateItem" delete="deleteItem"}}
     {{/each}}
   </tbody>
 </table>
 
-{{page-numbers content=pagedContent}}
+{{!page-numbers content=pagedContent}}

@@ -17,7 +17,7 @@
           {{#if item.unlimited}}
             &#8734; - {{item.sold}} = &#8734;
           {{else}}
-            {{item.bought}} - {{item.sold}} = {{item.stock}}
+            {{item.bought}} - {{item.sold}} = {{x-item/stock-icon item=item}}
           {{/if}}
         </td>
         <td class="text-right">

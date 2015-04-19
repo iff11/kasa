@@ -9,9 +9,14 @@ export default DS.Model.extend({
   unlimited: DS.attr(),
   barcode: DS.attr(),
   actual_count: DS.attr(),
+  warningThreshold: DS.attr(),
 
   sells: DS.hasMany('sell', {async: true}),
   supplies: DS.hasMany('supply', {async: true}),
+
+  lowStock: function() {
+    return this.get('stock') <= this.get('warningThreshold');
+  }.property('stock', 'warningThreshold'),
 
   scanner_string: function() {
     return this.get('name') + ' - ' + this.get('barcode');

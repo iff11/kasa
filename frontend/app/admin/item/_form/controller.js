@@ -13,7 +13,8 @@ export default Ember.Controller.extend({
         stock: this.get('heap.stock'),
         purchase_price: this.get('heap.purchase_price'),
         selling_price: this.get('heap.selling_price'),
-        unlimited: this.get('heap.unlimited')
+        unlimited: this.get('heap.unlimited'),
+        warningThreshold: this.get('heap.warningThreshold')
       });
 
       var that = this;

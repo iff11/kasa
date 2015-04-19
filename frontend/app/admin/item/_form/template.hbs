@@ -16,6 +16,14 @@
   {{input value=heap.barcode placeholder=(t 'items.newBarcode') class="form-control text-right"}}
 </div>
 
+<div class="form-group">
+  <label>{{t 'item.warningThreshold'}}</label>
+  <div class="input-group">
+    {{input value=heap.warningThreshold placeholder=(t 'items.newWarningThreshold') class="form-control text-right"}}
+    <span class="input-group-addon">{{t 'pieces'}}</span>
+  </div>
+</div>
+
 <div class="checkbox">
   <label>
     {{input checked=heap.unlimited type="checkbox"}}
