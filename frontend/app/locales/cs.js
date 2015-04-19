@@ -82,7 +82,8 @@ export default {
     actualCount: 'Skladem',
     sold: 'Prodáno',
     bought: 'Naskladněno',
-    warningThreshold: 'Minimálně skladem'
+    warningThreshold: 'Minimálně skladem',
+    edit: 'Upravit'
   },
 
   employee: {

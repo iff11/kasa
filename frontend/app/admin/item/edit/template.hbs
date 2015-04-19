@@ -1,0 +1,12 @@
+<h2>
+  {{t 'item.edit'}}
+  "{{attrs.item.name}}"
+</h2>
+
+{{#with attrs.item as |item|}}
+  {{partial 'admin/item/_form'}}
+{{/with}}
+
+<button class="btn btn-primary" {{action 'updateItem'}}>
+  {{fa-icon 'save'}} {{t 'item.edit'}}
+</button>

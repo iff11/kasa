@@ -18,11 +18,10 @@ Router.map(function() {
   });
 
   this.route('admin', function() {
-    this.route('items', function() {
-      this.route('new');
-    });
+    this.route('items');
     this.route('item', function () {
       this.route('new');
+      this.route('edit', {path: '/edit/:id'});
       this.route('show', {path: '/:id'});
     });
 
