@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419150306) do
+ActiveRecord::Schema.define(version: 20150420185818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20150419150306) do
     t.integer  "bought",            default: 0
     t.integer  "sold",              default: 0
     t.integer  "warning_threshold", default: 0,    null: false
+    t.integer  "last_supply"
   end
 
   add_index "items", ["deleted_at"], name: "index_items_on_deleted_at", using: :btree

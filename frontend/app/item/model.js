@@ -11,8 +11,10 @@ export default DS.Model.extend({
   actual_count: DS.attr(),
   warningThreshold: DS.attr(),
 
+  lastSupply: DS.belongsTo('supply', {async: true}),
+
   sells: DS.hasMany('sell', {async: true}),
-  supplies: DS.hasMany('supply', {async: true}),
+  supplies: DS.hasMany('supply', {async: true, inverse: 'item'}),
 
   lowStock: function() {
     return this.get('stock') <= this.get('warningThreshold');
@@ -25,8 +27,4 @@ export default DS.Model.extend({
   stock: function() {
     return this.get('bought') - this.get('sold');
   }.property('bought', 'sold'),
-
-  lastSupply: function() {
-    return this.get('supplies').get('lastObject');
-  }.property('supplies.@each')
 });
