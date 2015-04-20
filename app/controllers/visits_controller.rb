@@ -2,7 +2,7 @@ class VisitsController < ApplicationController
   before_action :set_visit, only: [:show, :edit, :update, :destroy]
 
   def index
-    render json: Visit.all
+    render json: Visit.includes(:sells, :customer, :employee).all
   end
 
   def show

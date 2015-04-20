@@ -1,6 +1,4 @@
 class SellsController < ApplicationController
-  respond_to :json
-
   def index
     render json: Sell.all
   end

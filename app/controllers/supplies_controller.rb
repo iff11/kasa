@@ -1,5 +1,5 @@
 class SuppliesController < ApplicationController
-   def index
+  def index
     render json: Supply.all
   end
 
