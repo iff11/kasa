@@ -11,7 +11,10 @@ export default DS.Model.extend({
   actual_count: DS.attr(),
   warningThreshold: DS.attr(),
 
-  lastSupply: DS.belongsTo('supply', {async: true}),
+  last_supply: DS.belongsTo('supply', {async: true}),
+  lastSupply: function() {
+    return this.get('last_supply');
+  }.property('last_supply'),
 
   sells: DS.hasMany('sell', {async: true}),
   supplies: DS.hasMany('supply', {async: true, inverse: 'item'}),
@@ -26,5 +29,5 @@ export default DS.Model.extend({
 
   stock: function() {
     return this.get('bought') - this.get('sold');
-  }.property('bought', 'sold'),
+  }.property('bought', 'sold')
 });

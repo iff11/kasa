@@ -10,6 +10,7 @@ export default Ember.Controller.extend({
   }.observes('attrs.supply.item'),
 
   lastSupply: function () {
+    console.log('lastSupply: ', this.get('attrs.supply.item.lastSupply'));
     return this.get('attrs.supply.item.lastSupply');
   }.property('attrs.supply.item'),
 

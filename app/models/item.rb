@@ -6,6 +6,6 @@ class Item < ActiveRecord::Base
   has_many :sells
   has_many :supplies
 
-  # Don't really know why this does not work
-  # belongs_to :last_supply, class_name: 'Supply'
+  # Do not enable this. It will fuckup last_supply in ember because it will embed the data
+  # belongs_to :last_supply, class_name: 'Supply', foreign_key: 'last_supply'
 end

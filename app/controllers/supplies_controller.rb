@@ -6,7 +6,11 @@ class SuppliesController < ApplicationController
   def create
     supply = Supply.new(supply_params)
     if supply.save
-      render json: supply
+      supply.item.last_supply = supply.id
+
+      if supply.item.save
+        render json: supply
+      end
     end
   end
 
