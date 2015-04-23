@@ -30,5 +30,10 @@ export default DS.Model.extend({
 
   stock: function() {
     return this.get('bought') - this.get('sold');
-  }.property('bought', 'sold')
+  }.property('bought', 'sold'),
+
+  margin: function() {
+    // TODO: This should be some globally configurable employee margin
+    return Math.round(((1 - 0.1) * this.get('selling_price') - this.get('lastSupply.purchasePriceWithVat')) / this.get('lastSupply.purchasePriceWithVat') * 100).toFixed(1);
+  }.property('selling_price', 'lastSupply')
 });
