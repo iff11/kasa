@@ -99,6 +99,7 @@ export default {
   supply: {
     heading: 'Naskladnění',
     purchase_price: 'Nákupní cena',
+    last_purchase_price: 'Poslední nákupní cena',
     quantity: 'Množství',
     vat: 'DPH',
     item: 'Položka skladu',

@@ -11,6 +11,7 @@ export default DS.Model.extend({
   actual_count: DS.attr(),
   warningThreshold: DS.attr(),
 
+  // TODO: WTF is this? Why is this here twice?
   last_supply: DS.belongsTo('supply', {async: true}),
   lastSupply: function() {
     return this.get('last_supply');
