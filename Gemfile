@@ -47,6 +47,4 @@ end
 group :production do
   gem 'rails_12factor'
   gem 'skylight'
-  # gem 'unicorn'
-  # gem 'skylight'
 end
