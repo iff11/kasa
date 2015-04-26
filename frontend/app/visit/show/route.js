@@ -7,5 +7,16 @@ export default Ember.Route.extend({
 
   setupController: function(controller, model) {
     controller.set('attrs.visit', model);
+  },
+
+  actions: {
+    willTransition: function(transition) {
+      if (this.controller.get('isDirty')) {
+        transition.abort();
+        Ember.get(this, 'flashMessages').danger(this.t('visit.isDirty'));
+      } else {
+        return true;
+      }
+    }
   }
 });

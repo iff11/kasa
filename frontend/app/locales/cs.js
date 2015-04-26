@@ -43,7 +43,8 @@ export default {
     received_amount: 'Přijatá částka',
     return_amount: 'K vrácení',
     date: 'Datum',
-    employee_margin: 'Podíl zaměstnance'
+    employee_margin: 'Podíl zaměstnance',
+    isDirty: 'Neuložili jste položku zakázky. Klikněte na zelené plus, nebo položku smažte.'
   },
 
   items: {

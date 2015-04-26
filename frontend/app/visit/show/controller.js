@@ -22,6 +22,10 @@ export default Ember.Controller.extend({
     return this.get('items').sortBy('name');
   }.property('items.[]'),
 
+  isDirty: function () {
+    return !Ember.isEmpty(this.get('heap.item'));
+  }.property('heap.item'),
+
   actions: {
     createSell: function() {
 
