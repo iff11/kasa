@@ -25,10 +25,17 @@ export default Ember.Controller.extend({
           supply = this.store.createRecord('supply', this.get('attrs.supply'));
 
       supply.save().then(function() {
+        flash.success('Supply successfully saved!');
+        if(that.get('attrs.supply.item.isDirty')) {
+          that.get('attrs.supply.item').save().then(function () {
+            flash.success('Item successfully updated!');
+          }, function (response) {
+            flash.danger('Updating item failed');
+          });
+        }
+
         that.set('attrs.supply.item', null);
-        // that.set('attrs.supply.purchase_price', null);
         that.set('attrs.supply.quantity', null);
-        flash.success('Successfully saved!');
       }, function(response) {
         flash.danger('Something went wrong!');
       });
