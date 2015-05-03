@@ -1,7 +1,25 @@
-{{#if session.isAuthenticated}}
+<div id="wrapper">
+  {{#if session.isAuthenticated}}
+    {{app-menu}}
+
+    <!-- Page Content -->
+    <div id="page-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+          {{liquid-outlet}}
+          </div>
+          <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+
+    <!--
   <div class="row">
     <div class="col-xs-3 sidebar-wrapper">
-      {{!app-sidebar visits=openVisits customers=attrs.customers logout="invalidateSession"}}
       {{app-sidebar logout="invalidateSession"}}
     </div>
 
@@ -22,8 +40,8 @@
       </div>
     </main>
   </div>
+  -->
 {{else}}
   {{liquid-outlet}}
 {{/if}}
-
-{{!outlet 'modal'}}
+</div>
