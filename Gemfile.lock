@@ -50,13 +50,7 @@ GEM
       activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)
     arel (6.0.0)
-    autoprefixer-rails (5.1.7)
-      execjs
-      json
     bcrypt (3.1.10)
-    bootstrap-sass (3.3.3)
-      autoprefixer-rails (>= 5.0.0.1)
-      sass (>= 3.2.19)
     builder (3.2.2)
     cancan (1.6.10)
     choice (0.1.7)
@@ -76,8 +70,6 @@ GEM
       sprockets (>= 2.0)
     erubis (2.7.0)
     execjs (2.3.0)
-    font-awesome-sass (4.3.1)
-      sass (~> 3.2)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     hike (1.2.3)
@@ -192,12 +184,10 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (~> 0.9.3)
-  bootstrap-sass
   cancan
   counter_culture (~> 0.1.23)
   devise
   ember-cli-rails
-  font-awesome-sass
   jquery-rails
   newrelic_rpm
   nokogiri

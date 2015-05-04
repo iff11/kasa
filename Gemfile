@@ -18,9 +18,6 @@ gem 'jquery-rails'
 # Use Unicorn as the app server
 gem 'unicorn'
 
-gem 'bootstrap-sass'
-
-gem 'font-awesome-sass'
 gem 'ember-cli-rails'
 gem 'active_model_serializers', '~> 0.9.3'
 gem 'paranoia', :git => 'https://github.com/radar/paranoia.git', :branch => 'rails4'
