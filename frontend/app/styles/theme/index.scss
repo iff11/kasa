@@ -4,6 +4,11 @@
 @import url(http://fonts.googleapis.com/css?family=Qwigley&subset=latin,latin-ext);
 @import url(http://fonts.googleapis.com/css?family=Libre+Baskerville&subset=latin,latin-ext);
 
+.navbar-top-links .dropdown-alerts .alert {
+  background: none;
+  border: none;
+}
+
 h1, h2 {
   border: dotted 0 $heading-color;
   border-bottom-width: 1px;

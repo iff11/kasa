@@ -3,11 +3,10 @@
 module.exports = function(environment) {
   var ENV = {
     flashMessageDefaults: {
-      timeout      : 10000,
-      priority     : 200,
-      sticky       : false,
-      showProgress : true,
-      type         : 'foobar',
+      timeout      : 1000,
+      priority     : 100,
+      sticky       : true,
+      showProgress : false,
       types        : [ 'success', 'danger' ]
     },
     'simple-auth': {

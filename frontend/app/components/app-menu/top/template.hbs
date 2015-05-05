@@ -1,4 +1,34 @@
 <ul class="nav navbar-top-links navbar-right">
+
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+      <i class="fa fa-bell fa-fw"></i> {{flashMessages.queue.length}}  <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-alerts">
+      {{#if flashMessages.queue.length}}
+        {{#each flashMessages.queue as |flash|}}
+          <li>
+            {{#flash-message flash=flash as |component flash|}}
+            {{log component}}
+            {{log flash}}
+              {{flash.message}}
+              <span class="pull-right text-muted small">
+                {{component.flashType}}
+              </span>
+            {{/flash-message}}
+          </li>
+        {{/each}}
+      {{else}}
+        <li>
+          <a>
+            {{t 'noNewNotifications'}}
+          </a>
+        </li>
+      {{/if}}
+    </ul>
+    <!-- /.dropdown-alerts -->
+  </li>
+
   <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
       <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -13,5 +43,6 @@
     <!-- /.dropdown-user -->
   </li>
   <!-- /.dropdown -->
+
 </ul>
 <!-- /.navbar-top-links -->
