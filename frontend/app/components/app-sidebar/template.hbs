@@ -5,79 +5,7 @@
 
 <h2 class='hide'>{{t 'sidebar.heading.navigation'}}</h2>
 
-<h3>{{t 'sidebar.heading.employee'}}</h3>
-<ul class="nav nav-pills nav-stacked">
-  <li>
-    {{#link-to 'customers'}}
-      {{fa-icon 'users'}}
-      {{t 'sidebar.customers'}}
-      <span class="pull-right label label-success">
-        {{birthdaysInWeek.length}}x
-        {{fa-icon 'birthday-cake'}}
-      </span>
-    {{/link-to}}
-  </li>
 
-  <li>
-    {{#link-to 'items'}}
-      {{fa-icon 'tags'}}
-      {{t 'sidebar.items'}}
-    {{/link-to}}
-  </li>
-
-  <li>
-    {{#link-to 'visits'}}
-      {{fa-icon 'coffee'}}
-      {{t 'sidebar.visits'}}
-      <span class="pull-right label label-success">
-        {{openVisits.length}}x
-        {{fa-icon 'user'}}
-      </span>
-    {{/link-to}}
-    <ul class="nav nav-second-level nav-pills nav-stacked">
-      {{#each openVisits as |visit|}}
-        <li>
-          {{#link-to 'visit.show' visit}}
-            {{visit-human-name visit=visit}}
-          {{/link-to}}
-        </li>
-      {{/each}}
-    </ul>
-  </li>
-</ul>
-
-{{#if session.is_admin}}
-  <h3>
-    {{fa-icon 'user'}}
-    {{t 'sidebar.heading.admin'}}
-  </h3>
-  <ul class="nav nav-pills nav-stacked">
-    <li>
-      {{#link-to 'admin.items'}}
-        {{fa-icon 'dropbox'}}
-        {{t 'sidebar.admin.items'}}
-      {{/link-to}}
-    </li>
-    <li>
-      {{#link-to 'admin.supply'}}
-        {{fa-icon 'truck'}}
-        {{t 'sidebar.admin.supply'}}
-      {{/link-to}}
-    </li>
-    <li>
-      {{#link-to 'admin.customers'}}
-        {{fa-icon 'male'}}
-        {{t 'sidebar.admin.customers'}}
-      {{/link-to}}
-    </li>
-    <li>
-      {{#link-to 'admin.employees'}}
-        {{fa-icon 'scissors'}}
-        {{t 'sidebar.admin.employees'}}
-      {{/link-to}}
-    </li>
-  </ul>
-{{/if}}
 
 <h3>
   {{t 'sidebar.heading.profile'}}

@@ -1,25 +1,31 @@
 @import "sb-admin-2";
 
-// legacy
 @import url(http://fonts.googleapis.com/css?family=Qwigley&subset=latin,latin-ext);
 @import url(http://fonts.googleapis.com/css?family=Libre+Baskerville&subset=latin,latin-ext);
 
-.navbar-top-links .dropdown-alerts .alert {
-  background: none;
-  border: none;
+.navbar-default {
+  .navbar-brand {
+    color: $brand-color;
+    padding-left: .5em;
+    font-size: 2em;
+    padding-top: .3em;
+  }
+
+  .dropdown-alerts .alert {
+    background: none;
+    border: none;
+  }
+
+  .sidebar-nav {
+    h3 {
+      color: $heading-color;
+      padding-left: .7em;
+    }
+  }
 }
 
-h1, h2 {
-  border: dotted 0 $heading-color;
-  border-bottom-width: 1px;
-  padding-bottom: 10px;
-  font-family: 'Libre Baskerville', serif;
-  color: $heading-color;
-}
+// legacy
 
-h1 {
-  padding-left: .5em;
-}
 
 h2 {
   padding-top: .2em;
@@ -59,17 +65,8 @@ a {
       padding-left: 4em;
     }
 
-    h3 {
-      color: $heading-color;
-      padding-left: .7em;
-    }
   }
 }
-
-.navbar-default {
-  border: none;
-}
-
 
 .well {
   h3 {
