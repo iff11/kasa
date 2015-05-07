@@ -59,7 +59,7 @@
         {{#each visits as |visit|}}
           <tr>
             <td>
-              {{#link-to 'visit.show' visit.id}}
+              {{#link-to 'admin.visit' visit.id}}
                 {{x-visit/completed visit=visit}}
                 {{date-and-time visit.date 'cs'}}
               {{/link-to}}
