@@ -35,7 +35,8 @@
           {{#each openVisits as |visit|}}
             <li>
               {{#link-to 'visit.show' visit}}
-                {{visit-human-name visit=visit}}
+                {{visit.customer.full_name}}
+                <img class="pull-right img-circle" {{bind-attr src="visit.employee.photo_url"}} />
               {{/link-to}}
             </li>
           {{/each}}
