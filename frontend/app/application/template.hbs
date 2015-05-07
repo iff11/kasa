@@ -1,6 +1,7 @@
 <div id="wrapper">
   {{#if session.isAuthenticated}}
-    {{outlet "menu"}}
+    {{!outlet "menu"}}
+    {{render "menu"}}
 
     <!-- Page Content -->
     <div id="page-wrapper">
