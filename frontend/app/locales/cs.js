@@ -102,6 +102,7 @@ export default {
     heading: 'Naskladnění',
     purchase_price: 'Nákupní cena',
     last_purchase_price_with_vat: 'Poslední nákupní cena s DPH',
+    last_purchase_price: 'Poslední nákupní cena',
     quantity: 'Množství',
     vat: 'DPH',
     item: 'Položka skladu',

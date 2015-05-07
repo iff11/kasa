@@ -17,6 +17,7 @@
     <tr>
       <th class="col-xs-3">{{t 'item.name'}}</th>
       <th class="col-xs-3 text-right">{{t 'item.unlimited_or_stock'}}</th>
+      <th class="col-xs-1 text-right">{{t 'supply.last_purchase_price'}}</th>
       <th class="col-xs-1 text-right">{{t 'supply.last_purchase_price_with_vat'}}</th>
       <th class="col-xs-1 text-right">{{t 'item.selling_price'}}</th>
       <th class="col-xs-1 text-right">{{t 'item.margin'}}</th>
@@ -40,6 +41,9 @@
           {{else}}
             {{item.bought}} - {{item.sold}} = {{x-item/stock-icon item=item}}
           {{/if}}
+        </td>
+        <td class="text-right">
+          {{x-item/price value=item.lastSupply.purchase_price}}
         </td>
         <td class="text-right">
           {{x-item/price value=item.lastSupply.purchasePriceWithVat}}
