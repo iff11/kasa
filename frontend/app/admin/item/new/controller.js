@@ -11,8 +11,8 @@ export default Ember.Controller.extend({
         name: this.get('heap.name'),
         barcode: this.get('heap.barcode'),
         stock: this.get('heap.stock'),
-        purchase_price: this.get('heap.purchase_price'),
-        selling_price: this.get('heap.selling_price'),
+        // purchase_price: this.get('heap.purchase_price'),
+        // selling_price: this.get('heap.selling_price'),
         unlimited: this.get('heap.unlimited'),
         warningThreshold: this.get('heap.warningThreshold')
       });
