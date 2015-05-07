@@ -1,6 +1,6 @@
 <div id="wrapper">
   {{#if session.isAuthenticated}}
-    {{app-menu logout="invalidateSession"}}
+    {{outlet "menu"}}
 
     <!-- Page Content -->
     <div id="page-wrapper">
