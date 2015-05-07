@@ -76,7 +76,7 @@ export default {
     stock: 'Skladem',
     purchase_price: 'Nákup',
     unlimited: 'Neomezené množství',
-    selling_price: 'Prodejní cena',
+    selling_price: 'Prodejní cena (s DPH)',
     barcode: 'Čárový kód',
     unlimited_or_stock: 'Koupeno - Prodáno = Skladem',
     action: 'Akce',
@@ -100,11 +100,11 @@ export default {
 
   supply: {
     heading: 'Naskladnění',
-    purchase_price: 'Nákupní cena',
+    purchase_price: 'Nákupní cena (bez DPH)',
     last_purchase_price_with_vat: 'Poslední nákupní cena s DPH',
     last_purchase_price: 'Poslední nákupní cena',
     quantity: 'Množství',
-    vat: 'DPH',
+    vat: 'DPH nákupu',
     item: 'Položka skladu',
     create: 'Naskladnit',
     created_at: 'Naskladněno',
