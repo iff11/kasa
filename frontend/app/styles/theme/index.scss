@@ -22,7 +22,16 @@
       padding-left: .7em;
     }
   }
+
+  .employee-avatar-in-sidebar {
+    @extend .pull-right;
+    @extend .img-circle;
+
+    height: 2em;
+    margin-top: -.5em;
+  }
 }
+
 
 // legacy
 

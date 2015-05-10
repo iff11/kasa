@@ -36,7 +36,7 @@
             <li>
               {{#link-to 'visit.show' visit}}
                 {{visit.customer.full_name}}
-                <img class="pull-right img-circle" {{bind-attr src="visit.employee.photo_url"}} />
+                <img class="employee-avatar-in-sidebar" {{bind-attr src="visit.employee.photo_url"}} />
               {{/link-to}}
             </li>
           {{/each}}
