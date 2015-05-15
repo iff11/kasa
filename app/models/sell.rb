@@ -11,3 +11,4 @@ class Sell < ActiveRecord::Base
   #   self.counter_culture_fix_counts
   # end
 end
+
