@@ -28,7 +28,7 @@
 
   <tbody>
     {{!#each item in pagedContent}}
-    {{#each item in attrs.items}}
+    {{#each item in sortedItems}}
       <tr>
         <td>
           {{#link-to 'admin.item.show' item}}

@@ -9,4 +9,9 @@ export default Ember.Controller.extend({
   perPage: 20,
   pagedContent: pagedArray("attrs.items", {pageBinding: "page", perPageBinding: "perPage"}),
   totalPagesBinding: "pagedContent.totalPages",
+
+  sortedItems: function() {
+    var items = Ember.ArrayProxy.extend(Ember.SortableMixin).create(this.get("attrs.items"));
+    return items.set("sortProperties", ["name"]);
+  }.property("attrs.items.@each"),
 });
