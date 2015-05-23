@@ -6,7 +6,7 @@ class Sell < ActiveRecord::Base
 
   after_save :fix_sold
   after_destroy :fix_sold
-  before_restore :fix_sold
+  after_restore :fix_sold
 
   def fix_sold
     self.item.fix_sold
