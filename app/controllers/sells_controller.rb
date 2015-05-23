@@ -16,9 +16,7 @@ class SellsController < ApplicationController
 
   def destroy
     sell = Sell.find(params[:id])
-    if sell.delete
-      # TODO: This should be in model's before_destroy hook
-      Sell.where(item_id: sell.item_id).counter_culture_fix_counts
+    if sell.destroy
       render json: sell
     end
   end
