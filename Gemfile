@@ -21,7 +21,6 @@ gem 'unicorn'
 gem 'ember-cli-rails'
 gem 'active_model_serializers', '~> 0.9.3'
 gem 'paranoia', :git => 'https://github.com/radar/paranoia.git', :branch => 'rails4'
-gem 'counter_culture', '~> 0.1.23'
 
 gem 'devise'
 gem 'cancan'
