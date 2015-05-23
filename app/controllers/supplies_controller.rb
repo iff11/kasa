@@ -16,7 +16,7 @@ class SuppliesController < ApplicationController
 
   def destroy
     supply = Supply.find(params[:id])
-    if supply.delete
+    if supply.destroy
       render json: supply
     end
   end
