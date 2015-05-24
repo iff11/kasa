@@ -9,6 +9,7 @@ export default DS.Model.extend({
   mail: DS.attr(),
   visits_count: DS.attr(),
   visits: DS.hasMany('visit'),
+  last_visit: DS.belongsTo('visit', {async: true}),
 
   full_name: function() {
     return this.get('first_name') + " " + this.get('last_name');

@@ -44,7 +44,8 @@ export default {
     return_amount: 'K vrácení',
     date: 'Datum',
     employee_margin: 'Podíl zaměstnance',
-    isDirty: 'Neuložili jste položku zakázky. Klikněte na zelené plus, nebo položku smažte.'
+    isDirty: 'Neuložili jste položku zakázky. Klikněte na zelené plus, nebo položku smažte.',
+    noLastVisit: '---'
   },
 
   items: {
