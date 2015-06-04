@@ -1,15 +1,16 @@
 <h2 {{bind-attr title=(date-and-time attrs.visit.date ENV.locale)}} class="row">
-  <div class="col-xs-5">
-    {{fa-icon 'user'}}
-    {{attrs.visit.customer.full_name}}
+  <div class="col-xs-6">
+    {{#link-to 'customer' attrs.visit.customer}}
+      {{fa-icon 'user'}}
+      {{attrs.visit.customer.full_name}}
+    {{/link-to}}
   </div>
-  <div class="col-xs-2">
-    <img class="avatar img-circle img-thumbnail" {{bind-attr src="attrs.visit.employee.photo_url"}} />
-  </div>
-  <div class="col-xs-5">
+  <div class="col-xs-6 text-right">
     {{fa-icon 'scissors'}}
     {{attrs.visit.employee.full_name}}
   </div>
 </h2>
+
+<hr />
 
 {{liquid-outlet}}
