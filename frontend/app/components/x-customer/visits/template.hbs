@@ -1,0 +1,44 @@
+
+{{#with customer as |c|}}
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    {{#each c.visits as |v|}}
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading{{v.id}}">
+          <h4 class="panel-title">
+            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{v.id}}" aria-expanded="true" aria-controls="collapse{{v.id}}">
+              {{date-and-time v.date ENV.locale}}, <span class="text-muted">{{v.employee.full_name}}</span>
+
+              <span class="pull-right">
+                {{format-money v.total_price symbol=(t 'currency') format="%v %s"}}
+              </span>
+            </a>
+          </h4>
+        </div>
+        <div id="collapse{{v.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{v.id}}">
+          <div class="panel-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>{{t 'sell.item'}}</th>
+                  <th>{{t 'sell.count'}}</th>
+                  <th>{{t 'sell.unit_price'}}</th>
+                  <th>{{t 'sell.sum_price'}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each v.sells as |s|}}
+                  <tr>
+                    <td>{{s.item.name}}</td>
+                    <td>{{s.count}}</td>
+                    <td>{{x-item/price value=s.price}}</td>
+                    <td>{{x-sell/sum sell=s}}</td>
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+{{/with}}

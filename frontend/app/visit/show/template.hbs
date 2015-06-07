@@ -1,4 +1,6 @@
 <div class="row">
+<div class="col-lg-6 col-md-12">
+<div class="row">
   <div class="col-xs-6">
     {{#link-to 'visits' class="btn btn-default"}}
       {{fa-icon 'arrow-left'}}
@@ -61,3 +63,8 @@
 <button class="btn btn-success" {{action "saveNote"}}>
   {{fa-icon 'floppy-o'}}
 </button>
+</div>
+<div class="col-lg-6 col-md-12">
+  {{x-customer/visits customer=attrs.visit.customer}}
+</div>
+</div>

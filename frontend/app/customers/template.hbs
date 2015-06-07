@@ -16,7 +16,9 @@
     {{#each customer in pagedContent}}
       <tr>
         <td>
-          {{customer.full_name}}
+          {{#link-to 'customer' customer}}
+            {{customer.full_name}}
+          {{/link-to}}
         </td>
         <td>
           {{customer.birth}}
