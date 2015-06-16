@@ -26,6 +26,7 @@ class VisitsController < ApplicationController
   def destroy
     visit = Visit.find(params[:id])
     if visit.delete
+      visit.customer.fix_last_visit
       render json: visit
     end
   end
