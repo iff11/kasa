@@ -18,6 +18,7 @@ class VisitsController < ApplicationController
 
   def update
     if @visit.update(visit_params)
+      @visit.customer.fix_last_visit
       render json: @visit
     end
   end
