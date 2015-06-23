@@ -3,15 +3,15 @@
   {{input value=item.name placeholder=(t 'items.newName') class='form-control'}}
 </div>
 
-<!--
-<div class="form-group">
-  <label>{{t 'item.selling_price'}}</label>
-  <div class="input-group">
-    {{input value=item.selling_price placeholder=(t 'items.newSellingPrice') class="form-control text-right"}}
-    <span class="input-group-addon">{{t 'currency'}}</span>
+{{#if isEdit}}
+  <div class="form-group">
+    <label>{{t 'item.selling_price'}}</label>
+    <div class="input-group">
+      {{input value=item.selling_price placeholder=(t 'items.newSellingPrice') class="form-control text-right"}}
+      <span class="input-group-addon">{{t 'currency'}}</span>
+    </div>
   </div>
-</div>
--->
+{{/if}}
 
 <div class="form-group">
   <label>{{t 'item.barcode'}}</label>
