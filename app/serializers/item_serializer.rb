@@ -1,5 +1,5 @@
 class ItemSerializer < ActiveModel::Serializer
-  attributes :id, :name, :selling_price, :bought, :sold, :unlimited, :barcode, :warning_threshold, :last_supply
+  attributes :id, :name, :selling_price, :bought, :sold, :unlimited, :barcode, :warning_threshold, :last_supply, :is_active
 
   has_many :sells
   has_many :supplies

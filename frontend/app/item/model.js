@@ -10,6 +10,7 @@ export default DS.Model.extend({
   barcode: DS.attr(),
   actual_count: DS.attr(),
   warningThreshold: DS.attr(),
+  is_active: DS.attr(),
 
   // TODO: WTF is this? Why is this here twice?
   last_supply: DS.belongsTo('supply', {async: true}),

@@ -15,12 +15,8 @@ export default Ember.Controller.extend({
   }.on('init'),
 
   items: function() {
-    return this.store.find('item');
-  }.property(),
-
-  itemsSorted: function() {
-    return this.get('items').sortBy('name');
-  }.property('items.[]'),
+    return this.get('attrs.items').filterBy('is_active', true);
+  }.property('attrs.items'),
 
   isDirty: function () {
     return !Ember.isEmpty(this.get('heap.item'));

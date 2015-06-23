@@ -2,11 +2,17 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function () {
-    return this.modelFor('visit');
+    var id = this.paramsFor('visit').id;
+
+    return Ember.RSVP.hash({
+      visit: this.store.find('visit', id),
+      items: this.store.find('item')
+    });
   },
 
   setupController: function(controller, model) {
-    controller.set('attrs.visit', model);
+    controller.set('attrs.visit', model.visit);
+    controller.set('attrs.items', model.items);
   },
 
   actions: {

@@ -56,7 +56,9 @@ export default {
     newBarcode: '123456789',
     newStock: '10',
     newSellingPrice: '100',
-    newWarningThreshold: '5'
+    newWarningThreshold: '5',
+    active: 'Aktivní',
+    inactive: 'Neaktivní'
   },
 
   sell: {
@@ -87,7 +89,8 @@ export default {
     bought: 'Naskladněno',
     warningThreshold: 'Minimálně skladem',
     edit: 'Upravit',
-    margin: 'Marže'
+    margin: 'Marže',
+    isActive: 'V prodeji'
   },
 
   employee: {

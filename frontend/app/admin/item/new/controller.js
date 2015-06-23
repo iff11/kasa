@@ -2,7 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   heap: {
-    unlimited: false
+    unlimited: false,
+    is_active: true,
   },
 
   actions: {
@@ -14,6 +15,7 @@ export default Ember.Controller.extend({
         // purchase_price: this.get('heap.purchase_price'),
         // selling_price: this.get('heap.selling_price'),
         unlimited: this.get('heap.unlimited'),
+        is_active: this.get('heap.is_active'),
         warningThreshold: this.get('heap.warningThreshold')
       });
 

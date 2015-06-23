@@ -12,59 +12,8 @@
   </div>
 </h2>
 
+<h3>{{t 'items.active'}}</h3>
+{{x-items/table items=activeItems}}
 
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th class="col-xs-3">{{t 'item.name'}}</th>
-      <th class="col-xs-3 text-right">{{t 'item.unlimited_or_stock'}}</th>
-      <th class="col-xs-1 text-right">{{t 'supply.last_purchase_price'}}</th>
-      <th class="col-xs-1 text-right">{{t 'supply.last_purchase_price_with_vat'}}</th>
-      <th class="col-xs-1 text-right">{{t 'item.selling_price'}}</th>
-      <th class="col-xs-1 text-right">{{t 'item.margin'}}</th>
-      <th class="col-xs-2 text-right">{{t 'item.barcode'}}</th>
-      <th class="col-xs-1 text-right">{{t 'item.action'}}</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    {{!#each item in pagedContent}}
-    {{#each item in sortedItems}}
-      <tr>
-        <td>
-          {{#link-to 'admin.item.show' item}}
-            {{item.name}}
-          {{/link-to}}
-        </td>
-        <td class="text-right">
-          {{#if item.unlimited}}
-            &#8734; - {{item.sold}} = &#8734;
-          {{else}}
-            {{item.bought}} - {{item.sold}} = {{x-item/stock-icon item=item}}
-          {{/if}}
-        </td>
-        <td class="text-right">
-          {{x-item/price value=item.lastSupply.purchase_price}}
-        </td>
-        <td class="text-right">
-          {{x-item/price value=item.lastSupply.purchasePriceWithVat}}
-        </td>
-        <td class="text-right">
-          {{x-item/price value=item.selling_price}}
-        </td>
-        <td class="text-right">
-          {{item.margin}} %
-        </td>
-        <td class="text-right">{{item.barcode}}</td>
-        <td class="text-right">
-          {{#link-to 'admin.item.edit' item class="btn btn-default btn-xs"}}
-            {{fa-icon 'pencil'}}
-          {{/link-to}}
-        </td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
-
-{{!page-numbers content=pagedContent}}
+<h3>{{t 'items.inactive'}}</h3>
+{{x-items/table items=inactiveItems}}
