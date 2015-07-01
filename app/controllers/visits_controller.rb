@@ -2,7 +2,7 @@ class VisitsController < ApplicationController
   before_action :set_visit, only: [:show, :edit, :update, :destroy]
 
   def index
-    render json: Visit.includes(:sells, :customer, :employee).all
+    render json: Visit.all
   end
 
   def show
@@ -31,41 +31,10 @@ class VisitsController < ApplicationController
     end
   end
 
-  # def new
-  #   @visit = Visit.new
-  # end
-
-  # def edit
-  # end
-
-  # def create
-  #   logger.debug('-------------')
-  #   logger.debug(params)
-  #   params.customer_id = params.fetch(:customer)
-  #   @visit = Visit.new(visit_params)
-
-  #   respond_to do |format|
-  #     if @visit.save
-  #       format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
-  #       format.json { render :show, status: :created, location: @visit }
-  #     else
-  #       format.html { render :new }
-  #       format.json { render json: @visit.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
-  # def update
-  #   respond_to do |format|
-  #     if @visit.update(visit_params)
-  #       format.html { redirect_to @visit, notice: 'Visit was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @visit }
-  #     else
-  #       format.html { render :edit }
-  #       format.json { render json: @visit.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  def opened
+    val = Visit.all.where(completed: false).count
+    render json: { 'stat' => {id: 'opened-visit', value: val}}
+  end
 
   private
     def set_visit

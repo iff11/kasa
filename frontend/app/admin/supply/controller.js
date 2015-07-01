@@ -15,7 +15,7 @@ export default Ember.Controller.extend({
   }.property('attrs.supply.item'),
 
   items: function () {
-    return this.store.find('item');
+    return this.store.all('item');
   }.property(),
 
   actions: {

@@ -27,12 +27,12 @@
           {{fa-icon 'coffee'}}
           {{t 'sidebar.visits'}}
           <span class="pull-right label label-success">
-            {{openVisits.length}}x
+            {{openedVisits.length}}x
             {{fa-icon 'user'}}
           </span>
         {{/link-to}}
         <ul class="nav nav-second-level nav-pills nav-stacked">
-          {{#each openVisits as |visit|}}
+          {{#each openedVisits as |visit|}}
             <li>
               {{#link-to 'visit.show' visit}}
                 {{visit.customer.full_name}}

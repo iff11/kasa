@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   def index
-    render json: Employee.includes(:visits).all
+    render json: Employee.all
   end
 
   def create

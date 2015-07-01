@@ -6,4 +6,8 @@ class Visit < ActiveRecord::Base
   has_many :sells
 
   # has_one :last_customer, inverse_of: :last_visit
+
+  def self.opened
+    where(completed: false)
+  end
 end

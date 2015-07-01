@@ -18,8 +18,8 @@ export default DS.Model.extend({
     return this.get('last_supply');
   }.property('last_supply'),
 
-  sells: DS.hasMany('sell', {async: true}),
-  supplies: DS.hasMany('supply', {async: true, inverse: 'item'}),
+  sells: DS.hasMany('sell', {async: true, embedded: 'always'}),
+  supplies: DS.hasMany('supply', {async: true, inverse: 'item', embedded: 'always'}),
 
   lowStock: function() {
     return this.get('stock') <= this.get('warningThreshold');

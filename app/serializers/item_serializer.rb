@@ -3,5 +3,4 @@ class ItemSerializer < ActiveModel::Serializer
 
   has_many :sells
   has_many :supplies
-  # belongs_to :last_supply
 end

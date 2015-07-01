@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function() {
-    return this.store.find('customer');
+    return this.store.all('customer');
   },
 
   setupController: function(controller, model) {

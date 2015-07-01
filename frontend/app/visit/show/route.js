@@ -6,7 +6,7 @@ export default Ember.Route.extend({
 
     return Ember.RSVP.hash({
       visit: this.store.find('visit', id),
-      items: this.store.find('item')
+      items: this.store.all('item')
     });
   },
 

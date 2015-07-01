@@ -8,6 +8,7 @@ class Sell < ActiveRecord::Base
   after_destroy :fix_sold
   after_restore :fix_sold
 
+  # TODO: get previous data and fix those too
   def fix_sold
     self.item.fix_sold
   end

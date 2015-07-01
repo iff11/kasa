@@ -5,11 +5,11 @@ export default Ember.Controller.extend({
   heap: {},
 
   customers: function() {
-    return this.store.find('customer');
+    return this.store.all('customer');
   }.property(),
 
   employees: function() {
-    return this.store.find('employee');
+    return this.store.all('employee');
   }.property(),
 
   openVisits: function() {
