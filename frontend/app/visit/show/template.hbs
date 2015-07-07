@@ -30,7 +30,7 @@
       </thead>
 
       <tbody>
-        {{#each sell in attrs.visit.sells}}
+        {{#each attrs.visit.sells as |sell|}}
           {{x-sell/row sell=sell items=items update="updateSell" delete="deleteSell"}}
         {{/each}}
 
