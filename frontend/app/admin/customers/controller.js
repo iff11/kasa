@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   attrs: {},
-  sortBy: 'visits_count',
+  sortBy: 'visitsCount',
 
   customersSorted: function() {
     return Ember.ArrayProxy.createWithMixins(Ember.SortableMixin, {

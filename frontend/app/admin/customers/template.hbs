@@ -15,10 +15,10 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th class="xol-xs-1">{{th-sort action="sortBy" title=(t 'customer.visits_length') current=sortBy value='visits_count'}}</th>
-      <th class="xol-xs-1">{{th-sort action="sortBy" title=(t 'customer.lastVisit') current=sortBy value='last_visit.date'}}</th>
-      <th class="col-xs-2">{{th-sort action="sortBy" title=(t 'customer.first_name') current=sortBy value='first_name'}}</th>
-      <th class="col-xs-2">{{th-sort action="sortBy" title=(t 'customer.last_name') current=sortBy value='last_name'}}</th>
+      <th class="xol-xs-1">{{th-sort action="sortBy" title=(t 'customer.visits_length') current=sortBy value='visitsCount'}}</th>
+      <th class="xol-xs-1">{{th-sort action="sortBy" title=(t 'customer.lastVisit') current=sortBy value='lastVisit.date'}}</th>
+      <th class="col-xs-2">{{th-sort action="sortBy" title=(t 'customer.firstName') current=sortBy value='firstName'}}</th>
+      <th class="col-xs-2">{{th-sort action="sortBy" title=(t 'customer.lastName') current=sortBy value='lastName'}}</th>
       <th class="col-xs-2">{{th-sort action="sortBy" title=(t 'customer.birth') current=sortBy value='birth'}}</th>
       <th class="col-xs-1">{{th-sort action="sortBy" title=(t 'customer.phone') current=sortBy value='phone'}}</th>
       <th class="col-xs-2">{{th-sort action="sortBy" title=(t 'customer.mail') current=sortBy value='mail'}}</th>
@@ -30,10 +30,10 @@
   <tbody>
     {{#each customersSorted as |customer|}}
       <tr>
-        <td>{{customer.visits_count}}</td>
-        <td>{{x-visit/last-visit visit=customer.last_visit}}</td>
-        <td>{{customer.first_name}}</td>
-        <td>{{customer.last_name}}</td>
+        <td>{{customer.visitsCount}}</td>
+        <td>{{x-visit/last-visit visit=customer.lastVisit}}</td>
+        <td>{{customer.firstName}}</td>
+        <td>{{customer.lastName}}</td>
         <td>{{customer.birth}}</td>
         <td>{{customer.phone}}</td>
         <td>{{customer.mail}}</td>

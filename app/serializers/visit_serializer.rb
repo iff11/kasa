@@ -3,6 +3,8 @@ class VisitSerializer < ActiveModel::Serializer
 
   has_many :sells
 
+  # url :sells
+
   def date
     object.created_at
   end

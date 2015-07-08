@@ -14,8 +14,8 @@ export default {
   },
 
   customer: {
-    first_name: 'Jméno',
-    last_name: 'Příjmení',
+    firstName: 'Jméno',
+    lastName: 'Příjmení',
     full_name: 'Jméno',
     birth: 'Datum narození',
     note: 'Poznámka',
@@ -90,7 +90,7 @@ export default {
     stock: 'Skladem',
     purchase_price: 'Nákup',
     unlimited: 'Neomezené množství',
-    selling_price: 'Prodejní cena (s DPH)',
+    sellingPrice: 'Prodejní cena (s DPH)',
     barcode: 'Čárový kód',
     unlimited_or_stock: 'Koupeno - Prodáno = Skladem',
     action: 'Akce',
@@ -104,8 +104,8 @@ export default {
   },
 
   employee: {
-    first_name: 'Jméno',
-    last_name: 'Příjmení',
+    firstName: 'Jméno',
+    lastName: 'Příjmení',
     photo_url: 'Odkaz na fotku',
     action: 'Akce',
     add: 'Přidat',

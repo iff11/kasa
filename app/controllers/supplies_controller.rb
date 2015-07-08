@@ -29,7 +29,7 @@ class SuppliesController < ApplicationController
   end
 
   def show
-    supply = Supply.includes(:sells).find(params[:id])
+    supply = Supply.find(params[:id])
     render json: supply
   end
 

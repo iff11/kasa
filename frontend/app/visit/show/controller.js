@@ -15,7 +15,7 @@ export default Ember.Controller.extend({
   }.on('init'),
 
   items: function() {
-    return this.get('attrs.items').filterBy('is_active', true);
+    return this.get('attrs.items').filterBy('isActive', true);
   }.property('attrs.items'),
 
   isDirty: function () {

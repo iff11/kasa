@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 
 gem 'ember-cli-rails'
-gem 'active_model_serializers', '~> 0.9.3'
+gem 'active_model_serializers', '~> 0.10.0.rc2'
 gem 'paranoia', :git => 'https://github.com/radar/paranoia.git', :branch => 'rails4'
 
 gem 'devise'

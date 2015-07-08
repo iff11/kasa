@@ -5,7 +5,7 @@
     <tr>
       <th>{{t 'item.name'}}</th>
       <th class="text-right">{{t 'item.stock'}}</th>
-      <th class="text-right">{{t 'item.selling_price'}}</th>
+      <th class="text-right">{{t 'item.sellingPrice'}}</th>
     </tr>
   </thead>
 
@@ -21,7 +21,7 @@
           {{/if}}
         </td>
         <td class="text-right">
-          {{x-item/price value=item.selling_price}}
+          {{x-item/price value=item.sellingPrice}}
         </td>
       </tr>
     {{/each}}

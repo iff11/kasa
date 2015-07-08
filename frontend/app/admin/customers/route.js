@@ -12,8 +12,8 @@ export default Ember.Route.extend({
   actions: {
     createCustomer: function() {
       var customer = this.store.createRecord('customer', {
-        first_name: 'John',
-        last_name: 'Doe',
+        firstName: 'John',
+        lastName: 'Doe',
       });
 
       var that = this;

@@ -7,8 +7,8 @@ export default Ember.Controller.extend({
   actions: {
     createEmployee: function() {
       var employee = this.store.createRecord('employee', {
-        first_name: this.get('heap.first_name'),
-        last_name: this.get('heap.last_name'),
+        firstName: this.get('heap.firstName'),
+        lastName: this.get('heap.lastName'),
         birth: this.get('heap.birth'),
         phone: this.get('heap.phone'),
         mail: this.get('heap.mail'),

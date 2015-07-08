@@ -5,7 +5,7 @@
       <th class="col-xs-3 text-right">{{t 'item.unlimited_or_stock'}}</th>
       <th class="col-xs-1 text-right">{{t 'supply.last_purchase_price'}}</th>
       <th class="col-xs-1 text-right">{{t 'supply.last_purchase_price_with_vat'}}</th>
-      <th class="col-xs-1 text-right">{{t 'item.selling_price'}}</th>
+      <th class="col-xs-1 text-right">{{t 'item.sellingPrice'}}</th>
       <th class="col-xs-1 text-right">{{t 'item.margin'}}</th>
       <th class="col-xs-2 text-right">{{t 'item.barcode'}}</th>
       <th class="col-xs-1 text-right">{{t 'item.action'}}</th>
@@ -34,7 +34,7 @@
           {{x-item/price value=item.lastSupply.purchasePriceWithVat}}
         </td>
         <td class="text-right">
-          {{x-item/price value=item.selling_price}}
+          {{x-item/price value=item.sellingPrice}}
         </td>
         <td class="text-right">
           {{item.margin}} %
