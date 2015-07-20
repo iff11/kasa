@@ -10,6 +10,9 @@ class VisitsController < ApplicationController
   end
 
   def create
+    puts "------"
+    puts visit_params
+    puts "------"
     visit = Visit.new(visit_params)
     if visit.save
       render json: visit
@@ -42,6 +45,8 @@ class VisitsController < ApplicationController
     end
 
     def visit_params
-      params.require(:visit).permit(:note, :customer_id, :employee_id, :completed, :price_with_tip, :received_amount)
+      information = request.raw_post
+      data_parsed = JSON.parse(information)
+      #params.require(:visit).permit(:data, :note, :customer_id, :employee_id, :completed, :price_with_tip, :received_amount)
     end
 end
