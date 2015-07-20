@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  jsonapi_resources :customers
+
+
   devise_for :users, controllers: { sessions: 'sessions' }
   resources :employees
   resources :sells

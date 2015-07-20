@@ -4,4 +4,4 @@
 #   config.embed_in_root = true
 # end
 
-ActiveModel::Serializer.config.adapter = :json_api
+# ActiveModel::Serializer.config.adapter = :json_api
