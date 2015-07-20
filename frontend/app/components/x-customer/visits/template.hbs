@@ -5,7 +5,7 @@
         <div class="panel-heading" role="tab" id="heading{{v.id}}">
           <h4 class="panel-title">
             <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{v.id}}" aria-expanded="true" aria-controls="collapse{{v.id}}">
-              {{date-and-time v.date ENV.locale}}, <span class="text-muted">{{v.employee.full_name}}</span>
+              {{date-and-time v.updatedAt ENV.locale}}, <span class="text-muted">{{v.employee.full_name}}</span>
 
               <span class="pull-right">
                 {{format-money v.total_price symbol=(t 'currency') format="%v %s"}}

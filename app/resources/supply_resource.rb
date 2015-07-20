@@ -1,3 +1,5 @@
 class SupplyResource < JSONAPI::Resource
-  attributes :id, :purchase_price, :quantity, :item_id, :vat, :created_at
+  attributes :id, :purchase_price, :quantity, :vat, :created_at
+
+  has_one :item
 end

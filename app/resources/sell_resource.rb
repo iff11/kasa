@@ -1,3 +1,6 @@
 class SellResource < JSONAPI::Resource
-  attributes :id, :count, :price, :item_id, :visit_id
+  attributes :id, :count, :price
+
+  has_one :item
+  has_one :visit
 end
