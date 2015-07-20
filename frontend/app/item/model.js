@@ -12,14 +12,13 @@ export default DS.Model.extend({
   warningThreshold: DS.attr(),
   isActive: DS.attr(),
 
-  // TODO: WTF is this? Why is this here twice?
-  lastSupply: DS.belongsTo('supply', {async: true}),
-  // lastSupply: function() {
-  //   return this.get('lastSupply');
-  // }.property('lastSupply'),
-
+  // lastSupply: DS.belongsTo('supply', {async: true}),
   sells: DS.hasMany('sell', {async: true, embedded: 'always'}),
   supplies: DS.hasMany('supply', {async: true, inverse: 'item', embedded: 'always'}),
+
+  lastSupply: function () {
+    return this.get('supplies').sortBy('updatedAt:desc').get('firstObject');
+  }.property('supplies.@each'),
 
   lowStock: function() {
     return this.get('stock') <= this.get('warningThreshold');

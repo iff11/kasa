@@ -5,6 +5,7 @@ export default DS.Model.extend({
   quantity: DS.attr(),
   vat: DS.attr(),
   createdAt: DS.attr(),
+  updatedAt: DS.attr(),
 
   item: DS.belongsTo('item', {async: true}),
 
