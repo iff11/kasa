@@ -1,4 +1,11 @@
 class CustomerResource < JSONAPI::Resource
-  attributes :first_name, :last_name, :note, :birth, :phone, :mail, :visits_count, :last_visit
-  #has_many :phone_numbers
+  attributes :id, :birth, :phone, :mail, :note
+
+  attribute :first_name, :key => 'first-name'
+  attribute :last_name, :key => 'last-name'
+  attribute :visits_count, :key => 'visits-count'
+  attribute :last_visit, :key => 'last-visit'
+
+
+  has_many :visits
 end
