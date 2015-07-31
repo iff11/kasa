@@ -12,6 +12,11 @@ export default Ember.Controller.extend({
     });
   }.property('attrs.customers', 'sortBy'),
 
+  mailto: function () {
+    var mails = this.get('attrs.customers').mapBy('mail').join(',');
+    return 'mailto:salon@topstylesalon.cz?subject=TopStyleSalon&bcc=' + mails;
+  }.property('attrs.customers'),
+
   actions: {
     sortBy: function (column) {
       this.set('sortBy', column);

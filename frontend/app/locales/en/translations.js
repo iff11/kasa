@@ -10,7 +10,8 @@ export default {
   // "key.with.interpolation": "Text with {{anInterpolation}}"
 
   customers: {
-    all: 'Všichni zákazníci'
+    all: 'Všichni zákazníci',
+    newsletter: 'Newsletter'
   },
 
   customer: {
@@ -23,7 +24,7 @@ export default {
     phone: 'Telefon',
     mail: 'E-mail',
     action: 'Akce',
-    add: 'Přidat',
+    add: 'Přidat zákazníka',
     visits_length: 'Návštěv',
     all_customers: 'Seznam zákazníků',
     all_visits: 'Seznam návštěv',
