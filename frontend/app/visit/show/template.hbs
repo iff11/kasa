@@ -68,3 +68,35 @@
   {{x-customer/visits customer=attrs.visit.customer}}
 </div>
 </div>
+
+<hr />
+
+<div class="row">
+  <div class="col-xs-2">
+    Mail:
+    {{#if attrs.visit.customer.mail}}
+      {{fa-icon "check-square-o"}}
+    {{else}}
+      {{fa-icon "square-o"}}
+    {{/if}}
+  </div>
+
+  <div class="col-xs-2">
+    Narozeniny:
+    {{x-customer/birthday customer=attrs.visit.customer}}
+  </div>
+
+  <div class="col-xs-2">
+    Telefon:
+    {{#if attrs.visit.customer.phone}}
+      {{fa-icon "check-square-o"}}
+    {{else}}
+      {{fa-icon "square-o"}}
+    {{/if}}
+  </div>
+
+  <div class="col-xs-6">
+    Poznámka:
+    {{attrs.visit.customer.note}}
+  </div>
+</div>
