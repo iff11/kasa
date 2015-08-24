@@ -12,8 +12,13 @@
   </div>
 </h2>
 
-<h3>{{t 'items.active'}}</h3>
-{{x-items/table items=activeItems}}
+<ul class="nav nav-tabs">
+  {{#link-to 'admin.items' (query-params isActive="true") tagName='li'}}
+    <a>{{t 'items.active'}}</a>
+  {{/link-to}}
+  {{#link-to 'admin.items' (query-params isActive="false") tagName='li'}}
+    <a>{{t 'items.inactive'}}</a>
+  {{/link-to}}
+</ul>
 
-<h3>{{t 'items.inactive'}}</h3>
-{{x-items/table items=inactiveItems}}
+{{x-items/table items=attrs.items}}
