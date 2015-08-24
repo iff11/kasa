@@ -4,6 +4,13 @@
 @import url(http://fonts.googleapis.com/css?family=Libre+Baskerville&subset=latin,latin-ext);
 
 .navbar-default {
+  .danger {
+    color: $state-danger-text;
+  }
+  .success {
+    color: $state-success-text;
+  }
+
   .navbar-brand {
     color: $brand-color;
     padding-left: .5em;
@@ -11,9 +18,15 @@
     padding-top: .3em;
   }
 
-  .dropdown-alerts .alert {
-    background: none;
-    border: none;
+  .navbar-top-links {
+    .dropdown-alerts {
+      width: 400px;
+      a {
+        text-overflow: ellipsis;
+        display: block;
+        overflow: hidden;
+      }
+    }
   }
 
   .sidebar-nav {
@@ -138,4 +151,8 @@ div.liquid-container, div.liquid-child{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+#last-flash {
+  overflow: hidden;
 }

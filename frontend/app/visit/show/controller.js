@@ -24,7 +24,6 @@ export default Ember.Controller.extend({
 
   actions: {
     createSell: function() {
-
       var sell = this.store.createRecord('sell', {
         visit: this.get('attrs.visit'),
         item: this.get('heap.item'),
@@ -32,14 +31,13 @@ export default Ember.Controller.extend({
         price: this.get('heap.price')
       });
 
-      var flash = Ember.get(this, 'flashMessages'),
-          that = this;
+      var flash = Ember.get(this, 'flashMessages');
 
-      sell.save().then(function() {
-        that.resetHeap();
-        flash.success('Successfully saved!');
-      }, function(response) {
-        flash.danger('Something went wrong!');
+      sell.save().then(() => {
+        this.resetHeap();
+        flash.success(sell.get('item.name') + ' ✓ ' + sell.get('visit.customer.full_name'));
+      }, (response) => {
+        flash.danger(sell.get('item.name') + ' ✓ ' + sell.get('visit.customer.full_name') + ' - ' + response.message);
       });
     },
 
@@ -47,20 +45,20 @@ export default Ember.Controller.extend({
       var flash = Ember.get(this, 'flashMessages');
 
       sell.deleteRecord();
-      sell.save().then(function() {
-        flash.success('Sell deleted');
-      }, function(response) {
-        flash.danger('Sell cannot be deleted! ' + response.responseText);
+      sell.save().then(() => {
+        flash.success(sell.get('item.name') + ' ✗ ' + sell.get('visit.customer.full_name'));
+      }, (response) => {
+        flash.danger(sell.get('item.name') + ' ⌫ ' + sell.get('visit.customer.full_name') + response.message);
       });
     },
 
     updateSell: function(sell) {
       var flash = Ember.get(this, 'flashMessages');
 
-      sell.save().then(function() {
-        flash.success('Sell updated');
-      }, function(response) {
-        flash.danger('Sell cannot be updated! ' + response.responseText);
+      sell.save().then(() => {
+        flash.success(sell.get('item.name') + ' ✎ ' + sell.get('visit.customer.full_name'));
+      }, (response) => {
+        flash.danger(sell.get('item.name') + ' ✎ ' + sell.get('visit.customer.full_name') + response.message);
       });
     },
 
