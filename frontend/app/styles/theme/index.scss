@@ -131,3 +131,11 @@ div.liquid-container, div.liquid-child{
 .padding-bottom {
   padding-bottom: 1em;
 }
+
+.truncated {
+  width: 10em;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

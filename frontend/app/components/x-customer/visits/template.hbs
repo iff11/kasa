@@ -7,6 +7,10 @@
             <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{v.id}}" aria-expanded="true" aria-controls="collapse{{v.id}}">
               {{date-and-time v.updatedAt ENV.locale}}, <span class="text-muted">{{v.employee.full_name}}</span>
 
+              {{#if v.note}}
+                <small class="truncated"> - {{v.note}}</small>
+              {{/if}}
+
               <span class="pull-right">
                 {{format-money v.total_price symbol=(t 'currency') format="%v %s"}}
               </span>
@@ -16,7 +20,9 @@
         <div id="collapse{{v.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{v.id}}">
           <div class="panel-body">
             {{#if v.note}}
-              <p>{{v.note}}</p>
+              <div class="well">
+                {{v.note}}
+              </div>
             {{/if}}
             <table class="table">
               <thead>
