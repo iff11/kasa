@@ -1,8 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  needs: ['application'],
-
   visits: function() {
     return this.store.findAll('visit');
   }.property(),
@@ -11,4 +9,3 @@ export default Ember.Controller.extend({
     return this.store.findAll('customer');
   }.property()
 });
-

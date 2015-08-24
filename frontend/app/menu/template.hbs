@@ -7,17 +7,13 @@
       <span class="icon-bar"></span>
     </button>
     {{#link-to 'index' class='navbar-brand'}}
-      {{#if controllers.application.stillLoading}}
-        {{fa-icon "spinner" spin=true}}
-      {{else}}
-        {{fa-icon 'scissors'}}
-      {{/if}}
+      {{fa-icon 'scissors'}}
       Top Style Salon
     {{/link-to}}
   </div>
   <!-- /.navbar-header -->
 
-  {{app-menu/top logout="invalidateSession" stillLoading=controllers.application.stillLoading}}
+  {{app-menu/top logout="invalidateSession"}}
 
   {{app-menu/side visits=visits customers=customers}}
 </nav>
