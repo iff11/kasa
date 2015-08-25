@@ -32,7 +32,7 @@ export default {
   },
 
   visit: {
-    all_visits: 'Všechny zakázky',
+    all_visits: 'Všechny otevřené zakázky',
     checkout: 'K pokladně',
     customer: 'Zákazník',
     employee: 'Zaměstnanec',
@@ -43,7 +43,7 @@ export default {
     new: 'Nová zakázka',
     close_warning: 'Zakázka bude uzavřena. Již nebude možno přidávat, odebírat ani měnit položky.',
     close: 'Uzavřít',
-    note: 'Poznámka',
+    note: 'Poznámka k zakázce',
     back_to_visit: 'Zpátky do zakázky',
     sum_price_is: 'Celková částka k zaplacení',
     sum_with_tip_is: 'Celková částka i s dýškem',

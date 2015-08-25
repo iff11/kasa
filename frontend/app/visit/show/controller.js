@@ -68,7 +68,7 @@ export default Ember.Controller.extend({
       this.get('attrs.visit').save().then(function() {
         flash.success('Note updated');
       }, function(response) {
-        flash.danger('Note cannot be updated! ' + response.responseText);
+        flash.danger('Note cannot be updated! ' + response.message);
       });
     }
   }
