@@ -34,7 +34,7 @@
         <ul class="nav nav-second-level nav-pills nav-stacked">
           {{#each openedVisits as |visit|}}
             <li>
-              {{#link-to 'visit.show' visit}}
+              {{#link-to 'visit' visit}}
                 {{visit.customer.full_name}}
                 <img class="employee-avatar-in-sidebar" {{bind-attr src="visit.employee.photo_url"}} />
               {{/link-to}}
