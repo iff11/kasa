@@ -1,0 +1,22 @@
+.employee-avatar-xs {
+  @extend .img-circle;
+  height: 2em;
+}
+
+.employee-avatar-in-visit {
+  @extend .img-circle;
+  @extend .img-thumbnail;
+  height: 3em;
+}
+
+.employee-avatar-in-visit-list {
+  @extend .employee-avatar-xs;
+  margin-top: -1em;
+  margin-bottom: -1em;
+}
+
+.employee-avatar-in-sidebar {
+  @extend .employee-avatar-xs;
+  @extend .pull-right;
+  margin-top: -.35em;
+}

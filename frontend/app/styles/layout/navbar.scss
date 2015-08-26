@@ -1,0 +1,33 @@
+.navbar-default {
+  .danger {
+    color: $state-danger-text;
+  }
+  .success {
+    color: $state-success-text;
+  }
+
+  .navbar-brand {
+    color: $brand-color;
+    padding-left: .5em;
+    font-size: 2em;
+    padding-top: .3em;
+  }
+
+  .navbar-top-links {
+    .dropdown-alerts {
+      width: 400px;
+      a {
+        text-overflow: ellipsis;
+        display: block;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .sidebar-nav {
+    h3 {
+      color: $heading-color;
+      padding-left: .7em;
+    }
+  }
+}

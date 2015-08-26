@@ -3,7 +3,13 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   attrs: {},
 
-  // sort: ['name'],
+  sortBy: ['name'],
 
-  // sortedItems: Ember.computed.sortBy('attrs.items', 'sort'),
+  sortedItems: Ember.computed.sort('attrs.items', 'sortBy'),
+  
+  actions: {
+    sortBy: function (value) {
+      this.set('sortBy', [value]);
+    }
+  }
 });

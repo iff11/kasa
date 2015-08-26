@@ -1,26 +1,50 @@
 <h2>{{t 'items.all'}}</h2>
 
-<table class="table table-hover">
+<table class="items">
   <thead>
     <tr>
-      <th>{{t 'item.name'}}</th>
-      <th class="text-right">{{t 'item.stock'}}</th>
-      <th class="text-right">{{t 'item.sellingPrice'}}</th>
+      <th class="items-col-active">{{th-sort action="sortBy" title=(t 'item.isActive') current=sortBy value="isActive"}}</th>
+      <th class="items-col-name">{{th-sort action="sortBy" title=(t 'item.name') current=sortBy value="name"}}</th>
+      <th class="items-col-bought">{{th-sort action="sortBy" title=(t 'item.bought') current=sortBy value="bought"}}</th>
+      <th></th>
+      <th class="items-col-sold">{{th-sort action="sortBy" title=(t 'item.sold') current=sortBy value="sold"}}</th>
+      <th></th>
+      <th class="items-col-stock">{{th-sort action="sortBy" title=(t 'item.stock') current=sortBy value="stock"}}</th>
+      <th class="items-col-price">{{th-sort action="sortBy" title=(t 'item.sellingPrice') current=sortBy value="sellingPrice"}}</th>
     </tr>
   </thead>
 
   <tbody>
-    {{#each item in attrs.items}}
+    {{#each item in sortedItems}}
       <tr>
-        <td>{{item.name}}</td>
-        <td class="text-right">
-          {{#if item.unlimited}}
-            &#8734; - {{item.sold}} = &#8734;
+        <td class="items-col-active">
+          {{#if item.isActive}}
+            {{fa-icon "check-square-o"}}
           {{else}}
-            {{item.bought}} - {{item.sold}} = {{x-item/stock-icon item=item}}
+            {{fa-icon "square-o"}}
           {{/if}}
         </td>
-        <td class="text-right">
+        <td class="items-col-name">{{item.name}}</td>
+        <td class="items-col-bought">
+          {{#if item.unlimited}}
+            &#8734;
+          {{else}}
+            {{item.bought}}
+          {{/if}}
+        </td>
+        <td class="items-col-separator">-</td>
+        <td class="items-col-sold">
+          {{item.sold}}
+        </td>
+        <td class="items-col-separator">=</td>
+        <td class="items-col-stock">
+          {{#if item.unlimited}}
+            &#8734;
+          {{else}}
+            {{x-item/stock-icon item=item}}
+          {{/if}}
+        </td>
+        <td class="items-col-price">
           {{x-item/price value=item.sellingPrice}}
         </td>
       </tr>

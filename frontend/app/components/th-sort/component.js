@@ -2,12 +2,38 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   tagName: 'span',
+  classNames: ['th-sort'],
 
   click: function () {
-    this.sendAction('action', this.get('value'));
+    var val = this.get('value');
+
+    if (this.get('isCurrent')) {
+      val += ':desc';
+    }
+
+    this.sendAction('action', val);
   },
 
   isCurrent: function () {
-    return this.get('current') === this.get('value');
-  }.property('current', 'value')
+    var topSort = this.get('topSort'),
+        value = this.get('value');
+
+    return  topSort === value;
+  }.property('topSort', 'value'),
+
+  isAsc: function () {
+    return this.get('isCurrent') && (this.get('topSortDirection') === 'asc' || this.get('topSortDirection') === undefined);
+  }.property('isCurrent', 'topSortDirection'),
+
+  isDesc: function () {
+    return this.get('isCurrent') && this.get('topSortDirection') === 'desc';
+  }.property('isCurrent', 'topSortDirection'),
+
+  topSort: function () {
+    return this.get('current.firstObject').split(':')[0];
+  }.property('current'),
+
+  topSortDirection: function () {
+    return this.get('current.firstObject').split(':')[1];
+  }.property('current')
 });

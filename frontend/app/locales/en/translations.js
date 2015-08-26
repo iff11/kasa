@@ -61,7 +61,7 @@ export default {
   },
 
   items: {
-    all: 'Všechny položky na skladě',
+    all: 'Sklad',
     add: 'Přidat',
     newName: 'Nová položka',
     newBarcode: '123456789',
