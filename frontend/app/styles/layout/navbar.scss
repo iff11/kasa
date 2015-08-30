@@ -7,10 +7,10 @@
   }
 
   .navbar-brand {
-    color: $brand-color;
     padding-left: .5em;
     font-size: 2em;
     padding-top: .3em;
+    font-family: 'Qwigley', cursive;
   }
 
   .navbar-top-links {
@@ -26,7 +26,7 @@
 
   .sidebar-nav {
     h3 {
-      color: $heading-color;
+      // color: $heading-color;
       padding-left: .7em;
     }
   }

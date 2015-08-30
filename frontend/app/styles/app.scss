@@ -1,9 +1,10 @@
+@import "theme/sb-admin-2/variables";
 @import "bootstrap";
-
-@import "theme/index";
+@import "theme/sb-admin-2/index";
 
 @import "module/th-sort";
 @import "module/avatar";
 
 @import "layout/navbar";
+@import "layout/visits";
 @import "layout/visit";
