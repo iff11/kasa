@@ -20,11 +20,13 @@ export default Ember.Controller.extend({
     }
   }.property('filterBy', 'attrs.items.[]'),
 
+  itemCount: Ember.computed.oneWay('filteredItems.length'),
+
   sortBy: ['name'],
   sortedItems: Ember.computed.sort('filteredItems', 'sortBy'),
 
   page: 1,
-  perPage: 90,
+  perPage: 30,
   pagedItems: pagedArray('sortedItems', {pageBinding: 'page', perPageBinding: 'perPage'}),
   totalPagesBinding: 'pagedItems.totalPages',
 

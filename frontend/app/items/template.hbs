@@ -1,9 +1,12 @@
 <h2>{{t 'items.all'}}</h2>
+<p>{{t 'items.filterBy.showing'}} {{itemCount}} {{t 'items.filterBy.count'}}</p>
 
-<div class="form-group">
-  <label>{{t 'items.filterBy'}}</label>
-  {{input value=filterBy class="form-control" placeholder=(t 'items.filterByPlaceholder')}}
-</div>
+<form class="form-inline">
+  <div class="form-group">
+    <label>{{t 'items.filterBy.label'}}:</label>
+    {{input value=filterBy class="form-control" placeholder=(t 'items.filterBy.placeholder')}}
+  </div>
+</form>
 
 <table class="items">
   <thead>

@@ -70,8 +70,12 @@ export default {
     newWarningThreshold: '5',
     active: 'Aktivní',
     inactive: 'Neaktivní',
-    filterBy: 'Filtrace',
-    filterByPlaceholder: 'Absolut...'
+    filterBy: {
+      label: 'Filtrace',
+      placeholder: 'Absolut...',
+      count: 'kusů',
+      showing: 'Zobrazeno'
+    }
   },
 
   sell: {
