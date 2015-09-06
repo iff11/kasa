@@ -1,5 +1,10 @@
 <h2>{{t 'items.all'}}</h2>
 
+<div class="form-group">
+  <label>{{t 'items.filterBy'}}</label>
+  {{input value=filterBy class="form-control" placeholder=(t 'items.filterByPlaceholder')}}
+</div>
+
 <table class="items">
   <thead>
     <tr>

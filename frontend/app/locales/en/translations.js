@@ -69,7 +69,9 @@ export default {
     newSellingPrice: '100',
     newWarningThreshold: '5',
     active: 'Aktivní',
-    inactive: 'Neaktivní'
+    inactive: 'Neaktivní',
+    filterBy: 'Filtrace',
+    filterByPlaceholder: 'Absolut...'
   },
 
   sell: {
