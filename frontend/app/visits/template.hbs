@@ -2,60 +2,62 @@
 
 <div class="row">
   {{#each openVisits as |visit|}}
-    <div class="visits-item">
-      <div class="well">
-        <h3 class="visits-item-heading">
+    <div class="col-xs-4">
+      <div class="visits-item">
+        <div class="visits-item-heading">
           {{#link-to 'visit.show' visit}}
             {{visit-human-name visit=visit}}
           {{/link-to}}
-        </h3>
-        <img class="employee-evatar-in-visits" {{bind-attr src="visit.employee.photo_url"}} />
-        <time>{{date-and-time visit.date 'cs'}}</time>
-        <p>
+        </div>
+        <div class="visits-item-body">
+          <img class="employee-evatar-in-visits" {{bind-attr src="visit.employee.photo_url"}} />
+          <time>{{date-and-time visit.date 'cs'}}</time>
           <em>
             {{format-money visit.total_price symbol=(t 'currency') format="%v %s"}}
           </em>
-        </p>
+        </div>
       </div>
     </div>
   {{/each}}
 
   <div class="col-xs-4">
-    <div class="well">
-      {{#if heap.employee}}
-        <img {{bind-attr src=heap.employee.photo_url}} class="avatar img-circle img-thumbnail" />
-      {{else}}
-        <img src="/assets/scissors40.png" class="employee-evatar-in-visits" />
-      {{/if}}
-
-      <div class="row">
-        <div class="form-group col-xs-9">
-          <label for="employee">{{t 'visit.employee'}}</label>
-          {{view "select"
-              id="employee"
-              value=heap.employee
-              content=employees
-              class="form-control"
-              prompt=(t 'visit.select_employee')
-              optionValuePath="content"
-              optionLabelPath="content.full_name"}}
+    <div class="visits-item-new">
+      <div class="visits-item-body">
+        <div class="row">
+          <div class="form-group col-xs-9">
+            <label for="employee">{{t 'visit.employee'}}</label>
+            {{view "select"
+                id="employee"
+                value=heap.employee
+                content=employees
+                class="form-control"
+                prompt=(t 'visit.new.selectEmployee')
+                optionValuePath="content"
+                optionLabelPath="content.full_name"}}
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label for="customer">{{t 'visit.customer'}}</label>
-        {{ember-selectize
-            content=customers
-            optionValuePath="content"
-            optionLabelPath="content.full_name"
-            selection=heap.customer
-            placeholder="Select a customer" }}
-      </div>
+        {{#if heap.employee}}
+          <img {{bind-attr src=heap.employee.photo_url}} class="employee-evatar-in-visits" />
+        {{else}}
+          <img src="/assets/scissors40.png" class="employee-evatar-in-visits" />
+        {{/if}}
+
+        <div class="form-group">
+          <label for="customer">{{t 'visit.customer'}}</label>
+          {{ember-selectize
+              content=customers
+              optionValuePath="content"
+              optionLabelPath="content.full_name"
+              selection=heap.customer
+              placeholder=(t 'visit.new.selectCustomer') }}
+        </div>
 
         <button type="button" class='btn btn-primary btn-block' {{action 'createVisit'}}>
           {{fa-icon 'plus-circle'}}
-          {{t 'visit.new'}}
+          {{t 'visit.new.confirm'}}
         </button>
       </div>
+    </div>
   </div>
 </div>

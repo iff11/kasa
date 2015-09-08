@@ -1,7 +1,21 @@
 .visits-item {
-  @extend .col-xs-4;
+  @extend .panel;
+  @extend .panel-default;
+}
+
+.visits-item-new {
+  @extend .visits-item;
+  margin-bottom: 12em;
 }
 
 .visits-item-heading {
-  margin-top: 0;
+  @extend .panel-heading;
+}
+
+.visits-item-body {
+  @extend .panel-body;
+}
+
+.selectize-input.items {
+  margin-bottom: 0 !important;
 }

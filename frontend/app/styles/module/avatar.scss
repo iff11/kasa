@@ -10,13 +10,12 @@
 }
 
 .employee-evatar-in-visits {
-  // @extend .img-circle;
-  @extend .img-rounded;
   @extend .img-thumbnail;
+  @extend .img-circle;
   width: 5em;
   height: 5em;
-  top: 0;
-  right: 15px;
+  top: -10px;
+  right: 20px;
   position: absolute;
 }
 

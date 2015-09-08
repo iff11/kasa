@@ -38,7 +38,6 @@ export default {
     employee: 'Zaměstnanec',
     all_open: 'Všechny otevřené zakázky',
     auto_complete: 'Hledej...',
-    select_employee: '-- Vyber --',
     total_price: 'Celková cena',
     new: 'Nová zakázka',
     close_warning: 'Zakázka bude uzavřena. Již nebude možno přidávat, odebírat ani měnit položky.',
@@ -57,7 +56,12 @@ export default {
     date: 'Datum',
     employee_margin: 'Podíl zaměstnance',
     isDirty: 'Neuložili jste položku zakázky. Klikněte na zelené plus, nebo položku smažte.',
-    noLastVisit: '---'
+    noLastVisit: '---',
+    new: {
+      selectCustomer: '-- Vyber --',
+      selectEmployee: '-- Vyber --',
+      confirm: 'Přidat'
+    }
   },
 
   items: {
