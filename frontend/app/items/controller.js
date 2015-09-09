@@ -6,19 +6,19 @@ export default Ember.Controller.extend({
 
   queryParams: ['page', 'perPage', 'filter'],
 
-  filterBy: '',
+  filterString: '',
   filteredItems: function () {
-    var filterBy = this.get('filterBy');
-    if (Ember.isEmpty(filterBy)) {
+    var filterString = this.get('filterString');
+    if (Ember.isEmpty(filterString)) {
       return this.get('attrs.items');
     } else {
-      var regExPattern = this.get('filterBy');
+      var regExPattern = this.get('filterString');
       var regexp = new RegExp(regExPattern, 'i');
       return this.get('attrs.items').filter( function(item){
         return item.get('name').match(regexp);
       });
     }
-  }.property('filterBy', 'attrs.items.[]'),
+  }.property('filterString', 'attrs.items.[]'),
 
   itemCount: Ember.computed.oneWay('filteredItems.length'),
 

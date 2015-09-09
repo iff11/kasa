@@ -4,21 +4,33 @@
 <form class="form-inline">
   <div class="form-group">
     <label>{{t 'items.filterBy.label'}}:</label>
-    {{input value=filterBy class="form-control" placeholder=(t 'items.filterBy.placeholder')}}
+    {{input value=filterString class="form-control" placeholder=(t 'items.filterBy.placeholder')}}
   </div>
 </form>
 
 <table class="items">
   <thead>
     <tr>
-      <th class="items-col-active">{{th-sort action="sortBy" title=(t 'item.isActive') current=sortBy value="isActive"}}</th>
-      <th class="items-col-name">{{th-sort action="sortBy" title=(t 'item.name') current=sortBy value="name"}}</th>
-      <th class="items-col-bought">{{th-sort action="sortBy" title=(t 'item.bought') current=sortBy value="bought"}}</th>
+      <th class="items-col-active">
+        {{th-sort action="sortBy" title=(t 'item.isActive') current=sortBy value="isActive"}}
+      </th>
+      <th class="items-col-name">
+        {{th-sort action="sortBy" title=(t 'item.name') current=sortBy value="name"}}
+      </th>
+      <th class="items-col-bought">
+        {{th-sort action="sortBy" title=(t 'item.bought') current=sortBy value="bought"}}
+      </th>
       <th></th>
-      <th class="items-col-sold">{{th-sort action="sortBy" title=(t 'item.sold') current=sortBy value="sold"}}</th>
+      <th class="items-col-sold">
+        {{th-sort action="sortBy" title=(t 'item.sold') current=sortBy value="sold"}}
+      </th>
       <th></th>
-      <th class="items-col-stock">{{th-sort action="sortBy" title=(t 'item.stock') current=sortBy value="stock"}}</th>
-      <th class="items-col-price">{{th-sort action="sortBy" title=(t 'item.sellingPrice') current=sortBy value="sellingPrice"}}</th>
+      <th class="items-col-stock">
+        {{th-sort action="sortBy" title=(t 'item.stock') current=sortBy value="stock"}}
+      </th>
+      <th class="items-col-price">
+        {{th-sort action="sortBy" title=(t 'item.sellingPrice') current=sortBy value="sellingPrice"}}
+      </th>
     </tr>
   </thead>
 

@@ -11,7 +11,10 @@ export default {
 
   customers: {
     all: 'Všichni zákazníci',
-    newsletter: 'Newsletter'
+    newsletter: 'Newsletter',
+    filterBy: {
+      placeholder: 'Jan Novák...'
+    }
   },
 
   customer: {
@@ -76,7 +79,7 @@ export default {
     inactive: 'Neaktivní',
     filterBy: {
       label: 'Filtrace',
-      placeholder: 'Absolut...',
+      placeholder: 'Šampón...',
       count: 'kusů',
       showing: 'Zobrazeno'
     }

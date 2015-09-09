@@ -1,19 +1,31 @@
 <h2>{{t 'customers.all'}}</h2>
 
+<form class="form-inline">
+  <div class="form-group">
+    <label>{{t 'items.filterBy.label'}}:</label>
+    {{input value=filterString class="form-control" placeholder=(t 'customers.filterBy.placeholder')}}
+  </div>
+</form>
+
 <table class='table'>
   <thead>
     <tr>
-      <th class="col-xs-3">{{t 'customer.full_name'}}</th>
-      <th class="col-xs-2">{{t 'customer.birth'}}</th>
-      <th class="col-xs-2 text-right">
-        {{fa-icon "caret-down"}}
-        {{t 'customer.birthday_in'}}
+      <th class="col-xs-3">
+        {{th-sort action="sortBy" title=(t 'customer.full_name') current=sortBy value="full_name"}}
       </th>
-      <th class="col-xs-5">{{t 'customer.note'}}</th>
+      <th class="col-xs-2">
+        {{th-sort action="sortBy" title=(t 'customer.birth') current=sortBy value="birth"}}
+      </th>
+      <th class="col-xs-2 text-right">
+        {{th-sort action="sortBy" title=(t 'customer.birthday_in') current=sortBy value="birthday"}}
+      </th>
+      <th class="col-xs-5">
+        {{th-sort action="sortBy" title=(t 'customer.note') current=sortBy value="note"}}
+      </th>
     </tr>
   </thead>
   <tbody>
-    {{#each pagedContent as |customer|}}
+    {{#each pagedCustomers as |customer|}}
       <tr>
         <td>
           {{#link-to 'customer' customer}}
@@ -34,4 +46,4 @@
   </tbody>
 </table>
 
-{{page-numbers content=pagedContent}}
+{{page-numbers content=pagedCustomers}}
