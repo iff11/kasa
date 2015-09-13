@@ -26,7 +26,7 @@ export default Ember.Controller.extend({
         that.set('heap', {unlimited: false});
         flash.success('Successfully saved!');
       }, function(response) {
-        flash.danger('Something went wrong!');
+        flash.danger('Something went wrong!', response);
       });
     },
   }

@@ -28,4 +28,4 @@ export default function(){
     this.toRoute('visit.show'),
     this.use('toRight')
   );
-};
+}

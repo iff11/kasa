@@ -30,14 +30,14 @@ export default Ember.Controller.extend({
           that.get('attrs.supply.item').save().then(function () {
             flash.success('Item successfully updated!');
           }, function (response) {
-            flash.danger('Updating item failed');
+            flash.danger('Updating item failed', response);
           });
         }
 
         that.set('attrs.supply.item', null);
         that.set('attrs.supply.quantity', null);
       }, function(response) {
-        flash.danger('Something went wrong!');
+        flash.danger('Something went wrong!', response);
       });
     }
   }

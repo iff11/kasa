@@ -10,8 +10,7 @@ export default Ember.Controller.extend({
     var start = moment('2015-01'),
         end = moment(),
         months = end.diff(start, 'months'),
-        ret = [],
-        calc = null;
+        ret = [];
 
     for(var i=0; i<months; i++) {
       start.add(1, 'months');

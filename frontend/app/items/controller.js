@@ -27,8 +27,7 @@ export default Ember.Controller.extend({
 
   page: 1,
   perPage: 30,
-  pagedItems: pagedArray('sortedItems', {pageBinding: 'page', perPageBinding: 'perPage'}),
-  totalPagesBinding: 'pagedItems.totalPages',
+  pagedItems: pagedArray('sortedItems'),
 
   actions: {
     sortBy: function (value) {

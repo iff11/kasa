@@ -24,9 +24,9 @@ export default DS.Model.extend({
         nextYearBirthDay = birth.clone().year(currYear + 1);
 
     if(now.diff(thisYearBirthDay, 'days') > 0) {
-      return nextYearBirthDay
+      return nextYearBirthDay;
     } else {
-      return thisYearBirthDay
+      return thisYearBirthDay;
     }
   }.property('birth'),
 

@@ -42,7 +42,6 @@ export default {
     all_open: 'Všechny otevřené zakázky',
     auto_complete: 'Hledej...',
     total_price: 'Celková cena',
-    new: 'Nová zakázka',
     close_warning: 'Zakázka bude uzavřena. Již nebude možno přidávat, odebírat ani měnit položky.',
     close: 'Uzavřít',
     note: 'Poznámka k zakázce',

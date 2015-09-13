@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
 
   actions: {
     deleteItem: function() {
-      var flash = Ember.get(this, 'flashMessages')
+      var flash = Ember.get(this, 'flashMessages'),
           item = this.get('attrs.item');
 
       item.deleteRecord();

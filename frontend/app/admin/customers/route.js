@@ -23,7 +23,7 @@ export default Ember.Route.extend({
         flash.success('Successfully saved!');
         that.transitionTo('admin.customer', newCustomer);
       }, function(response) {
-        flash.danger('Something went wrong!');
+        flash.danger('Something went wrong!', response);
       });
     }
   }

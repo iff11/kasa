@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import formatMoney from "accounting/format-money"
+// import formatMoney from "accounting/format-money";
 
 export default Ember.Controller.extend({
   attrs: [],

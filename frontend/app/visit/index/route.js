@@ -5,4 +5,3 @@ export default Ember.Route.extend({
     this.transitionTo('visit.show');
   }
 });
-;
