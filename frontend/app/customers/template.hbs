@@ -1,11 +1,13 @@
 <h2>{{t 'customers.all'}}</h2>
 
-<form class="form-inline">
-  <div class="form-group">
-    <label>{{t 'items.filterBy.label'}}:</label>
-    {{input value=filterString class="form-control" placeholder=(t 'customers.filterBy.placeholder')}}
-  </div>
-</form>
+{{ember-cli-filterable
+    label=(t 'items.filterBy.label')
+    placeholder=(t 'customers.filterBy.placeholder')
+    filterString=filterString
+    filterBy=filterBy
+    inputArray=attrs.customers
+    action="customersFiltered"
+  }}
 
 <table class='table'>
   <thead>

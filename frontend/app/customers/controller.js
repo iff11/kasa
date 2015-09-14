@@ -6,22 +6,7 @@ export default Ember.Controller.extend({
 
   queryParams: ['page', 'perPage'],
 
-  filterBy: ['first_name', 'last_name', 'note'],
-  filterString: '',
-  filteredCustomers: function () {
-    var filterString = this.get('filterString');
-    if (Ember.isEmpty(filterString)) {
-      return this.get('attrs.customers');
-    } else {
-      var regExPattern = this.get('filterString');
-      var regexp = new RegExp(regExPattern, 'i');
-      var filterBy = this.get('filterBy');
-      return this.get('attrs.customers').filter( function(item){
-        var properties = _.values(item.getProperties(filterBy)).join();
-        return properties.match(regexp);
-      });
-    }
-  }.property('filterString', 'attrs.customers.[]'),
+  filterBy: ['firstName', 'lastName', 'note'],
 
   sortBy: ['name'],
   sortedCustomers: Ember.computed.sort('filteredCustomers', 'sortBy'),
@@ -34,6 +19,9 @@ export default Ember.Controller.extend({
   actions: {
     sortBy: function (value) {
       this.set('sortBy', [value]);
+    },
+    customersFiltered: function (value) {
+      this.set('filteredCustomers', value);
     }
   }
 });
