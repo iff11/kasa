@@ -39,6 +39,7 @@
     "ember-cli-qunit": "0.3.13",
     "ember-cli-rails-addon": "0.0.12",
     "ember-cli-sass": "4.0.1",
+    "ember-cli-scss-lint": "0.1.2",
     "ember-cli-selectize": "0.4.2",
     "ember-cli-simple-auth": "0.8.0",
     "ember-cli-simple-auth-devise": "0.7.3",

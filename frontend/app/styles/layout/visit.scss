@@ -1,13 +1,10 @@
 .visit-note-editor {
   width: 100%;
-  border: none;
+  padding: 1em;
+  border: 0;
   overflow: auto;
   outline: none;
-
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
-  padding: 1em;
 }
 
 .table-item {
@@ -30,21 +27,26 @@
   @extend .text-center;
   @extend .col-xs-1;
 }
+
 .col-item-name {
   @extend .col-xs-4;
 }
+
 .col-item-count {
   @extend .col-xs-1;
   @extend .text-right;
 }
+
 .col-item-price {
   @extend .text-right;
   @extend .col-xs-2;
 }
+
 .col-item-sum {
   @extend .text-right;
   @extend .col-xs-2;
 }
+
 .col-item-action {
   @extend .text-right;
   @extend .col-xs-1;
@@ -59,25 +61,31 @@
       @extend .col-xs-1;
       @extend .text-center;
     }
+
     &-name {
       @extend .col-xs-4;
     }
+
     &-bought {
       @extend .col-xs-1;
       @extend .text-right;
     }
+
     &-sold {
       @extend .col-xs-1;
       @extend .text-right;
     }
+
     &-stock {
       @extend .col-xs-1;
       @extend .text-right;
     }
+
     &-price {
       @extend .col-xs-2;
       @extend .text-right;
     }
+    
     &-active {
       @extend .col-xs-1;
     }

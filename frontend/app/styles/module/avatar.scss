@@ -12,11 +12,11 @@
 .employee-evatar-in-visits {
   @extend .img-thumbnail;
   @extend .img-circle;
-  width: 5em;
-  height: 5em;
+  position: absolute;
   top: -10px;
   right: 20px;
-  position: absolute;
+  width: 5em;
+  height: 5em;
 }
 
 .employee-avatar-in-visit-list {
