@@ -7,7 +7,7 @@ export var ITEMS_FIXTURE = {
         "self": "http://localhost:3000/items/700"
       },
       "attributes": {
-        "name": "\"Kaviár spa rituál\"",
+        "name": "\"Kaviár spa rituál test\"",
         "bought": 14,
         "sold": 3,
         "unlimited": false,

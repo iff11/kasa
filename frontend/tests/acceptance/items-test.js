@@ -30,4 +30,12 @@ test('Test paging', function(assert) {
   andThen(function () {
     assert.equal(find('.items-row').length, 4, 'Correct number of items on second page');
   });
+
+  click('input');
+  fillIn('input','test');
+
+  andThen(function () {
+    assert.equal(find('.item-row')-length, 1, 'Correct number of itemfś for some filter')
+    return pauseTest();
+  });
 });
