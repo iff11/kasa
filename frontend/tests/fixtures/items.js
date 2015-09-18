@@ -433,6 +433,153 @@ export var ITEMS_FIXTURE = {
           }
         }
       }
+    },
+    {
+      id: 101,
+      type: 'items',
+      attributes: {
+        name: 'item 101'
+      }
+    },
+    {
+      id: 102,
+      type: 'items',
+      attributes: {
+        name: 'item 102'
+      }
+    },
+    {
+      id: 102,
+      type: 'items',
+      attributes: {
+        name: 'item 102'
+      }
+    },
+    {
+      id: 103,
+      type: 'items',
+      attributes: {
+        name: 'item 103'
+      }
+    },
+    {
+      id: 104,
+      type: 'items',
+      attributes: {
+        name: 'item 104'
+      }
+    },
+    {
+      id: 105,
+      type: 'items',
+      attributes: {
+        name: 'item 105'
+      }
+    },
+    {
+      id: 106,
+      type: 'items',
+      attributes: {
+        name: 'item 106'
+      }
+    },
+    {
+      id: 107,
+      type: 'items',
+      attributes: {
+        name: 'item 107'
+      }
+    },
+    {
+      id: 108,
+      type: 'items',
+      attributes: {
+        name: 'item 108'
+      }
+    },
+    {
+      id: 109,
+      type: 'items',
+      attributes: {
+        name: 'item 109'
+      }
+    },
+    {
+      id: 110,
+      type: 'items',
+      attributes: {
+        name: 'item 110'
+      }
+    },
+    {
+      id: 111,
+      type: 'items',
+      attributes: {
+        name: 'item 111'
+      }
+    },
+    {
+      id: 112,
+      type: 'items',
+      attributes: {
+        name: 'item 112'
+      }
+    },
+    {
+      id: 113,
+      type: 'items',
+      attributes: {
+        name: 'item 113'
+      }
+    },
+    {
+      id: 114,
+      type: 'items',
+      attributes: {
+        name: 'item 114'
+      }
+    },
+    {
+      id: 115,
+      type: 'items',
+      attributes: {
+        name: 'item 115'
+      }
+    },
+    {
+      id: 116,
+      type: 'items',
+      attributes: {
+        name: 'item 116'
+      }
+    },
+    {
+      id: 117,
+      type: 'items',
+      attributes: {
+        name: 'item 117'
+      }
+    },
+    {
+      id: 118,
+      type: 'items',
+      attributes: {
+        name: 'item 118'
+      }
+    },
+    {
+      id: 119,
+      type: 'items',
+      attributes: {
+        name: 'item 119'
+      }
+    },
+    {
+      id: 120,
+      type: 'items',
+      attributes: {
+        name: 'item 120'
+      }
     }
   ]
 };

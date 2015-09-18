@@ -21,6 +21,7 @@ export default Ember.Controller.extend({
       this.set('sortBy', [value]);
     },
     customersFiltered: function (value) {
+      this.set('page', 1);
       this.set('filteredCustomers', value);
     }
   }

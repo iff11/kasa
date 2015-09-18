@@ -17,12 +17,12 @@ module('Acceptance | items', {
 });
 
 test('Test paging', function(assert) {
-  assert.expect(2);
+  assert.expect(3);
 
   visit('/items');
 
   andThen(function () {
-    assert.equal(find('.items-row').length, 10, 'Correct number of items on first page');
+    assert.equal(find('.items-row').length, 30, 'Correct number of items on first page');
   });
 
   click('.arrow.next a');
@@ -35,7 +35,6 @@ test('Test paging', function(assert) {
   fillIn('input','test');
 
   andThen(function () {
-    assert.equal(find('.item-row')-length, 1, 'Correct number of itemfś for some filter')
-    return pauseTest();
+    assert.equal(find('.items-row').length, 1, 'Filter for "test" should return exactly one result');
   });
 });

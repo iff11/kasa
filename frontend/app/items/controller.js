@@ -5,20 +5,7 @@ export default Ember.Controller.extend({
   attrs: {},
 
   queryParams: ['page', 'perPage', 'filter'],
-
-  filterString: '',
-  filteredItems: function () {
-    var filterString = this.get('filterString');
-    if (Ember.isEmpty(filterString)) {
-      return this.get('attrs.items');
-    } else {
-      var regExPattern = this.get('filterString');
-      var regexp = new RegExp(regExPattern, 'i');
-      return this.get('attrs.items').filter( function(item){
-        return item.get('name').match(regexp);
-      });
-    }
-  }.property('filterString', 'attrs.items.[]'),
+  filterBy: ['name'],
 
   itemCount: Ember.computed.oneWay('filteredItems.length'),
 
@@ -27,11 +14,16 @@ export default Ember.Controller.extend({
 
   page: 1,
   perPage: 30,
-  pagedItems: pagedArray('sortedItems'),
+  pagedItems: pagedArray('sortedItems', {pageBinding: 'page', perPageBinding: 'perPage'}),
 
   actions: {
     sortBy: function (value) {
       this.set('sortBy', [value]);
+    },
+    itemsFiltered: function (value) {
+      console.log(this.get('page'));
+      this.set('page', 1);
+      this.set('filteredItems', value);
     }
   }
 });

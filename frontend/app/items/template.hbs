@@ -1,12 +1,14 @@
 <h2>{{t 'items.all'}}</h2>
 <p>{{t 'items.filterBy.showing'}} {{itemCount}} {{t 'items.filterBy.count'}}</p>
 
-<form class="form-inline">
-  <div class="form-group">
-    <label>{{t 'items.filterBy.label'}}:</label>
-    {{input value=filterString class="form-control" placeholder=(t 'items.filterBy.placeholder')}}
-  </div>
-</form>
+{{ember-cli-filterable
+    label=(t 'items.filterBy.label')
+    placeholder=(t 'items.filterBy.placeholder')
+    filterString=filterString
+    filterBy=filterBy
+    inputArray=attrs.items
+    action="itemsFiltered"
+  }}
 
 <table class="items">
   <thead>
