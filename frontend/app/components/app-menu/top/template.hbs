@@ -30,6 +30,11 @@
     </a>
     <ul class="dropdown-menu dropdown-user">
       <li>
+        <a class="muted">
+          {{fa-icon "cogs" }} {{session.secure.email}}
+        </a>
+      </li>
+      <li>
         <a {{action "logout"}} href="">
           {{fa-icon "sign-out" classNames="fa-fw"}} Logout
         </a>
