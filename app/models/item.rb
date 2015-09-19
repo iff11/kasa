@@ -1,10 +1,11 @@
 class Item < ActiveRecord::Base
   acts_as_paranoid
 
-  default_scope { order('unlimited', 'name') }
-
   has_many :sells
   has_many :supplies
+  # belongs_to :last_supply
+  belongs_to :last_supply, class_name: 'Supply',
+                           foreign_key: 'last_supply'
 
   def fix_sold
     new_sold = Sell.where(item_id: self.id).sum(:count)
@@ -17,7 +18,4 @@ class Item < ActiveRecord::Base
     self.bought = new_bought
     self.save!
   end
-
-  # Do not enable this. It will fuckup last_supply in ember because it will embed the data
-  # belongs_to :last_supply, class_name: 'Supply', foreign_key: 'last_supply'
 end

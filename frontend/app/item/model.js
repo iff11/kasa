@@ -12,13 +12,13 @@ export default DS.Model.extend({
   warningThreshold: DS.attr(),
   isActive: DS.attr(),
 
-  // lastSupply: DS.belongsTo('supply', {async: true, inverse: 'lastSupply'}),
-  sells: DS.hasMany('sell', {async: true, embedded: 'always'}),
-  supplies: DS.hasMany('supply', {async: true, inverse: 'item', embedded: 'always'}),
+  sells: DS.hasMany('sell', {async: true}),
+  supplies: DS.hasMany('supply', {async: true}),
+  lastSupply: DS.belongsTo('supply', {async: true, inverse: 'lastSupplyFor'}),
 
-  lastSupply: function () {
-    return this.get('supplies').sortBy('updatedAt:desc').get('firstObject');
-  }.property('supplies.@each'),
+  // lastSupply: function () {
+  //   return this.get('supplies').sortBy('updatedAt:desc').get('firstObject');
+  // }.property('supplies.@each'),
 
   lowStock: function() {
     return this.get('stock') <= this.get('warningThreshold');

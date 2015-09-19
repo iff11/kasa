@@ -34,6 +34,7 @@
 
   <tbody>
     {{#each item in items}}
+    {{log item.lastSupply}}
       <tr>
         <td class="admin-items-col-active">
           {{#if item.isActive}}
