@@ -1,21 +1,30 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  filteredArray: function () {
-    var filterString = this.get('filterString');
+  isWaiting: false,
+
+  onFilterStringChange: function () {
+    this.set('isWaiting', true);
+    Ember.run.debounce(this, this.updateFilter, 1000);
+  }.observes('filterString', 'inputArray.[]'),
+
+  updateFilter: function () {
+    var filterString = this.get('filterString'),
+        filteredArray = [];
+
     if (Ember.isEmpty(filterString)) {
-      return this.get('inputArray');
+      filteredArray = this.get('inputArray');
     } else {
       var regexp = new RegExp(filterString, 'i'),
           filterBy = this.get('filterBy');
-      return this.get('inputArray').filter( function(item){
+      filteredArray = this.get('inputArray').filter( function(item){
         var properties = _.values(item.getProperties(filterBy)).join();
         return properties.match(regexp);
       });
     }
-  }.property('filterString', 'inputArray.[]'),
 
-  updateFilter: function () {
-    this.sendAction('action', this.get('filteredArray'));
-  }.observes('filterString')
+    this.set('isWaiting', false);
+
+    this.sendAction('action', filteredArray);
+  }
 });

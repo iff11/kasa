@@ -12,13 +12,15 @@
   </div>
 </h2>
 
-<ul class="nav nav-tabs">
-  {{#link-to 'admin.items' (query-params isActive="true") tagName='li'}}
-    <a>{{t 'items.active'}}</a>
-  {{/link-to}}
-  {{#link-to 'admin.items' (query-params isActive="false") tagName='li'}}
-    <a>{{t 'items.inactive'}}</a>
-  {{/link-to}}
-</ul>
+{{ember-cli-filterable
+    label=(t 'items.filterBy.label')
+    placeholder=(t 'items.filterBy.placeholder')
+    filterString=filterString
+    filterBy=filterBy
+    inputArray=attrs.items
+    action="itemsFiltered"
+  }}
 
-{{x-items/table items=attrs.items}}
+{{x-items/table items=pagedItems sortBy=sortBy action="sortBy"}}
+
+{{page-numbers content=pagedItems}}

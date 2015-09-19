@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
   sortedCustomers: Ember.computed.sort('filteredCustomers', 'sortBy'),
 
   page: 1,
-  perPage: 30,
+  perPage: 25,
   pagedCustomers: pagedArray('sortedCustomers', {pageBinding: 'page', perPageBinding: 'perPage'}),
   totalPagesBinding: 'pagedCustomers.totalPages',
 

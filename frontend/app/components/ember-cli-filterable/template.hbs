@@ -2,5 +2,9 @@
   <div class="form-group">
     <label>{{label}}:</label>
     {{input value=filterString class="form-control" placeholder=placeholder}}
+
+    {{#if isWaiting}}
+      {{fa-icon "refresh" spin=true}}
+    {{/if}}
   </div>
 </form>

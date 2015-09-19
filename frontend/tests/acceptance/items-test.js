@@ -22,13 +22,13 @@ test('Test paging', function(assert) {
   visit('/items');
 
   andThen(function () {
-    assert.equal(find('.items-row').length, 30, 'Correct number of items on first page');
+    assert.equal(find('.items-row').length, 25, 'Correct number of items on first page');
   });
 
   click('.arrow.next a');
 
   andThen(function () {
-    assert.equal(find('.items-row').length, 4, 'Correct number of items on second page');
+    assert.equal(find('.items-row').length, 9, 'Correct number of items on second page');
   });
 
   click('input');

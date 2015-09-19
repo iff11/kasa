@@ -13,7 +13,7 @@ export default Ember.Controller.extend({
   sortedItems: Ember.computed.sort('filteredItems', 'sortBy'),
 
   page: 1,
-  perPage: 30,
+  perPage: 25,
   pagedItems: pagedArray('sortedItems', {pageBinding: 'page', perPageBinding: 'perPage'}),
 
   actions: {
@@ -21,7 +21,6 @@ export default Ember.Controller.extend({
       this.set('sortBy', [value]);
     },
     itemsFiltered: function (value) {
-      console.log(this.get('page'));
       this.set('page', 1);
       this.set('filteredItems', value);
     }
