@@ -15,7 +15,9 @@
       <tr>
         <td>{{employee.firstName}}</td>
         <td>{{employee.lastName}}</td>
-        <td>{{employee.photo_url}}</td>
+        <td>
+          <img src="{{employee.photo_url}}" class="employee-avatar-xs" />
+        </td>
         <td class="text-right">
           {{#link-to 'admin.employee' employee class="btn btn-default btn-xs"}}
             {{fa-icon 'pencil'}}
