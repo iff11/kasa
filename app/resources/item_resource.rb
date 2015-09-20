@@ -8,5 +8,8 @@ class ItemResource < JSONAPI::Resource
   has_many :sells
   has_many :supplies
 
-  has_one :last_supply, class_name: 'Supply'#, foreign_key: 'last_supply'
+  # has_one :last_supply, class_name: 'Supply', foreign_key: 'last_supply'
+  has_one :last_supply, class_name: 'Supply'
+  #has_one :foobar, class_name: 'Supply', foreign_key: 'last_supply'
+
 end

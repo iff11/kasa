@@ -24,6 +24,8 @@ export default Ember.Controller.extend({
           flash = Ember.get(this, 'flashMessages'),
           supply = this.store.createRecord('supply', this.get('attrs.supply'));
 
+      supply.set('lastSupplyFor', [this.get('attrs.supply.item')]);
+
       supply.save().then(function() {
         flash.success('Supply successfully saved!');
         if(that.get('attrs.supply.item.isDirty')) {

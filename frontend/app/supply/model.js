@@ -8,7 +8,7 @@ export default DS.Model.extend({
   updatedAt: DS.attr(),
 
   item: DS.belongsTo('item', {async: true}),
-  lastSupplyFor: DS.belongsTo('item', {async: true, inverse: 'lastSupply'}),
+  lastSupplyFor: DS.hasMany('item', {async: true, inverse: 'lastSupply'}),
 
   sum: function() {
     return this.get('quantity') * this.get('purchase_price');
