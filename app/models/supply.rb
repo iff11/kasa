@@ -3,8 +3,6 @@ class Supply < ActiveRecord::Base
 
   belongs_to :item
 
-  # has_one :item
-
   after_save :fix_bought
   after_destroy :fix_bought
   after_restore :fix_bought

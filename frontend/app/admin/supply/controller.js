@@ -2,44 +2,45 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   attrs: {
-    supply: {}
+    supply: {
+      purchase_price: 0,
+      quantity: 0
+    }
   },
 
-  lastSupplyPrice: function() {
-    this.set('attrs.supply.purchase_price', this.get('lastSupply.purchase_price'));
-  }.observes('attrs.supply.item'),
-
-  lastSupply: function () {
-    console.log('lastSupply: ', this.get('attrs.supply.item.lastSupply'));
-    return this.get('attrs.supply.item.lastSupply');
-  }.property('attrs.supply.item'),
-
-  items: function () {
-    return this.store.findAll('item');
-  }.property(),
+  // TODO: This does not work :(
+  // onItemChosen: function() {
+  //   var lastSupply = this.get('attrs.supply.item.lastSupply');
+  //
+  //   this.set('attrs.supply.purchase_price', lastSupply.get('purchase_price'));
+  //   this.set('attrs.supply.quantity', lastSupply.get('quantity'));
+  // }.observes('attrs.supply.item'),
 
   actions: {
     createSupply: function() {
-      var that = this,
-          flash = Ember.get(this, 'flashMessages'),
+      var flash = Ember.get(this, 'flashMessages'),
+          itemName = this.get('attrs.supply.item.name'),
           supply = this.store.createRecord('supply', this.get('attrs.supply'));
 
       supply.set('lastSupplyFor', [this.get('attrs.supply.item')]);
 
-      supply.save().then(function() {
-        flash.success('Supply successfully saved!');
-        if(that.get('attrs.supply.item.isDirty')) {
-          that.get('attrs.supply.item').save().then(function () {
-            flash.success('Item successfully updated!');
-          }, function (response) {
-            flash.danger('Updating item failed', response);
+      supply.save().then(() => {
+        flash.success(this.get('attrs.supply.item.name') + ' ++');
+        if(this.get('attrs.supply.item.isDirty')) {
+          this.get('attrs.supply.item').save().then(() => {
+            flash.success(itemName + ' ✓');
+          }, (response) => {
+            flash.danger(itemName + ' ✓ ' + response);
           });
         }
 
-        that.set('attrs.supply.item', null);
-        that.set('attrs.supply.quantity', null);
-      }, function(response) {
-        flash.danger('Something went wrong!', response);
+        this.set('attrs.supply', {
+          item: null,
+          quantity: 0,
+          purchase_price: 0
+        });
+      }, (response) => {
+        flash.danger(itemName + ' ++ ' + response);
       });
     }
   }

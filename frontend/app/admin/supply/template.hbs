@@ -17,7 +17,7 @@
   <div class="form-group">
     <label>{{t 'supply.item'}}</label>
     {{ember-selectize
-        content=items
+        content=attrs.items
         optionValuePath="content"
         optionLabelPath="content.scanner_string"
         selection=attrs.supply.item
