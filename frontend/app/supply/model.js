@@ -1,9 +1,9 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  purchase_price: DS.attr(),
-  quantity: DS.attr(),
-  vat: DS.attr(),
+  purchase_price: DS.attr('number'),
+  quantity: DS.attr('number'),
+  vat: DS.attr('number'),
   createdAt: DS.attr(),
   updatedAt: DS.attr(),
 
