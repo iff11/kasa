@@ -5,16 +5,19 @@ export default Ember.Controller.extend({
   heap: {},
 
   onItemChosen: function() {
-    var lastSupply = this.get('heap.item.lastSupply');
+    var item = this.get('heap.item'),
+        newSupply = this.get('attrs.newSupply');
 
-    if (!Ember.isEmpty(lastSupply)) {
-      this.get('heap.item.lastSupply').then((lastSupply) => {
-        this.set('heap.quantity', lastSupply.get('quantity'));
-        this.set('heap.purchase_price', lastSupply.get('purchase_price'));
+    if (!Ember.isEmpty(item)) {
+      item.get('lastSupply').then((lastSupply) => {
+        newSupply.set('quantity', lastSupply.get('quantity'));
+        newSupply.set('purchase_price', lastSupply.get('purchase_price'));
+        item.set('lastSupply', newSupply);
       });
+      this.set('attrs.newSupply.item', item);
     }
 
-    this.set('heap.sellingPrice', this.get('heap.item.sellingPrice'));
+    // item.set('sellingPrice', item.get('sellingPrice'));
   }.observes('heap.item'),
 
   onInitNewSupply: function () {
@@ -23,16 +26,18 @@ export default Ember.Controller.extend({
 
   actions: {
     initSupply: function () {
-      this.set('heap', {
+      this.set('attrs.newSupply', this.store.createRecord('supply', {
         purchase_price: 0,
         quantity: 0,
         vat: 21
-      });
+      }));
+      // TODO: this does not work
+      // this.set('attrs.newSupply.item', {sellingPrice: 0});
     },
 
     createSupply: function() {
       var flash = Ember.get(this, 'flashMessages'),
-          newSupply = this.store.createRecord('supply', this.get('heap')),
+          newSupply = this.get('attrs.newSupply'),
           item = this.get('heap.item'),
           itemName = item.get('name'),
           lastSupply = item.get('lastSupply'),

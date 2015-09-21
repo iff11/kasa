@@ -16,10 +16,6 @@ export default DS.Model.extend({
   supplies: DS.hasMany('supply', {async: true}),
   lastSupply: DS.belongsTo('supply', {async: true, inverse: 'lastSupplyFor'}),
 
-  // lastSupply: function () {
-  //   return this.get('supplies').sortBy('updatedAt:desc').get('firstObject');
-  // }.property('supplies.@each'),
-
   lowStock: function() {
     return this.get('stock') <= this.get('warningThreshold');
   }.property('stock', 'warningThreshold'),
@@ -33,7 +29,12 @@ export default DS.Model.extend({
   }.property('bought', 'sold'),
 
   margin: function() {
-    // TODO: This should be some globally configurable employee margin
-    return Math.round(((1 - 0.1) * this.get('sellingPrice') - this.get('lastSupply.purchasePriceWithVat')) / this.get('lastSupply.purchasePriceWithVat') * 100).toFixed(1);
-  }.property('sellingPrice', 'lastSupply')
+    var employeeMargin = 0.1,
+        sellingPrice = this.get('sellingPrice'),
+        purchasePriceWithVat = this.get('lastSupply.purchasePriceWithVat'),
+        roughMargin = ((1 - employeeMargin) * sellingPrice - purchasePriceWithVat) / purchasePriceWithVat * 100,
+        margin = Math.round(roughMargin).toFixed(1);
+
+    return margin;
+  }.property('sellingPrice', 'lastSupply.purchasePriceWithVat')
 });
