@@ -31,6 +31,7 @@ export default Ember.Controller.extend({
         quantity: 0,
         vat: 21
       }));
+      this.set('heap.item', undefined);
       // TODO: this does not work
       // this.set('attrs.newSupply.item', {sellingPrice: 0});
     },
