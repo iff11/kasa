@@ -1,0 +1,2 @@
+class LastSupplyResource < SupplyResource
+end

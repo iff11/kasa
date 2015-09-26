@@ -1,5 +1,10 @@
 export default function(){
   this.transition(
+    this.childOf('#last-flash'),
+    this.use('fade')
+  );
+
+  this.transition(
     this.toRoute('visit'),
     this.use('toLeft')
   );
@@ -23,4 +28,4 @@ export default function(){
     this.toRoute('visit.show'),
     this.use('toRight')
   );
-};
+}

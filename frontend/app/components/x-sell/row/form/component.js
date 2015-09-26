@@ -4,6 +4,6 @@ export default Ember.Component.extend({
   tagName: '',
 
   prefill: function() {
-    this.set('sell.price', this.get('sell.item.selling_price'));
+    this.set('sell.price', this.get('sell.item.sellingPrice'));
   }.observes('sell.item'),
 });

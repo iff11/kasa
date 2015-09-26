@@ -1,43 +1,68 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  attrs: {
-    supply: {}
-  },
+  attrs: {},
+  heap: {},
 
-  lastSupplyPrice: function() {
-    this.set('attrs.supply.purchase_price', this.get('lastSupply.purchase_price'));
-  }.observes('attrs.supply.item'),
+  onItemChosen: function() {
+    var item = this.get('heap.item'),
+        newSupply = this.get('attrs.newSupply');
 
-  lastSupply: function () {
-    console.log('lastSupply: ', this.get('attrs.supply.item.lastSupply'));
-    return this.get('attrs.supply.item.lastSupply');
-  }.property('attrs.supply.item'),
+    if (!Ember.isEmpty(item)) {
+      item.get('lastSupply').then((lastSupply) => {
+        newSupply.set('quantity', lastSupply.get('quantity'));
+        newSupply.set('purchase_price', lastSupply.get('purchase_price'));
+        item.set('lastSupply', newSupply);
+      });
+      this.set('attrs.newSupply.item', item);
+    }
 
-  items: function () {
-    return this.store.all('item');
-  }.property(),
+    // item.set('sellingPrice', item.get('sellingPrice'));
+  }.observes('heap.item'),
+
+  onInitNewSupply: function () {
+    this.send('initSupply');
+  }.on('init'),
 
   actions: {
+    initSupply: function () {
+      this.set('attrs.newSupply', this.store.createRecord('supply', {
+        purchase_price: 0,
+        quantity: 0,
+        vat: 21
+      }));
+      this.set('heap.item', undefined);
+      // TODO: this does not work
+      // this.set('attrs.newSupply.item', {sellingPrice: 0});
+    },
+
     createSupply: function() {
-      var that = this,
-          flash = Ember.get(this, 'flashMessages'),
-          supply = this.store.createRecord('supply', this.get('attrs.supply'));
+      var flash = Ember.get(this, 'flashMessages'),
+          newSupply = this.get('attrs.newSupply'),
+          item = this.get('heap.item'),
+          itemName = item.get('name'),
+          lastSupply = item.get('lastSupply'),
+          bought = 0;
 
-      supply.save().then(function() {
-        flash.success('Supply successfully saved!');
-        if(that.get('attrs.supply.item.isDirty')) {
-          that.get('attrs.supply.item').save().then(function () {
-            flash.success('Item successfully updated!');
-          }, function (response) {
-            flash.danger('Updating item failed');
+      item.get('supplies').then((supplies) => {
+        bought = supplies.reduce((prev, supply) => { return prev + parseInt(supply.get('quantity')); }, 0);
+
+        item.set('lastSupply', newSupply);
+        item.set('bought', bought);
+
+        newSupply.save().then(() => {
+          flash.success(itemName + ' ++');
+          item.save().then(() => {
+            flash.success(itemName + ' ✓');
+            this.send('initSupply');
+          }, (response) => {
+            flash.danger(itemName + ' ✓ ' + response);
+            this.send('initSupply');
           });
-        }
-
-        that.set('attrs.supply.item', null);
-        that.set('attrs.supply.quantity', null);
-      }, function(response) {
-        flash.danger('Something went wrong!');
+        }, (response) => {
+          flash.danger(itemName + ' ++ ' + response);
+          this.send('initSupply');
+        });
       });
     }
   }

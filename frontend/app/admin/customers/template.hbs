@@ -1,10 +1,17 @@
 <h2>
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-8">
       {{t 'customers.all'}}
     </div>
 
-    <div class="col-xs-6 text-right">
+    <div class="col-xs-2 text-right">
+      <a href="{{mailto}}" class="btn btn-info">
+        {{fa-icon 'envelope'}}
+        {{t 'customers.newsletter'}}
+      </a>
+    </div>
+
+    <div class="col-xs-2 text-right">
       <button class="btn btn-success" {{action 'createCustomer'}}>
         {{fa-icon 'plus-square'}} {{t 'customer.add'}}
       </button>
@@ -12,28 +19,37 @@
   </div>
 </h2>
 
-<table class="table table-hover">
+{{ember-cli-filterable
+    label=(t 'items.filterBy.label')
+    placeholder=(t 'customers.filterBy.placeholder')
+    filterString=filterString
+    filterBy=filterBy
+    inputArray=attrs.customers
+    action="customersFiltered"
+  }}
+
+<table class="admin-customers">
   <thead>
     <tr>
-      <th class="xol-xs-1">{{th-sort action="sortBy" title=(t 'customer.visits_length') current=sortBy value='visits_count'}}</th>
-      <th class="xol-xs-1">{{th-sort action="sortBy" title=(t 'customer.lastVisit') current=sortBy value='last_visit.date'}}</th>
-      <th class="col-xs-2">{{th-sort action="sortBy" title=(t 'customer.first_name') current=sortBy value='first_name'}}</th>
-      <th class="col-xs-2">{{th-sort action="sortBy" title=(t 'customer.last_name') current=sortBy value='last_name'}}</th>
-      <th class="col-xs-2">{{th-sort action="sortBy" title=(t 'customer.birth') current=sortBy value='birth'}}</th>
-      <th class="col-xs-1">{{th-sort action="sortBy" title=(t 'customer.phone') current=sortBy value='phone'}}</th>
-      <th class="col-xs-2">{{th-sort action="sortBy" title=(t 'customer.mail') current=sortBy value='mail'}}</th>
-      <th class="col-xs-1">{{th-sort action="sortBy" title=(t 'customer.note') current=sortBy value='note'}}</th>
-      <th class="col-xs-1 text-right">{{t 'customer.action'}}</th>
+      <th class="admin-customers-col-visits-count">{{th-sort action="sortBy" title=(t 'customer.visits_length') current=sortBy value='visitsCount'}}</th>
+      <th class="admin-customers-col-last-visit">{{th-sort action="sortBy" title=(t 'customer.lastVisit') current=sortBy value='lastVisit.date'}}</th>
+      <th class="admin-customers-col-first-name">{{th-sort action="sortBy" title=(t 'customer.firstName') current=sortBy value='firstName'}}</th>
+      <th class="admin-customers-col-last-name">{{th-sort action="sortBy" title=(t 'customer.lastName') current=sortBy value='lastName'}}</th>
+      <th class="admin-customers-col-birth">{{th-sort action="sortBy" title=(t 'customer.birth') current=sortBy value='birth'}}</th>
+      <th class="admin-customers-col-phone">{{th-sort action="sortBy" title=(t 'customer.phone') current=sortBy value='phone'}}</th>
+      <th class="admin-customers-col-mail">{{th-sort action="sortBy" title=(t 'customer.mail') current=sortBy value='mail'}}</th>
+      <th class="admin-customers-col-note">{{th-sort action="sortBy" title=(t 'customer.note') current=sortBy value='note'}}</th>
+      <th class="admin-customers-col-action">{{t 'customer.action'}}</th>
     </tr>
   </thead>
 
   <tbody>
-    {{#each customersSorted as |customer|}}
+    {{#each pagedCustomers as |customer|}}
       <tr>
-        <td>{{customer.visits_count}}</td>
-        <td>{{x-visit/last-visit visit=customer.last_visit}}</td>
-        <td>{{customer.first_name}}</td>
-        <td>{{customer.last_name}}</td>
+        <td>{{customer.visitsCount}}</td>
+        <td>{{x-visit/last-visit visit=customer.lastVisit}}</td>
+        <td>{{customer.firstName}}</td>
+        <td>{{customer.lastName}}</td>
         <td>{{customer.birth}}</td>
         <td>{{customer.phone}}</td>
         <td>{{customer.mail}}</td>
@@ -47,3 +63,5 @@
     {{/each}}
   </tbody>
 </table>
+
+{{page-numbers content=pagedCustomers}}

@@ -2,11 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   visits: function() {
-    return this.store.all('visit');
+    return this.store.findAll('visit');
   }.property(),
 
   customers: function() {
-    return this.store.all('customer');
-  }.property(),
+    return this.store.findAll('customer');
+  }.property()
 });
-

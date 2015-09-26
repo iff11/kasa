@@ -1,15 +1,46 @@
-<h2 {{bind-attr title=(date-and-time attrs.visit.date ENV.locale)}} class="row">
+<div class="row">
   <div class="col-xs-6">
-    {{#link-to 'customer' attrs.visit.customer}}
-      {{fa-icon 'user'}}
-      {{attrs.visit.customer.full_name}}
-    {{/link-to}}
+    <h2>
+      {{#link-to 'customer' attrs.visit.customer}}
+        {{fa-icon 'user'}}
+        {{attrs.visit.customer.full_name}}
+      {{/link-to}}
+    </h2>
+
+    {{#unless attrs.visit.customer.mail}}
+      <span class="fa-stack">
+        {{fa-icon 'envelope' stack=1}}
+        {{fa-icon 'ban' stack=2 classNames='text-danger'}}
+      </span>
+    {{/unless}}
+
+    {{#unless attrs.visit.customer.phone}}
+      <span class="fa-stack">
+        {{fa-icon 'phone' stack=1}}
+        {{fa-icon 'ban' stack=2 classNames='text-danger'}}
+      </span>
+    {{/unless}}
+
+    {{#unless attrs.visit.customer.birth}}
+      <span class="fa-stack">
+        {{fa-icon 'birthday-cake' stack=1}}
+        {{fa-icon 'ban' stack=2 classNames='text-danger'}}
+      </span>
+    {{else}}
+      {{x-customer/birthday customer=attrs.visit.customer}}
+    {{/unless}}
+
+    <div class="text-muted">
+      {{attrs.visit.customer.note}}
+    </div>
   </div>
+
   <div class="col-xs-6 text-right">
-    {{fa-icon 'scissors'}}
-    {{attrs.visit.employee.full_name}}
+    <h2>
+      <img class="employee-avatar-in-visit" src={{attrs.visit.employee.photo_url}} />
+    </h2>
   </div>
-</h2>
+</div>
 
 <hr />
 

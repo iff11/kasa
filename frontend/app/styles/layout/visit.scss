@@ -1,0 +1,93 @@
+.visit-note-editor {
+  width: 100%;
+  padding: 1em;
+  border: 0;
+  overflow: auto;
+  outline: none;
+  box-shadow: none;
+}
+
+.table-item {
+  @extend .table;
+  @extend .table-hover;
+  margin-top: 1em;
+}
+
+.row-item {
+  .btn {
+    opacity: .2;
+  }
+
+  &:hover .btn {
+    opacity: 1;
+  }
+}
+
+.col-item-separator {
+  @extend .text-center;
+  @extend .col-xs-1;
+}
+
+.col-item-name {
+  @extend .col-xs-4;
+}
+
+.col-item-count {
+  @extend .col-xs-2;
+  @extend .text-right;
+}
+
+.col-item-price {
+  @extend .text-right;
+  @extend .col-xs-2;
+}
+
+.col-item-sum {
+  @extend .text-right;
+  @extend .col-xs-1;
+}
+
+.col-item-action {
+  @extend .text-right;
+  @extend .col-xs-1;
+}
+
+.items {
+  @extend .table;
+  @extend .table-hover;
+
+  &-col {
+    &-separator {
+      @extend .col-xs-1;
+      @extend .text-center;
+    }
+
+    &-name {
+      @extend .col-xs-4;
+    }
+
+    &-bought {
+      @extend .col-xs-1;
+      @extend .text-right;
+    }
+
+    &-sold {
+      @extend .col-xs-1;
+      @extend .text-right;
+    }
+
+    &-stock {
+      @extend .col-xs-1;
+      @extend .text-right;
+    }
+
+    &-price {
+      @extend .col-xs-2;
+      @extend .text-right;
+    }
+
+    &-active {
+      @extend .col-xs-1;
+    }
+  }
+}
