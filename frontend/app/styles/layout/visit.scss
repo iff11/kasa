@@ -33,7 +33,7 @@
 }
 
 .col-item-count {
-  @extend .col-xs-1;
+  @extend .col-xs-2;
   @extend .text-right;
 }
 
@@ -44,7 +44,7 @@
 
 .col-item-sum {
   @extend .text-right;
-  @extend .col-xs-2;
+  @extend .col-xs-1;
 }
 
 .col-item-action {
@@ -85,7 +85,7 @@
       @extend .col-xs-2;
       @extend .text-right;
     }
-    
+
     &-active {
       @extend .col-xs-1;
     }
