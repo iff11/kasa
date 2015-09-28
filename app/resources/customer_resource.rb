@@ -1,5 +1,5 @@
 class CustomerResource < JSONAPI::Resource
-  attributes :id, :birth, :phone, :mail, :note
+  attributes :birth, :phone, :mail, :note
 
   attribute :first_name, :key => 'first-name'
   attribute :last_name, :key => 'last-name'

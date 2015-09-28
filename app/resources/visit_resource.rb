@@ -1,5 +1,5 @@
 class VisitResource < JSONAPI::Resource
-  attributes :id, :note, :completed, :price_with_tip, :received_amount, :updated_at
+  attributes :note, :completed, :price_with_tip, :received_amount, :updated_at
 
   has_one :customer
   has_one :employee
