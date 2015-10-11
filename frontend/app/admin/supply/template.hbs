@@ -17,17 +17,17 @@
   <div class="form-group">
     <label>{{t 'supply.item'}}</label>
     {{ember-selectize
-        content=items
+        content=attrs.items
         optionValuePath="content"
         optionLabelPath="content.scanner_string"
-        selection=attrs.supply.item
+        selection=heap.item
         placeholder=(t 'supply.item') }}
   </div>
 
   <div class="form-group">
     <label>{{t 'supply.quantity'}}</label>
     <div class="input-group">
-      {{input placeholder=(t 'supply.quantity') value=attrs.supply.quantity class='form-control text-right'}}
+      {{input placeholder=(t 'supply.quantity') value=attrs.newSupply.quantity class='form-control text-right' type='number'}}
       <span class="input-group-addon">{{t 'pieces'}}</span>
     </div>
   </div>
@@ -35,15 +35,15 @@
   <div class="form-group">
     <label>{{t 'supply.purchase_price'}}</label>
     <div class="input-group">
-      {{input placeholder=(t 'supply.purchase_price') value=attrs.supply.purchase_price class='form-control text-right'}}
+      {{input placeholder=(t 'supply.purchase_price') value=attrs.newSupply.purchase_price class='form-control text-right' type='number'}}
       <span class="input-group-addon">{{t 'currency'}}</span>
     </div>
   </div>
 
   <div class="form-group">
-    <label>{{t 'item.selling_price'}}</label>
+    <label>{{t 'item.sellingPrice'}}</label>
     <div class="input-group">
-      {{input value=attrs.supply.item.selling_price class='form-control text-right'}}
+      {{input value=attrs.newSupply.item.sellingPrice class='form-control text-right' type='number'}}
       <span class="input-group-addon">{{t 'currency'}}</span>
     </div>
   </div>
@@ -51,7 +51,7 @@
   <div class="form-group">
     <label>{{t 'supply.vat'}}</label>
     <div class="input-group">
-      {{input placeholder=(t 'supply.vat') value='21' disabled='true' class='form-control text-right'}}
+      {{input placeholder=(t 'supply.vat') value=attrs.newSupply.vat disabled='true' class='form-control text-right' type='number'}}
       <span class="input-group-addon">%</span>
     </div>
   </div>
@@ -59,7 +59,7 @@
   <div class="form-group">
     <label>{{t 'item.margin'}}</label>
     <div class="input-group">
-      {{input value=attrs.supply.item.margin disabled=true class='form-control text-right'}}
+      {{input value=heap.item.margin disabled=true class='form-control text-right'}}
       <span class="input-group-addon">%</span>
     </div>
   </div>

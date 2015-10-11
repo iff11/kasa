@@ -10,12 +10,16 @@ export default {
   // "key.with.interpolation": "Text with {{anInterpolation}}"
 
   customers: {
-    all: 'Všichni zákazníci'
+    all: 'Všichni zákazníci',
+    newsletter: 'Newsletter',
+    filterBy: {
+      placeholder: 'Jan Novák...'
+    }
   },
 
   customer: {
-    first_name: 'Jméno',
-    last_name: 'Příjmení',
+    firstName: 'Jméno',
+    lastName: 'Příjmení',
     full_name: 'Jméno',
     birth: 'Datum narození',
     note: 'Poznámka',
@@ -23,7 +27,7 @@ export default {
     phone: 'Telefon',
     mail: 'E-mail',
     action: 'Akce',
-    add: 'Přidat',
+    add: 'Přidat zákazníka',
     visits_length: 'Návštěv',
     all_customers: 'Seznam zákazníků',
     all_visits: 'Seznam návštěv',
@@ -31,18 +35,16 @@ export default {
   },
 
   visit: {
-    all_visits: 'Všechny zakázky',
+    all_visits: 'Všechny otevřené zakázky',
     checkout: 'K pokladně',
     customer: 'Zákazník',
     employee: 'Zaměstnanec',
     all_open: 'Všechny otevřené zakázky',
     auto_complete: 'Hledej...',
-    select_employee: '-- Vyber --',
     total_price: 'Celková cena',
-    new: 'Nová zakázka',
     close_warning: 'Zakázka bude uzavřena. Již nebude možno přidávat, odebírat ani měnit položky.',
     close: 'Uzavřít',
-    note: 'Poznámka',
+    note: 'Poznámka k zakázce',
     back_to_visit: 'Zpátky do zakázky',
     sum_price_is: 'Celková částka k zaplacení',
     sum_with_tip_is: 'Celková částka i s dýškem',
@@ -56,11 +58,16 @@ export default {
     date: 'Datum',
     employee_margin: 'Podíl zaměstnance',
     isDirty: 'Neuložili jste položku zakázky. Klikněte na zelené plus, nebo položku smažte.',
-    noLastVisit: '---'
+    noLastVisit: '---',
+    new: {
+      selectCustomer: '-- Vyber --',
+      selectEmployee: '-- Vyber --',
+      confirm: 'Přidat'
+    }
   },
 
   items: {
-    all: 'Všechny položky na skladě',
+    all: 'Sklad',
     add: 'Přidat',
     newName: 'Nová položka',
     newBarcode: '123456789',
@@ -68,7 +75,13 @@ export default {
     newSellingPrice: '100',
     newWarningThreshold: '5',
     active: 'Aktivní',
-    inactive: 'Neaktivní'
+    inactive: 'Neaktivní',
+    filterBy: {
+      label: 'Filtrace',
+      placeholder: 'Šampón...',
+      count: 'kusů',
+      showing: 'Zobrazeno'
+    }
   },
 
   sell: {
@@ -90,7 +103,7 @@ export default {
     stock: 'Skladem',
     purchase_price: 'Nákup',
     unlimited: 'Neomezené množství',
-    selling_price: 'Prodejní cena (s DPH)',
+    sellingPrice: 'Prodejní cena (s DPH)',
     barcode: 'Čárový kód',
     unlimited_or_stock: 'Koupeno - Prodáno = Skladem',
     action: 'Akce',
@@ -104,8 +117,8 @@ export default {
   },
 
   employee: {
-    first_name: 'Jméno',
-    last_name: 'Příjmení',
+    firstName: 'Jméno',
+    lastName: 'Příjmení',
     photo_url: 'Odkaz na fotku',
     action: 'Akce',
     add: 'Přidat',

@@ -1,0 +1,35 @@
+.navbar-default {
+  .danger {
+    color: $state-danger-text;
+  }
+
+  .success {
+    color: $state-success-text;
+  }
+
+  .navbar-brand {
+    padding-top: .3em;
+    padding-left: .5em;
+    font-family: 'Qwigley', cursive;
+    font-size: 2em;
+  }
+
+  .navbar-top-links {
+    .dropdown-alerts {
+      width: 400px;
+
+      a {
+        display: block;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .sidebar-nav {
+    h3 {
+      // color: $heading-color;
+      padding-left: .7em;
+    }
+  }
+}

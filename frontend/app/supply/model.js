@@ -1,12 +1,14 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  purchase_price: DS.attr(),
-  quantity: DS.attr(),
-  vat: DS.attr(),
+  purchase_price: DS.attr('number'),
+  quantity: DS.attr('number'),
+  vat: DS.attr('number'),
   createdAt: DS.attr(),
+  updatedAt: DS.attr(),
 
   item: DS.belongsTo('item', {async: true}),
+  lastSupplyFor: DS.hasMany('item', {async: true, inverse: 'lastSupply'}),
 
   sum: function() {
     return this.get('quantity') * this.get('purchase_price');
@@ -17,6 +19,7 @@ export default DS.Model.extend({
   }.property('vat', 'sum'),
 
   purchasePriceWithVat: function() {
+    console.log('purchasePriceWithVat');
     return this.get('purchase_price') * (1 + this.get('vat') / 100);
   }.property('purchase_price', 'vat')
 });

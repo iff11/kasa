@@ -29,8 +29,7 @@ export default Ember.Route.extend({
     },
 
     updateCustomer: function(customer) {
-      var flash = Ember.get(this, 'flashMessages'),
-          that = this;
+      var flash = Ember.get(this, 'flashMessages');
 
       customer.save().then(function() {
         flash.success('Customer updated');

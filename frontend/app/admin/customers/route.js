@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function() {
-    return this.store.all('customer');
+    return this.store.findAll('customer');
   },
 
   setupController: function(controller, model) {
@@ -12,8 +12,8 @@ export default Ember.Route.extend({
   actions: {
     createCustomer: function() {
       var customer = this.store.createRecord('customer', {
-        first_name: 'John',
-        last_name: 'Doe',
+        firstName: 'John',
+        lastName: 'Doe',
       });
 
       var that = this;
@@ -23,7 +23,7 @@ export default Ember.Route.extend({
         flash.success('Successfully saved!');
         that.transitionTo('admin.customer', newCustomer);
       }, function(response) {
-        flash.danger('Something went wrong!');
+        flash.danger('Something went wrong!', response);
       });
     }
   }

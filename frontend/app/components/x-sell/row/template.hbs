@@ -1,6 +1,6 @@
 {{#if isEditting}}
-  {{x-sell/row/form sell=sell items=items}}
-  <td class="text-right">
+  {{x-sell/row/form sell=sell items=items isEdit="true"}}
+  <td class="col-item-action">
     <button class="delete btn btn-danger btn-xs" {{action "delete" on="doubleClick"}}>
       {{fa-icon 'times'}}
     </button>
@@ -9,11 +9,13 @@
     </button>
   </td>
 {{else}}
-  <td>{{sell.item.name}}</td>
-  <td class="text-right">{{sell.count}}</td>
-  <td class="text-right">{{x-item/price value=sell.price}}</td>
-  <td class="text-right">{{x-sell/sum sell=sell}}</td>
-  <td class="text-right">
+  <td class="col-item-name">{{sell.item.name}}</td>
+  <td class="col-item-count">{{sell.count}}</td>
+  <td class="col-item-separator">⨉</td>
+  <td class="col-item-price">{{x-item/price value=sell.price}}</td>
+  <td class="col-item-separator">=</td>
+  <td class="col-item-sum">{{x-sell/sum sell=sell}}</td>
+  <td class="col-item-action">
     <button {{action "edit"}} class="btn btn-default btn-xs">
       {{#if sell.isDirty}}
         {{fa-icon 'clock-o'}}

@@ -3,7 +3,10 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp({
-  emberCliFontAwesome: { includeFontAwesomeAssets: false }
+  emberCliFontAwesome: { includeFontAwesomeAssets: false },
+  'ember-cli-selectize': {
+    'theme': 'bootstrap3'
+  }
 });
 
 // Use `app.import` to add additional libraries to the generated
@@ -21,5 +24,6 @@ var app = new EmberApp({
 
 app.import(app.bowerDirectory + '/moment/moment.js');
 app.import(app.bowerDirectory + '/moment/locale/cs.js');
+app.import(app.bowerDirectory + '/lodash/lodash.js');
 
 module.exports = app.toTree();

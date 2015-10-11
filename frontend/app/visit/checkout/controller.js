@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
   attrs: {},
 
   return_amount: function () {
-    return this.get('attrs.visit.received_amount') - this.get('attrs.visit.price_with_tip')
+    return this.get('attrs.visit.received_amount') - this.get('attrs.visit.price_with_tip');
   }.property('attrs.visit.total_price', 'attrs.visit.price_with_tip', 'attrs.visit.received_amount'),
 
   actions: {
@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
         flash.success('Successfully saved!');
         that.transitionToRoute('visits');
       }, function(response) {
-        flash.danger('Something went wrong!');
+        flash.danger('Something went wrong!', response);
       });
     }
   }

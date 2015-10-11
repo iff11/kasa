@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623174102) do
+ActiveRecord::Schema.define(version: 20150920123731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20150623174102) do
     t.integer  "bought",            default: 0
     t.integer  "sold",              default: 0
     t.integer  "warning_threshold", default: 0,    null: false
-    t.integer  "last_supply"
+    t.integer  "last_supply_id"
     t.boolean  "is_active",         default: true, null: false
   end
 

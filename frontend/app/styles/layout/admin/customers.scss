@@ -1,0 +1,42 @@
+.admin-customers {
+  @extend .table;
+  @extend .table-hover;
+
+  &-col {
+    &-visits-count {
+      @extend .col-xs-1;
+    }
+
+    &-last-visit {
+      @extend .col-xs-1;
+    }
+
+    &-first-name {
+      @extend .col-xs-1;
+    }
+
+    &-last-name {
+      @extend .col-xs-1;
+    }
+
+    &-birth {
+      @extend .col-xs-1;
+    }
+
+    &-phone {
+      @extend .col-xs-1;
+    }
+
+    &-mail {
+      @extend .col-xs-2;
+    }
+
+    &-note {
+      @extend .col-xs-3;
+    }
+
+    &-action {
+      @extend .col-xs-1;
+    }
+  }
+}
