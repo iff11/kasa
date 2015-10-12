@@ -1,102 +1,63 @@
 <div class="row">
-<div class="col-lg-6 col-md-12">
-<div class="row">
-  <div class="col-xs-6">
-    {{#link-to 'visits' class="btn btn-default"}}
-      {{fa-icon 'arrow-left'}}
-      {{t 'visit.all_visits'}}
-    {{/link-to}}
+  <div class="col-lg-7 col-md-12">
+    <div class="row">
+      <div class="col-xs-6">
+        {{#link-to 'visits' class="btn btn-default"}}
+          {{fa-icon 'arrow-left'}}
+          {{t 'visit.all_visits'}}
+        {{/link-to}}
+      </div>
+
+      <div class="col-xs-6 text-right">
+        {{#link-to 'visit.checkout' attrs.visit class="btn btn-primary"}}
+          {{t 'visit.checkout'}}
+          {{fa-icon 'shopping-cart'}}
+        {{/link-to}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <table class="table-item">
+          <tbody>
+            {{#each attrs.visit.sells as |sell|}}
+                {{x-sell/row sell=sell items=items update="updateSell" delete="deleteSell"}}
+            {{/each}}
+
+            <tr>
+              {{x-sell/row/form sell=heap items=items firstChange=false}}
+              <td class="text-right">
+                <button class="btn btn-success btn-xs" {{action "createSell"}}>
+                  {{fa-icon 'plus'}}
+                </button>
+              </td>
+            </tr>
+          </tbody>
+
+          <tfoot>
+            <tr>
+              <th colspan="5">
+                {{t 'visit.total_price'}}
+              </th>
+              <th class="text-right">
+                {{x-visit/total-price visit=attrs.visit}}
+              </th>
+              <th></th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">{{fa-icon "comment"}}</div>
+      <div class="">
+        {{textarea value=attrs.visit.note placeholder=(t 'visit.note') rows="5" class="visit-note-editor" focus-out="saveNote"}}
+      </div>
+    </div>
   </div>
 
-  <div class="col-xs-6 text-right">
-    {{#link-to 'visit.checkout' attrs.visit class="btn btn-primary"}}
-      {{t 'visit.checkout'}}
-      {{fa-icon 'shopping-cart'}}
-    {{/link-to}}
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th class="col-xs-5">{{t 'sell.item'}}</th>
-          <th class="col-xs-2 text-right">{{t 'sell.count'}}</th>
-          <th class="col-xs-2 text-right">{{t 'sell.unit_price'}}</th>
-          <th class="col-xs-2 text-right">{{t 'sell.sum_price'}}</th>
-          <th class="col-xs-1 text-right">{{t 'sell.action'}}</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        {{#each attrs.visit.sells as |sell|}}
-          {{x-sell/row sell=sell items=items update="updateSell" delete="deleteSell"}}
-        {{/each}}
-
-        <tr>
-          {{x-sell/row/form sell=heap items=items}}
-          <td class="text-right">
-            <button class="btn btn-success btn-xs" {{action "createSell"}}>
-              {{fa-icon 'plus'}}
-            </button>
-          </td>
-        </tr>
-      </tbody>
-
-      <tfoot>
-        <tr class="info">
-          <th colspan="3">
-            {{t 'visit.total_price'}}
-          </th>
-          <th class="text-right">
-            {{x-visit/total-price visit=attrs.visit}}
-          </th>
-          <th></th>
-        </tr>
-      </tfoot>
-    </table>
-  </div>
-</div>
-
-{{textarea value=attrs.visit.note class="form-control" placeholder=(t 'visit.note') rows="5"}}
-<button class="btn btn-success" {{action "saveNote"}}>
-  {{fa-icon 'floppy-o'}}
-</button>
-</div>
-<div class="col-lg-6 col-md-12">
-  {{x-customer/visits customer=attrs.visit.customer}}
-</div>
-</div>
-
-<hr />
-
-<div class="row">
-  <div class="col-xs-2">
-    Mail:
-    {{#if attrs.visit.customer.mail}}
-      {{fa-icon "check-square-o"}}
-    {{else}}
-      {{fa-icon "square-o"}}
-    {{/if}}
-  </div>
-
-  <div class="col-xs-2">
-    Narozeniny:
-    {{x-customer/birthday customer=attrs.visit.customer}}
-  </div>
-
-  <div class="col-xs-2">
-    Telefon:
-    {{#if attrs.visit.customer.phone}}
-      {{fa-icon "check-square-o"}}
-    {{else}}
-      {{fa-icon "square-o"}}
-    {{/if}}
-  </div>
-
-  <div class="col-xs-6">
-    Poznámka:
-    {{attrs.visit.customer.note}}
+  <div class="col-lg-5 col-md-12">
+    {{x-customer/visits customer=attrs.visit.customer}}
   </div>
 </div>

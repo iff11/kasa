@@ -12,8 +12,15 @@
   </div>
 </h2>
 
-<h3>{{t 'items.active'}}</h3>
-{{x-items/table items=activeItems}}
+{{ember-cli-filterable
+    label=(t 'items.filterBy.label')
+    placeholder=(t 'items.filterBy.placeholder')
+    filterString=filterString
+    filterBy=filterBy
+    inputArray=attrs.items
+    action="itemsFiltered"
+  }}
 
-<h3>{{t 'items.inactive'}}</h3>
-{{x-items/table items=inactiveItems}}
+{{x-items/table items=pagedItems sortBy=sortBy action="sortBy"}}
+
+{{page-numbers content=pagedItems}}

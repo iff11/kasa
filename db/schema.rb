@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623174102) do
+ActiveRecord::Schema.define(version: 20151012102752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 20150623174102) do
     t.string   "last_name"
     t.text     "note"
     t.date     "birth"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.string   "phone",        limit: 50
-    t.string   "mail",         limit: 50
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "phone",         limit: 50
+    t.string   "mail",          limit: 50
     t.datetime "deleted_at"
     t.integer  "visits_count"
-    t.integer  "last_visit"
+    t.integer  "last_visit_id"
   end
 
   add_index "customers", ["deleted_at"], name: "index_customers_on_deleted_at", using: :btree
@@ -49,14 +49,15 @@ ActiveRecord::Schema.define(version: 20150623174102) do
     t.float    "selling_price"
     t.boolean  "unlimited",         default: true
     t.string   "barcode"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.datetime "deleted_at"
     t.integer  "bought",            default: 0
     t.integer  "sold",              default: 0
-    t.integer  "warning_threshold", default: 0,    null: false
-    t.integer  "last_supply"
-    t.boolean  "is_active",         default: true, null: false
+    t.integer  "warning_threshold", default: 0,     null: false
+    t.integer  "last_supply_id"
+    t.boolean  "is_active",         default: true,  null: false
+    t.boolean  "is_service",        default: false, null: false
   end
 
   add_index "items", ["deleted_at"], name: "index_items_on_deleted_at", using: :btree

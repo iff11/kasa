@@ -7,15 +7,25 @@ export default Ember.Component.extend({
   tagName: 'span',
 
   toFutureHuman: function() {
-    var now = moment();
+    var now = moment(),
+        nextBirthday = this.get('customer.nextBirthday');
 
-    return this.get('customer.nextBirthday').from(now);
+    if(nextBirthday) {
+      return nextBirthday.from(now);
+    } else {
+      return '?';
+    }
   }.property('customer.birth'),
 
   toFutureDays: function() {
-    var now = moment();
+    var now = moment(),
+        nextBirthday = this.get('customer.nextBirthday');
 
-    return this.get('customer.nextBirthday').diff(now, 'days');
+    if(nextBirthday) {
+      return nextBirthday.diff(now, 'days');
+    } else {
+      return '?';
+    }
   }.property('customer.birth'),
 
   title: function() {

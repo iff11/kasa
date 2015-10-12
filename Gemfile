@@ -19,7 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 
 gem 'ember-cli-rails'
-gem 'active_model_serializers', '~> 0.9.3'
+#gem 'active_model_serializers', '~> 0.10.0.rc2'
+gem 'jsonapi-resources'
 gem 'paranoia', :git => 'https://github.com/radar/paranoia.git', :branch => 'rails4'
 
 gem 'devise'
@@ -28,8 +29,6 @@ gem 'cancan'
 gem 'nokogiri'
 
 gem 'pg'
-
-gem 'newrelic_rpm'
 
 group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

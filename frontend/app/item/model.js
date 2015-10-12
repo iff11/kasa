@@ -3,23 +3,18 @@ import DS from 'ember-data';
 export default DS.Model.extend({
   name: DS.attr(),
   description: DS.attr(),
-  selling_price: DS.attr(),
-  bought: DS.attr(),
-  sold: DS.attr(),
+  sellingPrice: DS.attr(),
+  bought: DS.attr('number'),
+  sold: DS.attr('number'),
   unlimited: DS.attr(),
   barcode: DS.attr(),
   actual_count: DS.attr(),
   warningThreshold: DS.attr(),
-  is_active: DS.attr(),
+  isActive: DS.attr(),
 
-  // TODO: WTF is this? Why is this here twice?
-  last_supply: DS.belongsTo('supply', {async: true}),
-  lastSupply: function() {
-    return this.get('last_supply');
-  }.property('last_supply'),
-
-  sells: DS.hasMany('sell', {async: true, embedded: 'always'}),
-  supplies: DS.hasMany('supply', {async: true, inverse: 'item', embedded: 'always'}),
+  sells: DS.hasMany('sell', {async: true}),
+  supplies: DS.hasMany('supply', {async: true}),
+  lastSupply: DS.belongsTo('supply', {async: true, inverse: 'lastSupplyFor'}),
 
   lowStock: function() {
     return this.get('stock') <= this.get('warningThreshold');
@@ -34,7 +29,12 @@ export default DS.Model.extend({
   }.property('bought', 'sold'),
 
   margin: function() {
-    // TODO: This should be some globally configurable employee margin
-    return Math.round(((1 - 0.1) * this.get('selling_price') - this.get('lastSupply.purchasePriceWithVat')) / this.get('lastSupply.purchasePriceWithVat') * 100).toFixed(1);
-  }.property('selling_price', 'lastSupply')
+    var employeeMargin = 0.1,
+        sellingPrice = this.get('sellingPrice'),
+        purchasePriceWithVat = this.get('lastSupply.purchasePriceWithVat'),
+        roughMargin = ((1 - employeeMargin) * sellingPrice - purchasePriceWithVat) / purchasePriceWithVat * 100,
+        margin = Math.round(roughMargin).toFixed(1);
+
+    return margin;
+  }.property('sellingPrice', 'lastSupply.purchasePriceWithVat')
 });

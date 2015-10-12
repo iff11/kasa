@@ -1,19 +1,19 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  first_name: DS.attr(),
-  last_name: DS.attr(),
+  firstName: DS.attr(),
+  lastName: DS.attr(),
   note: DS.attr(),
   birth: DS.attr(),
   phone: DS.attr(),
   mail: DS.attr(),
-  visits_count: DS.attr(),
-  visits: DS.hasMany('visit'),
-  last_visit: DS.belongsTo('visit', {async: true}),
+  visitsCount: DS.attr(),
+  visits: DS.hasMany('visit', {async: true}),
+  lastVisit: DS.belongsTo('visit', {async: true, inverse: 'lastVisitFor'}),
 
   full_name: function() {
-    return this.get('first_name') + " " + this.get('last_name');
-  }.property('first_name', 'last_name'),
+    return this.get('firstName') + " " + this.get('lastName');
+  }.property('firstName', 'lastName'),
 
   // momentjs obejct of next date customer celebrates birthday
   nextBirthday: function() {
@@ -24,16 +24,21 @@ export default DS.Model.extend({
         nextYearBirthDay = birth.clone().year(currYear + 1);
 
     if(now.diff(thisYearBirthDay, 'days') > 0) {
-      return nextYearBirthDay
+      return nextYearBirthDay;
     } else {
-      return thisYearBirthDay
+      return thisYearBirthDay;
     }
   }.property('birth'),
 
   nextBirthdayInDays: function() {
-    var now = moment();
+    var now = moment(),
+        nextBirthday = this.get('nextBirthday');
 
-    return this.get('nextBirthday').diff(now, 'days');
+    if(nextBirthday) {
+      return nextBirthday.diff(now, 'days');
+    } else {
+      return '?';
+    }
   }.property('nextBirthday'),
 
   // momentjs object of customer's birthday

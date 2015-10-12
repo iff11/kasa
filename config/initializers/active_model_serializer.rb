@@ -1,5 +1,7 @@
-ActiveModel::Serializer.setup do |config|
-  config.embed = :ids
-  # config.include = true
-  config.embed_in_root = true
-end
+# ActiveModel::Serializer.setup do |config|
+#   config.embed = :ids
+#   # config.include = true
+#   config.embed_in_root = true
+# end
+
+# ActiveModel::Serializer.config.adapter = :json_api

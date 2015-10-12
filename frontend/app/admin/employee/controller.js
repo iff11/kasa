@@ -10,8 +10,7 @@ export default Ember.Controller.extend({
     var start = moment('2015-01'),
         end = moment(),
         months = end.diff(start, 'months'),
-        ret = [],
-        calc = null;
+        ret = [];
 
     for(var i=0; i<months; i++) {
       start.add(1, 'months');
@@ -31,12 +30,12 @@ export default Ember.Controller.extend({
         selMonth = selected.month(),
         selYear = selected.year();
 
-    return this.get('attrs.employee.visits').filter(function(visit) {
-      var then = moment(visit.get('date')),
+    return this.get('attrs.employee.visits').filter(function (visit) {
+      var then = moment(visit.get('updatedAt')),
           thenMonth = then.month(),
           thenYear = then.year();
 
-          return thenYear === selYear && thenMonth === selMonth;
+      return thenYear === selYear && thenMonth === selMonth;
     });
-  }.property('attrs.employee.visits.@each', 'selectedMonth')
+  }.property('attrs.employee.visits.[]', 'selectedMonth')
 });

@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   heap: {
     unlimited: false,
-    is_active: true,
+    isActive: true,
   },
 
   actions: {
@@ -13,9 +13,9 @@ export default Ember.Controller.extend({
         barcode: this.get('heap.barcode'),
         stock: this.get('heap.stock'),
         // purchase_price: this.get('heap.purchase_price'),
-        // selling_price: this.get('heap.selling_price'),
+        // sellingPrice: this.get('heap.sellingPrice'),
         unlimited: this.get('heap.unlimited'),
-        is_active: this.get('heap.is_active'),
+        isActive: this.get('heap.isActive'),
         warningThreshold: this.get('heap.warningThreshold')
       });
 
@@ -24,9 +24,9 @@ export default Ember.Controller.extend({
 
       item.save().then(function() {
         that.set('heap', {unlimited: false});
-        flash.success('Successfully saved!');
+        flash.success(item.name + ' ✓');
       }, function(response) {
-        flash.danger('Something went wrong!');
+        flash.danger(item.name + ' ✓ ' + response);
       });
     },
   }
