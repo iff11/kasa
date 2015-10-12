@@ -48,6 +48,7 @@ export default {
     back_to_visit: 'Zpátky do zakázky',
     sum_price_is: 'Celková částka k zaplacení',
     sum_with_tip_is: 'Celková částka i s dýškem',
+    tip: 'Dýško',
     back_to_customer: 'Zpátky na zákazníka',
     reopen: 'Znovu otevřít',
     visit_of: 'Návštěva',

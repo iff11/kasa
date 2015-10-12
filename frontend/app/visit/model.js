@@ -21,6 +21,10 @@ export default DS.Model.extend({
       }, 0);
   }.property('sells.@each', 'sells.@each.sum'),
 
+  tip: function () {
+    return this.get('price_with_tip') - this.get('total_price');
+  }.property('price_with_tip', 'total_price'),
+
   ratio: 0.1,
   employee_share: function() {
     return this.get('total_price') * this.get('ratio');

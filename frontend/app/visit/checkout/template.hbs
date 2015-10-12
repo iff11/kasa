@@ -65,6 +65,12 @@
           </td>
         </tr>
         <tr>
+          <td>{{t 'visit.tip'}}</td>
+          <td class="text-right">
+            {{format-money attrs.visit.tip symbol=(t 'currency') format="%v %s"}}
+          </td>
+        </tr>
+        <tr>
           <td>{{t 'visit.return_amount'}}</td>
           <td class="text-right">
             {{format-money return_amount symbol=(t 'currency') format="%v %s"}}
