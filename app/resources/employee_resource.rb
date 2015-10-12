@@ -5,4 +5,5 @@ class EmployeeResource < JSONAPI::Resource
   attribute :last_name, :key => 'last-name'
   attribute :photo_url, :key => 'photo-url'
 
+  has_many :visits
 end
