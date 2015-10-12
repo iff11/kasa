@@ -6,6 +6,5 @@ class CustomerResource < JSONAPI::Resource
   attribute :visits_count, :key => 'visits-count'
   attribute :last_visit, :key => 'last-visit'
 
-
   has_many :visits
 end

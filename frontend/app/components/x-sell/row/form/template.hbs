@@ -1,14 +1,11 @@
 <td class="col-item-name">
-  {{#if isEdit}}
-    {{sell.item.name}}
-  {{else}}
-    {{ember-selectize
-        content=items
-        optionValuePath="content"
-        optionLabelPath="content.scanner_string"
-        selection=sell.item
-        placeholder="Select an item" }}
-  {{/if}}
+  {{ember-selectize
+      content=items
+      optionValuePath="content"
+      optionLabelPath="content.scanner_string"
+      placeholder="Select an item"
+      selection=sell.item
+      select-item=(action "selectItem")}}
 </td>
 <td class="col-item-count">
   {{input value=sell.count class='form-control text-right' type='number'}}

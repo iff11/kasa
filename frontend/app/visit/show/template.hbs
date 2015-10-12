@@ -25,7 +25,7 @@
             {{/each}}
 
             <tr>
-              {{x-sell/row/form sell=heap items=items}}
+              {{x-sell/row/form sell=heap items=items firstChange=false}}
               <td class="text-right">
                 <button class="btn btn-success btn-xs" {{action "createSell"}}>
                   {{fa-icon 'plus'}}
