@@ -1,5 +1,5 @@
 class ItemResource < JSONAPI::Resource
-  attributes :name, :bought, :sold, :unlimited, :barcode#, :last_supply
+  attributes :name, :bought, :sold, :unlimited, :barcode, :updated_at
 
   attribute :selling_price, :key => 'selling-price'
   attribute :warning_threshold, :key => 'warning-threshold'

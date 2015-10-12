@@ -12,6 +12,7 @@ export default DS.Model.extend({
     async: true,
     inverse: 'visits'
   }),
+  lastVisitFor: DS.hasMany('customer', {async: true, inverse: 'lastVisit'}),
   employee: DS.belongsTo('employee', {async: true}),
   sells: DS.hasMany('sell', {async: true}),
 
@@ -20,6 +21,10 @@ export default DS.Model.extend({
         return previousvalue + sell.get("sum");
       }, 0);
   }.property('sells.@each', 'sells.@each.sum'),
+
+  tip: function () {
+    return this.get('price_with_tip') - this.get('total_price');
+  }.property('price_with_tip', 'total_price'),
 
   ratio: 0.1,
   employee_share: function() {

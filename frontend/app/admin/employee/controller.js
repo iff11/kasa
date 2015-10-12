@@ -30,12 +30,12 @@ export default Ember.Controller.extend({
         selMonth = selected.month(),
         selYear = selected.year();
 
-    return this.get('attrs.employee.visits').filter(function(visit) {
-      var then = moment(visit.get('date')),
+    return this.get('attrs.employee.visits').filter(function (visit) {
+      var then = moment(visit.get('updatedAt')),
           thenMonth = then.month(),
           thenYear = then.year();
 
-          return thenYear === selYear && thenMonth === selMonth;
+      return thenYear === selYear && thenMonth === selMonth;
     });
-  }.property('attrs.employee.visits.@each', 'selectedMonth')
+  }.property('attrs.employee.visits.[]', 'selectedMonth')
 });
