@@ -5,10 +5,10 @@ export default Ember.Component.extend({
 
   days: function () {
     var now = moment(),
-        created = moment(this.get('visit.date'));
+        created = moment(this.get('visit.updatedAt'));
 
     return now.diff(created, 'days');
-  }.property('visit.date'),
+  }.property('visit.updatedAt'),
 
   class: function () {
     if (this.get('days') < 30) {

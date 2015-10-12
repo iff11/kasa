@@ -12,6 +12,7 @@ export default DS.Model.extend({
     async: true,
     inverse: 'visits'
   }),
+  lastVisitFor: DS.hasMany('customer', {async: true, inverse: 'lastVisit'}),
   employee: DS.belongsTo('employee', {async: true}),
   sells: DS.hasMany('sell', {async: true}),
 
