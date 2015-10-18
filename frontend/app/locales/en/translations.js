@@ -35,6 +35,7 @@ export default {
   },
 
   visit: {
+    selectAnItem: 'Vyberte položku',
     all_visits: 'Všechny otevřené zakázky',
     checkout: 'K pokladně',
     customer: 'Zákazník',
