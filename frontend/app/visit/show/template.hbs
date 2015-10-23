@@ -1,63 +1,59 @@
 <div class="row">
-  <div class="col-lg-7 col-md-12">
+  <div class="visit-current">
     <div class="row">
-      <div class="col-xs-6">
-        {{#link-to 'visits' class="btn btn-default"}}
+      <div class="visit-navigation-back">
+        {{#link-to 'visits'}}
           {{fa-icon 'arrow-left'}}
           {{t 'visit.all_visits'}}
         {{/link-to}}
       </div>
 
-      <div class="col-xs-6 text-right">
-        {{#link-to 'visit.checkout' attrs.visit class="btn btn-primary"}}
+      <div class="visit-navigation-checkout">
+        {{#link-to 'visit.checkout' attrs.visit}}
           {{t 'visit.checkout'}}
           {{fa-icon 'shopping-cart'}}
         {{/link-to}}
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-xs-12">
-        <table class="table-item">
+      <div class="visit-sells">
+        <table>
           <tbody>
             {{#each attrs.visit.sells as |sell|}}
                 {{x-sell/row sell=sell items=items update="updateSell" delete="deleteSell"}}
             {{/each}}
 
-            <tr>
-              {{x-sell/row/form sell=heap items=items firstChange=false}}
-              <td class="text-right">
-                <button class="btn btn-success btn-xs" {{action "createSell"}}>
-                  {{fa-icon 'plus'}}
-                </button>
-              </td>
-            </tr>
+            {{x-sell/row sell=heap items=items firstChange=false isEditting=true create="createSell"}}
           </tbody>
 
           <tfoot>
             <tr>
-              <th colspan="5">
+              <th class="visit-sell-sum-title" colspan="3">
                 {{t 'visit.total_price'}}
               </th>
-              <th class="text-right">
+              <th class="visit-sell-sum">
                 {{x-visit/total-price visit=attrs.visit}}
               </th>
-              <th></th>
             </tr>
           </tfoot>
         </table>
       </div>
-    </div>
 
-    <div class="panel panel-primary">
-      <div class="panel-heading">{{fa-icon "comment"}}</div>
-      <div class="">
-        {{textarea value=attrs.visit.note placeholder=(t 'visit.note') rows="5" class="visit-note-editor" focus-out="saveNote"}}
+      <div class="visit-note">
+        <div>
+          <div class="visit-note-heading">{{fa-icon "comment"}}</div>
+          <div class="visit-note-body">
+            {{textarea value=attrs.visit.note placeholder=(t 'visit.note') rows="5" class="visit-note-editor" focus-out="saveNote"}}
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="col-lg-5 col-md-12">
-    {{x-customer/visits customer=attrs.visit.customer}}
+  <div class="visit-history">
+    <div class="row">
+      <div class="col-xs-12">
+        {{x-customer/visits customer=attrs.visit.customer}}
+      </div>
+    </div>
   </div>
 </div>
