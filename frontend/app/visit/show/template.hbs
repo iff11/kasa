@@ -3,7 +3,7 @@
     <div class="row">
       <div class="visit-navigation-back">
         {{#link-to 'visits'}}
-          {{fa-icon 'arrow-left'}}
+          {{fa-icon icon="arrow-left"}}
           {{t 'visit.all_visits'}}
         {{/link-to}}
       </div>
@@ -11,11 +11,12 @@
       <div class="visit-navigation-checkout">
         {{#link-to 'visit.checkout' attrs.visit}}
           {{t 'visit.checkout'}}
-          {{fa-icon 'shopping-cart'}}
+          {{fa-icon icon="shopping-cart"}}
         {{/link-to}}
       </div>
 
       <div class="visit-sells">
+        {{!#liquid-spacer growDuration=250}}
         <table>
           <tbody>
             {{#each attrs.visit.sells as |sell|}}
@@ -36,11 +37,12 @@
             </tr>
           </tfoot>
         </table>
+        {{!/liquid-spacer}}
       </div>
 
       <div class="visit-note">
         <div>
-          <div class="visit-note-heading">{{fa-icon "comment"}}</div>
+          <div class="visit-note-heading">{{fa-icon icon="comment"}}</div>
           <div class="visit-note-body">
             {{textarea value=attrs.visit.note placeholder=(t 'visit.note') rows="5" class="visit-note-editor" focus-out="saveNote"}}
           </div>

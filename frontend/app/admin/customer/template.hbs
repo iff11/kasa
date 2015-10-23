@@ -5,17 +5,17 @@
 <div class="row padding-bottom">
   <div class="col-xs-6">
     <button class="btn btn-default" {{action "rollbackCustomer" attrs.customer}}>
-      {{fa-icon 'arrow-left'}}
+      {{fa-icon icon="arrow-left"}}
       {{t 'customer.all_customers'}}
     </button>
   </div>
 
   <div class="col-xs-6 text-right">
     <button class="delete btn btn-danger" {{action "deleteCustomer" attrs.customer on="doubleClick"}}>
-      {{fa-icon 'trash'}}
+      {{fa-icon icon="trash"}}
     </button>
     <button class="btn btn-success" {{action 'updateCustomer' attrs.customer}}>
-      {{fa-icon 'check'}}
+      {{fa-icon icon="check"}}
     </button>
   </div>
 </div>
