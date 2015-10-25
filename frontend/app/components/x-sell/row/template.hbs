@@ -1,4 +1,4 @@
-{{#if isEditting}}
+{{#if isEdittingOrDirty}}
   <td class="visit-sell-item-name">
     {{ember-selectize
         content=items
@@ -27,11 +27,7 @@
         {{fa-icon icon="times"}}
       </button>
       <button class="visit-sell-update" {{action 'update'}}>
-        {{#if sell.isDirty}}
-          {{fa-icon icon="clock-o"}}
-        {{else}}
-          {{fa-icon icon="check"}}
-        {{/if}}
+        {{fa-icon icon="check"}}
       </button>
     {{else}}
       {{x-sell/sum sell=sell}}
@@ -47,7 +43,11 @@
   <td class="visit-sell-sum">
     {{x-sell/sum sell=sell}}
     <button class="visit-sell-edit" {{action "edit"}}>
-      {{fa-icon icon="pencil"}}
+      {{#if isDirty}}
+        {{fa-icon icon="clock-o"}}
+      {{else}}
+        {{fa-icon icon="pencil"}}
+      {{/if}}
     </button>
   </td>
 {{/if}}
