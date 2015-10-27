@@ -155,7 +155,8 @@ export default {
       items: 'Sklad',
       customers: 'Zákazníci',
       employees: 'Zaměstnanci',
-      supply: 'Naskladnění'
+      supply: 'Naskladnění',
+      stats: 'Statistiky'
     },
     heading: {
       navigation: 'Navigace',
