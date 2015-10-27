@@ -150,13 +150,19 @@ export default {
     header: 'Přihlášení'
   },
 
+  admin: {
+    statuses: {
+      heading: 'Stav systému'
+    }
+  },
+
   sidebar: {
     admin: {
       items: 'Sklad',
       customers: 'Zákazníci',
       employees: 'Zaměstnanci',
       supply: 'Naskladnění',
-      stats: 'Statistiky'
+      statuses: 'Stav systému'
     },
     heading: {
       navigation: 'Navigace',

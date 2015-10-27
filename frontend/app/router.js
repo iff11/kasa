@@ -35,7 +35,7 @@ Router.map(function() {
     this.route('employee', {path: 'employee/:id'});
     this.route('supply');
 
-    this.route('stats');
+    this.route('statuses');
   });
 });
 
