@@ -45,13 +45,15 @@
     @extend .form-control;
   }
 
+  td {
+    vertical-align: middle !important;
+  }
+
   &-count, &-price, &-sum {
     @extend .text-right;
   }
 
   &-item-name {
-    @extend .col-xs-5;
-
     .selectize-input {
       margin-top: 0;
       margin-bottom: 0;
@@ -64,20 +66,21 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
+      width: 17em;
     }
   }
   &-count {
-    @extend .col-xs-2;
+    width: 8em;
+    min-width: 8em;
   }
   &-price {
-    @extend .col-xs-2;
+    width: 8em;
+    min-width: 8em;
   }
   &-sum {
-    @extend .col-xs-3;
+    width: 9em;
+    min-width: 9em;
     // border-left: double $table-border-color;
-  }
-  &-sum-title {
-    @extend .col-xs-9;
   }
 
   &-create, &-delete, &-update, &-edit {
