@@ -7,10 +7,7 @@ Rails.application.routes.draw do
   jsonapi_resources :sells
   jsonapi_resources :supplies
   jsonapi_resources :visits
-
-  namespace :admin do
-    jsonapi_resources :statuses
-  end
+  jsonapi_resources :statuses
 
   root 'application#landing_page'
 end

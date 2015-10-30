@@ -3,6 +3,10 @@
 <dl>
   {{#each attrs.statuses as |status|}}
     <dt>{{status.name}}</dt>
-    <dd>{{status.value}}</dd>
+    <dd>
+      <pre>
+        {{status.value}}
+      </pre>
+    </dd>
   {{/each}}
 </dl>
