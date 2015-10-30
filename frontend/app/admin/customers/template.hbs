@@ -6,14 +6,14 @@
 
     <div class="col-xs-2 text-right">
       <a href="{{mailto}}" class="btn btn-info">
-        {{fa-icon 'envelope'}}
+        {{fa-icon icon="envelope"}}
         {{t 'customers.newsletter'}}
       </a>
     </div>
 
     <div class="col-xs-2 text-right">
       <button class="btn btn-success" {{action 'createCustomer'}}>
-        {{fa-icon 'plus-square'}} {{t 'customer.add'}}
+        {{fa-icon icon="plus-square'}} {{t 'customer.add"}}
       </button>
     </div>
   </div>
@@ -56,7 +56,7 @@
         <td>{{customer.note}}</td>
         <td class="text-right">
           {{#link-to 'admin.customer' customer class='btn btn-default btn-xs'}}
-            {{fa-icon 'pencil'}}
+            {{fa-icon icon="pencil"}}
           {{/link-to}}
         </td>
       </tr>

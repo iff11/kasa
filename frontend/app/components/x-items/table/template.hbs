@@ -37,9 +37,9 @@
       <tr>
         <td class="admin-items-col-active">
           {{#if item.isActive}}
-            {{fa-icon "check-square-o"}}
+            {{fa-icon icon="check-square-o"}}
           {{else}}
-            {{fa-icon "square-o"}}
+            {{fa-icon icon="square-o"}}
           {{/if}}
         </td>
         <td class="admin-items-col-name">
@@ -69,7 +69,7 @@
         <td class="admin-items-col-barcode">{{item.barcode}}</td>
         <td class="admin-items-col-action">
           {{#link-to 'admin.item.edit' item class="btn btn-default btn-xs"}}
-            {{fa-icon 'pencil'}}
+            {{fa-icon icon="pencil"}}
           {{/link-to}}
         </td>
       </tr>

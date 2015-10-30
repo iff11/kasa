@@ -20,7 +20,7 @@
         </td>
         <td class="text-right">
           {{#link-to 'admin.employee' employee class="btn btn-default btn-xs"}}
-            {{fa-icon 'pencil'}}
+            {{fa-icon icon="pencil"}}
           {{/link-to}}
         </td>
       </tr>
@@ -32,7 +32,7 @@
       <td>{{input placeholder=(t 'employee.photo_url') value=employee.photo_url class='form-control'}}</td>
       <td class="text-right">
         <button class="btn btn-success" {{action 'createEmployee'}}>
-          {{fa-icon 'plus-square'}} {{t 'employee.add'}}
+          {{fa-icon icon="plus-square'}} {{t 'employee.add"}}
         </button>
       </td>
     </tr>
