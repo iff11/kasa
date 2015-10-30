@@ -1,4 +1,4 @@
-{{#if isEditting}}
+{{#if isEdittingOrDirty}}
   <td class="visit-sell-item-name">
     {{ember-selectize
         content=items
@@ -11,7 +11,7 @@
   <td class="visit-sell-count">
     <div class="input-group">
       {{input value=sell.count type='number'}}
-      <span class="input-group-addon">{{fa-icon 'times'}}</span>
+      <span class="input-group-addon">{{fa-icon icon="times"}}</span>
     </div>
   </td>
   <td class="visit-sell-price">
@@ -24,30 +24,30 @@
     {{#if isPersisted}}
       {{x-sell/sum sell=sell}}
       <button class="visit-sell-delete" {{action "delete" on="doubleClick"}}>
-        {{fa-icon 'times'}}
+        {{fa-icon icon="times"}}
       </button>
       <button class="visit-sell-update" {{action 'update'}}>
-        {{#if sell.isDirty}}
-          {{fa-icon 'clock-o'}}
-        {{else}}
-          {{fa-icon 'check'}}
-        {{/if}}
+        {{fa-icon icon="check"}}
       </button>
     {{else}}
       {{x-sell/sum sell=sell}}
       <button class="visit-sell-create" {{action "create"}}>
-        {{fa-icon "plus"}}
+        {{fa-icon icon="plus"}}
       </button>
     {{/if}}
   </td>
 {{else}}
   <td class="visit-sell-item-name">{{sell.item.name}}</td>
-  <td class="visit-sell-count">{{sell.count}} {{fa-icon 'times'}}</td>
+  <td class="visit-sell-count">{{sell.count}} {{fa-icon icon="times"}}</td>
   <td class="visit-sell-price">{{x-item/price value=sell.price}}</td>
   <td class="visit-sell-sum">
     {{x-sell/sum sell=sell}}
     <button class="visit-sell-edit" {{action "edit"}}>
-      {{fa-icon "pencil"}}
+      {{#if isDirty}}
+        {{fa-icon icon="clock-o"}}
+      {{else}}
+        {{fa-icon icon="pencil"}}
+      {{/if}}
     </button>
   </td>
 {{/if}}

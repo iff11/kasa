@@ -1,7 +1,6 @@
 #!/bin/bash
 
-DB='kasa_development'
+DB='kasa'
 
 dropdb $DB
 heroku pg:pull DATABASE_URL $DB
-

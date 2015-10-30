@@ -1,0 +1,12 @@
+<h1>{{t 'admin.statuses.heading'}}</h1>
+
+<dl>
+  {{#each attrs.statuses as |status|}}
+    <dt>{{status.name}}</dt>
+    <dd>
+      <pre>
+        {{status.value}}
+      </pre>
+    </dd>
+  {{/each}}
+</dl>
