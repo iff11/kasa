@@ -3,7 +3,6 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   tagName: 'tr',
   classNames: ['visit-sell'],
-  firstChangeHack: true,
   isPersisted: Ember.computed.alias('sell.id'),
   isDirty: Ember.computed.alias('sell.isDirty'),
   isEdittingOrDirty: Ember.computed.or('isEditting', 'isDirty'),
@@ -26,13 +25,7 @@ export default Ember.Component.extend({
       this.set('isEditting', false);
     },
     selectItem: function (item) {
-      // TODO: horrible hack. We want to change the price to default seeling price if and only if NEW item is selected,
-      // Butt currently ember-cli-selectize fires the action even on initial component render
-      if (this.get('firstChangeHack')) {
-        this.set('firstChangeHack', false);
-      } else {
-        this.set('sell.price', this.get('sell.item.sellingPrice'));
-      }
+      this.set('sell.price', this.get('sell.item.sellingPrice'));
     }
   }
 });
