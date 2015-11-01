@@ -24,7 +24,7 @@ export default Ember.Component.extend({
       this.sendAction('delete', this.get('sell'));
       this.set('isEditting', false);
     },
-    selectItem: function (item) {
+    selectItem: function () {
       this.set('sell.price', this.get('sell.item.sellingPrice'));
     }
   }

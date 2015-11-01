@@ -1,17 +1,19 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from 'frontend/tests/helpers/start-app';
-import pretenderHelper from '../helpers/pretender';
+
+var items;
 
 module('Acceptance | items', {
   beforeEach: function() {
     this.application = startApp();
     authenticateSession();
-    pretenderHelper.start();
+    // server.logging = true;
+    // Vytvori falesna data pro testovani
+    items = server.createList('item', 34);
   },
 
   afterEach: function() {
-    pretenderHelper.destroy();
     Ember.run(this.application, 'destroy');
   }
 });
@@ -32,7 +34,8 @@ test('Test paging', function(assert) {
   });
 
   click('input');
-  fillIn('input','test');
+  var expected = items[0].name;
+  fillIn('input', expected);
 
   andThen(function () {
     assert.equal(find('.items-row').length, 1, 'Filter for "test" should return exactly one result');

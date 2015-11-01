@@ -13,6 +13,6 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
         // supplies: this.store.find('supply'),
         emplyees: this.store.find('employee')
       });
-    };
+    }
   }
 });

@@ -41,7 +41,6 @@ export default Ember.Controller.extend({
           newSupply = this.get('attrs.newSupply'),
           item = this.get('heap.item'),
           itemName = item.get('name'),
-          lastSupply = item.get('lastSupply'),
           bought = 0;
 
       item.get('supplies').then((supplies) => {
