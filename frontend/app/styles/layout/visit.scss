@@ -1,93 +1,127 @@
-.visit-note-editor {
-  width: 100%;
-  padding: 1em;
-  border: 0;
-  overflow: auto;
-  outline: none;
-  box-shadow: none;
+.visit-current {
+  @extend .col-lg-7;
+  @extend .col-md-12;
 }
 
-.table-item {
-  @extend .table;
-  @extend .table-hover;
-  margin-top: 1em;
+.visit-history {
+  @extend .col-lg-5;
+  @extend .col-md-12;
 }
 
-.row-item {
-  .btn {
-    opacity: .2;
+.visit-navigation {
+  &-back {
+    @extend .col-xs-6;
+    margin-bottom: 1em;
+
+    a {
+      @extend .btn;
+      @extend .btn-default;
+    }
+  }
+  &-checkout {
+    @extend .col-xs-6;
+    @extend .text-right;
+    margin-bottom: 1em;
+
+    a {
+      @extend .btn;
+      @extend .btn-primary;
+    }
+  }
+}
+
+.visit-sells {
+  @extend .col-xs-12;
+
+  table {
+    @extend .table;
+    @extend .table-hover;
+  }
+}
+
+.visit-sell {
+  input {
+    @extend .text-right;
+    @extend .form-control;
   }
 
-  &:hover .btn {
-    opacity: 1;
+  td {
+    vertical-align: middle !important;
+  }
+
+  &-count, &-price, &-sum {
+    @extend .text-right;
+  }
+
+  &-item-name {
+    .selectize-input {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .item {
+      margin-top: .4em;
+      display: block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 17em;
+    }
+  }
+  &-count {
+    width: 8em;
+    min-width: 8em;
+  }
+  &-price {
+    width: 8em;
+    min-width: 8em;
+  }
+  &-sum {
+    width: 9em;
+    min-width: 9em;
+    // border-left: double $table-border-color;
+  }
+
+  &-create, &-delete, &-update, &-edit {
+    @extend .btn;
+    @extend .btn-xs;
+  }
+
+  &-create {
+    @extend .btn-success;
+  }
+  &-delete {
+    @extend .btn-danger;
+
+  }
+  &-update {
+    @extend .btn-success;
+  }
+  &-edit {
+    @extend .btn-default;
   }
 }
 
-.col-item-separator {
-  @extend .text-center;
-  @extend .col-xs-1;
-}
+.visit-note {
+  @extend .col-xs-12;
 
-.col-item-name {
-  @extend .col-xs-4;
-}
-
-.col-item-count {
-  @extend .col-xs-2;
-  @extend .text-right;
-}
-
-.col-item-price {
-  @extend .text-right;
-  @extend .col-xs-2;
-}
-
-.col-item-sum {
-  @extend .text-right;
-  @extend .col-xs-1;
-}
-
-.col-item-action {
-  @extend .text-right;
-  @extend .col-xs-1;
-}
-
-.items {
-  @extend .table;
-  @extend .table-hover;
-
-  &-col {
-    &-separator {
-      @extend .col-xs-1;
-      @extend .text-center;
-    }
-
-    &-name {
-      @extend .col-xs-4;
-    }
-
-    &-bought {
-      @extend .col-xs-1;
-      @extend .text-right;
-    }
-
-    &-sold {
-      @extend .col-xs-1;
-      @extend .text-right;
-    }
-
-    &-stock {
-      @extend .col-xs-1;
-      @extend .text-right;
-    }
-
-    &-price {
-      @extend .col-xs-2;
-      @extend .text-right;
-    }
-
-    &-active {
-      @extend .col-xs-1;
-    }
+  & > div {
+    @extend .panel;
+    @extend .panel-primary;
+  }
+  &-heading {
+    @extend .panel-heading;
+  }
+  &-body {
+    // @extend .panel-body;
+  }
+  &-editor {
+    width: 100%;
+    padding: 1em;
+    border: 0;
+    overflow: auto;
+    outline: none;
+    box-shadow: none;
   }
 }

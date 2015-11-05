@@ -15,9 +15,9 @@
     "font-awesome": "~4.4.0",
     "jquery": "^1.11.1",
     "loader.js": "ember-cli/loader.js#3.2.0",
-    "lodash": "~3.10.1",
+    "lodash": "~3.7.0",
     "qunit": "~1.17.1",
     "selectize": "~0.12.1",
-    "pretender": "^0.10.0"
+    "Faker": "~3.0.0"
   }
 }

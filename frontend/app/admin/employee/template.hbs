@@ -5,17 +5,17 @@
 <div class="row padding-bottom">
   <div class="col-xs-6">
     <button class="btn btn-default" {{action "rollbackEmployee" attrs.employee}}>
-      {{fa-icon 'arrow-left'}}
+      {{fa-icon icon="arrow-left"}}
       {{t 'employee.all_employees'}}
     </button>
   </div>
 
   <div class="col-xs-6 text-right">
     <button class="delete btn btn-danger btn-xs" {{action "deleteEmployee" attrs.employee on="doubleClick"}}>
-      {{fa-icon 'times'}}
+      {{fa-icon icon="times"}}
     </button>
     <button class="btn btn-success btn-xs" {{action 'updateEmployee' attrs.employee}}>
-      {{fa-icon 'check'}}
+      {{fa-icon icon="check"}}
     </button>
   </div>
 </div>
@@ -79,10 +79,10 @@
         <tr>
           <td colspan="2"></td>
           <td class="text-right">
-            {{!x-visits/sum visits=visits}}
+            {{x-visits/sum visits=visits}}
           </td>
           <td class="text-right">
-            {{!x-visits/employee-share visits=visits}}
+            {{x-visits/employee-share visits=visits}}
           </td>
         </tr>
       </tfoot>

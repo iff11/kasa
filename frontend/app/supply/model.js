@@ -19,7 +19,6 @@ export default DS.Model.extend({
   }.property('vat', 'sum'),
 
   purchasePriceWithVat: function() {
-    console.log('purchasePriceWithVat');
     return this.get('purchase_price') * (1 + this.get('vat') / 100);
   }.property('purchase_price', 'vat')
 });
