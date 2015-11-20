@@ -1,0 +1,21 @@
+.visits-item {
+  @extend .panel;
+  @extend .panel-default;
+}
+
+.visits-item-new {
+  @extend .visits-item;
+  margin-bottom: 12em;
+}
+
+.visits-item-heading {
+  @extend .panel-heading;
+}
+
+.visits-item-body {
+  @extend .panel-body;
+}
+
+.selectize-input.items {
+  margin-bottom: 0 !important;
+}

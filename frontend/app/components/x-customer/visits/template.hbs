@@ -1,0 +1,43 @@
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  {{#each visitsSorted as |v|}}
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="heading{{v.id}}">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{v.id}}" aria-expanded="true" aria-controls="collapse{{v.id}}">
+          <img src={{v.employee.photo_url}} class="employee-avatar-in-visit-list" />
+
+          {{#if v.note}}
+            {{fa-icon icon="comment"}}
+          {{/if}}
+
+          {{date-and-time v.updatedAt ENV.locale}}
+
+          <span class="pull-right">
+            {{format-money v.total_price symbol=(t 'currency') format="%v %s"}}
+          </span>
+        </a>
+      </div>
+      <div id="collapse{{v.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{v.id}}">
+        {{#if v.note}}
+          <div class="panel-body">
+            {{v.note}}
+          </div>
+        {{/if}}
+
+        <table class="table">
+          <tbody>
+            {{#each v.sells as |s|}}
+              <tr>
+                <td>{{s.item.name}}:</td>
+                <td>{{s.count}}</td>
+                <td>×</td>
+                <td>{{x-item/price value=s.price}}</td>
+                <td>=</td>
+                <td>{{x-sell/sum sell=s}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  {{/each}}
+</div>

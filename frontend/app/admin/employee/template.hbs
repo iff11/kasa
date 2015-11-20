@@ -1,0 +1,91 @@
+<h2>
+  {{attrs.employee.full_name}}
+</h2>
+
+<div class="row padding-bottom">
+  <div class="col-xs-6">
+    <button class="btn btn-default" {{action "rollbackEmployee" attrs.employee}}>
+      {{fa-icon icon="arrow-left"}}
+      {{t 'employee.all_employees'}}
+    </button>
+  </div>
+
+  <div class="col-xs-6 text-right">
+    <button class="delete btn btn-danger btn-xs" {{action "deleteEmployee" attrs.employee on="doubleClick"}}>
+      {{fa-icon icon="times"}}
+    </button>
+    <button class="btn btn-success btn-xs" {{action 'updateEmployee' attrs.employee}}>
+      {{fa-icon icon="check"}}
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-4">
+    <div class="form-group">
+      <label>{{t 'employee.firstName'}}</label>
+      {{input value=attrs.employee.firstName class='form-control'}}
+    </div>
+
+    <div class="form-group">
+      <label>{{t 'employee.lastName'}}</label>
+      {{input value=attrs.employee.lastName class='form-control'}}
+    </div>
+
+    <div class="form-group">
+      <label>{{t 'employee.photo_url'}}</label>
+      {{input value=attrs.employee.photo_url class='form-control'}}
+    </div>
+  </div>
+
+  <div class="col-xs-8">
+  {{view Ember.Select
+       content=months
+       optionValuePath="content.value"
+       optionLabelPath="content.text"
+       selection=selectedMonth}}
+    <h3>{{t 'employee.all_visits'}}</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>{{t 'visit.updatedAt'}}</th>
+          <th>{{t 'visit.customer'}}</th>
+          <th class="text-right">{{t 'visit.total_price'}}</th>
+          <th class="text-right">{{t 'visit.employee_margin'}}</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each visits as |visit|}}
+          <tr>
+            <td>
+              {{#link-to 'admin.visit' visit.id}}
+                {{x-visit/completed visit=visit}}
+                {{date-and-time visit.updatedAt 'cs'}}
+              {{/link-to}}
+            </td>
+            <td>
+              {{#link-to 'admin.customer' visit.customer}}
+                {{visit.customer.full_name}}
+              {{/link-to}}
+            </td>
+            <td class="text-right">{{format-money visit.total_price symbol=(t 'currency') format="%v %s"}}</td>
+            <td class="text-right">{{format-money visit.employee_share symbol=(t 'currency') format="%v %s"}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td colspan="2"></td>
+          <td class="text-right">
+            {{x-visits/sum visits=visits}}
+          </td>
+          <td class="text-right">
+            {{x-visits/employee-share visits=visits}}
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-xs-6">
+    <h2>
+      {{#link-to 'customer' attrs.visit.customer}}
+        {{fa-icon icon="user"}}
+        {{attrs.visit.customer.full_name}}
+      {{/link-to}}
+    </h2>
+
+    {{#unless attrs.visit.customer.mail}}
+      {{!#fa-stack}}
+        {{!fa-icon icon='envelope' stack=1}}
+        {{!fa-icon icon='ban' stack=2 classNames='text-danger'}}
+      {{!/fa-stack}}
+    {{/unless}}
+
+    {{#unless attrs.visit.customer.phone}}
+      {{!#fa-stack}}
+        {{!fa-icon icon='phone' stack=1}}
+        {{!fa-icon icon='ban' stack=2 classNames='text-danger'}}
+      {{!/fa-stack}}
+    {{/unless}}
+
+    {{#unless attrs.visit.customer.birth}}
+      {{!#fa-stack}}
+        {{!fa-icon icon='birthday-cake' stack=1}}
+        {{!fa-icon icon='ban' stack=2 classNames='text-danger'}}
+      {{!/fa-stack}}
+    {{else}}
+      {{x-customer/birthday customer=attrs.visit.customer}}
+    {{/unless}}
+
+    <div class="text-muted">
+      {{attrs.visit.customer.note}}
+    </div>
+  </div>
+
+  <div class="col-xs-6 text-right">
+    <h2>
+      <img class="employee-avatar-in-visit" src={{attrs.visit.employee.photo_url}} />
+    </h2>
+  </div>
+</div>
+
+<hr />
+
+{{liquid-outlet}}

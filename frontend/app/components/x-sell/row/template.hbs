@@ -1,0 +1,53 @@
+{{#if isEdittingOrDirty}}
+  <td class="visit-sell-item-name">
+    {{ember-selectize
+        content=items
+        optionValuePath="content"
+        optionLabelPath="content.scanner_string"
+        placeholder=(t "visit.selectAnItem")
+        selection=sell.item
+        select-item=(action "selectItem")}}
+  </td>
+  <td class="visit-sell-count">
+    <div class="input-group">
+      {{input value=sell.count type='number'}}
+      <span class="input-group-addon">{{fa-icon icon="times"}}</span>
+    </div>
+  </td>
+  <td class="visit-sell-price">
+    <div class="input-group">
+      {{input value=sell.price type='number'}}
+      <span class="input-group-addon">{{t 'currency'}}</span>
+    </div>
+  </td>
+  <td class="visit-sell-sum">
+    {{#if isPersisted}}
+      {{x-sell/sum sell=sell}}
+      <button class="visit-sell-delete" {{action "delete" on="doubleClick"}}>
+        {{fa-icon icon="times"}}
+      </button>
+      <button class="visit-sell-update" {{action 'update'}}>
+        {{fa-icon icon="check"}}
+      </button>
+    {{else}}
+      {{x-sell/sum sell=sell}}
+      <button class="visit-sell-create" {{action "create"}}>
+        {{fa-icon icon="plus"}}
+      </button>
+    {{/if}}
+  </td>
+{{else}}
+  <td class="visit-sell-item-name">{{sell.item.name}}</td>
+  <td class="visit-sell-count">{{sell.count}} {{fa-icon icon="times"}}</td>
+  <td class="visit-sell-price">{{x-item/price value=sell.price}}</td>
+  <td class="visit-sell-sum">
+    {{x-sell/sum sell=sell}}
+    <button class="visit-sell-edit" {{action "edit"}}>
+      {{#if isDirty}}
+        {{fa-icon icon="clock-o"}}
+      {{else}}
+        {{fa-icon icon="pencil"}}
+      {{/if}}
+    </button>
+  </td>
+{{/if}}

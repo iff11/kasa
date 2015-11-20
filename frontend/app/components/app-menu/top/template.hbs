@@ -1,0 +1,52 @@
+<ul class="nav navbar-top-links navbar-right">
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+      <i class="fa fa-bell fa-fw"></i> {{flashMessages.queue.length}}  <i class="fa fa-caret-down"></i>
+    </a>
+
+    <ul class="dropdown-menu dropdown-alerts">
+      {{#if flashMessages.queue.length}}
+        {{#each flashMessages.queue as |flash|}}
+          <li>
+            <a class="text-wrap {{flash.type}}">
+              {{flash.message}}
+            </a>
+          </li>
+        {{/each}}
+      {{else}}
+        <li>
+          <a>
+            {{t 'noNewNotifications'}}
+          </a>
+        </li>
+      {{/if}}
+    </ul>
+    <!-- /.dropdown-alerts -->
+  </li>
+
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-user">
+      <li>
+        <a class="btn btn-link disabled">
+          {{fa-icon icon="cogs" }} {{session.secure.email}}
+        </a>
+      </li>
+      <li>
+        <a {{action "logout"}} href="">
+          {{fa-icon icon="sign-out" classNames="fa-fw"}} Logout
+        </a>
+      </li>
+    </ul>
+    <!-- /.dropdown-user -->
+  </li>
+  <!-- /.dropdown -->
+
+</ul>
+<!-- /.navbar-top-links -->
+
+<p class="navbar-text navbar-right text-info text-nowrap" id="last-flash">
+  {{liquid-bind lastError.message class=lastError.type}}
+</p>

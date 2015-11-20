@@ -1,0 +1,8 @@
+{{#if visit}}
+  <span {{bind-attr title=visit.date class=":label class"}}>
+    {{days}} -
+    {{visit.employee.full_name}}
+  </span>
+{{else}}
+  {{t 'visit.noLastVisit'}}
+{{/if}}

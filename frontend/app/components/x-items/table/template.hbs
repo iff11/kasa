@@ -1,0 +1,78 @@
+<table class="admin-items">
+  <thead>
+    <tr>
+      <th class="admin-items-col-active">
+        {{th-sort action="sortBy" title=(t 'item.isActive') current=sortBy value="isActive"}}
+      </th>
+      <th class="admin-items-col-name">
+        {{th-sort action="sortBy" title=(t 'item.name') current=sortBy value="name"}}
+      </th>
+      <th class="admin-items-col-stock">
+        {{th-sort action="sortBy" title=(t 'item.unlimited_or_stock') current=sortBy value="stock"}}
+      </th>
+      <th class="admin-items-col-purchase-price">
+        {{!th-sort action="sortBy" title=(t 'supply.last_purchase_price') current=sortBy value="lastSupply.purchase_price"}}
+        {{t 'supply.last_purchase_price'}}
+      </th>
+      <th class="admin-items-col-purchase-price-vat">
+        {{!th-sort action="sortBy" title=(t 'supply.last_purchase_price_with_vat') current=sortBy value="lastSupply.purchasePriceWithVat"}}
+        {{t 'supply.last_purchase_price_with_vat'}}
+      </th>
+      <th class="admin-items-col-selling-price">
+        {{th-sort action="sortBy" title=(t 'item.sellingPrice') current=sortBy value="sellingPrice"}}
+      </th>
+      <th class="admin-items-col-margin">
+        {{!th-sort action="sortBy" title=(t 'item.margin') current=sortBy value="margin"}}
+        {{t 'item.margin'}}
+      </th>
+      <th class="admin-items-col-barcode">
+        {{th-sort action="sortBy" title=(t 'item.barcode') current=sortBy value="barcode"}}
+      </th>
+      <th class="admin-items-col-action">{{t 'item.action'}}</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each item in items}}
+      <tr>
+        <td class="admin-items-col-active">
+          {{#if item.isActive}}
+            {{fa-icon icon="check-square-o"}}
+          {{else}}
+            {{fa-icon icon="square-o"}}
+          {{/if}}
+        </td>
+        <td class="admin-items-col-name">
+          {{#link-to 'admin.item.show' item}}
+            {{item.name}}
+          {{/link-to}}
+        </td>
+        <td class="admin-items-col-stock">
+          {{#if item.unlimited}}
+            &#8734; - {{item.sold}} = &#8734;
+          {{else}}
+            {{item.bought}} - {{item.sold}} = {{x-item/stock-icon item=item}}
+          {{/if}}
+        </td>
+        <td class="admin-items-col-purchase-price">
+          {{x-item/price value=item.lastSupply.purchase_price}}
+        </td>
+        <td class="admin-items-col-purchase-price-vat">
+          {{x-item/price value=item.lastSupply.purchasePriceWithVat}}
+        </td>
+        <td class="admin-items-col-selling-price">
+          {{x-item/price value=item.sellingPrice}}
+        </td>
+        <td class="admin-items-col-margin">
+          {{item.margin}} %
+        </td>
+        <td class="admin-items-col-barcode">{{item.barcode}}</td>
+        <td class="admin-items-col-action">
+          {{#link-to 'admin.item.edit' item class="btn btn-default btn-xs"}}
+            {{fa-icon icon="pencil"}}
+          {{/link-to}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

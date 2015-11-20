@@ -1,0 +1,51 @@
+<h2>{{t 'customers.all'}}</h2>
+
+{{ember-cli-filterable
+    label=(t 'items.filterBy.label')
+    placeholder=(t 'customers.filterBy.placeholder')
+    filterString=filterString
+    filterBy=filterBy
+    inputArray=attrs.customers
+    action="customersFiltered"
+  }}
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th class="col-xs-3">
+        {{th-sort action="sortBy" title=(t 'customer.full_name') current=sortBy value="full_name"}}
+      </th>
+      <th class="col-xs-2">
+        {{th-sort action="sortBy" title=(t 'customer.birth') current=sortBy value="birth"}}
+      </th>
+      <th class="col-xs-2 text-right">
+        {{th-sort action="sortBy" title=(t 'customer.birthday_in') current=sortBy value="birthday"}}
+      </th>
+      <th class="col-xs-5">
+        {{th-sort action="sortBy" title=(t 'customer.note') current=sortBy value="note"}}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each pagedCustomers as |customer|}}
+      <tr>
+        <td>
+          {{#link-to 'customer' customer}}
+            {{customer.full_name}}
+          {{/link-to}}
+        </td>
+        <td>
+          {{customer.birth}}
+        </td>
+        <td class="text-right">
+          {{x-customer/birthday customer=customer}}
+        </td>
+        <td>
+          {{customer.note}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+{{page-numbers content=pagedCustomers}}

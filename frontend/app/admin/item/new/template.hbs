@@ -1,0 +1,9 @@
+<h2>{{t 'item.new'}}</h2>
+
+{{#with heap as |item|}}
+  {{partial 'admin/item/_form'}}
+{{/with}}
+
+<button class="btn btn-primary" {{action 'createItem'}}>
+  {{fa-icon icon="plus'}} {{t 'item.new"}}
+</button>
