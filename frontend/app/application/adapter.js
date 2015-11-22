@@ -1,11 +1,9 @@
 import DS from 'ember-data';
+import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 import config from '../config/environment';
 
-export default DS.JSONAPIAdapter.extend({
-  host: config.APP.SERVER
-  // pathForType(type) {
-  //   console.log(type);
-  //   var underscored = Ember.String.underscore(type);
-  //   return Ember.String.pluralize(underscored);
-  // }
+export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
+  namespace: 'api/v1',
+  host: config.APP.SERVER,
+  authorizer: 'authorizer:devise'
 });

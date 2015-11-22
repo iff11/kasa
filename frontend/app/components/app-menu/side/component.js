@@ -18,11 +18,5 @@ export default Ember.Component.extend({
     if(this.get('visits')) {
       return this.get('visits').filterBy('completed', false);
     }
-  }.property('visits.@each.completed'),
-
-  actions: {
-    logout: function() {
-      this.sendAction('logout');
-    }
-  }
+  }.property('visits.@each.completed')
 });
