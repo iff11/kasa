@@ -1,21 +1,18 @@
-<h2>
-  <div class="row">
-    <div class="col-xs-8">
-      {{t 'customers.all'}}
-    </div>
+<h2 class="admin-customers-header">
+  <div class="admin-customers-header-title">
+    {{t 'customers.all'}}
+  </div>
 
-    <div class="col-xs-2 text-right">
-      <a href="{{mailto}}" class="btn btn-info">
-        {{fa-icon icon="envelope"}}
-        {{t 'customers.newsletter'}}
-      </a>
-    </div>
+  <div class="admin-customers-header-buttons">
+    <a href="{{mailto}}" class="admin-customers-header-button-newsletter">
+      {{fa-icon icon="envelope"}}
+      {{t 'customers.newsletter'}}
+    </a>
 
-    <div class="col-xs-2 text-right">
-      <button class="btn btn-success" {{action 'createCustomer'}}>
-        {{fa-icon icon="plus-square'}} {{t 'customer.add"}}
-      </button>
-    </div>
+    <button class="admin-customers-header-button-add" {{action 'createCustomer'}}>
+      {{fa-icon icon="plus-square"}}
+      {{t "customer.add"}}
+    </button>
   </div>
 </h2>
 
