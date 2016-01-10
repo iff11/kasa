@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
+const { service } = Ember.inject;
+
 export default Ember.Component.extend({
+  session: service('session'),
+  
   birthdaysInWeek: function() {
     if(this.get('customers')) {
       return this.get('customers').filter(function(customer) {

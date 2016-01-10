@@ -40,8 +40,7 @@
       </li>
 
     </ul>
-
-    {{#if session.secure.is_admin}}
+    {{#if session.data.authenticated.isAdmin}}
       <h3>
         {{t 'sidebar.heading.admin'}}
       </h3>
