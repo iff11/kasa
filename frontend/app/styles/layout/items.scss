@@ -1,0 +1,49 @@
+.items {
+  @extend .table;
+  @extend .table-hover;
+
+  &-col {
+    &-active {
+      @extend .col-xs-1;
+    }
+    &-name {
+      @extend .col-xs-3;
+    }
+    &-stock {
+      @extend .col-xs-2;
+      @extend .text-right;
+    }
+    &-purchase-price {
+      @extend .col-xs-1;
+      @extend .text-right;
+    }
+    &-purchase-price-vat {
+      @extend .col-xs-1;
+      @extend .text-right;
+    }
+    &-selling-price {
+      @extend .col-xs-1;
+      @extend .text-right;
+    }
+    &-margin {
+      @extend .col-xs-1;
+      @extend .text-right;
+    }
+    &-barcode {
+      @extend .col-xs-1;
+      @extend .text-right;
+    }
+    &-action {
+      @extend .col-xs-1;
+      @extend .text-right;
+    }
+  }
+}
+
+th {
+  &.items-col-purchase-price,
+  &.items-col-purchase-price-vat,
+  &.items-col-margin {
+    @extend .text-muted;
+  }
+}
