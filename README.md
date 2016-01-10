@@ -26,3 +26,12 @@ rake db:reset
 # Run server
 rails s
 ```
+
+# Running
+
+You can access your application on: [http://localhost:3000](http://localhost:3000)
+
+There are currently two users. Username and password is the same:
+
+- salon@topstylesalon.cz
+- kadernik@topstylesalon.cz
