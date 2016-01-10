@@ -40,3 +40,28 @@
     }
   }
 }
+
+.admin-customers-header {
+  @extend .row;
+
+  &-title {
+    @extend .col-xs-6;
+  }
+
+  &-buttons {
+    @extend .col-xs-6;
+    @extend .text-right;
+  }
+
+  &-button {
+    &-newsletter {
+      @extend .btn;
+      @extend .btn-info;
+    }
+
+    &-add {
+      @extend .btn;
+      @extend .btn-success;
+    }
+  }
+}
