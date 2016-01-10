@@ -1,4 +1,6 @@
 export default function() {
+  this.namespace = '/api/v1';
+  
   this.get('/items', function(db/*, request*/) {
     return {
      data: db.items.map(attrs => (
