@@ -18,8 +18,8 @@
       <th class="col-xs-2">
         {{th-sort action="sortBy" title=(t 'customer.birth') current=sortBy value="birth"}}
       </th>
-      <th class="col-xs-2 text-right">
-        {{th-sort action="sortBy" title=(t 'customer.birthday_in') current=sortBy value="birthday"}}
+      <th class="col-xs-2 text-right customers-sort-by-next-birthday">
+        {{th-sort action="sortBy" title=(t 'customer.birthday_in') current=sortBy value="nextBirthdayInDays"}}
       </th>
       <th class="col-xs-5">
         {{th-sort action="sortBy" title=(t 'customer.note') current=sortBy value="note"}}
@@ -34,10 +34,10 @@
             {{customer.full_name}}
           {{/link-to}}
         </td>
-        <td>
+        <td class="customers-birth">
           {{customer.birth}}
         </td>
-        <td class="text-right">
+        <td class="customers-next-birthday text-right">
           {{x-customer/birthday customer=customer}}
         </td>
         <td>
