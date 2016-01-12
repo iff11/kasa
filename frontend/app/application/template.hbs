@@ -1,23 +1,17 @@
 <div id="wrapper">
   {{#if session.isAuthenticated}}
-    {{!outlet "menu"}}
     {{render "menu"}}
 
-    <!-- Page Content -->
     <div id="page-wrapper">
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-12">
             {{liquid-outlet}}
           </div>
-          <!-- /.col-lg-12 -->
         </div>
-        <!-- /.row -->
       </div>
-      <!-- /.container-fluid -->
     </div>
   {{else}}
     {{liquid-outlet}}
   {{/if}}
-  <!-- /#page-wrapper -->
 </div>

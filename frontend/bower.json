@@ -14,11 +14,12 @@
     "ember-resolver": "~0.1.15",
     "ember-simple-auth": "0.8.0",
     "font-awesome": "~4.4.0",
-    "jquery": "^1.11.1",
+    "jquery": "1.11.1",
     "loader.js": "ember-cli/loader.js#3.2.0",
     "lodash": "~3.7.0",
     "pretender": "~0.10.1",
     "qunit": "~1.20.0",
-    "selectize": "~0.12.1"
+    "selectize": "~0.12.1",
+    "es5-shim": "^4.0.5"
   }
 }

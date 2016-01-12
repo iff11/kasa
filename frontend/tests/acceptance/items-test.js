@@ -1,11 +1,12 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from 'frontend/tests/helpers/start-app';
+import { currentSession, authenticateSession, invalidateSession } from 'frontend/tests/helpers/ember-simple-auth';
 
 module('Acceptance | items', {
   beforeEach: function() {
     this.application = startApp();
-    authenticateSession();
+    authenticateSession(this.application, {});
     server.logging = true;
     // Vytvori falesna data pro testovani
   },

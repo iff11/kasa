@@ -9,12 +9,12 @@ module.exports = function(environment) {
       showProgress : false,
       types        : [ 'success', 'danger' ]
     },
-    'simple-auth': {
-      authorizer: 'simple-auth-authorizer:devise'
+    contentSecurityPolicy: {
+      'connect-src': "*"
     },
-    'simple-auth-devise': {
-      tokenAttributeName: 'token',
-      identificationAttributeName: 'email'
+    'ember-simple-auth': {
+      routeAfterAuthentication: 'visits',
+      routeIfAlreadyAuthenticated: 'visits'
     },
     modulePrefix: 'frontend',
     // podModulePrefix: 'frontend',
@@ -60,8 +60,6 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
-
-    ENV['simple-auth'].store = 'simple-auth-session-store:ephemeral';
   }
 
   if (environment === 'production') {

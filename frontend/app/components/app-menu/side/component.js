@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
+const { service } = Ember.inject;
+
 export default Ember.Component.extend({
+  session: service('session'),
+  
   birthdaysInWeek: function() {
     if(this.get('customers')) {
       return this.get('customers').filter(function(customer) {
@@ -18,11 +22,5 @@ export default Ember.Component.extend({
     if(this.get('visits')) {
       return this.get('visits').filterBy('completed', false);
     }
-  }.property('visits.@each.completed'),
-
-  actions: {
-    logout: function() {
-      this.sendAction('logout');
-    }
-  }
+  }.property('visits.@each.completed')
 });

@@ -1,94 +1,45 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-me = Customer.create(
-  {
-    first_name: 'Michal',
-    last_name: 'Bryxí',
-    note: 'Já a jenom já',
-    birth: '1986-03-18'
-  }
-)
-john = Customer.create(
-  {
-    first_name: 'John',
-    last_name: 'Doe',
-    note: 'Somebody',
-    birth: '2001-05-18'
-  }
-)
-jane = Customer.create(
-  {
-    first_name: 'Jane',
-    last_name: 'Doe',
-    note: 'Somebody',
-    birth: '2001-09-18'
-  }
-)
-
-mirek = Employee.create(
-  {
-    first_name: 'Mirek',
-    last_name: 'Kubelka',
-    photo_url: 'http://placekitten.com/g/64/64'
-  }
-)
-
-my_visit = Visit.create(
-  {
-    note: 'Příjemná návštěva',
-    customer: me,
-    employee: mirek
-  }
-)
-johns_visit = Visit.create(
-  {
-    note: 'John Doe je zde',
-    customer: john,
-    employee: mirek
-  }
-)
-sampon = Item.create(
-  {
-    name: 'Šampón',
-    description: 'Vytváří šampónky',
-    selling_price: 789.0,
-    unlimited: false,
-    barcode: '20055318',
-  }
-)
-strihani = Item.create(
-  {
-    name: 'Stříhání standard',
-    description: 'Prostě nůžkama',
-    selling_price: 100.0,
-    unlimited: true,
-    barcode: '203757723572',
-  }
-)
-barva = Item.create(
-  {
-    name: 'Barva na vlasy',
-    description: 'Intensive mega color creme',
-    selling_price: 999.0,
-    unlimited: false,
-  }
-)
-kondicioner = Item.create(
-  {
-    name: 'Kondicioner',
-    description: 'Intensive mega color creme',
-    selling_price: 100,
-    unlimited: false,
-  }
-)
-Sell.create(
+customers = Customer.create(
   [
-    {item: sampon, visit: my_visit, count: 1, price: 234},
-    {item: strihani, visit: my_visit, count: 2, price: 567}
+    { first_name: 'Michal', last_name: 'Bryxí', note: 'Me, me and only me', birth: (Date.today - 365 + 90).to_s },
+    { first_name: 'John', last_name: 'Doe', note: 'Male', birth: (Date.today - 365 + 30).to_s },
+    { first_name: 'Jane', last_name: 'Doe', note: 'Female', birth: (Date.today - 365 + 7).to_s }
+  ]
+)
+
+employees = Employee.create(
+  [
+    { first_name: 'Junior', last_name: 'Stylist', photo_url: 'http://placekitten.com/g/32/32' },
+    { first_name: 'Senior', last_name: 'Stylist', photo_url: 'http://placekitten.com/g/64/64' },
+    { first_name: 'Top', last_name: 'Stylist', photo_url: 'http://placekitten.com/g/128/128' }
+  ]
+)
+
+users = User.create(
+  [
+    { email: 'salon@topstylesalon.cz', password: 'salon@topstylesalon.cz', is_admin: true },
+    { email: 'kadernik@topstylesalon.cz', password: 'kadernik@topstylesalon.cz', is_admin: false }
+  ]
+)
+
+visits = Visit.create(
+  [
+    { note: 'Joyful visit', customer: customers[0], employee: employees[0] },
+    { note: 'John Doe is here', customer: customers[1], employee: employees[1] }
+  ]
+)
+
+items = Item.create(
+  [
+    { name: 'Shampoo', description: 'Makes you a shampoo', selling_price: 123.4, unlimited: false, barcode: '20150001' },
+    { name: 'Haircut', description: 'Simply by scissors', selling_price: 100.0, unlimited: true, barcode: '20150002' },
+    { name: 'Hair color', description: 'Intensive mega color creme', selling_price: 999.0, unlimited: false },
+    { name: 'Condicioner', description: 'Intensive mega color creme condicioner', selling_price: 100.0, unlimited: false }
+  ]
+)
+
+sells = Sell.create(
+  [
+    {item: items[0], visit: visits[0], count: 1, price: 234},
+    {item: items[1], visit: visits[1], count: 15, price: 567}
   ]
 )

@@ -1,7 +1,5 @@
 ---
 language: node_js
-node_js:
-  - "0.12"
 
 sudo: false
 
@@ -15,6 +13,7 @@ before_install:
   - "npm install -g npm@^2"
 
 install:
+  - cd frontend
   - npm install -g bower
   - npm install
   - bower install
