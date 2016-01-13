@@ -8,5 +8,5 @@ module Api
 
       has_many :sells
     end
-  end 
+  end
 end
