@@ -10,7 +10,7 @@ export default Ember.Component.extend({
     var now = moment(),
         nextBirthday = this.get('customer.nextBirthday');
 
-    if(nextBirthday) {
+    if(!Ember.isEmpty(nextBirthday)) {
       return nextBirthday.from(now);
     } else {
       return '?';

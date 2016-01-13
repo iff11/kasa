@@ -17,6 +17,10 @@ export default DS.Model.extend({
 
   // momentjs obejct of next date customer celebrates birthday
   nextBirthday: function() {
+    if(Ember.isEmpty(this.get('birth'))) {
+      return undefined;
+    }
+
     var birth = this.get('birthday'),
         now = moment(),
         currYear = now.year(),
@@ -37,7 +41,7 @@ export default DS.Model.extend({
     if(nextBirthday) {
       return nextBirthday.diff(now, 'days');
     } else {
-      return '?';
+      return '999999';
     }
   }.property('nextBirthday'),
 

@@ -1,8 +1,15 @@
 customers = Customer.create(
   [
     { first_name: 'Michal', last_name: 'Bryxí', note: 'Me, me and only me', birth: (Date.today - 365 + 90).to_s },
+    { first_name: 'No', last_name: 'BirthDay', note: 'No birth date #1', birth: '' },
     { first_name: 'John', last_name: 'Doe', note: 'Male', birth: (Date.today - 365 + 30).to_s },
-    { first_name: 'Jane', last_name: 'Doe', note: 'Female', birth: (Date.today - 365 + 7).to_s }
+    { first_name: 'Jane', last_name: 'Doe', note: 'Female', birth: (Date.today - 365 + 7).to_s },
+    { first_name: 'Alpha', last_name: '', note: '', birth: '1989-11-02' },
+    { first_name: 'Beta', last_name: '', note: '', birth: '1900-10-03' },
+    { first_name: 'No', last_name: 'BirthDay', note: 'No birth date #2', birth: '' },
+    { first_name: 'Gamma', last_name: '', note: '', birth: '1900-09-10' },
+    { first_name: 'Delta', last_name: '', note: '', birth: '1978-03-22' },
+    { first_name: 'No', last_name: 'BirthDay', note: 'No birth date #3', birth: '' },
   ]
 )
 

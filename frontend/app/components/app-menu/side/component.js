@@ -4,13 +4,16 @@ const { service } = Ember.inject;
 
 export default Ember.Component.extend({
   session: service('session'),
-  
+
   birthdaysInWeek: function() {
     if(this.get('customers')) {
       return this.get('customers').filter(function(customer) {
         var now = moment(),
             nextBirthday = customer.get('nextBirthday');
 
+        if(Ember.isEmpty(nextBirthday)) {
+          return false;
+        }
         if(nextBirthday.diff(now, 'days') < 7) {
           return true;
         }
