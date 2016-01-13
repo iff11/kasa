@@ -6,7 +6,7 @@
     "bower": "*"
   },
   "engines": {
-    "node": "4.2.1"
+    "node": ">= 0.10.0"
   },
   "cacheDirectories": [
     "frontend/node_modules",
