@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby "2.3.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', '5.0.0.beta1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -20,10 +20,11 @@ gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 
 gem 'ember-cli-rails'
-gem 'jsonapi-resources'
-gem 'paranoia', :git => 'https://github.com/radar/paranoia.git', :branch => 'rails4'
+# gem 'jsonapi-resources'
+gem 'jsonapi-resources', :git => 'https://github.com/rorkjop/jsonapi-resources', :branch => 'rails-5-compatibility'
 
-gem 'devise'
+
+gem 'devise', :git => 'https://github.com/plataformatec/devise', :branch => 'master'
 gem 'cancan'
 
 gem 'nokogiri'
