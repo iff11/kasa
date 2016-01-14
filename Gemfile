@@ -22,6 +22,7 @@ gem 'unicorn'
 gem 'ember-cli-rails'
 # gem 'jsonapi-resources'
 gem 'jsonapi-resources', :git => 'https://github.com/rorkjop/jsonapi-resources', :branch => 'rails-5-compatibility'
+gem 'active_model_serializers'
 
 
 gem 'devise', :git => 'https://github.com/plataformatec/devise', :branch => 'master'

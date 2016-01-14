@@ -1,7 +1,8 @@
-module Api
-  module V1
-    class CustomersController < Api::BaseController
-      include JSONAPI::ActsAsResourceController
-    end
+class Api::V1::CustomersController < ApplicationController
+  def index
+    @customers = Customer.all
+  end
+
+  def show
   end
 end
