@@ -1,4 +1,3 @@
 # Be sure to restart your server when you modify this file.
 
-# Rails.application.config.session_store :cookie_store, key: '_fo_session'
-Rails.application.config.session_store :disabled
+Rails.application.config.session_store :cookie_store, key: '_ember_cli_rails_heroku_example_session'
