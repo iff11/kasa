@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028094732) do
+ActiveRecord::Schema.define(version: 20160122213232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,8 +103,8 @@ ActiveRecord::Schema.define(version: 20151028094732) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "deleted_at"
     t.string   "authentication_token"
+    t.datetime "deleted_at"
     t.boolean  "is_admin",               default: false, null: false
   end
 
@@ -125,5 +125,11 @@ ActiveRecord::Schema.define(version: 20151028094732) do
   end
 
   add_index "visits", ["deleted_at"], name: "index_visits_on_deleted_at", using: :btree
+
+  create_trigger("visits_after_insert_row_tr", :generated => true, :compatibility => 1).
+      on("visits").
+      after(:insert) do
+    "UPDATE customers SET last_visit_id = NEW.id WHERE customers.id = NEW.customer_id;"
+  end
 
 end

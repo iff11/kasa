@@ -22,6 +22,7 @@ gem 'unicorn'
 gem 'ember-cli-rails'
 gem 'jsonapi-resources'
 gem 'paranoia', :git => 'https://github.com/radar/paranoia.git', :branch => 'rails4'
+gem 'hairtrigger'
 
 gem 'devise'
 gem 'cancan'
