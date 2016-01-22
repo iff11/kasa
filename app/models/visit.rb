@@ -10,4 +10,8 @@ class Visit < ActiveRecord::Base
   def self.opened
     where(completed: false)
   end
+
+  trigger.after(:insert) do
+    "UPDATE customers SET last_visit_id = NEW.id WHERE customers.id = NEW.customer_id;"
+  end
 end
