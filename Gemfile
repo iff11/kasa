@@ -38,6 +38,7 @@ group :development, :test do
   gem 'rails-erd'
 
   gem 'taps'
+  gem "awesome_print", require:"ap"
 end
 
 group :production do
