@@ -178,5 +178,6 @@ export default {
 
   currency: 'Kč',
   pieces: 'ks',
-  noNewNotifications: 'Žádné nové notifikace'
+  noNewNotifications: 'Žádné nové notifikace',
+  loadMore: 'Více...'
 };

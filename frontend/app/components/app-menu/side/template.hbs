@@ -28,7 +28,7 @@
           {{t 'sidebar.visits'}}
         {{/link-to}}
         <ul class="nav nav-second-level nav-pills nav-stacked">
-          {{#each openedVisits as |visit|}}
+          {{#each visits as |visit|}}
             <li>
               {{#link-to 'visit' visit}}
                 {{visit.customer.full_name}}
