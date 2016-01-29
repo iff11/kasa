@@ -8,9 +8,9 @@ export default DS.Model.extend({
   sold: DS.attr('number'),
   unlimited: DS.attr(),
   barcode: DS.attr(),
-  actual_count: DS.attr(),
   warningThreshold: DS.attr(),
   isActive: DS.attr(),
+  isService: DS.attr(),
 
   sells: DS.hasMany('sell', {async: true}),
   supplies: DS.hasMany('supply', {async: true}),
