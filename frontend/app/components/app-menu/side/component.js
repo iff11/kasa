@@ -1,9 +1,19 @@
 import Ember from 'ember';
 
-const { service } = Ember.inject;
-
 export default Ember.Component.extend({
-  session: service('session'),
+  store: Ember.inject.service(),
+
+  visits: function () {
+    var query = { filter: { completed: false } };
+
+    return this.get('store').filter(
+      'visit',
+      query,
+      function (visit) {
+        return !visit.get('completed');
+      }
+    );
+  }.property(),
 
   birthdaysInWeek: function() {
     if(this.get('customers')) {
@@ -20,10 +30,4 @@ export default Ember.Component.extend({
       });
     }
   }.property('customers.@each'),
-
-  openedVisits: function() {
-    if(this.get('visits')) {
-      return this.get('visits').filterBy('completed', false);
-    }
-  }.property('visits.@each.completed')
 });

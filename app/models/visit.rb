@@ -1,4 +1,6 @@
 class Visit < ActiveRecord::Base
+  default_scope { order(updated_at: :desc) }
+
   acts_as_paranoid
 
   belongs_to :customer, counter_cache: true

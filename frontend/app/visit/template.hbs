@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-xs-6">
     <h2>
-      {{#link-to 'customer' attrs.visit.customer}}
+      {{#link-to 'customer' attrs.visit.customer.id}}
         {{fa-icon icon="user"}}
         {{attrs.visit.customer.full_name}}
       {{/link-to}}

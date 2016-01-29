@@ -13,7 +13,8 @@
   </div>
   <!-- /.navbar-header -->
 
-  {{app-menu/top logout="invalidateSession"}}
+  {{app-menu/top logout="logout"}}
 
-  {{app-menu/side}}
+  {{app-menu/side customers=customers}}
+  {{!app-menu/side}}
 </nav>

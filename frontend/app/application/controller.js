@@ -2,7 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   session: Ember.inject.service(),
-  
+  attrs: {},
+
   populateStore: function() {
     // this.set('stillLoading', 5);
 

@@ -1,0 +1,12 @@
+<tbody>
+  {{#each sells as |s|}}
+    <tr>
+      <td>{{s.item.name}}:</td>
+      <td>{{s.count}}</td>
+      <td>×</td>
+      <td>{{x-item/price value=s.price}}</td>
+      <td>=</td>
+      <td>{{x-sell/sum sell=s}}</td>
+    </tr>
+  {{/each}}
+</tbody>

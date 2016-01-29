@@ -5,8 +5,8 @@ export default Ember.Route.extend({
     var id = this.paramsFor('visit').id;
 
     return Ember.RSVP.hash({
-      visit: this.store.find('visit', id),
-      items: this.store.findAll('item')
+      visit: this.store.findRecord('visit', id),
+      items: this.store.peekAll('item')
     });
   },
 

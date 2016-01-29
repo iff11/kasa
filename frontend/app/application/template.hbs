@@ -1,6 +1,6 @@
 <div id="wrapper">
   {{#if session.isAuthenticated}}
-    {{render "menu"}}
+    {{app-menu customers=attrs.customers visits=attrs.visits logout="logout"}}
 
     <div id="page-wrapper">
       <div class="container-fluid">

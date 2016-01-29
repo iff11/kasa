@@ -15,9 +15,19 @@ customers = Customer.create(
 
 employees = Employee.create(
   [
-    { first_name: 'Junior', last_name: 'Stylist', photo_url: 'http://placekitten.com/g/32/32' },
-    { first_name: 'Senior', last_name: 'Stylist', photo_url: 'http://placekitten.com/g/64/64' },
-    { first_name: 'Top', last_name: 'Stylist', photo_url: 'http://placekitten.com/g/128/128' }
+    { first_name: 'Junior', last_name: 'Stylist', photo_url: 'http://api.adorable.io/avatars/64/a' },
+    { first_name: 'Senior', last_name: 'Stylist', photo_url: 'http://api.adorable.io/avatars/64/b' },
+    { first_name: 'Top', last_name: 'Stylist', photo_url: 'http://api.adorable.io/avatars/64/c' },
+    { first_name: 'Mirek 0', last_name: 'Stylist', photo_url: 'http://api.adorable.io/avatars/64/d' },
+    { first_name: 'Mirek 1', last_name: 'stylist', photo_url: 'http://api.adorable.io/avatars/64/e' },
+    { first_name: 'Mirek 2', last_name: 'Stylist', photo_url: 'http://api.adorable.io/avatars/64/f' },
+    { first_name: 'Mirek 3', last_name: 'Stylist', photo_url: 'http://api.adorable.io/avatars/64/g' },
+    { first_name: 'Mirek 4', last_name: 'Stylist', photo_url: 'http://api.adorable.io/avatars/64/h' },
+    { first_name: 'Mirek 5', last_name: 'Stylist', photo_url: 'http://api.adorable.io/avatars/64/i' },
+    { first_name: 'Mirek 6', last_name: 'Stylist', photo_url: 'http://api.adorable.io/avatars/64/j' },
+    { first_name: 'Mirek 7', last_name: 'Stylist', photo_url: 'http://api.adorable.io/avatars/64/k' },
+    { first_name: 'Mirek 8', last_name: 'Stylist', photo_url: 'http://api.adorable.io/avatars/64/l' },
+    { first_name: 'Mirek 9', last_name: 'Stylist', photo_url: 'http://api.adorable.io/avatars/64/m' }
   ]
 )
 
@@ -31,7 +41,17 @@ users = User.create(
 visits = Visit.create(
   [
     { note: 'Joyful visit', customer: customers[0], employee: employees[0] },
-    { note: 'John Doe is here', customer: customers[1], employee: employees[1] }
+    { note: 'John Doe is here 1', customer: customers[1], employee: employees[1], completed: true },
+    { note: 'John Doe is here 2', customer: customers[2], employee: employees[2], completed: true },
+    { note: 'Nice visit', customer: customers[3], employee: employees[3] },
+    { note: 'Dummy visit', customer: customers[4], employee: employees[4] },
+    { note: 'John Doe is here 5', customer: customers[5], employee: employees[5], completed: true },
+    { note: 'John Doe is here 6', customer: customers[6], employee: employees[6], completed: true },
+    { note: 'John Doe is here 7', customer: customers[7], employee: employees[7], completed: true },
+    { note: 'John Doe is here 8', customer: customers[8], employee: employees[8], completed: true },
+    { note: 'John Doe is here 9', customer: customers[9], employee: employees[9], completed: true },
+    { note: 'John Doe is here 10', customer: customers[0], employee: employees[10], completed: true },
+    { note: 'Hey hou', customer: customers[1], employee: employees[11] },
   ]
 )
 
