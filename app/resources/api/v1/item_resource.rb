@@ -1,11 +1,7 @@
 module Api
   module V1
     class ItemResource < JSONAPI::Resource
-      attributes :name, :bought, :sold, :unlimited, :barcode, :updated_at
-
-      attribute :selling_price, :key => 'selling-price'
-      attribute :warning_threshold, :key => 'warning-threshold'
-      attribute :is_active, :key => 'is-active'
+      attributes :name, :bought, :sold, :unlimited, :barcode, :is_service, :is_active, :selling_price, :warning_threshold, :updated_at
 
       has_many :sells
       has_many :supplies

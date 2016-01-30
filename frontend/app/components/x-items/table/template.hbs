@@ -4,6 +4,9 @@
       <th class="admin-items-col-active">
         {{th-sort action="sortBy" title=(t 'item.isActive') current=sortBy value="isActive"}}
       </th>
+      <th class="admin-items-col-sale">
+        {{th-sort action="sortBy" title=(t 'item.isService') current=sortBy value="isService"}}
+      </th>
       <th class="admin-items-col-name">
         {{th-sort action="sortBy" title=(t 'item.name') current=sortBy value="name"}}
       </th>
@@ -40,6 +43,13 @@
             {{fa-icon icon="check-square-o"}}
           {{else}}
             {{fa-icon icon="square-o"}}
+          {{/if}}
+        </td>
+        <td class="admin-items-col-sale">
+          {{#if item.isService}}
+            {{fa-icon icon="scissors"}}
+          {{else}}
+            {{fa-icon icon="gift"}}
           {{/if}}
         </td>
         <td class="admin-items-col-name">

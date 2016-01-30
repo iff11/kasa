@@ -115,7 +115,8 @@ export default {
     warningThreshold: 'Minimálně skladem',
     edit: 'Upravit',
     margin: 'Marže',
-    isActive: 'V prodeji'
+    isActive: 'Aktivní',
+    isService: 'Služba'
   },
 
   employee: {
