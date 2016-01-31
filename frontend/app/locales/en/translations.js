@@ -154,6 +154,10 @@ export default {
   admin: {
     statuses: {
       heading: 'Stav systému'
+    },
+    employee: {
+      year: 'Rok',
+      month: 'Měsíc'
     }
   },
 
@@ -180,5 +184,6 @@ export default {
   currency: 'Kč',
   pieces: 'ks',
   noNewNotifications: 'Žádné nové notifikace',
-  loadMore: 'Více...'
+  loadMore: 'Více...',
+  loading: '... načítám ...'
 };

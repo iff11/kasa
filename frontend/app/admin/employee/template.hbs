@@ -39,53 +39,24 @@
   </div>
 
   <div class="col-xs-8">
-  {{view Ember.Select
-       content=months
-       optionValuePath="content.value"
-       optionLabelPath="content.text"
-       selection=selectedMonth}}
     <h3>{{t 'employee.all_visits'}}</h3>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>{{t 'visit.updatedAt'}}</th>
-          <th>{{t 'visit.customer'}}</th>
-          <th class="text-right">{{t 'visit.total_price'}}</th>
-          <th class="text-right">{{t 'visit.employee_margin'}}</th>
-        </tr>
-      </thead>
+    
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="disabled">
+        <a>
+          {{t 'admin.employee.year'}}:
+        </a>
+      </li>
 
-      <tbody>
-        {{#each visits as |visit|}}
-          <tr>
-            <td>
-              {{#link-to 'admin.visit' visit.id}}
-                {{x-visit/completed visit=visit}}
-                {{date-and-time visit.updatedAt 'cs'}}
-              {{/link-to}}
-            </td>
-            <td>
-              {{#link-to 'admin.customer' visit.customer}}
-                {{visit.customer.full_name}}
-              {{/link-to}}
-            </td>
-            <td class="text-right">{{format-money visit.total_price symbol=(t 'currency') format="%v %s"}}</td>
-            <td class="text-right">{{format-money visit.employee_share symbol=(t 'currency') format="%v %s"}}</td>
-          </tr>
-        {{/each}}
-      </tbody>
+      {{#each years as |year|}}
+        {{#link-to 'admin.employee.year' employeeId year role="presentation" tagName="li"}}
+          <a href="" role="tab">
+            {{year}}
+          </a>
+        {{/link-to}}
+      {{/each}}
+    </ul>
 
-      <tfoot>
-        <tr>
-          <td colspan="2"></td>
-          <td class="text-right">
-            {{x-visits/sum visits=visits}}
-          </td>
-          <td class="text-right">
-            {{x-visits/employee-share visits=visits}}
-          </td>
-        </tr>
-      </tfoot>
-    </table>
+    {{outlet}}
   </div>
 </div>
