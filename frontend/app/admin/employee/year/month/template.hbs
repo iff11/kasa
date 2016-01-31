@@ -4,7 +4,13 @@
       <th>{{t 'visit.updatedAt'}}</th>
       <th>{{t 'visit.customer'}}</th>
       <th class="text-right">{{t 'visit.total_price'}}</th>
-      <th class="text-right">{{t 'visit.employee_margin'}}</th>
+      <th class="text-right">
+        {{fa-icon icon="gift"}}
+        +
+        {{fa-icon icon="scissors"}}
+        =
+        {{t 'visit.employee_margin'}}
+      </th>
     </tr>
   </thead>
 
@@ -23,7 +29,13 @@
           {{/link-to}}
         </td>
         <td class="text-right">{{format-money visit.total_price symbol=(t 'currency') format="%v %s"}}</td>
-        <td class="text-right">{{format-money visit.employee_share symbol=(t 'currency') format="%v %s"}}</td>
+        <td class="text-right">
+          {{format-money visit.employeeShareSale symbol=(t 'currency') format="%v %s"}}
+          +
+          {{format-money visit.employeeShareService symbol=(t 'currency') format="%v %s"}}
+          =
+          {{format-money visit.employee_share symbol=(t 'currency') format="%v %s"}}
+        </td>
       </tr>
     {{/each}}
   </tbody>

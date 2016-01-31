@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130083024) do
+ActiveRecord::Schema.define(version: 20160131215344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(version: 20160130083024) do
   create_table "sells", force: :cascade do |t|
     t.integer  "item_id"
     t.integer  "visit_id"
-    t.integer  "count"
-    t.float    "price"
+    t.integer  "count",      null: false
+    t.float    "price",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
@@ -115,14 +115,17 @@ ActiveRecord::Schema.define(version: 20160130083024) do
 
   create_table "visits", force: :cascade do |t|
     t.text     "note"
-    t.integer  "customer_id",                     null: false
-    t.integer  "employee_id",                     null: false
-    t.boolean  "completed",       default: false, null: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.integer  "customer_id",                            null: false
+    t.integer  "employee_id",                            null: false
+    t.boolean  "completed",              default: false, null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.datetime "deleted_at"
     t.float    "price_with_tip"
     t.float    "received_amount"
+    t.decimal  "price",                  default: 0.0,   null: false
+    t.decimal  "employee_share_sale",    default: 0.0,   null: false
+    t.decimal  "employee_share_service", default: 0.0,   null: false
   end
 
   add_index "visits", ["deleted_at"], name: "index_visits_on_deleted_at", using: :btree
@@ -131,6 +134,35 @@ ActiveRecord::Schema.define(version: 20160130083024) do
       on("visits").
       after(:insert) do
     "UPDATE customers SET last_visit_id = NEW.id WHERE customers.id = NEW.customer_id;"
+  end
+
+  create_trigger("fix_sells_price", :generated => true, :compatibility => 1).
+      on("sells").
+      after(:insert, :update).
+      name("fix_sells_price") do
+    "      UPDATE visits SET price = (SELECT COALESCE(SUM(price * count), 0) FROM sells WHERE visit_id = NEW.visit_id AND deleted_at IS NULL) WHERE visits.id = NEW.visit_id;"
+  end
+
+  create_trigger("fix_sells_employee_share_sale", :generated => true, :compatibility => 1).
+      on("sells").
+      after(:insert, :update).
+      name("fix_sells_employee_share_sale") do
+    <<-SQL_ACTIONS
+      UPDATE visits SET employee_share_sale = (
+        SELECT COALESCE(SUM(sells.price * sells.count), 0) FROM sells LEFT JOIN items ON items.id = sells.item_id WHERE sells.visit_id = NEW.visit_id AND sells.deleted_at IS NULL AND items.is_service = false) * 0.1
+        WHERE visits.id = NEW.visit_id;
+    SQL_ACTIONS
+  end
+
+  create_trigger("fix_sells_employee_share_service", :generated => true, :compatibility => 1).
+      on("sells").
+      after(:insert, :update).
+      name("fix_sells_employee_share_service") do
+    <<-SQL_ACTIONS
+      UPDATE visits SET employee_share_service = (
+        SELECT COALESCE(SUM(sells.price * sells.count), 0) FROM sells LEFT JOIN items ON items.id = sells.item_id WHERE sells.visit_id = NEW.visit_id AND sells.deleted_at IS NULL AND items.is_service = true) * 0.1
+        WHERE visits.id = NEW.visit_id;
+    SQL_ACTIONS
   end
 
 end
