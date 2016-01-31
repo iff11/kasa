@@ -1,0 +1,17 @@
+<ul class="nav nav-tabs" role="tablist">
+  <li class="disabled">
+    <a>
+      {{t 'admin.employee.month'}}:
+    </a>
+  </li>
+
+  {{#each months as |month|}}
+    {{#link-to 'admin.employee.year.month' employeeId year month role="presentation" tagName="li"}}
+      <a href="" role="tab">
+        {{month}}
+      </a>
+    {{/link-to}}
+  {{/each}}
+</ul>
+
+{{outlet}}

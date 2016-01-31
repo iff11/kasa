@@ -32,7 +32,11 @@ Router.map(function() {
 
     this.route('visit', {path: 'visit/:id'});
     this.route('customer', {path: 'customer/:id'});
-    this.route('employee', {path: 'employee/:id'});
+    this.route('employee', {path: 'employee/:id'}, function () {
+      this.route('year', {path: '/:year'}, function () {
+        this.route('month', {path: '/:month'});
+      });
+    });
     this.route('supply');
 
     this.route('statuses');

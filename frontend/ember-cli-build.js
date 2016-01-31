@@ -14,7 +14,7 @@ module.exports = function (defaults) {
 
   app.import(app.bowerDirectory + '/moment/moment.js');
   app.import(app.bowerDirectory + '/moment/locale/cs.js');
-  app.import(app.bowerDirectory + '/lodash/lodash.js');
+  app.import(app.bowerDirectory + '/lodash/dist/lodash.js')
 
   return app.toTree();
 }
