@@ -9,8 +9,7 @@
     {{date-and-time visit.updatedAt ENV.locale}}
 
     <span class="pull-right">
-      ??? Kč
-      {{!format-money visit.total_price symbol=(t 'currency') format="%v %s"}}
+      {{format-money visit.price symbol=(t 'currency') format="%v %s"}}
     </span>
   </a>
 </div>
