@@ -126,7 +126,8 @@ export default {
     action: 'Akce',
     add: 'Přidat',
     all_employees: 'Všichni zaměstnanci',
-    all_visits: 'Všechny zakázky'
+    all_visits: 'Všechny zakázky',
+    isActive: 'Aktivní'
   },
 
   supply: {

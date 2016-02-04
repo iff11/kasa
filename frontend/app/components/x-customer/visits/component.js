@@ -27,14 +27,17 @@ export default Ember.Component.extend({
           include: 'employee,sells'
         };
 
-    var that = this;
+    var promise = store.filter(
+      'visit',
+      query,
+      function (visit) {
+        return visit.get('completed');
+      }
+    );
 
-    store.query('visit', query).then((result) => {
-      that.set('isLoading', false);
-      that.set('visits', result);
+    promise.then((result) => {
+      this.set('isLoading', false);
+      this.set('visits', result);
     });
-
-    //visits = this.get('customer.visits');
-
-  }.observes('customer')
+  }.on('init')
 });
