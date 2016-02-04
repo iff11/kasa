@@ -1,7 +1,7 @@
 <h2>{{t 'visit.all_open'}}</h2>
 
 <div class="row">
-  {{#each openVisits as |visit|}}
+  {{#each attrs.visits as |visit|}}
     <div class="col-xs-4">
       <div class="visits-item">
         <div class="visits-item-heading">
@@ -29,7 +29,7 @@
             {{view "select"
                 id="employee"
                 value=heap.employee
-                content=employees
+                content=attrs.employees
                 class="form-control"
                 prompt=(t 'visit.new.selectEmployee')
                 optionValuePath="content"
@@ -44,7 +44,7 @@
         <div class="form-group">
           <label for="customer">{{t 'visit.customer'}}</label>
           {{ember-selectize
-              content=customers
+              content=attrs.customers
               optionValuePath="content"
               optionLabelPath="content.full_name"
               selection=heap.customer

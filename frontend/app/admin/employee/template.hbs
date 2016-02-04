@@ -36,11 +36,18 @@
       <label>{{t 'employee.photo_url'}}</label>
       {{input value=attrs.employee.photo_url class='form-control'}}
     </div>
+
+    <div class="checkbox">
+      <label>
+        {{input checked=attrs.employee.isActive type="checkbox"}}
+        {{t 'employee.isActive'}}
+      </label>
+    </div>
   </div>
 
   <div class="col-xs-8">
     <h3>{{t 'employee.all_visits'}}</h3>
-    
+
     <ul class="nav nav-tabs" role="tablist">
       <li class="disabled">
         <a>
