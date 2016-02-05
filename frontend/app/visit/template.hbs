@@ -3,7 +3,12 @@
     <h2>
       {{#link-to 'customer' attrs.visit.customer.id}}
         {{fa-icon icon="user"}}
-        {{attrs.visit.customer.full_name}}
+        <span class="visit-customer-first-name">
+          {{attrs.visit.customer.firstName}}
+        </span>
+        <span class="visit-customer-last-name">
+          {{attrs.visit.customer.lastName}}
+        </span>
       {{/link-to}}
     </h2>
 

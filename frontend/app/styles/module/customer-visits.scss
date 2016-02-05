@@ -1,0 +1,28 @@
+.customer-visits {
+  @extend .panel-group;
+}
+
+.customer-visit {
+  @extend .panel;
+  @extend .panel-default;
+
+  &-note {
+    @extend .panel-body;
+  }
+}
+
+.customer-visit-heading {
+  @extend .panel-heading;
+
+  &-price {
+    @extend .pull-right;
+  }
+}
+
+.customer-visit-body {
+  @extend .pannel-collapse;
+}
+
+.customer-visit-sells {
+  @extend .table;
+}

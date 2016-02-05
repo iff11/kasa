@@ -1,4 +1,4 @@
-<div class="panel-heading" role="tab" id="heading{{visit.id}}">
+<div class="customer-visit-heading" role="tab" id="heading{{visit.id}}">
   <a {{action "toggleExpand"}} class="{{isExpanded::collapsed}}" aria-expanded="{{isExpanded}}" aria-controls="collapse{{visit.id}}">
     <img src={{visit.employee.photo_url}} class="employee-avatar-in-visit-list" />
 
@@ -8,18 +8,18 @@
 
     {{date-and-time visit.updatedAt ENV.locale}}
 
-    <span class="pull-right">
-      {{format-money visit.price symbol=(t 'currency') format="%v %s"}}
+    <span class="customer-visit-heading-price">
+      {{~format-money visit.price symbol=(t 'currency') format="%v %s"~}}
     </span>
   </a>
 </div>
 
-<div id="collapse{{visit.id}}" class="panel-collapse {{isExpanded::collapse}}" role="tabpanel" aria-labelledby="heading{{visit.id}}">
+<div id="collapse{{visit.id}}" class="customer-visit-body {{isExpanded::collapse}}" role="tabpanel" aria-labelledby="heading{{visit.id}}">
   {{#if isExpanded}}
-    <div class="panel-body">
-      {{#if visit.note}}
-        {{visit.note}}
-      {{/if}}
+    <div class="customer-visit-note">
+      {{~#if visit.note~}}
+        {{~visit.note~}}
+      {{~/if~}}
     </div>
     {{x-customer/visits/visit/sells sells=visit.sells}}
   {{/if}}

@@ -60,6 +60,10 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+
+    ENV.PRETENDER_DEBUG = true;
+    ENV.PRETENDER_TRACE = true;
+    ENV.PRETENDER_ERROR = true;
   }
 
   if (environment === 'production') {

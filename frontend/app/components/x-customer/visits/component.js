@@ -16,7 +16,7 @@ export default Ember.Component.extend({
 
     var store = this.get('store'),
         size = this.get('size'),
-        customerId = this.get('customer.id'),
+        customerId = this.get('customerId'),
         query = {
           filter: {
             customer_id: customerId,
@@ -41,5 +41,5 @@ export default Ember.Component.extend({
       this.set('isLoading', false);
       this.set('visits', result);
     });
-  }.observes('customer')
+  }.observes('customerId').on('init')
 });

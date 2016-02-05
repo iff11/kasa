@@ -54,7 +54,7 @@
   <div class="visit-history">
     <div class="row">
       <div class="col-xs-12">
-        {{x-customer/visits customer=attrs.visit.customer}}
+        {{x-customer/visits customerId=attrs.visit.customer.id}}
 
         {{#link-to 'customer' attrs.visit.customer.id class='btn btn-block btn-default'}}
           {{t 'loadMore'}}
