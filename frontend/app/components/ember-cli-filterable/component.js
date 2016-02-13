@@ -5,8 +5,9 @@ export default Ember.Component.extend({
 
   onFilterStringChange: function () {
     this.set('isWaiting', true);
+
     Ember.run.debounce(this, this.updateFilter, 1000);
-  }.observes('filterString', 'inputArray.[]'),
+  }.observes('filterString', 'inputArray.[]').on('init'),
 
   updateFilter: function () {
     var filterString = this.get('filterString'),

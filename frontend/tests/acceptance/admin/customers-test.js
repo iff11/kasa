@@ -1,14 +1,10 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from 'frontend/tests/helpers/start-app';
-import { currentSession, authenticateSession, invalidateSession } from 'frontend/tests/helpers/ember-simple-auth';
-
 
 module('Acceptance | admin | customers', {
   beforeEach: function() {
     this.application = startApp();
-    authenticateSession(this.application, {});
-    server.logging = true;
   },
 
   afterEach: function() {
@@ -17,7 +13,8 @@ module('Acceptance | admin | customers', {
 });
 
 test('Basic layout', function(assert) {
- var  items = server.createList('item', 34);
+  server.createList('item', 34);
+  server.createList('customer', 3);
   assert.expect(2);
 
   visit('/admin/customers');

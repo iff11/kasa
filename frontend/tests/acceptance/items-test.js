@@ -1,14 +1,10 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from 'frontend/tests/helpers/start-app';
-import { currentSession, authenticateSession, invalidateSession } from 'frontend/tests/helpers/ember-simple-auth';
 
 module('Acceptance | items', {
   beforeEach: function() {
     this.application = startApp();
-    authenticateSession(this.application, {});
-    server.logging = true;
-    // Vytvori falesna data pro testovani
   },
 
   afterEach: function() {
@@ -43,66 +39,88 @@ test('Test paging', function(assert) {
 });
 
 test('Test sorting', function(assert) {
-  var  items = server.createList('item', 20);
-  assert.expect(8);
+  var items = server.createList('item', 20),
+      itemsSorted,
+      equals;
+
+  assert.expect(10);
 
   visit('/items');
 
   andThen(function () {
     //.trim() oreze bile znaky okolo
-    assert.equal(find('.items-row:nth-of-type(1) .items-col-name').text().trim(), items[0].name, 'First name is ascending- without click');
+    itemsSorted = items.sortBy('name');
+    assert.equal(find('.items-row:nth-of-type(1) .items-col-name').text().trim(), itemsSorted[0].name, 'Sort by name is ascending - without click');
   });
+
+  // ### Name
 
   click('th.items-col-name span');
-
   andThen(function () {
     //.trim() oreze bile znaky okolo
-    assert.equal(find('.items-row:nth-of-type(1) .items-col-name').text().trim(), items[19].name, 'First name is descending ');
+    itemsSorted = items.sortBy('name').reverse();
+    assert.equal(find('.items-row:nth-of-type(1) .items-col-name').text().trim(), itemsSorted[0].name, 'Sort by name is descending');
   });
+
+  // ### Sold
 
   click('th.items-col-sold span');
-
   andThen(function () {
-    assert.equal(find('.items-row:nth-of-type(1) .items-col-sold').text(), items[0].sold, 'First sold is ascending ');
+    itemsSorted = items.sortBy('sold');
+    assert.equal(find('.items-row:nth-of-type(1) .items-col-sold').text(), itemsSorted[0].sold, 'Sort by sold is ascending');
   });
-
   click('th.items-col-sold span');
-
   andThen(function () {
-    assert.equal(find('.items-row:nth-of-type(1) .items-col-sold').text(), items[19].sold, 'First sold is descending ');
+    itemsSorted = items.sortBy('sold').reverse();
+    assert.equal(find('.items-row:nth-of-type(1) .items-col-sold').text(), itemsSorted[0].sold, 'Sort by sold is descending');
   });
+
+  // ### Bought
 
   click('th.items-col-bought span');
-
   andThen(function () {
-    assert.equal(find('.items-row:nth-of-type(1) .items-col-bought').text(), items[19].bought, 'First sold is ascending ');
+    itemsSorted = items.sortBy('bought');
+    if(itemsSorted[0].unlimited) {
+      equals = '∞';
+    } else {
+      equals = itemsSorted[0].bought;
+    }
+    assert.equal(find('.items-row:nth-of-type(1) .items-col-bought').text(), equals, 'Sort by bought is ascending');
   });
-
   click('th.items-col-bought span');
-
   andThen(function () {
-    assert.equal(find('.items-row:nth-of-type(1) .items-col-bought').text(), items[0].bought, 'First sold is descending ');
+    itemsSorted = items.sortBy('bought').reverse();
+    if(itemsSorted[0].unlimited) {
+      equals = '∞';
+    } else {
+      equals = itemsSorted[0].bought;
+    }
+    assert.equal(find('.items-row:nth-of-type(1) .items-col-bought').text(), equals, 'Sort by bought is descending');
   });
+
+  // ### Price
 
   click('th.items-col-price span');
-
-/*  andThen(function () {
-    assert.equal(find('.items-row:nth-of-type(1) .items-col-price').text(), items[0].selling-price, 'First sold is ascending ');
-    //return pauseTest();
-  });*/
-
-  click('th.items-col-stock span');
-
   andThen(function () {
-    assert.equal(find('.items-row:nth-of-type(1) .items-col-stock').text(), items[19].bought-items[19].sold, 'First sold is ascending ');
-    //return pauseTest();
+    itemsSorted = items.sortBy('sellingPrice');
+    assert.equal(find('.items-row:nth-of-type(1) .items-col-price').text(), `${itemsSorted[0].sellingPrice}.00 Kč`, 'Sort by price is ascending');
+  });
+  click('th.items-col-price span');
+  andThen(function () {
+    itemsSorted = items.sortBy('sellingPrice').reverse();
+    assert.equal(find('.items-row:nth-of-type(1) .items-col-price').text(), `${itemsSorted[0].sellingPrice}.00 Kč`, 'Sort by price is descending');
   });
 
+  // ### Stock
+
   click('th.items-col-stock span');
-
   andThen(function () {
-    assert.equal(find('.items-row:nth-of-type(1) .items-col-stock').text(), items[0].bought-items[0].sold, 'First sold is descending ');
-    //return pauseTest();
+    itemsSorted = items.sortBy('stock');
+    assert.equal(find('.items-row:nth-of-type(1) .items-col-stock').text(), itemsSorted[0].stock, 'Sort by stock is ascending');
   });
-
+  click('th.items-col-stock span');
+  andThen(function () {
+    itemsSorted = items.sortBy('stock').reverse();
+    assert.equal(find('.items-row:nth-of-type(1) .items-col-stock').text(), itemsSorted[0].stock, 'Sort by stock is descending ');
+  });
 });

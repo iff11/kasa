@@ -48,11 +48,11 @@
         </td>
         <td class="items-col-name">{{item.name}}</td>
         <td class="items-col-bought">
-          {{#if item.unlimited}}
+          {{~#if item.unlimited~}}
             &#8734;
-          {{else}}
-            {{item.bought}}
-          {{/if}}
+          {{~else~}}
+            {{~item.bought~}}
+          {{/if~}}
         </td>
         <td class="items-col-separator">-</td>
         <td class="items-col-sold">
@@ -60,14 +60,14 @@
         </td>
         <td class="items-col-separator">=</td>
         <td class="items-col-stock">
-          {{#if item.unlimited}}
+          {{~#if item.unlimited~}}
             &#8734;
-          {{else}}
-            {{x-item/stock-icon item=item}}
-          {{/if}}
+          {{~else~}}
+            {{~x-item/stock-icon item=item~}}
+          {{~/if~}}
         </td>
         <td class="items-col-price">
-          {{x-item/price value=item.sellingPrice}}
+          {{~x-item/price value=item.sellingPrice~}}
         </td>
       </tr>
     {{/each}}

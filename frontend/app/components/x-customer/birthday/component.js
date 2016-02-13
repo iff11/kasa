@@ -7,7 +7,7 @@ export default Ember.Component.extend({
   tagName: 'span',
 
   toFutureHuman: function() {
-    var now = moment(),
+    var now = moment().startOf('day'),
         nextBirthday = this.get('customer.nextBirthday');
 
     if(!Ember.isEmpty(nextBirthday)) {

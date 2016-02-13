@@ -1,15 +1,14 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from 'frontend/tests/helpers/start-app';
-import { currentSession, authenticateSession, invalidateSession } from 'frontend/tests/helpers/ember-simple-auth';
+import { authenticateSession } from 'frontend/tests/helpers/ember-simple-auth';
 var items;
 
-module('Acceptance | customers', {
+module('Acceptance | application', {
   beforeEach: function() {
     this.application = startApp();
-    server.logging = true;
 
-    items = server.createList('visits', 10);
+    items = server.createList('visit', 10);
   },
 
   afterEach: function() {

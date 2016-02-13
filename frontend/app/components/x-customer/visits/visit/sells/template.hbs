@@ -1,12 +1,12 @@
 <tbody>
   {{#each sells as |s|}}
-    <tr>
-      <td>{{s.item.name}}:</td>
-      <td>{{s.count}}</td>
+    <tr class="customer-visit-sell">
+      <td class="customer-visit-sell-item-name">{{s.item.name}}</td>
+      <td class="customer-visit-sell-count">{{s.count}}</td>
       <td>×</td>
-      <td>{{x-item/price value=s.price}}</td>
+      <td class="customer-visit-sell-price">{{~x-item/price value=s.price~}}</td>
       <td>=</td>
-      <td>{{x-sell/sum sell=s}}</td>
+      <td class="customer-visit-sell-sum">{{~x-sell/sum sell=s~}}</td>
     </tr>
   {{/each}}
 </tbody>

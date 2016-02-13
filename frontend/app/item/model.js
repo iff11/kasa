@@ -1,16 +1,16 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  name: DS.attr(),
-  description: DS.attr(),
-  sellingPrice: DS.attr(),
+  name: DS.attr('string'),
+  description: DS.attr('string'),
+  sellingPrice: DS.attr('number'),
   bought: DS.attr('number'),
   sold: DS.attr('number'),
-  unlimited: DS.attr(),
-  barcode: DS.attr(),
-  warningThreshold: DS.attr(),
-  isActive: DS.attr(),
-  isService: DS.attr(),
+  unlimited: DS.attr('boolean'),
+  barcode: DS.attr('number'),
+  warningThreshold: DS.attr('number'),
+  isActive: DS.attr('boolean'),
+  isService: DS.attr('boolean'),
 
   sells: DS.hasMany('sell', {async: true}),
   supplies: DS.hasMany('supply', {async: true}),
