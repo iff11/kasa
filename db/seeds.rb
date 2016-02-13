@@ -57,11 +57,11 @@ visits = Visit.create(
 
 items = Item.create(
   [
-    { name: 'Shampoo', description: 'Makes you a shampoo', selling_price: 123.4, unlimited: false, barcode: '20150001' },
-    { name: 'Haircut', description: 'Simply by scissors', selling_price: 100.0, unlimited: true, barcode: '20150002' },
-    { name: 'Hair color', description: 'Intensive mega color creme', selling_price: 999.0, unlimited: false },
-    { name: 'Condicioner', description: 'Intensive mega color creme condicioner', selling_price: 100.0, unlimited: false, warning_threshold: 10 },
-    { name: 'DiaRichesse', description: 'Meeps', selling_price: 100.0, unlimited: false, warning_threshold: 10 }
+    { name: 'Shampoo', selling_price: 123.4, unlimited: false, barcode: '20150001' },
+    { name: 'Haircut', selling_price: 100.0, unlimited: true, barcode: '20150002' },
+    { name: 'Hair color', selling_price: 999.0, unlimited: false },
+    { name: 'Condicioner', selling_price: 100.0, unlimited: false, warning_threshold: 10 },
+    { name: 'DiaRichesse', selling_price: 100.0, unlimited: false, warning_threshold: 10 }
   ]
 )
 

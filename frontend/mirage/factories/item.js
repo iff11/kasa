@@ -33,9 +33,6 @@ export default Factory.extend({
   barcode() {
     return faker.random.number({min: 1000000000000, max: 9999999999999});
   },
-  description() {
-    return faker.lorem.sentence();
-  },
   warningThreshold() {
     return faker.random.number(10);
   },
