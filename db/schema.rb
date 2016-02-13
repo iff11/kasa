@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213180045) do
+ActiveRecord::Schema.define(version: 20160213202817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,12 +21,12 @@ ActiveRecord::Schema.define(version: 20160213180045) do
     t.string   "last_name"
     t.text     "note"
     t.date     "birth"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "phone",         limit: 50
     t.string   "mail",          limit: 50
     t.datetime "deleted_at"
-    t.integer  "visits_count"
+    t.integer  "visits_count",             default: 0, null: false
     t.integer  "last_visit_id"
   end
 
@@ -46,14 +46,14 @@ ActiveRecord::Schema.define(version: 20160213180045) do
 
   create_table "items", force: :cascade do |t|
     t.string   "name",                              null: false
-    t.float    "selling_price"
-    t.boolean  "unlimited",         default: true
+    t.float    "selling_price",     default: 0.0,   null: false
+    t.boolean  "unlimited",         default: true,  null: false
     t.string   "barcode"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.datetime "deleted_at"
-    t.integer  "bought",            default: 0
-    t.integer  "sold",              default: 0
+    t.integer  "bought",            default: 0,     null: false
+    t.integer  "sold",              default: 0,     null: false
     t.integer  "warning_threshold", default: 0,     null: false
     t.integer  "last_supply_id"
     t.boolean  "is_active",         default: true,  null: false
@@ -121,8 +121,8 @@ ActiveRecord::Schema.define(version: 20160213180045) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.datetime "deleted_at"
-    t.float    "price_with_tip"
-    t.float    "received_amount"
+    t.float    "price_with_tip",         default: 0.0,   null: false
+    t.float    "received_amount",        default: 0.0,   null: false
     t.decimal  "price",                  default: 0.0,   null: false
     t.decimal  "employee_share_sale",    default: 0.0,   null: false
     t.decimal  "employee_share_service", default: 0.0,   null: false

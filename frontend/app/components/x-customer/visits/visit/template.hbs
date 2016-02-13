@@ -1,6 +1,6 @@
 <div class="customer-visit-heading" role="tab" id="heading{{visit.id}}">
   <a {{action "toggleExpand"}} class="{{isExpanded::collapsed}}" aria-expanded="{{isExpanded}}" aria-controls="collapse{{visit.id}}">
-    <img src={{visit.employee.photo_url}} class="employee-avatar-in-visit-list" />
+    <img src={{visit.employee.photoUrl}} class="employee-avatar-in-visit-list" />
 
     {{#if visit.note}}
       {{fa-icon icon="comment"}}

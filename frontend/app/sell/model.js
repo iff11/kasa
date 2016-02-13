@@ -1,8 +1,8 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  count: DS.attr(),
-  price: DS.attr(),
+  count: DS.attr('number', { defaultValue: 0 }),
+  price: DS.attr('number', { defaultValue: 0 }),
   updatedAt: DS.attr(),
 
   item: DS.belongsTo('item', {async: true}),
