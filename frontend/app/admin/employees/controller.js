@@ -9,10 +9,7 @@ export default Ember.Controller.extend({
       var employee = this.store.createRecord('employee', {
         firstName: this.get('heap.firstName'),
         lastName: this.get('heap.lastName'),
-        birth: this.get('heap.birth'),
-        phone: this.get('heap.phone'),
-        mail: this.get('heap.mail'),
-        note: this.get('heap.note')
+        photoUrl: this.get('heap.photoUrl'),
       });
 
       var that = this;

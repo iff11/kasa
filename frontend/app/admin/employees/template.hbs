@@ -5,7 +5,7 @@
     <tr>
       <th class="col-xs-4">{{t 'employee.firstName'}}</th>
       <th class="col-xs-4">{{t 'employee.lastName'}}</th>
-      <th class="col-xs-3">{{t 'employee.photo_url'}}</th>
+      <th class="col-xs-3">{{t 'employee.photoUrl'}}</th>
       <th class="col-xs-1 text-right">{{t 'employee.action'}}</th>
     </tr>
   </thead>
@@ -16,7 +16,7 @@
         <td>{{employee.firstName}}</td>
         <td>{{employee.lastName}}</td>
         <td>
-          <img src="{{employee.photo_url}}" class="employee-avatar-xs" />
+          <img src="{{employee.photoUrl}}" class="employee-avatar-xs" />
         </td>
         <td class="text-right">
           {{#link-to 'admin.employee' employee class="btn btn-default btn-xs"}}
@@ -27,12 +27,12 @@
     {{/each}}
 
     <tr>
-      <td>{{input placeholder=(t 'employee.firstName') value=employee.firstName class='form-control'}}</td>
-      <td>{{input placeholder=(t 'employee.lastName') value=employee.lastName class='form-control'}}</td>
-      <td>{{input placeholder=(t 'employee.photo_url') value=employee.photo_url class='form-control'}}</td>
+      <td>{{input placeholder=(t 'employee.firstName') value=heap.firstName class='form-control'}}</td>
+      <td>{{input placeholder=(t 'employee.lastName') value=heap.lastName class='form-control'}}</td>
+      <td>{{input placeholder=(t 'employee.photoUrl') value=heap.photoUrl class='form-control'}}</td>
       <td class="text-right">
         <button class="btn btn-success" {{action 'createEmployee'}}>
-          {{fa-icon icon="plus-square'}} {{t 'employee.add"}}
+          {{fa-icon icon="plus-square"}} {{t "employee.add"}}
         </button>
       </td>
     </tr>
