@@ -12,16 +12,19 @@
 <table class='table'>
   <thead>
     <tr>
-      <th class="col-xs-3">
-        {{th-sort action="sortBy" title=(t 'customer.full_name') current=sortBy value="full_name"}}
+      <th class="col-xs-2">
+        {{th-sort action="sortBy" title=(t 'customer.firstName') current=sortBy value="firstName"}}
+      </th>
+      <th class="col-xs-2">
+        {{th-sort action="sortBy" title=(t 'customer.lastName') current=sortBy value="lastName"}}
       </th>
       <th class="col-xs-2">
         {{th-sort action="sortBy" title=(t 'customer.birth') current=sortBy value="birth"}}
       </th>
       <th class="col-xs-2 text-right customers-sort-by-next-birthday">
-        {{th-sort action="sortBy" title=(t 'customer.birthday_in') current=sortBy value="nextBirthdayInDays"}}
+        {{th-sort action="sortBy" title=(t 'customer.birthday_in') current=sortBy value="daysTillNextBirthday"}}
       </th>
-      <th class="col-xs-5">
+      <th class="col-xs-4">
         {{th-sort action="sortBy" title=(t 'customer.note') current=sortBy value="note"}}
       </th>
     </tr>
@@ -31,14 +34,20 @@
       <tr>
         <td>
           {{#link-to 'customer' customer}}
-            {{customer.full_name}}
+            {{customer.firstName}}
+          {{/link-to}}
+        </td>
+        <td>
+          {{#link-to 'customer' customer}}
+            {{customer.lastName}}
           {{/link-to}}
         </td>
         <td class="customers-birth">
           {{customer.birth}}
         </td>
         <td class="customers-next-birthday text-right">
-          {{x-customer/birthday customer=customer}}
+          {{~x-customer/birthday customer=customer~}}
+          {{!customer.daysTillNextBirthday}}
         </td>
         <td>
           {{customer.note}}

@@ -10,7 +10,20 @@ export default Factory.extend({
   birth(i) {
     return moment().add(7 * (i+1), 'days');
   },
+  nextBirthday(i) {
+    return moment().add(7 * (i+1), 'days');
+  },
+  daysTillNextBirthday(i) {
+    return (i+1) * 7;
+  },
   note() {
     return faker.lorem.sentence();
+  },
+  visitsCount() {
+    return faker.random.number(100);
+  },
+  lastVisitDate(i) {
+    return faker.date.recent(365);
+    // return moment().subtract(7 * i, 'days');
   }
 });

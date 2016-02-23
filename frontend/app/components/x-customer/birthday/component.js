@@ -7,34 +7,14 @@ export default Ember.Component.extend({
   tagName: 'span',
 
   toFutureHuman: function() {
-    var now = moment().startOf('day'),
-        nextBirthday = this.get('customer.nextBirthday');
-
-    if(!Ember.isEmpty(nextBirthday)) {
-      return nextBirthday.from(now);
-    } else {
-      return '?';
-    }
-  }.property('customer.birth'),
-
-  toFutureDays: function() {
-    var now = moment(),
-        nextBirthday = this.get('customer.nextBirthday');
-
-    if(nextBirthday) {
-      return nextBirthday.diff(now, 'days');
-    } else {
-      return '?';
-    }
-  }.property('customer.birth'),
-
-  title: function() {
-    return this.get('customer.birth');
-  }.property('customer.birth'),
+    return this.get('customer.nextBirthday').fromNow().toString();
+  }.property('customer.nextBirthday'),
 
   class: function() {
-    if(this.get('toFutureDays') < 90) {
-      if(this.get('toFutureDays') < 30) {
+    var days = this.get('customer.daysTillNextBirthday');
+
+    if(days < 90) {
+      if(days < 30) {
         return 'label-danger';
       } else {
         return 'label-warning';
@@ -42,5 +22,9 @@ export default Ember.Component.extend({
     } else {
       return 'label-default';
     }
+  }.property('customer.daysTillNextBirthday'),
+
+  title: function() {
+    return this.get('customer.birth');
   }.property('customer.birth')
 });

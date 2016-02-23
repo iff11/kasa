@@ -31,7 +31,7 @@ export default {
     visits_length: 'Návštěv',
     all_customers: 'Seznam zákazníků',
     all_visits: 'Seznam návštěv',
-    lastVisit: 'Poslední návštěva'
+    lastVisitDate: 'Poslední návštěva'
   },
 
   visit: {
