@@ -1,4 +1,16 @@
-<h2>{{t 'customers.all'}}</h2>
+<h2>
+  <div class="row">
+    <div class="col-xs-6">
+      {{t 'customers.all'}}
+    </div>
+
+    <div class="col-xs-6 text-right">
+      {{#link-to 'customer.new' class="customers-new-customer"}}
+        {{t 'customers.newCustomer'}}
+      {{/link-to}}
+    </div>
+  </div>
+</h2>
 
 {{ember-cli-filterable
     label=(t 'items.filterBy.label')
@@ -33,12 +45,12 @@
     {{#each pagedCustomers as |customer|}}
       <tr>
         <td>
-          {{#link-to 'customer' customer}}
+          {{#link-to 'customer.show' customer}}
             {{customer.firstName}}
           {{/link-to}}
         </td>
         <td>
-          {{#link-to 'customer' customer}}
+          {{#link-to 'customer.show' customer}}
             {{customer.lastName}}
           {{/link-to}}
         </td>

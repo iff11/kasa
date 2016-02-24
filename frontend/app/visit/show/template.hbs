@@ -56,7 +56,7 @@
       <div class="col-xs-12">
         {{x-customer/visits customerId=attrs.visit.customer.id}}
 
-        {{#link-to 'customer' attrs.visit.customer.id class='btn btn-block btn-default'}}
+        {{#link-to 'customer.show' attrs.visit.customer.id class='btn btn-block btn-default'}}
           {{t 'loadMore'}}
         {{/link-to}}
       </div>

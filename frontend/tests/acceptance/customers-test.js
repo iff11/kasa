@@ -12,6 +12,12 @@ module('Acceptance | customers', {
   }
 });
 
+test('Basic layout', function(assert) {
+  assert.expect(1);
+
+  assert.ok(find('.cusotmers-new-customer'), 'Button for creating new customer');
+});
+
 test('Sorting by next birthday', function(assert) {
   assert.expect(2);
 

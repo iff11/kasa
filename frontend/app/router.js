@@ -10,7 +10,10 @@ Router.map(function() {
 
   this.route('items', function() {});
   this.route('customers', function() {});
-  this.route('customer', {path: '/customer/:id'});
+  this.route('customer', function () {
+    this.route('show', {path: '/:id'});
+    this.route('new');
+  });
 
   this.route('visits', {path: 'visits'}, function() {});
   this.route('visit', {path: '/visit/:id'}, function() {
