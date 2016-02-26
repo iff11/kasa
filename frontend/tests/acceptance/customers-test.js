@@ -13,24 +13,26 @@ module('Acceptance | customers', {
 });
 
 test('Sorting by next birthday', function(assert) {
-  server.createList('customer', 10);
-  assert.expect(3);
+  assert.expect(2);
+
+  var customers = server.createList('customer', 10),
+      customersSorted,
+      expect,
+      now = moment();
 
   visit('/customers');
 
   andThen(function () {
-    assert.equal(find('tbody tr:nth-child(1) .customers-next-birthday').text().trim(), 'za 7 dní', 'First customer has birthday in 7 days');
+    customersSorted = customers.sortBy('nextBirthday'); // default sorting
+    expect = now.to(customersSorted[0].nextBirthday);
+    assert.equal(find('tbody tr:nth-child(1) .customers-next-birthday').text().trim(), expect, `Initially, first customer has birthday: ${expect}`);
   });
 
-  click('.customers-sort-by-next-birthday span');
+  click('.customers-sort-by-next-birthday .th-sort');
 
   andThen(function () {
-    assert.equal(find('tbody tr:nth-child(1) .customers-next-birthday').text().trim(), 'za 7 dní', 'First customer has birthday in 7 days');
-  });
-
-  click('.customers-sort-by-next-birthday span');
-
-  andThen(function () {
-    assert.equal(find('tbody tr:nth-child(1) .customers-next-birthday').text().trim(), 'za 2 měsíce', 'First customer has birthday in 2 months');
+    customersSorted = customers.sortBy('nextBirthday').reverse();
+    expect = now.to(customersSorted[0].nextBirthday);
+    assert.equal(find('tbody tr:nth-child(1) .customers-next-birthday').text().trim(), expect, `After sort, first customer has birthday: ${expect}`);
   });
 });
