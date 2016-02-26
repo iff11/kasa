@@ -25,5 +25,11 @@ export default Factory.extend({
   lastVisitDate(i) {
     return faker.date.recent(365);
     // return moment().subtract(7 * i, 'days');
+  },
+  phone() {
+    return faker.phone.phoneNumber();
+  },
+  mail() {
+    return faker.internet.email();
   }
 });
