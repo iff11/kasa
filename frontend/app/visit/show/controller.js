@@ -14,61 +14,68 @@ export default Ember.Controller.extend({
     });
   }.on('init'),
 
-  items: function() {
+  items: Ember.computed('attrs.items', function() {
     return this.get('attrs.items').filterBy('isActive', true);
-  }.property('attrs.items'),
+  }),
 
-  isDirty: function () {
+  isDirty: Ember.computed('heap.item', function() {
     return !Ember.isEmpty(this.get('heap.item'));
-  }.property('heap.item'),
+  }),
 
   actions: {
-    createSell: function() {
-      var sell = this.store.createRecord('sell', {
+    createSell() {
+      let sell = this.store.createRecord('sell', {
         visit: this.get('attrs.visit'),
         item: this.get('heap.item'),
         count: this.get('heap.count'),
         price: this.get('heap.price')
       });
-
-      var flash = Ember.get(this, 'flashMessages');
+      let name = sell.get('item.name');
+      let fullName = sell.get('visit.customer.fullName');
+      let flash = Ember.get(this, 'flashMessages');
 
       sell.save().then(() => {
         this.resetHeap();
-        flash.success(sell.get('item.name') + ' ✓ ' + sell.get('visit.customer.full_name'));
+        let name = sell.get('item.name');
+        let fullName = sell.get('visit.customer.fullName');
+        flash.success(`${name} ✓ ${fullName}`);
       }, (response) => {
-        flash.danger(sell.get('item.name') + ' ✓ ' + sell.get('visit.customer.full_name') + ' - ' + response.message);
+        flash.danger(`${name} ✓ ${fullName} - ${response.message}`);
       });
     },
 
-    deleteSell: function(sell) {
-      var flash = Ember.get(this, 'flashMessages');
+    deleteSell(sell) {
+      let flash = Ember.get(this, 'flashMessages');
+      let name = sell.get('item.name');
+      let fullName = sell.get('visit.customer.fullName');
 
       sell.deleteRecord();
       sell.save().then(() => {
-        flash.success(sell.get('item.name') + ' ✗ ' + sell.get('visit.customer.full_name'));
+        flash.success(`${name} ✗ ${fullName}`);
       }, (response) => {
-        flash.danger(sell.get('item.name') + ' ⌫ ' + sell.get('visit.customer.full_name') + response.message);
+        flash.danger(`${name} ⌫ ${fullName} ${response.message}`);
       });
     },
 
-    updateSell: function(sell) {
-      var flash = Ember.get(this, 'flashMessages');
+    updateSell(sell) {
+      let flash = Ember.get(this, 'flashMessages');
+      let name = sell.get('item.name');
+      let fullName = sell.get('visit.customer.fullName');
 
       sell.save().then(() => {
-        flash.success(sell.get('item.name') + ' ✎ ' + sell.get('visit.customer.full_name'));
+        flash.success(`${name} ✎ ${fullName}`);
       }, (response) => {
-        flash.danger(sell.get('item.name') + ' ✎ ' + sell.get('visit.customer.full_name') + response.message);
+        flash.danger(`${name} ✎ ${fullName} ${response.message}`);
       });
     },
 
-    saveNote: function() {
-      var flash = Ember.get(this, 'flashMessages');
+    saveNote() {
+      let flash = Ember.get(this, 'flashMessages');
 
       this.get('attrs.visit').save().then(function() {
         flash.success('Note updated');
       }, function(response) {
-        flash.danger('Note cannot be updated! ' + response.message);
+        flash.danger(`Note cannot be updated! ${response.message}`);
       });
     }
   }

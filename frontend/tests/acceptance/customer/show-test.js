@@ -5,13 +5,13 @@ moduleForAcceptance('Acceptance | customer | show');
 
 test('visiting /customer', function(assert) {
   assert.expect(13);
-  
-  var mockItems = server.createList('item', 10);
-  var mockCustomer = server.create('customer');
-  var mockClosedVisits = server.createList('visit', 3, {customerId: mockCustomer.id, completed: true});
-  var mockSell = server.create('sell', {visitId: mockClosedVisits[0].id, itemId: mockItems[0].id});
-  server.create('sell', {visitId: mockClosedVisits[0].id, itemId: mockItems[1].id});
-  server.create('sell', {visitId: mockClosedVisits[0].id, itemId: mockItems[2].id});
+
+  let mockItems = server.createList('item', 10);
+  let mockCustomer = server.create('customer');
+  let mockClosedVisits = server.createList('visit', 3, { customerId: mockCustomer.id, completed: true });
+  let mockSell = server.create('sell', { visitId: mockClosedVisits[0].id, itemId: mockItems[0].id });
+  server.create('sell', { visitId: mockClosedVisits[0].id, itemId: mockItems[1].id });
+  server.create('sell', { visitId: mockClosedVisits[0].id, itemId: mockItems[2].id });
 
   visit(`/customer/${mockCustomer.id}`);
 

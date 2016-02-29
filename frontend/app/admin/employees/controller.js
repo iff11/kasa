@@ -5,15 +5,15 @@ export default Ember.Controller.extend({
   heap: {},
 
   actions: {
-    createEmployee: function() {
-      var employee = this.store.createRecord('employee', {
+    createEmployee() {
+      let employee = this.store.createRecord('employee', {
         firstName: this.get('heap.firstName'),
         lastName: this.get('heap.lastName'),
-        photoUrl: this.get('heap.photoUrl'),
+        photoUrl: this.get('heap.photoUrl')
       });
 
-      var that = this;
-      var flash = Ember.get(this, 'flashMessages');
+      let that = this;
+      let flash = Ember.get(this, 'flashMessages');
 
       employee.save().then(function() {
         that.set('heap', {});

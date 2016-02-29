@@ -1,24 +1,25 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  purchase_price: DS.attr('number'),
+  purchasePrice: DS.attr('number'),
   quantity: DS.attr('number'),
   vat: DS.attr('number'),
   createdAt: DS.attr(),
   updatedAt: DS.attr(),
 
-  item: DS.belongsTo('item', {async: true}),
-  lastSupplyFor: DS.hasMany('item', {async: true, inverse: 'lastSupply'}),
+  item: DS.belongsTo('item', { async: true }),
+  lastSupplyFor: DS.hasMany('item', { async: true, inverse: 'lastSupply' }),
 
-  sum: function() {
-    return this.get('quantity') * this.get('purchase_price');
-  }.property('quantity', 'purchase_price'),
+  sum: Ember.computed('quantity', 'purchasePrice', function() {
+    return this.get('quantity') * this.get('purchasePrice');
+  }),
 
-  sum_with_vat: function() {
+  sumWithVat: Ember.computed('vat', 'sum', function() {
     return this.get('sum') * (1 + this.get('vat') / 100);
-  }.property('vat', 'sum'),
+  }),
 
-  purchasePriceWithVat: function() {
-    return this.get('purchase_price') * (1 + this.get('vat') / 100);
-  }.property('purchase_price', 'vat')
+  purchasePriceWithVat: Ember.computed('purchasePrice', 'vat', function() {
+    return this.get('purchasePrice') * (1 + this.get('vat') / 100);
+  })
 });

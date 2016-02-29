@@ -6,15 +6,15 @@ export default Ember.Component.extend({
   attributeBindings: ['title'],
   tagName: 'span',
 
-  toFutureHuman: function() {
+  toFutureHuman: Ember.computed('customer.nextBirthday', function() {
     return this.get('customer.nextBirthday').fromNow().toString();
-  }.property('customer.nextBirthday'),
+  }),
 
-  class: function() {
-    var days = this.get('customer.daysTillNextBirthday');
+  class: Ember.computed('customer.daysTillNextBirthday', function() {
+    let days = this.get('customer.daysTillNextBirthday');
 
-    if(days < 90) {
-      if(days < 30) {
+    if (days < 90) {
+      if (days < 30) {
         return 'label-danger';
       } else {
         return 'label-warning';
@@ -22,9 +22,9 @@ export default Ember.Component.extend({
     } else {
       return 'label-default';
     }
-  }.property('customer.daysTillNextBirthday'),
+  }),
 
-  title: function() {
+  title: Ember.computed('customer.birth', function() {
     return this.get('customer.birth');
-  }.property('customer.birth')
+  })
 });

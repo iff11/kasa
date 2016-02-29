@@ -3,31 +3,31 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   heap: {
     unlimited: false,
-    isActive: true,
+    isActive: true
   },
 
   actions: {
-    createItem: function() {
-      var item = this.store.createRecord('item', {
+    createItem() {
+      let item = this.store.createRecord('item', {
         name: this.get('heap.name'),
         barcode: this.get('heap.barcode'),
         stock: this.get('heap.stock'),
-        // purchase_price: this.get('heap.purchase_price'),
+        // purchasePrice: this.get('heap.purchasePrice'),
         // sellingPrice: this.get('heap.sellingPrice'),
         unlimited: this.get('heap.unlimited'),
         isActive: this.get('heap.isActive'),
         warningThreshold: this.get('heap.warningThreshold')
       });
 
-      var that = this;
-      var flash = Ember.get(this, 'flashMessages');
+      let that = this;
+      let flash = Ember.get(this, 'flashMessages');
 
       item.save().then(function() {
-        that.set('heap', {unlimited: false});
-        flash.success(item.name + ' ✓');
+        that.set('heap', { unlimited: false });
+        flash.success(`${item.name} ✓`);
       }, function(response) {
-        flash.danger(item.name + ' ✓ ' + response);
+        flash.danger(`${item.name} ✓ ${response}`);
       });
-    },
+    }
   }
 });

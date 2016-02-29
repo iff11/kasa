@@ -4,7 +4,8 @@ export default Ember.Component.extend({
   classNameBindings: ['item.lowStock:label-danger:label-success', ':label'],
   attributeBindings: ['title'],
 
-  title: function() {
-    return "min: " + this.get('item.warningThreshold');
-  }.property('item.warningThreshold')
+  title: Ember.computed('item.warningThreshold', function() {
+    let warningThreshold = this.get('item.warningThreshold');
+    return `min: ${warningThreshold}`;
+  })
 });

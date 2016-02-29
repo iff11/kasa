@@ -14,18 +14,18 @@ export default Ember.Controller.extend({
 
   page: 1,
   perPage: 25,
-  pagedCustomers: pagedArray('sortedCustomers', {pageBinding: 'page', perPageBinding: 'perPage'}),
+  pagedCustomers: pagedArray('sortedCustomers', { pageBinding: 'page', perPageBinding: 'perPage' }),
 
-  mailto: function () {
-    var mails = this.get('filteredCustomers').mapBy('mail').join(',');
-    return 'mailto:salon@topstylesalon.cz?subject=TopStyleSalon&bcc=' + mails;
-  }.property('filteredCustomers.[]'),
+  mailto: Ember.computed('filteredCustomers.[]', function() {
+    let mails = this.get('filteredCustomers').mapBy('mail').join(',');
+    return `mailto:salon@topstylesalon.cz?subject=TopStyleSalon&bcc=${mails}`;
+  }),
 
   actions: {
-    sortBy: function (value) {
+    sortBy(value) {
       this.set('sortBy', [value]);
     },
-    customersFiltered: function (value) {
+    customersFiltered(value) {
       this.set('page', 1);
       this.set('filteredCustomers', value);
     }

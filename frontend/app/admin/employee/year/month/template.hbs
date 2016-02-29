@@ -25,7 +25,7 @@
         </td>
         <td>
           {{#link-to 'admin.customer' visit.customer}}
-            {{visit.customer.full_name}}
+            {{visit.customer.fullName}}
           {{/link-to}}
         </td>
         <td class="text-right">{{format-money visit.total_price symbol=(t 'currency') format="%v %s"}}</td>

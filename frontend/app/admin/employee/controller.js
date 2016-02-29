@@ -7,19 +7,19 @@ export default Ember.Controller.extend({
   startingYear: 2015,
   employeeId: Ember.computed.readOnly('attrs.employee.id'),
 
-  years: function () {
+  years: Ember.computed(function() {
     return _.range(this.get('startingYear'), new Date().getFullYear() + 1);
-  }.property(),
+  })
 
   // selectedMonth: null,
   // months: function() {
   //   // TODO: start should be decided based on employee created_at
-  //   var start = moment('2015-01'),
+  //   let start = moment('2015-01'),
   //       end = moment(),
   //       months = end.diff(start, 'months'),
   //       ret = [];
   //
-  //   for(var i=0; i<months; i++) {
+  //   for(let i=0; i<months; i++) {
   //     start.add(1, 'months');
   //     ret.push(
   //       {

@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import Ember from 'ember';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
@@ -11,29 +12,32 @@ export default DS.Model.extend({
   isActive: DS.attr('boolean'),
   isService: DS.attr('boolean'),
 
-  sells: DS.hasMany('sell', {async: true}),
-  supplies: DS.hasMany('supply', {async: true}),
-  lastSupply: DS.belongsTo('supply', {async: true, inverse: 'lastSupplyFor'}),
+  sells: DS.hasMany('sell', { async: true }),
+  supplies: DS.hasMany('supply', { async: true }),
+  lastSupply: DS.belongsTo('supply', { async: true, inverse: 'lastSupplyFor' }),
 
-  lowStock: function() {
+  lowStock: Ember.computed('name', 'barcode', function() {
     return this.get('stock') <= this.get('warningThreshold');
-  }.property('stock', 'warningThreshold'),
+  }),
 
-  scanner_string: function() {
-    return this.get('name') + ' - ' + this.get('barcode');
-  }.property('name', 'barcode'),
+  scannerString: Ember.computed('name', 'barcode', function() {
+    let name = this.get('name');
+    let barcode = this.get('barcode');
 
-  stock: function() {
+    return `${name} - ${barcode}`;
+  }),
+
+  stock: Ember.computed('bought', 'sold', function() {
     return this.get('bought') - this.get('sold');
-  }.property('bought', 'sold'),
+  }),
 
-  margin: function() {
-    var employeeMargin = 0.1,
-        sellingPrice = this.get('sellingPrice'),
-        purchasePriceWithVat = this.get('lastSupply.purchasePriceWithVat'),
-        roughMargin = ((1 - employeeMargin) * sellingPrice - purchasePriceWithVat) / purchasePriceWithVat * 100,
-        margin = Math.round(roughMargin).toFixed(1);
+  margin: Ember.computed('sellingPrice', 'lastSupply.purchasePriceWithVat', function() {
+    let employeeMargin = 0.1;
+    let sellingPrice = this.get('sellingPrice');
+    let purchasePriceWithVat = this.get('lastSupply.purchasePriceWithVat');
+    let roughMargin = ((1 - employeeMargin) * sellingPrice - purchasePriceWithVat) / purchasePriceWithVat * 100;
+    let margin = Math.round(roughMargin).toFixed(1);
 
     return margin;
-  }.property('sellingPrice', 'lastSupply.purchasePriceWithVat')
+  })
 });

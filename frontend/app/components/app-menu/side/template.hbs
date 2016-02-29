@@ -31,7 +31,7 @@
           {{#each visits as |visit|}}
             <li>
               {{#link-to 'visit' visit}}
-                {{visit.customer.full_name}}
+                {{visit.customer.fullName}}
                 <img class="employee-avatar-in-sidebar" {{bind-attr src="visit.employee.photoUrl"}} />
               {{/link-to}}
             </li>

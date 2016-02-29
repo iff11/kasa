@@ -1,11 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function(params) {
+  model(params) {
     return this.store.find('item', params.id);
   },
 
-  setupController: function(controller, model) {
+  setupController(controller, model) {
     controller.set('attrs.item', model);
   }
 });

@@ -5,12 +5,12 @@ export default Ember.Controller.extend({
   heap: {},
 
   actions: {
-    createVisit: function() {
-      var visit = this.store.createRecord('visit', {
+    createVisit() {
+      let visit = this.store.createRecord('visit', {
         customer: this.get('heap.customer'),
         employee: this.get('heap.employee')
       });
-      var that = this;
+      let that = this;
 
       visit.save().then(function() {
         that.transitionToRoute('visit.show', visit);

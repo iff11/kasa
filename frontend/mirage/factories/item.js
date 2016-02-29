@@ -14,7 +14,7 @@ export default Factory.extend({
   },
   bought(i) {
     // TODO: Waiting for https://github.com/samselikoff/ember-cli-mirage/pull/269
-    // if(this.unlimited()) {
+    // if (this.unlimited()) {
     //   return 0;
     // } else {
     //  return faker.random.number(100);
@@ -31,7 +31,7 @@ export default Factory.extend({
     return (i * 10) - (i * 5);
   },
   barcode() {
-    return faker.random.number({min: 1000000000000, max: 9999999999999});
+    return faker.random.number({ min: 1000000000000, max: 9999999999999 });
   },
   warningThreshold() {
     return faker.random.number(10);
@@ -41,5 +41,5 @@ export default Factory.extend({
   },
   isService() {
     return faker.random.boolean();
-  },
+  }
 });

@@ -1,8 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function () {
-    var id = this.paramsFor('visit').id;
+  model() {
+    // jscs:disable requireObjectDestructuring
+    let id = this.paramsFor('visit').id;
+    // jscs:enable requireObjectDestructuring
 
     return Ember.RSVP.hash({
       visit: this.store.findRecord('visit', id),
@@ -10,13 +12,13 @@ export default Ember.Route.extend({
     });
   },
 
-  setupController: function(controller, model) {
+  setupController(controller, model) {
     controller.set('attrs.visit', model.visit);
     controller.set('attrs.items', model.items);
   },
 
   actions: {
-    willTransition: function(transition) {
+    willTransition(transition) {
       if (this.controller.get('isDirty')) {
         transition.abort();
         Ember.get(this, 'flashMessages').danger(this.t('visit.isDirty'));
