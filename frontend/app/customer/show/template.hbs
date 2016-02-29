@@ -1,0 +1,28 @@
+{{#link-to "customers" class="customer-back-to-customers"}}
+  {{fa-icon icon="fa-chevron-left"}}
+  {{t 'customer.allCustomers'}}
+{{/link-to}}
+
+<h2>
+  <span class="customer-show-first-name">
+    {{~attrs.customer.firstName~}}
+  </span>
+  <span class="customer-show-last-name">
+    {{~attrs.customer.lastName~}}
+  </span>
+</h2>
+
+<p class="customer-show-note">
+  {{~attrs.customer.note~}}
+</p>
+
+<dl class="dl-horizontal">
+  <dt>{{t "customer.birthday_in"}}</dt>
+  <dd>{{x-customer/birthday customer=attrs.customer}}</dd>
+  <dt>{{t "customer.visits_length"}}</dt>
+  <dd>{{attrs.customer.visitsCount}}</dd>
+</dl>
+
+{{x-customer/visits customerId=attrs.customer.id size=100}}
+
+<p>...</p>

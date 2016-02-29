@@ -1,9 +1,11 @@
 import { test } from 'qunit';
 import moduleForAcceptance from 'frontend/tests/helpers/module-for-acceptance';
 
-moduleForAcceptance('Acceptance | customer');
+moduleForAcceptance('Acceptance | customer | show');
 
 test('visiting /customer', function(assert) {
+  assert.expect(13);
+  
   var mockItems = server.createList('item', 10);
   var mockCustomer = server.create('customer');
   var mockClosedVisits = server.createList('visit', 3, {customerId: mockCustomer.id, completed: true});
@@ -21,7 +23,7 @@ test('visiting /customer', function(assert) {
     assert.equal(find('.customer-visit:nth-child(2) .customer-visit-heading-price').text(), `${mockClosedVisits[1].price}.00 Kč`, 'Second visit price');
     assert.equal(find('.customer-visit:nth-child(3) .customer-visit-heading-price').text(), `${mockClosedVisits[2].price}.00 Kč`, 'Third visit price');
   });
-  
+
   click('.customer-visit:nth-child(1) a');
 
   andThen(function() {

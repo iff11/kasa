@@ -14,7 +14,8 @@ export default {
     newsletter: 'Newsletter',
     filterBy: {
       placeholder: 'Jan Novák...'
-    }
+    },
+    newCustomer: 'Nový zákazník'
   },
 
   customer: {
@@ -29,7 +30,7 @@ export default {
     action: 'Akce',
     add: 'Přidat zákazníka',
     visits_length: 'Návštěv',
-    all_customers: 'Seznam zákazníků',
+    allCustomers: 'Seznam zákazníků',
     all_visits: 'Seznam návštěv',
     lastVisitDate: 'Poslední návštěva'
   },

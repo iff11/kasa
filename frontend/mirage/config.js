@@ -9,4 +9,6 @@ export default function() {
   this.get('/employees');
   this.get('/sells');
   this.get('/sells/:id');
+
+  this.post('/customers'); 
 }

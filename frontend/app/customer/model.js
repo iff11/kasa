@@ -8,7 +8,7 @@ export default DS.Model.extend({
   birth: DS.attr('date'),
   phone: DS.attr('string'),
   mail: DS.attr('string'),
-  visitsCount: DS.attr('number'),
+  visitsCount: DS.attr('number', {defaultValue: 0}),
   lastVisitDate: DS.attr('date'),
   visits: DS.hasMany('visit', {async: true}),
 
