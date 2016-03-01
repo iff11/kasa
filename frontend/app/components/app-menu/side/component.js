@@ -4,31 +4,31 @@ export default Ember.Component.extend({
   session: Ember.inject.service(),
   store: Ember.inject.service(),
 
-  visits: function () {
-    var query = { filter: { completed: false } };
+  visits: Ember.computed(function() {
+    let query = { filter: { completed: false } };
 
     return this.get('store').filter(
       'visit',
       query,
-      function (visit) {
+      function(visit) {
         return !visit.get('completed');
       }
     );
-  }.property(),
+  }),
 
-  birthdaysInWeek: function() {
-    if(this.get('customers')) {
+  birthdaysInWeek: Ember.computed('customers.[]', function() {
+    if (this.get('customers')) {
       return this.get('customers').filter(function(customer) {
-        var now = moment(),
-            nextBirthday = customer.get('nextBirthday');
+        let now = moment();
+        let nextBirthday = customer.get('nextBirthday');
 
-        if(Ember.isEmpty(nextBirthday)) {
+        if (Ember.isEmpty(nextBirthday)) {
           return false;
         }
-        if(nextBirthday.diff(now, 'days') < 7) {
+        if (nextBirthday.diff(now, 'days') < 7) {
           return true;
         }
       });
     }
-  }.property('customers.@each'),
+  })
 });

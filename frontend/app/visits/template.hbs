@@ -33,7 +33,7 @@
                 class="form-control"
                 prompt=(t 'visit.new.selectEmployee')
                 optionValuePath="content"
-                optionLabelPath="content.full_name"}}
+                optionLabelPath="content.fullName"}}
           </div>
         </div>
 
@@ -46,7 +46,7 @@
           {{ember-selectize
               content=attrs.customers
               optionValuePath="content"
-              optionLabelPath="content.full_name"
+              optionLabelPath="content.fullName"
               selection=heap.customer
               placeholder=(t 'visit.new.selectCustomer') }}
         </div>

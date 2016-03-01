@@ -3,11 +3,11 @@ import { module, test } from 'qunit';
 import startApp from 'frontend/tests/helpers/start-app';
 
 module('Acceptance | customers', {
-  beforeEach: function() {
+  beforeEach() {
     this.application = startApp();
   },
 
-  afterEach: function() {
+  afterEach() {
     Ember.run(this.application, 'destroy');
   }
 });
@@ -21,24 +21,24 @@ test('Basic layout', function(assert) {
 test('Sorting by next birthday', function(assert) {
   assert.expect(2);
 
-  var customers = server.createList('customer', 10),
-      customersSorted,
-      expect,
-      now = moment();
+  let customers = server.createList('customer', 10);
+  let customersSorted;
+  let expect;
+  let now = moment();
 
   visit('/customers');
 
-  andThen(function () {
+  andThen(function() {
     customersSorted = customers.sortBy('nextBirthday'); // default sorting
     expect = now.to(customersSorted[0].nextBirthday);
-    assert.equal(find('tbody tr:nth-child(1) .customers-next-birthday').text().trim(), expect, `Initially, first customer has birthday: ${expect}`);
+    assert.equal(find('tbody tr:nth-child(1) .customers-next-birthday').text().trim(), expect, `Initially, first customer has birthday: ${ expect }`);
   });
 
   click('.customers-sort-by-next-birthday .th-sort');
 
-  andThen(function () {
+  andThen(function() {
     customersSorted = customers.sortBy('nextBirthday').reverse();
     expect = now.to(customersSorted[0].nextBirthday);
-    assert.equal(find('tbody tr:nth-child(1) .customers-next-birthday').text().trim(), expect, `After sort, first customer has birthday: ${expect}`);
+    assert.equal(find('tbody tr:nth-child(1) .customers-next-birthday').text().trim(), expect, `After sort, first customer has birthday: ${ expect }`);
   });
 });

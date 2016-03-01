@@ -10,34 +10,33 @@ Router.map(function() {
 
   this.route('items', function() {});
   this.route('customers', function() {});
-  this.route('customer', function () {
-    this.route('show', {path: '/:id'});
+  this.route('customer', function() {
+    this.route('show', { path: '/:id' });
     this.route('new');
   });
 
-  this.route('visits', {path: 'visits'}, function() {});
-  this.route('visit', {path: '/visit/:id'}, function() {
+  this.route('visits', { path: 'visits' }, function() {});
+  this.route('visit', { path: '/visit/:id' }, function() {
     this.route('show');
     this.route('checkout');
   });
 
   this.route('admin', function() {
     this.route('items');
-    this.route('item', function () {
+    this.route('item', function() {
       this.route('new');
-      this.route('edit', {path: '/edit/:id'});
-      this.route('show', {path: '/:id'});
+      this.route('edit', { path: '/edit/:id' });
+      this.route('show', { path: '/:id' });
     });
-
 
     this.route('customers');
     this.route('employees');
 
-    this.route('visit', {path: 'visit/:id'});
-    this.route('customer', {path: 'customer/:id'});
-    this.route('employee', {path: 'employee/:id'}, function () {
-      this.route('year', {path: '/:year'}, function () {
-        this.route('month', {path: '/:month'});
+    this.route('visit', { path: 'visit/:id' });
+    this.route('customer', { path: 'customer/:id' });
+    this.route('employee', { path: 'employee/:id' }, function() {
+      this.route('year', { path: '/:year' }, function() {
+        this.route('month', { path: '/:month' });
       });
     });
     this.route('supply');

@@ -4,7 +4,7 @@ export default Ember.Component.extend({
   tagName: '',
 
   actions: {
-    logout: function() {
+    logout() {
       this.sendAction('logout');
     }
   }

@@ -8,33 +8,33 @@ export default DS.Model.extend({
   birth: DS.attr('date'),
   phone: DS.attr('string'),
   mail: DS.attr('string'),
-  visitsCount: DS.attr('number', {defaultValue: 0}),
+  visitsCount: DS.attr('number', { defaultValue: 0 }),
   lastVisitDate: DS.attr('date'),
-  visits: DS.hasMany('visit', {async: true}),
+  visits: DS.hasMany('visit', { async: true }),
 
-  full_name: function() {
-    return this.get('firstName') + " " + this.get('lastName');
-  }.property('firstName', 'lastName'),
+  'fullName': Ember.computed('firstName', 'lastName', function() {
+    return `${this.get('firstName')} ${this.get('lastName')}`;
+  }),
 
-  nextBirthday: function() {
-    var birth = this.get('birth');
-    if(Ember.isNone(birth)) {
+  nextBirthday: Ember.computed('birth', function() {
+    let birth = this.get('birth');
+    if (Ember.isNone(birth)) {
       return undefined;
     }
 
-    var nextBirthDay = moment(birth).year(moment().year());
+    let nextBirthDay = moment(birth).year(moment().year());
 
-    if(moment().diff(nextBirthDay) > 0) {
+    if (moment().diff(nextBirthDay) > 0) {
       nextBirthDay.add('1', 'years');
     }
 
     return nextBirthDay;
-  }.property('birth'),
+  }),
 
-  daysTillNextBirthday: function () {
-    var nextBirthday = this.get('nextBirthday');
+  daysTillNextBirthday: Ember.computed('nextBirthday', function() {
+    let nextBirthday = this.get('nextBirthday');
 
-    if(Ember.isNone(nextBirthday)) {
+    if (Ember.isNone(nextBirthday)) {
       // This is a little hack needed to be able to sort by this property
       // It's not possible to have birthday in 366 days and it's fine to
       // sort those records at the end of list by having so big value there.
@@ -42,5 +42,5 @@ export default DS.Model.extend({
     } else {
       return nextBirthday.diff(moment(), 'days');
     }
-  }.property('nextBirthday')
+  })
 });

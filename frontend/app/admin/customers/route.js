@@ -1,23 +1,23 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function() {
+  model() {
     return this.store.findAll('customer');
   },
 
-  setupController: function(controller, model) {
+  setupController(controller, model) {
     controller.set('attrs.customers', model);
   },
 
   actions: {
-    createCustomer: function() {
-      var customer = this.store.createRecord('customer', {
+    createCustomer() {
+      let customer = this.store.createRecord('customer', {
         firstName: 'John',
-        lastName: 'Doe',
+        lastName: 'Doe'
       });
 
-      var that = this;
-      var flash = Ember.get(this, 'flashMessages');
+      let that = this;
+      let flash = Ember.get(this, 'flashMessages');
 
       customer.save().then(function(newCustomer) {
         flash.success('Successfully saved!');

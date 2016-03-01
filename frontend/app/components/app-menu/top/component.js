@@ -3,13 +3,13 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   tagName: '',
 
-  lastError: function () {
+  lastError: Ember.computed('flashMessages.queue.[]', function() {
     // return this.get('flashMessages.queue').filterBy('type', 'danger').get('lastObject');
     return this.get('flashMessages.queue').get('lastObject');
-  }.property('flashMessages.queue.[]'),
+  }),
 
   actions: {
-    logout: function() {
+    logout() {
       this.sendAction('logout');
     }
   }

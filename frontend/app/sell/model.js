@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -5,10 +6,10 @@ export default DS.Model.extend({
   price: DS.attr('number', { defaultValue: 0 }),
   updatedAt: DS.attr(),
 
-  item: DS.belongsTo('item', {async: true}),
-  visit: DS.belongsTo('visit', {async: true}),
+  item: DS.belongsTo('item', { async: true }),
+  visit: DS.belongsTo('visit', { async: true }),
 
-  sum: function() {
+  sum: Ember.computed('count', 'price', function() {
     return this.get('count') * this.get('price');
-  }.property('count', 'price')
+  })
 });

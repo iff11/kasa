@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   classNames: ['customer-visit'],
 
   actions: {
-    toggleExpand: function () {
+    toggleExpand() {
       this.toggleProperty('isExpanded');
     }
   }

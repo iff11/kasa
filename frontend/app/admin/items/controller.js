@@ -2,7 +2,7 @@ import Ember from 'ember';
 import pagedArray from 'ember-cli-pagination/computed/paged-array';
 
 export default Ember.Controller.extend({
-  attrs: {items: []},
+  attrs: { items: [] },
 
   queryParams: ['page', 'perPage', 'filterBy'],
 
@@ -13,13 +13,13 @@ export default Ember.Controller.extend({
 
   page: 1,
   perPage: 25,
-  pagedItems: pagedArray('sortedItems', {pageBinding: 'page', perPageBinding: 'perPage'}),
+  pagedItems: pagedArray('sortedItems', { pageBinding: 'page', perPageBinding: 'perPage' }),
 
   actions: {
-    sortBy: function (value) {
+    sortBy(value) {
       this.set('sortBy', [value]);
     },
-    itemsFiltered: function (value) {
+    itemsFiltered(value) {
       this.set('page', 1);
       this.set('filteredItems', value);
     }

@@ -5,26 +5,26 @@ export default Ember.Controller.extend({
   isEdit: true,
 
   actions: {
-    deleteItem: function() {
-      var flash = Ember.get(this, 'flashMessages'),
-          item = this.get('attrs.item');
+    deleteItem() {
+      let flash = Ember.get(this, 'flashMessages');
+      let item = this.get('attrs.item');
 
       item.deleteRecord();
       item.save().then(function() {
         flash.success('Item deleted');
       }, function(response) {
-        flash.danger('Item cannot be deleted! ' + response.responseText);
+        flash.danger(`Item cannot be deleted! ${response.responseText}`);
       });
     },
 
-    updateItem: function() {
-      var flash = Ember.get(this, 'flashMessages'),
-          item = this.get('attrs.item');
+    updateItem() {
+      let flash = Ember.get(this, 'flashMessages');
+      let item = this.get('attrs.item');
 
       item.save().then(function() {
         flash.success('Item updated');
       }, function(response) {
-        flash.danger('Item cannot be updated! ' + response.responseText);
+        flash.danger(`Item cannot be updated! ${response.responseText}`);
       });
     }
   }

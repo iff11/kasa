@@ -26,12 +26,12 @@
           <td>{{x-sell/sum sell=sell}}</td>
           <td>
             {{#link-to 'admin.customer' sell.visit.customer}}
-              {{sell.visit.customer.full_name}}
+              {{sell.visit.customer.fullName}}
             {{/link-to}}
           </td>
           <td>
             {{#link-to 'admin.employee' sell.visit.employee}}
-              {{sell.visit.employee.full_name}}
+              {{sell.visit.employee.fullName}}
             {{/link-to}}
           </td>
           <td>{{sell.visit.updatedAt}}</td>
@@ -54,7 +54,7 @@
         <th class="text-right col-xs-1">{{t 'supply.quantity'}}</th>
         <th class="text-right col-xs-1">{{t 'supply.vat'}}</th>
         <th class="text-right col-xs-2">{{t 'supply.sum'}}</th>
-        <th class="text-right col-xs-3">{{t 'supply.sum_with_vat'}}</th>
+        <th class="text-right col-xs-3">{{t 'supply.sumWithVat'}}</th>
       </tr>
     </thead>
 
@@ -66,7 +66,7 @@
           <td class="text-right">{{supply.quantity}}</td>
           <td class="text-right">{{supply.vat}}%</td>
           <td class="text-right">{{format-money supply.sum symbol=(t 'currency') format="%v %s"}}</td>
-          <td class="text-right">{{format-money supply.sum_with_vat symbol=(t 'currency') format="%v %s"}}</td>
+          <td class="text-right">{{format-money supply.sumWithVat symbol=(t 'currency') format="%v %s"}}</td>
         </tr>
       {{/each}}
     </tbody>

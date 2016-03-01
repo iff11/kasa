@@ -11,27 +11,26 @@ export default Ember.Component.extend({
 
   visits: [],
 
-  loadVisits: function () {
+  loadVisits: Ember.observer('customerId', function() {
     this.set('isLoading', true);
 
-    var store = this.get('store'),
-        size = this.get('size'),
-        customerId = this.get('customerId'),
-        query = {
+    let store = this.get('store');
+    let size = this.get('size');
+    let customerId = this.get('customerId');
+    let query = {
           filter: {
-            customer_id: customerId,
+            'customer_id': customerId,
             completed: true
           },
           page: {
-            size: size
+            size
           },
           include: 'employee,sells,customer'
         };
-
-    var promise = store.filter(
+    let promise = store.filter(
       'visit',
       query,
-      function (visit) {
+      function(visit) {
         // TODO: visit.get('customer.id') fires unnecessary request
         return visit.get('completed') && visit.get('customer.id') === customerId;
       }
@@ -41,5 +40,5 @@ export default Ember.Component.extend({
       this.set('isLoading', false);
       this.set('visits', result);
     });
-  }.observes('customerId').on('init')
+  }).on('init')
 });

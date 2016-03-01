@@ -1,11 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function () {
+  model() {
     return this.modelFor('visit');
   },
 
-  setupController: function(controller, model) {
+  setupController(controller, model) {
     controller.set('attrs.visit', model);
   }
 });

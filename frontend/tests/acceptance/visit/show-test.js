@@ -3,11 +3,11 @@ import { module, test } from 'qunit';
 import startApp from 'frontend/tests/helpers/start-app';
 
 module('Acceptance | visit/show', {
-  beforeEach: function() {
+  beforeEach() {
     this.application = startApp();
   },
 
-  afterEach: function() {
+  afterEach() {
     Ember.run(this.application, 'destroy');
   }
 });
@@ -15,17 +15,17 @@ module('Acceptance | visit/show', {
 test('Basic layout of /visit/:id/show', function(assert) {
   assert.expect(19);
 
-  var mockItems = server.createList('item', 10);
-  var mockCustomer = server.create('customer');
-  var mockClosedVisits = server.createList('visit', 3, {customerId: mockCustomer.id, completed: true});
-  var mockSell = server.create('sell', {visitId: mockClosedVisits[0].id, itemId: mockItems[0].id});
-  server.create('sell', {visitId: mockClosedVisits[0].id, itemId: mockItems[1].id});
-  server.create('sell', {visitId: mockClosedVisits[0].id, itemId: mockItems[2].id});
+  let mockItems = server.createList('item', 10);
+  let mockCustomer = server.create('customer');
+  let mockClosedVisits = server.createList('visit', 3, { customerId: mockCustomer.id, completed: true });
+  let mockSell = server.create('sell', { visitId: mockClosedVisits[0].id, itemId: mockItems[0].id });
+  server.create('sell', { visitId: mockClosedVisits[0].id, itemId: mockItems[1].id });
+  server.create('sell', { visitId: mockClosedVisits[0].id, itemId: mockItems[2].id });
 
-  var mockVisit = server.create('visit', {customerId: mockCustomer.id, completed: false});
-  server.create('sell', {visitId: mockVisit.id, itemId: mockItems[0].id});
-  server.create('sell', {visitId: mockVisit.id, itemId: mockItems[1].id});
-  server.create('sell', {visitId: mockVisit.id, itemId: mockItems[2].id});
+  let mockVisit = server.create('visit', { customerId: mockCustomer.id, completed: false });
+  server.create('sell', { visitId: mockVisit.id, itemId: mockItems[0].id });
+  server.create('sell', { visitId: mockVisit.id, itemId: mockItems[1].id });
+  server.create('sell', { visitId: mockVisit.id, itemId: mockItems[2].id });
 
   visit(`/visit/${mockVisit.id}/show`);
 

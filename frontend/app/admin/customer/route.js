@@ -1,40 +1,40 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function(params) {
+  model(params) {
     return this.store.find('customer', params.id);
   },
 
-  setupController: function(controller, model) {
+  setupController(controller, model) {
     controller.set('attrs.customer', model);
   },
 
   actions: {
-    deleteCustomer: function(customer) {
-      var flash = Ember.get(this, 'flashMessages'),
-          that = this;
+    deleteCustomer(customer) {
+      let flash = Ember.get(this, 'flashMessages');
+      let that = this;
 
       customer.deleteRecord();
       customer.save().then(function() {
         flash.success('Customer deleted');
         that.transitionTo('admin.customers');
       }, function(response) {
-        flash.danger('Customer cannot be deleted! ' + response.responseText);
+        flash.danger(`Customer cannot be deleted! ${response.responseText }`);
       });
     },
 
-    rollbackCustomer: function(customer) {
+    rollbackCustomer(customer) {
       customer.rollback();
       this.transitionTo('admin.customers');
     },
 
-    updateCustomer: function(customer) {
-      var flash = Ember.get(this, 'flashMessages');
+    updateCustomer(customer) {
+      let flash = Ember.get(this, 'flashMessages');
 
       customer.save().then(function() {
         flash.success('Customer updated');
-        }, function(response) {
-        flash.danger('Customer cannot be updated! ' + response.responseText);
+      }, function(response) {
+        flash.danger(`Customer cannot be updated! ${response.responseText }`);
       });
     }
   }

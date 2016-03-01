@@ -4,8 +4,8 @@ export default Ember.Component.extend({
   tagName: 'span',
   classNames: ['th-sort'],
 
-  click: function () {
-    var val = this.get('value');
+  click() {
+    let val = this.get('value');
 
     if (this.get('isCurrent')) {
       val += ':desc';
@@ -14,26 +14,26 @@ export default Ember.Component.extend({
     this.sendAction('action', val);
   },
 
-  isCurrent: function () {
-    var topSort = this.get('topSort'),
-        value = this.get('value');
+  isCurrent: Ember.computed('topSort', 'value', function() {
+    let topSort = this.get('topSort');
+    let value = this.get('value');
 
-    return  topSort === value;
-  }.property('topSort', 'value'),
+    return topSort === value;
+  }),
 
-  isAsc: function () {
+  isAsc: Ember.computed('isCurrent', 'topSortDirection', function() {
     return this.get('isCurrent') && (this.get('topSortDirection') === 'asc' || this.get('topSortDirection') === undefined);
-  }.property('isCurrent', 'topSortDirection'),
+  }),
 
-  isDesc: function () {
+  isDesc: Ember.computed('isCurrent', 'topSortDirection', function() {
     return this.get('isCurrent') && this.get('topSortDirection') === 'desc';
-  }.property('isCurrent', 'topSortDirection'),
+  }),
 
-  topSort: function () {
+  topSort: Ember.computed('current', function() {
     return this.get('current.firstObject').split(':')[0];
-  }.property('current'),
+  }),
 
-  topSortDirection: function () {
+  topSortDirection: Ember.computed('current', function() {
     return this.get('current.firstObject').split(':')[1];
-  }.property('current')
+  })
 });

@@ -3,21 +3,21 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   tagName: '',
 
-  human: function () {
-    var now = moment(),
-        created = moment(this.get('customer.lastVisitDate'));
+  human: Ember.computed('customer.lastVisitDate', function() {
+    let now = moment();
+    let created = moment(this.get('customer.lastVisitDate'));
 
     return created.from(now);
-  }.property('customer.lastVisitDate'),
+  }),
 
-  days: function () {
-    var now = moment(),
-        created = moment(this.get('customer.lastVisitDate'));
+  days: Ember.computed('customer.lastVisitDate', function() {
+    let now = moment();
+    let created = moment(this.get('customer.lastVisitDate'));
 
     return now.diff(created, 'days');
-  }.property('customer.lastVisitDate'),
+  }),
 
-  class: function () {
+  class: Ember.computed('days', function() {
     if (this.get('days') < 30) {
       return 'label-success';
     } else if (this.get('days') < 60) {
@@ -25,5 +25,5 @@ export default Ember.Component.extend({
     } else {
       return 'label-danger';
     }
-  }.property('days')
+  })
 });
