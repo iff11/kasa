@@ -1,0 +1,20 @@
+.visit-checkout-back-btn {
+  @extend .btn;
+  @extend .btn-default;
+}
+
+.visit-checkout-sells {
+  @extend .table;
+  @extend .table-hover;
+}
+
+.visit-checkout-price-with-tip,
+.visit-checkout-received-amount {
+  @extend .form-control;
+  @extend .text-right;
+}
+
+.visit-checkout-tip,
+.visit-checkout-return-amount {
+  @extend .text-right;
+}

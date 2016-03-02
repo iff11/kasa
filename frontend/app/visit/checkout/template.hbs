@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
-    {{#link-to "visit.show" attrs.visit class="btn btn-default"}}
+    {{#link-to "visit.show" attrs.visit class="visit-checkout-back-btn"}}
       {{fa-icon icon="arrow-left"}}
       {{t 'visit.back_to_visit'}}
     {{/link-to}}
@@ -9,7 +9,7 @@
 
 <div class="row">
   <div class="col-xs-6">
-    <table class="table table-hover">
+    <table class="visit-checkout-sells">
       <thead>
         <tr>
           <th class="col-xs-4">{{t 'sell.item'}}</th>
@@ -44,13 +44,13 @@
       <tbody>
         <tr>
           <td>{{t 'visit.sum_price_is'}}</td>
-          <td class="text-right">{{x-visit/total-price visit=attrs.visit}}</td>
+          <td class="text-right">{{~x-visit/total-price visit=attrs.visit~}}</td>
         </tr>
         <tr>
           <td>{{t 'visit.sum_with_tip_is'}}</td>
           <td class="text-right">
             <div class="input-group">
-              {{input class='form-control text-right' value=attrs.visit.price_with_tip}}
+              {{~input class='visit-checkout-price-with-tip' value=attrs.visit.price_with_tip~}}
               <span class="input-group-addon">{{t 'currency'}}</span>
             </div>
           </td>
@@ -59,21 +59,21 @@
           <td>{{t 'visit.received_amount'}}</td>
           <td class="text-right">
             <div class="input-group">
-              {{input class='form-control text-right' value=attrs.visit.received_amount}}
+              {{~input class='visit-checkout-received-amount' value=attrs.visit.received_amount~}}
               <span class="input-group-addon">{{t 'currency'}}</span>
             </div>
           </td>
         </tr>
         <tr>
           <td>{{t 'visit.tip'}}</td>
-          <td class="text-right">
-            {{format-money attrs.visit.tip symbol=(t 'currency') format="%v %s"}}
+          <td class="visit-checkout-tip">
+            {{~format-money attrs.visit.tip symbol=(t 'currency') format="%v %s"~}}
           </td>
         </tr>
         <tr>
           <td>{{t 'visit.return_amount'}}</td>
-          <td class="text-right">
-            {{format-money return_amount symbol=(t 'currency') format="%v %s"}}
+          <td class="visit-checkout-return-amount">
+            {{~format-money returnAmount symbol=(t 'currency') format="%v %s"~}}
           </td>
         </tr>
       </tbody>
