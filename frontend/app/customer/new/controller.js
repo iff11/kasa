@@ -17,7 +17,6 @@ export default Ember.Controller.extend({
         flash.success(`${firstName } ${lastName } created`);
         this.transitionTo('customer.show', newCustomer);
       }, (err) => {
-        console.log(err);
         flash.danger(`Cannot save customer: ${err.message }`);
       });
     }
