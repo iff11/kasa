@@ -15,27 +15,28 @@ module('Acceptance | application', {
     Ember.run(this.application, 'destroy');
   }
 });
-
 test('Application layout for administrator', function(assert) {
-  assert.expect(1);
+  assert.expect(2);
 
   authenticateSession(this.application, { isAdmin: true });
 
-  visit('/visits');
+  visit('/');
 
   andThen(function() {
+    assert.equal(currentRouteName(), 'visits.index', 'Index for employee redirects to last visits');
     assert.equal(find('.heading-admin').length, 1, 'Admin sidebar header is rendered');
   });
 });
 
 test('Application layout for employee', function(assert) {
-  assert.expect(1);
+  assert.expect(2);
 
   authenticateSession(this.application, { isAdmin: false });
 
-  visit('/visits');
+  visit('/');
 
   andThen(function() {
+    assert.equal(currentRouteName(), 'visits.index', 'Index for admin redirects to last visits');
     assert.equal(find('.heading-admin').length, 0, 'Admin sidebar header is not rendered');
   });
 });
