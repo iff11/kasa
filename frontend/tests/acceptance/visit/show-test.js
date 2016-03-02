@@ -13,7 +13,7 @@ module('Acceptance | visit/show', {
 });
 
 test('Basic layout of /visit/:id/show', function(assert) {
-  assert.expect(19);
+  assert.expect(20);
 
   let mockItems = server.createList('item', 10);
   let mockCustomer = server.create('customer');
@@ -27,9 +27,10 @@ test('Basic layout of /visit/:id/show', function(assert) {
   server.create('sell', { visitId: mockVisit.id, itemId: mockItems[1].id });
   server.create('sell', { visitId: mockVisit.id, itemId: mockItems[2].id });
 
-  visit(`/visit/${mockVisit.id}/show`);
+  visit(`/visit/${mockVisit.id}`);
 
   andThen(function() {
+    assert.equal(currentRouteName(), 'visit.show', 'Redirect of visit.index to visit.show');
     assert.equal(find('.visit-customer-first-name').text().trim(), mockCustomer.firstName, 'Check customer first name');
     assert.equal(find('.visit-customer-last-name').text().trim(), mockCustomer.lastName, 'Check customer last name');
 
