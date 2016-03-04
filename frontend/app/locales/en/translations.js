@@ -160,6 +160,9 @@ export default {
     employee: {
       year: 'Rok',
       month: 'Měsíc'
+    },
+    visits: {
+      heading: 'Všechny zakázky'
     }
   },
 
@@ -169,7 +172,8 @@ export default {
       customers: 'Zákazníci',
       employees: 'Zaměstnanci',
       supply: 'Naskladnění',
-      statuses: 'Stav systému'
+      statuses: 'Stav systému',
+      visits: 'Zakázky'
     },
     heading: {
       navigation: 'Navigace',
