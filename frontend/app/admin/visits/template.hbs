@@ -1,0 +1,8 @@
+<h2>{{t 'admin.visits.heading'}}</h2>
+
+{{full-calendar
+    events=currentEvents
+    defaultView="agendaWeek"
+    lang="cs"
+    timeFormat="H:mm"
+    eventClick=(action "eventClicked")}}

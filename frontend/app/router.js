@@ -42,6 +42,7 @@ Router.map(function() {
     this.route('supply');
 
     this.route('statuses');
+    this.route('visits');
   });
 });
 
