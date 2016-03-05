@@ -43,6 +43,7 @@ end
 
 group :production do
   gem 'skylight'
+  gem 'sentry-raven'
 end
 
 gem 'rails_12factor', group: [:staging, :production]
