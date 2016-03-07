@@ -2,36 +2,35 @@
   <thead>
     <tr>
       <th class="admin-items-col-active">
-        {{th-sort action="sortBy" title=(t 'item.isActive') current=sortBy value="isActive"}}
+        {{~th-sort action="sortBy" title=(t 'item.isActive') current=sortBy value="isActive"~}}
       </th>
       <th class="admin-items-col-sale">
-        {{th-sort action="sortBy" title=(t 'item.isService') current=sortBy value="isService"}}
+        {{~th-sort action="sortBy" title=(t 'item.isService') current=sortBy value="isService"~}}
       </th>
       <th class="admin-items-col-name">
-        {{th-sort action="sortBy" title=(t 'item.name') current=sortBy value="name"}}
+        {{~th-sort action="sortBy" title=(t 'item.name') current=sortBy value="name"~}}
       </th>
       <th class="admin-items-col-stock">
-        {{th-sort action="sortBy" title=(t 'item.unlimited_or_stock') current=sortBy value="stock"}}
+        {{~th-sort action="sortBy" title=(t 'item.unlimited_or_stock') current=sortBy value="stock"~}}
       </th>
       <th class="admin-items-col-purchase-price">
-        {{!th-sort action="sortBy" title=(t 'supply.last_purchase_price') current=sortBy value="lastSupply.purchase_price"}}
-        {{t 'supply.last_purchase_price'}}
+        {{~t 'supply.lastPurchasePrice'~}}
       </th>
       <th class="admin-items-col-purchase-price-vat">
-        {{!th-sort action="sortBy" title=(t 'supply.last_purchase_price_with_vat') current=sortBy value="lastSupply.purchasePriceWithVat"}}
-        {{t 'supply.last_purchase_price_with_vat'}}
+        {{~t 'supply.lastPurchasePriceWithVat'~}}
       </th>
       <th class="admin-items-col-selling-price">
-        {{th-sort action="sortBy" title=(t 'item.sellingPrice') current=sortBy value="sellingPrice"}}
+        {{~th-sort action="sortBy" title=(t 'item.sellingPrice') current=sortBy value="sellingPrice"~}}
       </th>
       <th class="admin-items-col-margin">
-        {{!th-sort action="sortBy" title=(t 'item.margin') current=sortBy value="margin"}}
-        {{t 'item.margin'}}
+        {{~t 'item.margin'~}}
       </th>
       <th class="admin-items-col-barcode">
-        {{th-sort action="sortBy" title=(t 'item.barcode') current=sortBy value="barcode"}}
+        {{~th-sort action="sortBy" title=(t 'item.barcode') current=sortBy value="barcode"~}}
       </th>
-      <th class="admin-items-col-action">{{t 'item.action'}}</th>
+      <th class="admin-items-col-action">
+        {{~t 'item.action'~}}
+      </th>
     </tr>
   </thead>
 
@@ -65,10 +64,10 @@
           {{/if}}
         </td>
         <td class="admin-items-col-purchase-price">
-          {{x-item/price value=item.lastSupply.purchase_price}}
+          {{~x-item/price value=item.lastSupply.purchasePrice~}}
         </td>
         <td class="admin-items-col-purchase-price-vat">
-          {{x-item/price value=item.lastSupply.purchasePriceWithVat}}
+          {{~x-item/price value=item.lastSupply.purchasePriceWithVat~}}
         </td>
         <td class="admin-items-col-selling-price">
           {{x-item/price value=item.sellingPrice}}

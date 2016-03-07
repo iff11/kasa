@@ -11,6 +11,8 @@ export default function() {
   this.get('/employees/:id');
   this.get('/sells');
   this.get('/sells/:id');
+  this.get('/supplies');
+  this.get('/supplies/:id');
 
   this.post('/customers');
 }
