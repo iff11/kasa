@@ -2,9 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    // jscs:disable requireObjectDestructuring
-    let id = this.paramsFor('visit').id;
-    // jscs:enable requireObjectDestructuring
+    let { id } = this.paramsFor('visit');
 
     return Ember.RSVP.hash({
       visit: this.store.findRecord('visit', id),
