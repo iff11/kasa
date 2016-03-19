@@ -50,6 +50,7 @@
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
     "ember-i18n": "4.1.4",
+    "ember-pikaday": "1.0.0",
     "ember-simple-auth": "1.0.1",
     "ember-suave": "2.0.1",
     "liquid-fire": "0.23.0",

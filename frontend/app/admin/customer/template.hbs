@@ -1,4 +1,4 @@
-<h2>
+<h2 class="admin-customer-heading">
   {{attrs.customer.fullName}}
 </h2>
 
@@ -14,36 +14,36 @@
     <button class="delete btn btn-danger" {{action "deleteCustomer" attrs.customer on="doubleClick"}}>
       {{fa-icon icon="trash"}}
     </button>
-    <button class="btn btn-success" {{action 'updateCustomer' attrs.customer}}>
+    <button class="admin-customer-update" {{action 'updateCustomer' attrs.customer}}>
       {{fa-icon icon="check"}}
     </button>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-xs-3">
-    <div class="form-group">
+  <div class="admin-customer-form">
+    <div class="admin-customer-form-note">
       <label>{{t 'customer.note'}}</label>
       {{textarea placeholder=(t 'customer.note') rows="5" value=attrs.customer.note class='form-control'}}
     </div>
 
-    <div class="form-group">
+    <div class="admin-customer-form-first-name">
       <label>{{t 'customer.firstName'}}</label>
       {{input placeholder=(t 'customer.firstName') value=attrs.customer.firstName class='form-control'}}
     </div>
-    <div class="form-group">
+    <div class="admin-customer-form-last-name">
       <label>{{t 'customer.lastName'}}</label>
       {{input placeholder=(t 'customer.lastName') value=attrs.customer.lastName class='form-control'}}
     </div>
-    <div class="form-group">
+    <div class="admin-customer-form-birth">
       <label>{{t 'customer.birth'}}</label>
-      {{input placeholder='1984-12-24' value=attrs.customer.birth class="form-control" type="date"}}
+      {{pikaday-input placeholder='1984-12-24' value=attrs.customer.birth class="form-control" useUTC=true format="DD.MM.YYYY"}}
     </div>
-    <div class="form-group">
+    <div class="admin-customer-form-phone">
       <label>{{t 'customer.phone'}}</label>
       {{input placeholder=(t 'customer.phone') value=attrs.customer.phone class='form-control'}}
     </div>
-    <div class="form-group">
+    <div class="admin-customer-form-mail">
       <label>{{t 'customer.mail'}}</label>
       {{input placeholder=(t 'customer.mail') value=attrs.customer.mail class="form-control"}}
     </div>
