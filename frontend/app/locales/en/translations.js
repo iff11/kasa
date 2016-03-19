@@ -62,6 +62,8 @@ export default {
     'employee_margin': 'Podíl zaměstnance',
     isDirty: 'Neuložili jste položku zakázky. Klikněte na zelené plus, nebo položku smažte.',
     noLastVisit: '---',
+    employeeShareService: 'Podíl zaměstnance služby',
+    employeeShareSale: 'Podíl zaměstnance prodej',
     new: {
       selectCustomer: '-- Vyber --',
       selectEmployee: '-- Vyber --',
