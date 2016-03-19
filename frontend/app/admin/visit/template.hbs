@@ -32,7 +32,8 @@
     <table class="table">
       <thead>
         <tr>
-          <th class="col-xs-6">{{t 'sell.item'}}</th>
+          <th class="col-xs-1"></th>
+          <th class="col-xs-5">{{t 'sell.item'}}</th>
           <th class="col-xs-2 text-right">{{t 'sell.unit_price'}}</th>
           <th class="col-xs-2 text-right">{{t 'sell.count'}}</th>
           <th class="col-xs-2 text-right">{{t 'sell.sum_price'}}</th>
@@ -42,6 +43,13 @@
       <tbody>
         {{#each sell in attrs.visit.sells}}
           <tr>
+            <td>
+              {{#if sell.item.isService}}
+                {{fa-icon icon="scissors"}}
+              {{else}}
+                {{fa-icon icon="gift"}}
+              {{/if}}
+            </td>
             <td>{{sell.item.name}}</td>
             <td class="text-right">{{x-item/price value=sell.price}}</td>
             <td class="text-right">{{sell.count}}</td>
@@ -52,7 +60,7 @@
 
       <tfoot>
         <tr class="info">
-          <th colspan="3">
+          <th colspan="4">
             {{t 'visit.total_price'}}
           </th>
           <th class="text-right">
@@ -73,6 +81,14 @@
       <tr>
         <td>{{t 'visit.received_amount'}}</td>
         <td>{{format-money attrs.visit.received_amount symbol=(t 'currency') format="%v %s"}}</td>
+      </tr>
+      <tr>
+        <td>{{t 'visit.employeeShareService'}}</td>
+        <td>{{format-money attrs.visit.employeeShareService symbol=(t 'currency') format="%v %s"}}</td>
+      </tr>
+      <tr>
+        <td>{{t 'visit.employeeShareSale'}}</td>
+        <td>{{format-money attrs.visit.employeeShareSale symbol=(t 'currency') format="%v %s"}}</td>
       </tr>
     </table>
 
