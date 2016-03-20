@@ -15,4 +15,5 @@ export default function() {
   this.get('/supplies/:id');
 
   this.post('/customers');
+  this.patch('/customers/:id');
 }

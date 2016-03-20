@@ -8,10 +8,10 @@ export default Factory.extend({
     return faker.name.lastName();
   },
   birth(i) {
-    return moment().add(7 * (i+1), 'days');
+    return moment().add(7 * (i+1), 'days').toDate();
   },
   nextBirthday(i) {
-    return moment().add(7 * (i+1), 'days');
+    return moment().add(7 * (i+1), 'days').toDate();
   },
   daysTillNextBirthday(i) {
     return (i+1) * 7;

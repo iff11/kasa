@@ -1,0 +1,12 @@
+.admin-customer-form {
+  @extend .col-xs-3;
+
+  & > div {
+    @extend .form-group;
+  }
+}
+
+.admin-customer-update {
+  @extend .btn;
+  @extend .btn-success;
+}

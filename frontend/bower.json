@@ -12,7 +12,6 @@
     "jquery": "1.11.3",
     "loader.js": "ember-cli/loader.js#3.4.0",
     "qunit": "~1.20.0",
-
     "Faker": "~3.0.0",
     "bootstrap-sass": "~3.3.4",
     "ember-cli-moment-shim": "~0.0.3",
@@ -20,9 +19,9 @@
     "es5-shim": "^4.0.5",
     "font-awesome": "~4.5.0",
     "fullcalendar": "^2.6.1",
-    "loader.js": "ember-cli/loader.js#3.4.0",
     "lodash": "~4.1.0",
     "pretender": "~0.10.1",
-    "selectize": "~0.12.1"
+    "selectize": "~0.12.1",
+    "pikaday": "^1.4.0"
   }
 }
