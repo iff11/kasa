@@ -7,9 +7,9 @@ test('visiting /admin/supply', function(assert) {
   assert.expect(9);
 
   let supplies = server.createList('supply', 3);
-  server.create('item', { lastSupply: supplies[0].id });
-  server.create('item', { lastSupply: supplies[1].id });
-  server.create('item', { lastSupply: supplies[2].id });
+  server.create('item', { lastSupply: supplies[0] });
+  server.create('item', { lastSupply: supplies[1] });
+  server.create('item', { lastSupply: supplies[2] });
   let quantity = 10;
   let purchasePrice = 123;
   let sellingPrice = 456;
