@@ -5,7 +5,7 @@ export default Factory.extend({
     return i * 10;
   },
   purchasePriceWithVat(i) {
-    return this.purchasePrice(i) * (1 + this.vat()/100);
+    return this.purchasePrice * (1 + this.vat/100);
   },
   quantity() {
     return faker.random.number(100);

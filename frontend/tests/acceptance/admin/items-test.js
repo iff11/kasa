@@ -10,9 +10,9 @@ test('visiting /admin/items', function(assert) {
 
   let supplies = server.createList('supply', 10);
   let items = [
-    server.create('item', { lastSupply: supplies[0].id }),
-    server.create('item', { lastSupply: supplies[1].id }),
-    server.create('item', { lastSupply: supplies[2].id })
+    server.create('item', { lastSupply: supplies[0] }),
+    server.create('item', { lastSupply: supplies[1] }),
+    server.create('item', { lastSupply: supplies[2] })
   ];
   let itemsSorted;
   let index;
@@ -32,7 +32,7 @@ test('visiting /admin/items', function(assert) {
     assert.equal(find('.admin-items thead .admin-items-col-action').text(), 'Akce', 'Action column');
 
     itemsSorted = items.sortBy('name');
-    index = itemsSorted[0].lastSupply - 1;
+    index = itemsSorted[0].lastSupply.id - 1;
     expect = formatMoney(supplies[index].purchasePrice, { symbol: 'Kč', format: '%v %s' });
     assert.equal(find('.admin-items tbody tr:nth-of-type(1) .admin-items-col-purchase-price').text(), expect, 'First row purchase price');
     expect = formatMoney(supplies[index].purchasePriceWithVat, { symbol: 'Kč', format: '%v %s' });
