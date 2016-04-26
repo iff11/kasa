@@ -20,3 +20,10 @@ install:
 
 script:
   - npm test
+
+notifications:
+  email:
+    recipients:
+      - michal.bryxi@gmail.com
+    on_success: change
+    on_failure: always
