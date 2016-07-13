@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160319205440) do
+ActiveRecord::Schema.define(version: 20160713064756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,16 +130,22 @@ ActiveRecord::Schema.define(version: 20160319205440) do
 
   add_index "visits", ["deleted_at"], name: "index_visits_on_deleted_at", using: :btree
 
+  create_trigger("visits_after_insert_row_tr", :generated => true, :compatibility => 1).
+      on("visits").
+      after(:insert) do
+    "UPDATE customers SET last_visit_date = NEW.created_at WHERE customers.id = NEW.customer_id;"
+  end
+
   create_trigger("fix_sells_price", :generated => true, :compatibility => 1).
       on("sells").
-      after(:insert, :update).
+      after(:insert, :update, :delete).
       name("fix_sells_price") do
     "      UPDATE visits SET price = (SELECT COALESCE(SUM(price * count), 0) FROM sells WHERE visit_id = NEW.visit_id AND deleted_at IS NULL) WHERE visits.id = NEW.visit_id;"
   end
 
   create_trigger("fix_sells_employee_share_sale", :generated => true, :compatibility => 1).
       on("sells").
-      after(:insert, :update).
+      after(:insert, :update, :delete).
       name("fix_sells_employee_share_sale") do
     <<-SQL_ACTIONS
       UPDATE visits SET employee_share_sale = (
@@ -150,19 +156,13 @@ ActiveRecord::Schema.define(version: 20160319205440) do
 
   create_trigger("fix_sells_employee_share_service", :generated => true, :compatibility => 1).
       on("sells").
-      after(:insert, :update).
+      after(:insert, :update, :delete).
       name("fix_sells_employee_share_service") do
     <<-SQL_ACTIONS
       UPDATE visits SET employee_share_service = (
         SELECT COALESCE(SUM(sells.price * sells.count), 0) FROM sells LEFT JOIN items ON items.id = sells.item_id WHERE sells.visit_id = NEW.visit_id AND sells.deleted_at IS NULL AND items.is_service = true) * 0.1
         WHERE visits.id = NEW.visit_id;
     SQL_ACTIONS
-  end
-
-  create_trigger("visits_after_insert_row_tr", :generated => true, :compatibility => 1).
-      on("visits").
-      after(:insert) do
-    "UPDATE customers SET last_visit_date = NEW.created_at WHERE customers.id = NEW.customer_id;"
   end
 
 end
