@@ -42,7 +42,7 @@
       </thead>
 
       <tbody>
-        {{#each sell in attrs.visit.sells}}
+        {{#each attrs.visit.sells as |sell|}}
           <tr>
             <td>
               {{#if sell.item.isService}}

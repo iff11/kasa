@@ -20,7 +20,7 @@
       </thead>
 
       <tbody>
-        {{#each sell in attrs.visit.sells}}
+        {{#each attrs.visit.sells as |sell|}}
         <tr>
           <td>{{sell.item.name}}</td>
           <td class="text-right">{{sell.count}}</td>

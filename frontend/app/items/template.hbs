@@ -37,7 +37,7 @@
   </thead>
 
   <tbody>
-    {{#each item in pagedItems}}
+    {{#each pagedItems as |item|}}
       <tr class="items-row">
         <td class="items-col-active">
           {{#if item.isActive}}
