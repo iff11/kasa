@@ -52,7 +52,7 @@
     "ember-i18n": "4.1.4",
     "ember-moment": "6.1.0",
     "ember-pikaday": "1.0.0",
-    "ember-simple-auth": "1.0.1",
+    "ember-simple-auth": "1.1.0",
     "ember-suave": "2.0.1",
     "liquid-fire": "0.23.0",
     "moment": "^2.11.2",

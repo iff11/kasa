@@ -25,7 +25,7 @@ test('Basic layout', function(assert) {
     assert.equal(find('.admin-customers-header-button-add').length, 1, 'Add customer button is in place');
 
     let $row = find('.admin-customers tbody tr:nth-of-type(1)');
-    let c = customers[0];
+    let [c] = customers;
     let expectedCells = [
       c.visitsCount,
       moment(c.lastVisitDate).fromNow(),
