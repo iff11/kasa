@@ -11,7 +11,6 @@
         </div>
         <div class="visits-item-body">
           <img class="employee-avatar-in-visits" {{bind-attr src="visit.employee.photoUrl"}} />
-          <time>{{date-and-time visit.date 'cs'}}</time>
           <em>
             {{format-money visit.total_price symbol=(t 'currency') format="%v %s"}}
           </em>

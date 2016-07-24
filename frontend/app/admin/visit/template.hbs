@@ -1,7 +1,8 @@
 <h2>
   {{t 'visit.visit_of'}}:
   {{attrs.visit.customer.fullName}}
-  <small>@{{date-and-time attrs.visit.date}}</small>
+  @
+  <small class="admin-visit-updated-at">{{moment-format attrs.visit.updatedAt}}</small>
   &nbsp;
   <img class="avatar img-circle img-thumbnail" {{bind-attr src="attrs.visit.employee.photoUrl"}} />
 </h2>

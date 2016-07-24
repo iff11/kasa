@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from 'frontend/tests/helpers/start-app';
+import moment from 'moment';
 
 module('Acceptance | admin | customers', {
   beforeEach() {
@@ -14,14 +15,30 @@ module('Acceptance | admin | customers', {
 
 test('Basic layout', function(assert) {
   server.createList('item', 34);
-  server.createList('customer', 3);
-  assert.expect(2);
+  let customers = server.createList('customer', 3).sortBy('visitsCount').reverse();
+  assert.expect(10);
 
   visit('/admin/customers');
 
   andThen(function() {
     assert.equal(find('.admin-customers-header-button-newsletter').length, 1, 'Newsletter button is in place');
     assert.equal(find('.admin-customers-header-button-add').length, 1, 'Add customer button is in place');
+
+    let $row = find('.admin-customers tbody tr:nth-of-type(1)');
+    let c = customers[0];
+    let expectedCells = [
+      c.visitsCount,
+      moment(c.lastVisitDate).fromNow(),
+      c.firstName,
+      c.lastName,
+      moment(c.birth).format('DD.MM'),
+      c.phone,
+      c.mail,
+      c.note
+    ];
+    expectedCells.forEach(function(cell, i) {
+      assert.equal(find(`td:nth-of-type(${i + 1})`, $row).text(), cell, `Cell #${i} has correct content`);
+    });
   });
 });
 

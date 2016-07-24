@@ -1,10 +1,11 @@
 import { test } from 'qunit';
 import moduleForAcceptance from 'frontend/tests/helpers/module-for-acceptance';
+import moment from 'moment';
 
 moduleForAcceptance('Acceptance | customer | show');
 
 test('visiting /customer', function(assert) {
-  assert.expect(13);
+  assert.expect(14);
 
   let mockItems = server.createList('item', 10);
   let mockCustomer = server.create('customer');
@@ -19,6 +20,7 @@ test('visiting /customer', function(assert) {
     assert.equal(find('.customer-visits').length, 1, 'Past visits list is rendered');
     assert.equal(find('.customer-visit').length, 3, 'Past visits list of visits is rendered');
     assert.equal(find('.customer-visit:nth-of-type(1) .customer-visit-heading').length, 1, 'First past visit has heading');
+    assert.equal(find('.customer-visit:nth-of-type(1) .customer-visit-heading-updated-at').text(), moment(mockClosedVisits[0].updatedAt).format('LLLL'));
     assert.equal(find('.customer-visit:nth-child(1) .customer-visit-heading-price').text(), `${mockClosedVisits[0].price}.00 Kč`, 'First visit price');
     assert.equal(find('.customer-visit:nth-child(2) .customer-visit-heading-price').text(), `${mockClosedVisits[1].price}.00 Kč`, 'Second visit price');
     assert.equal(find('.customer-visit:nth-child(3) .customer-visit-heading-price').text(), `${mockClosedVisits[2].price}.00 Kč`, 'Third visit price');
