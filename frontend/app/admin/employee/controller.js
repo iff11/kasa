@@ -8,7 +8,10 @@ export default Ember.Controller.extend({
   employeeId: Ember.computed.readOnly('attrs.employee.id'),
 
   years: Ember.computed(function() {
-    return _.range(this.get('startingYear'), new Date().getFullYear() + 1);
+    let startingYear = this.get('startingYear');
+    let n = new Date().getFullYear() - startingYear + 1;
+
+    return Array.from(Array(n), (v, k) => k + startingYear)
   })
 
   // selectedMonth: null,

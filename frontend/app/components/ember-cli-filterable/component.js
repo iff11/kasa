@@ -20,7 +20,9 @@ export default Ember.Component.extend({
       let filterBy = this.get('filterBy');
 
       filteredArray = this.get('inputArray').filter(function(item) {
-        let properties = _.values(item.getProperties(filterBy)).join();
+        let filterProperties = item.getProperties(filterBy);
+        let propertyValues = Object.keys(filterProperties).map(key => filterProperties[key]);
+        let properties = propertyValues.join();
         return properties.match(regexp);
       });
     }

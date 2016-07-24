@@ -1,10 +1,10 @@
 import { Factory } from 'ember-cli-mirage';
 
 export default Factory.extend({
-  count(i) {
+  count() {
     return faker.random.number(10);
   },
-  price(i) {
+  price() {
     return faker.random.number(100);
   }
 });

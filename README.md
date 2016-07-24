@@ -51,7 +51,7 @@ ember install ember-i18n
 ember install ember-moment
 ember install ember-pikaday
 ember install ember-simple-auth
-ember install ember-suave
 ember install liquid-fire
 ember install ember-data-filter
+ember install ember-cli-eslint
 ```

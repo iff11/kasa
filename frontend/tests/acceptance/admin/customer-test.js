@@ -5,7 +5,7 @@ import moment from 'moment';
 moduleForAcceptance('Acceptance | admin/customer');
 
 test('visiting /admin/customer', function(assert) {
-  assert.expect(13);
+  assert.expect(14);
 
   let customers = server.createList('customer', 3);
   let [john, mirek] = customers;

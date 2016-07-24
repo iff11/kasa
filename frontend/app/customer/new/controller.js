@@ -15,7 +15,7 @@ export default Ember.Controller.extend({
         let lastName = newCustomer.get('lastName');
 
         flash.success(`${firstName } ${lastName } created`);
-        this.transitionTo('customer.show', newCustomer);
+        this.transitionToRoute('customer.show', newCustomer);
       }, (err) => {
         flash.danger(`Cannot save customer: ${err.message }`);
       });

@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   months: Ember.computed(function() {
-    return _.range(1, 12 + 1);
+    return Array.from(Array(12), (v, k) => k + 1);
   })
 
   // monthNames: function() {
