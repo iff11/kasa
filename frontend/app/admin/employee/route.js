@@ -22,7 +22,7 @@ export default Ember.Route.extend({
     },
 
     rollbackEmployee(employee) {
-      employee.rollback();
+      employee.rollbackAttributes();
       this.transitionTo('admin.employees');
     },
 

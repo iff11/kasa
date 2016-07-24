@@ -25,7 +25,7 @@
         <div class="row">
           <div class="form-group col-xs-9">
             <label for="employee">{{t 'visit.employee'}}</label>
-            {{view "select"
+            {{ember-selectize
                 id="employee"
                 value=heap.employee
                 content=attrs.employees
