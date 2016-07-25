@@ -27,9 +27,9 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
-    // i18n: {
-    //   defaultLocale: 'cs'
-    // },
+    i18n: {
+      defaultLocale: 'cs'
+    },
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
