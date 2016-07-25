@@ -54,7 +54,13 @@ ember install ember-simple-auth
 ember install liquid-fire
 ember install ember-data-filter
 ember install ember-cli-eslint
+
 ember install ember-lodash
 bower install lodash --save
+
 npm install --save-dev ember-cli-full-calendar
+
+npm install --save-dev ember-cli-es5-shim
+ember generate ember-cli-es5-shim
+bower install
 ```
