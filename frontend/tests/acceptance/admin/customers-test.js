@@ -31,7 +31,7 @@ test('Basic layout', function(assert) {
       moment(c.lastVisitDate).fromNow(),
       c.firstName,
       c.lastName,
-      moment(c.birth).format('DD.MM'),
+      moment(c.birth).format('L'),
       c.phone,
       c.mail,
       c.note
@@ -79,7 +79,7 @@ test('Table sorting', function(assert) {
   click('th.admin-customers-col-birth .th-sort');
   andThen(function() {
     customersSorted = customers.sortBy('birth');
-    let expected = moment(customersSorted[0].birth).format('DD.MM');
+    let expected = moment(customersSorted[0].birth).format('L');
     assert.equal(find('.admin-customers tbody tr:nth-of-type(1) td:nth-of-type(5)').text(), expected, 'Sorting by birth');
   });
 

@@ -55,4 +55,5 @@ ember install liquid-fire
 ember install ember-data-filter
 ember install ember-cli-eslint
 ember install ember-lodash
+npm install --save-dev ember-cli-full-calendar
 ```

@@ -55,7 +55,11 @@
           {{/link-to}}
         </td>
         <td class="customers-birth">
-          {{customer.birth}}
+          {{#if customer.birth}}
+            {{moment-format customer.birth}}
+          {{else}}
+            -
+          {{/if}}
         </td>
         <td class="customers-next-birthday text-right">
           {{~x-customer/birthday customer=customer~}}

@@ -2,6 +2,9 @@
 
 module.exports = function(environment) {
   var ENV = {
+    moment: {
+      outputFormat: 'L'
+    },
     flashMessageDefaults: {
       timeout      : 1000,
       priority     : 100,
