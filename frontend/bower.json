@@ -11,6 +11,7 @@
     "Faker": "~3.1.0",
     "selectize": "miguelcobain/selectize.js#master",
     "pikaday": "^1.4.0",
-    "fullcalendar": "^2.9.0"
+    "fullcalendar": "^2.9.0",
+    "lodash": "^4.14.0"
   }
 }

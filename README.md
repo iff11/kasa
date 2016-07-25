@@ -36,7 +36,7 @@ There are currently two users. Username and password is the same:
 - salon@topstylesalon.cz
 - kadernik@topstylesalon.cz
 
-# EmberJS packages
+# JS packages
 ```
 ember install ember-cli-accounting
 ember install ember-cli-bootstrap-sassy
@@ -55,5 +55,6 @@ ember install liquid-fire
 ember install ember-data-filter
 ember install ember-cli-eslint
 ember install ember-lodash
+bower install lodash --save
 npm install --save-dev ember-cli-full-calendar
 ```
