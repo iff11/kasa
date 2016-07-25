@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import _ from 'lodash/lodash';
 
 export default Ember.Controller.extend({
   attrs: {},
@@ -9,29 +10,8 @@ export default Ember.Controller.extend({
 
   years: Ember.computed(function() {
     let startingYear = this.get('startingYear');
-    let n = new Date().getFullYear() - startingYear + 1;
+    let currentYear = new Date().getFullYear();
 
-    return Array.from(Array(n), (v, k) => k + startingYear)
+    return _.range(startingYear, currentYear + 1);
   })
-
-  // selectedMonth: null,
-  // months: function() {
-  //   // TODO: start should be decided based on employee created_at
-  //   let start = moment('2015-01'),
-  //       end = moment(),
-  //       months = end.diff(start, 'months'),
-  //       ret = [];
-  //
-  //   for(let i=0; i<months; i++) {
-  //     start.add(1, 'months');
-  //     ret.push(
-  //       {
-  //         text: start.format('MMMM YYYY'),
-  //         value: start.format('YYYY-MM')
-  //       }
-  //     );
-  //   }
-  //
-  //   return ret;
-  // }.property(),
 });

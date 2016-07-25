@@ -19,7 +19,7 @@ export default function startApp(attrs) {
   authenticateSession(application, {});
 
   // ember-cli-mirage will log queries
-  server.logging = true;
+  server.logging = false;
 
   return application;
 }

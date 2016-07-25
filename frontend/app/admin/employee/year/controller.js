@@ -1,13 +1,8 @@
 import Ember from 'ember';
+import _ from 'lodash/lodash';
 
 export default Ember.Controller.extend({
   months: Ember.computed(function() {
-    return Array.from(Array(12), (v, k) => k + 1);
+    return _.range(1, 12 + 1);
   })
-
-  // monthNames: function() {
-  //   return this.get('months').map(function(month) {
-  //     return `month.${month }`;
-  //   });
-  // }.property('months.[]')
 });

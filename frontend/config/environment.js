@@ -61,9 +61,9 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
 
-    ENV.PRETENDER_DEBUG = true;
-    ENV.PRETENDER_TRACE = true;
-    ENV.PRETENDER_ERROR = true;
+    // ENV.PRETENDER_DEBUG = false;
+    // ENV.PRETENDER_TRACE = false;
+    // ENV.PRETENDER_ERROR = false;
   }
 
   if (environment === 'production') {
