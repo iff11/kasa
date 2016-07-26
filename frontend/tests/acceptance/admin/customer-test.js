@@ -1,13 +1,16 @@
 import { test } from 'qunit';
 import moduleForAcceptance from 'frontend/tests/helpers/module-for-acceptance';
+import moment from 'moment';
 
 moduleForAcceptance('Acceptance | admin/customer');
 
 test('visiting /admin/customer', function(assert) {
-  assert.expect(13);
+  assert.expect(14);
 
   let customers = server.createList('customer', 3);
   let [john, mirek] = customers;
+  let visits = server.createList('visit', 3, {customerId: john.id});
+  let v = visits[0];
   // We want to ensure that date does not skip to "yesterday"
   // Common pikaday problem. But this test is not really doing what it should.
   // It works event without `useUTC=true` 🐼
@@ -23,6 +26,7 @@ test('visiting /admin/customer', function(assert) {
     assert.equal(find('.admin-customer-form-birth .form-control').val(), moment(john.birth).format('DD.MM.YYYY'), 'Birth is ok');
     assert.equal(find('.admin-customer-form-phone .form-control').val(), john.phone, 'Phone is ok');
     assert.equal(find('.admin-customer-form-mail .form-control').val(), john.mail, 'Mail is ok');
+    assert.equal(find('.list-group-item:nth-of-type(1) .admin-customer-visits-updated-at').text(), moment(v.updatedAt).format('DD.MM.'), 'First line has correct date');
   });
 
   fillIn('.admin-customer-form-note .form-control', mirek.note);

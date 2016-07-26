@@ -14,6 +14,6 @@ export default Ember.Route.extend({
           include: 'customer'
         };
 
-    return this.store.find('visit', query);
+    return this.store.query('visit', query);
   }
 });

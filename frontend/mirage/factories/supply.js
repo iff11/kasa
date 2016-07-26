@@ -4,7 +4,7 @@ export default Factory.extend({
   purchasePrice(i) {
     return i * 10;
   },
-  purchasePriceWithVat(i) {
+  purchasePriceWithVat() {
     return this.purchasePrice * (1 + this.vat/100);
   },
   quantity() {

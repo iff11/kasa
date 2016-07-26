@@ -2,6 +2,9 @@
 
 module.exports = function(environment) {
   var ENV = {
+    moment: {
+      outputFormat: 'L'
+    },
     flashMessageDefaults: {
       timeout      : 1000,
       priority     : 100,
@@ -27,9 +30,9 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
-    // i18n: {
-    //   defaultLocale: 'cs'
-    // },
+    i18n: {
+      defaultLocale: 'cs'
+    },
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
@@ -61,9 +64,9 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
 
-    ENV.PRETENDER_DEBUG = true;
-    ENV.PRETENDER_TRACE = true;
-    ENV.PRETENDER_ERROR = true;
+    // ENV.PRETENDER_DEBUG = false;
+    // ENV.PRETENDER_TRACE = false;
+    // ENV.PRETENDER_ERROR = false;
   }
 
   if (environment === 'production') {

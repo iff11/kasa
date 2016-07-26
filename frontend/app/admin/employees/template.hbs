@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    {{#each employee in attrs.employees}}
+    {{#each attrs.employees as |employee|}}
       <tr>
         <td>{{employee.firstName}}</td>
         <td>{{employee.lastName}}</td>

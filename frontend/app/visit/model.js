@@ -7,7 +7,6 @@ export default DS.Model.extend({
   price: DS.attr('number', { defaultValue: 0 }),
   updatedAt: DS.attr(),
   completed: DS.attr(),
-  date: DS.attr(),
   note: DS.attr(),
   employeeShareSale: DS.attr('number', { defaultValue: 0 }),
   employeeShareService: DS.attr('number', { defaultValue: 0 }),

@@ -6,7 +6,9 @@
       {{fa-icon icon="comment"}}
     {{/if}}
 
-    {{date-and-time visit.updatedAt ENV.locale}}
+    <span class="customer-visit-heading-updated-at">
+      {{~ moment-format visit.updatedAt "LLLL" ~}}
+    </span>
 
     <span class="customer-visit-heading-price">
       {{~format-money visit.price symbol=(t 'currency') format="%v %s"~}}

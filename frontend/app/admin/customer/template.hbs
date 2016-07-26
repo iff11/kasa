@@ -58,7 +58,11 @@
             {{x-visit/completed visit=visit}}
 
             {{#link-to 'admin.visit' visit}}
-              {{month-and-day visit.updatedAt}}
+              <span class="admin-customer-visits-updated-at">
+                {{~# if visit.updatedAt~}}
+                  {{~ moment-format visit.updatedAt "DD.MM." ~}}
+                {{~/if~}}
+              </span>
               -
               {{format-money visit.total_price symbol=(t 'currency') format="%v %s"}}
             {{/link-to}}

@@ -1,4 +1,4 @@
-<table class="table table-hover">
+<table class="admin-employee-visits table table-hover">
   <thead>
     <tr>
       <th>{{t 'visit.updatedAt'}}</th>
@@ -18,23 +18,19 @@
     {{#each model as |visit|}}
       <tr>
         <td>
-          {{#link-to 'admin.visit' visit.id}}
-            {{x-visit/completed visit=visit}}
-            {{date-and-time visit.updatedAt 'cs'}}
-          {{/link-to}}
+          {{~#link-to 'admin.visit' visit.id~}}
+            {{~ x-visit/completed visit=visit ~}}
+            {{~ moment-format visit.updatedAt 'LLL' ~}}
+          {{~/link-to~}}
         </td>
         <td>
-          {{#link-to 'admin.customer' visit.customer}}
-            {{visit.customer.fullName}}
-          {{/link-to}}
+          {{~#link-to 'admin.customer' visit.customer~}}
+            {{~ visit.customer.fullName ~}}
+          {{~/link-to~}}
         </td>
         <td class="text-right">{{format-money visit.total_price symbol=(t 'currency') format="%v %s"}}</td>
         <td class="text-right">
-          {{format-money visit.employeeShareSale symbol=(t 'currency') format="%v %s"}}
-          +
-          {{format-money visit.employeeShareService symbol=(t 'currency') format="%v %s"}}
-          =
-          {{format-money visit.employee_share symbol=(t 'currency') format="%v %s"}}
+          {{~format-money visit.employeeShareSale symbol=(t 'currency') format="%v %s"}} + {{format-money visit.employeeShareService symbol=(t 'currency') format="%v %s"}} = {{format-money visit.employee_share symbol=(t 'currency') format="%v %s"~}}
         </td>
       </tr>
     {{/each}}

@@ -22,7 +22,7 @@ export default Factory.extend({
   visitsCount() {
     return faker.random.number(100);
   },
-  lastVisitDate(i) {
+  lastVisitDate() {
     return faker.date.recent(365);
     // return moment().subtract(7 * i, 'days');
   },

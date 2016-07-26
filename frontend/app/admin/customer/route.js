@@ -24,7 +24,7 @@ export default Ember.Route.extend({
     },
 
     rollbackCustomer(customer) {
-      customer.rollback();
+      customer.rollbackAttributes();
       this.transitionTo('admin.customers');
     },
 
