@@ -32,7 +32,7 @@
       <th class="admin-customers-col-last-visit">{{th-sort action="sortBy" title=(t 'customer.lastVisitDate') current=sortBy value='lastVisitDate'}}</th>
       <th class="admin-customers-col-first-name">{{th-sort action="sortBy" title=(t 'customer.firstName') current=sortBy value='firstName'}}</th>
       <th class="admin-customers-col-last-name">{{th-sort action="sortBy" title=(t 'customer.lastName') current=sortBy value='lastName'}}</th>
-      <th class="admin-customers-col-birth">{{th-sort action="sortBy" title=(t 'customer.birth') current=sortBy value='birth'}}</th>
+      <th class="admin-customers-col-birth">{{th-sort action="sortBy" title=(t 'customer.birthdayIn') current=sortBy value='daysTillNextBirthday'}}</th>
       <th class="admin-customers-col-phone">{{th-sort action="sortBy" title=(t 'customer.phone') current=sortBy value='phone'}}</th>
       <th class="admin-customers-col-mail">{{th-sort action="sortBy" title=(t 'customer.mail') current=sortBy value='mail'}}</th>
       <th class="admin-customers-col-note">{{th-sort action="sortBy" title=(t 'customer.note') current=sortBy value='note'}}</th>
@@ -48,9 +48,7 @@
         <td>{{customer.firstName}}</td>
         <td>{{customer.lastName}}</td>
         <td>
-          {{~#if customer.birth}}
-            {{~ moment-format customer.birth ~}}
-          {{~/if~}}
+          {{~x-customer/birthday customer=customer~}}
         </td>
         <td>{{customer.phone}}</td>
         <td>{{customer.mail}}</td>
