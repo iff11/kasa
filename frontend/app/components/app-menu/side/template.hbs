@@ -32,7 +32,7 @@
             <li>
               {{#link-to 'visit.show' visit}}
                 {{visit.customer.fullName}}
-                <img class="employee-avatar-in-sidebar" {{bind-attr src="visit.employee.photoUrl"}} />
+                <img class="employee-avatar-in-sidebar" src={{visit.employee.photoUrl}} />
               {{/link-to}}
             </li>
           {{/each}}

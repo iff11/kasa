@@ -1,5 +1,5 @@
 {{~#if customer.lastVisitDate~}}
-  <span {{bind-attr title=customer.lastVisitDate class=":label class"}}>
+  <span title={{customer.lastVisitDate}} class="label {{class}}">
     {{~human~}}
   </span>
 {{~else~}}
