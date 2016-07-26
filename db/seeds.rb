@@ -17,9 +17,9 @@ customers = Customer.create(
 
 employees = Employee.create(
   [
-    { first_name: 'Junior', last_name: 'Stylist', photo_url: 'http://api.adorable.io/avatars/64/a' },
-    { first_name: 'Senior', last_name: 'Stylist', photo_url: 'http://api.adorable.io/avatars/64/b' },
-    { first_name: 'Top', last_name: 'Stylist', photo_url: 'http://api.adorable.io/avatars/64/c' },
+    { first_name: 'Junior', last_name: 'Stylist', photo_url: 'http://www.placecage.com/100/100' },
+    { first_name: 'Senior', last_name: 'Stylist', photo_url: 'http://www.placecage.com/101/101' },
+    { first_name: 'Top', last_name: 'Stylist', photo_url: 'http://www.placecage.com/102/102' },
   ]
 )
 

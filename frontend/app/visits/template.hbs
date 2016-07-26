@@ -10,7 +10,7 @@
           {{/link-to}}
         </div>
         <div class="visits-item-body">
-          <img class="employee-avatar-in-visits" {{bind-attr src="visit.employee.photoUrl"}} />
+          <img class="employee-avatar-in-visits" src={{visit.employee.photoUrl}} />
           <em>
             {{format-money visit.total_price symbol=(t 'currency') format="%v %s"}}
           </em>
@@ -37,7 +37,7 @@
         </div>
 
         {{#if heap.employee}}
-          <img {{bind-attr src=heap.employee.photoUrl}} class="employee-avatar-in-visits" />
+          <img src={{heap.employee.photoUrl}} class="employee-avatar-in-visits" />
         {{/if}}
 
         <div class="form-group">
