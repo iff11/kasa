@@ -15,7 +15,7 @@ module('Acceptance | admin | customers', {
 
 test('Basic layout', function(assert) {
   server.createList('item', 34);
-  let customers = server.createList('customer', 3).sortBy('visitsCount').reverse();
+  let customers = server.createList('customer', 3).sortBy('daysTillNextBirthday');
   assert.expect(10);
 
   visit('/admin/customers');
@@ -31,7 +31,7 @@ test('Basic layout', function(assert) {
       moment(c.lastVisitDate).fromNow(),
       c.firstName,
       c.lastName,
-      moment(c.birth).format('L'),
+      moment(c.nextBirthday).fromNow(),
       c.phone,
       c.mail,
       c.note
@@ -53,8 +53,8 @@ test('Table sorting', function(assert) {
   visit('/admin/customers');
 
   andThen(function() {
-    customersSorted = customers.sortBy('visitsCount').reverse();
-    assert.equal(find('.admin-customers tbody tr:nth-of-type(1) td:nth-of-type(1)').text(), customersSorted[0].visitsCount, 'Default sorting is by visits count desc');
+    customersSorted = customers.sortBy('nextBirthday');
+    assert.equal(find('.admin-customers tbody tr:nth-of-type(1) td:nth-of-type(1)').text(), customersSorted[0].visitsCount, 'Default sorting is by next birthday');
   });
 
   click('th.admin-customers-col-last-visit .th-sort');
@@ -79,7 +79,7 @@ test('Table sorting', function(assert) {
   click('th.admin-customers-col-birth .th-sort');
   andThen(function() {
     customersSorted = customers.sortBy('birth');
-    let expected = moment(customersSorted[0].birth).format('L');
+    let expected = moment(customersSorted[0].nextBirthday).fromNow();
     assert.equal(find('.admin-customers tbody tr:nth-of-type(1) td:nth-of-type(5)').text(), expected, 'Sorting by birth');
   });
 

@@ -24,7 +24,7 @@ export default {
     'fullName': 'Jméno',
     birth: 'Datum narození',
     note: 'Poznámka',
-    'birthday_in': 'Narozeniny',
+    birthdayIn: 'Narozeniny',
     phone: 'Telefon',
     mail: 'E-mail',
     action: 'Akce',
