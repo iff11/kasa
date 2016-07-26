@@ -15,7 +15,7 @@ module('Acceptance | application', {
   }
 });
 test('Application layout for administrator', function(assert) {
-  assert.expect(2);
+  assert.expect(3);
 
   authenticateSession(this.application, { isAdmin: true });
 
@@ -24,6 +24,7 @@ test('Application layout for administrator', function(assert) {
   andThen(function() {
     assert.equal(currentRouteName(), 'visits.index', 'Index for employee redirects to last visits');
     assert.equal(find('.heading-admin').length, 1, 'Admin sidebar header is rendered');
+    assert.equal(find('.menu-top-logout').length, 1, 'Logout button exists');
   });
 });
 
