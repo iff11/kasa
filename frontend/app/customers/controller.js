@@ -6,9 +6,9 @@ export default Ember.Controller.extend({
 
   queryParams: ['page', 'perPage'],
 
-  filterBy: ['firstName', 'lastName', 'note'],
+  filterBy: ['firstName', 'lastName', 'note', 'phone'],
 
-  sortBy: ['daysTillNextBirthday'],
+  sortBy: ['lastName'],
   sortedCustomers: Ember.computed.sort('filteredCustomers', 'sortBy'),
 
   page: 1,
