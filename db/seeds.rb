@@ -2,7 +2,7 @@
 
 customers = Customer.create(
   [
-    { first_name: 'Michal', last_name: 'Bryxí', note: 'Me, me and only me', birth: (Date.today - 30.years).to_s },
+    { first_name: 'Michal', last_name: 'Bryxí', phone: '00420720160425', note: 'Me, me and only me', birth: (Date.today - 30.years).to_s },
     { first_name: 'John', last_name: 'Doe', note: 'Male', birth: (Date.today - 23.years - 30.days).to_s },
     { first_name: 'Jane', last_name: 'Doe', note: 'Female', birth: (Date.today - 22.years + 30.days).to_s },
     { first_name: 'No', last_name: 'BirthDay', note: 'No birth date #1', birth: '' },
