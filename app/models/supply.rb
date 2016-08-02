@@ -3,11 +3,12 @@ class Supply < ActiveRecord::Base
 
   belongs_to :item
 
-  after_save :fix_bought
-  after_destroy :fix_bought
-  after_restore :fix_bought
-
-  def fix_bought
-    self.item.fix_bought
+  trigger.after(:insert, :update, :delete).name('fix_items_bought') do
+    <<-SQL
+      UPDATE items SET bought = (
+        SELECT SUM(quantity) FROM supplies WHERE supplies.deleted_at IS NULL AND supplies.item_id = NEW.item_id
+      ) WHERE items.id = NEW.item_id;
+    SQL
   end
+
 end

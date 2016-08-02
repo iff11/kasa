@@ -4,13 +4,12 @@ class Sell < ActiveRecord::Base
   belongs_to :item
   belongs_to :visit
 
-  after_save :fix_sold
-  after_destroy :fix_sold
-  after_restore :fix_sold
-
-  # TODO: get previous data and fix those too
-  def fix_sold
-    self.item.fix_sold
+  trigger.after(:insert, :update, :delete).name('fix_items_sold') do
+    <<-SQL
+      UPDATE items SET sold = (
+        SELECT SUM(count) FROM sells WHERE sells.deleted_at IS NULL AND sells.item_id = NEW.item_id
+      ) WHERE items.id = NEW.item_id;
+    SQL
   end
 
   trigger.after(:insert, :update, :delete).name('fix_sells_price') do
