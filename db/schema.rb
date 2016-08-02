@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160713064756) do
+ActiveRecord::Schema.define(version: 20160802212347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -162,6 +162,28 @@ ActiveRecord::Schema.define(version: 20160713064756) do
       UPDATE visits SET employee_share_service = (
         SELECT COALESCE(SUM(sells.price * sells.count), 0) FROM sells LEFT JOIN items ON items.id = sells.item_id WHERE sells.visit_id = NEW.visit_id AND sells.deleted_at IS NULL AND items.is_service = true) * 0.1
         WHERE visits.id = NEW.visit_id;
+    SQL_ACTIONS
+  end
+
+  create_trigger("fix_items_sold", :generated => true, :compatibility => 1).
+      on("sells").
+      after(:insert, :update, :delete).
+      name("fix_items_sold") do
+    <<-SQL_ACTIONS
+      UPDATE items SET sold = (
+        SELECT SUM(count) FROM sells WHERE sells.deleted_at IS NULL AND sells.item_id = NEW.item_id
+      ) WHERE items.id = NEW.item_id;
+    SQL_ACTIONS
+  end
+
+  create_trigger("fix_items_bought", :generated => true, :compatibility => 1).
+      on("supplies").
+      after(:insert, :update, :delete).
+      name("fix_items_bought") do
+    <<-SQL_ACTIONS
+      UPDATE items SET bought = (
+        SELECT SUM(quantity) FROM supplies WHERE supplies.deleted_at IS NULL AND supplies.item_id = NEW.item_id
+      ) WHERE items.id = NEW.item_id;
     SQL_ACTIONS
   end
 
