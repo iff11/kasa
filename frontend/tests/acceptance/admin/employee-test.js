@@ -5,7 +5,7 @@ import moment from 'moment';
 moduleForAcceptance('Acceptance | admin/employee');
 
 test('visiting /admin/employee', function(assert) {
-  assert.expect(5);
+  assert.expect(10);
 
   let employees = server.createList('employee', 3);
   let customer = server.create('customer');
@@ -20,18 +20,17 @@ test('visiting /admin/employee', function(assert) {
   andThen(function() {
     // TODO: filtering does not work here
     assert.equal(find('h2').text(), `${john.firstName} ${john.lastName}`, 'Filtered correct employee');
-    let $row = find('.admin-employee-visits tbody tr:nth-of-type(1)');
-    let [v] = visits;
+    let $rows = find('.admin-employee-visits tbody tr');
 
-    let expectedColumns = [
-      moment(v.updatedAt).format('LLL'),
-      `${customer.firstName} ${customer.lastName}`,
-      '0.00 Kč',
-      '0.00 Kč + 0.00 Kč = 0.00 Kč'
-    ];
+    visits.forEach(function(visit, i) {
+      let $row = $rows.eq(i);
+      let $columns = find('td', $row);
 
-    expectedColumns.forEach(function(column, i) {
-      assert.equal(find(`td:nth-of-type(${i + 1})`, $row).text(), column, `Column #${i} is correct`);
+      assert.equal($columns.eq(0).text(), moment(visit.updatedAt).format('LLL'), `Row #${i} date is correct`);
+      assert.equal($columns.eq(1).text(), `${visit.customer.firstName} ${visit.customer.lastName}`, `Row #${i} customer name is correct`);
+      // TODO: Enable this after we get rid of visit.total_price
+      // assert.equal($columns.eq(2).text(), `${visit.price}.00 Kč`, `Row #${i} price is correct`);
+      assert.equal($columns.eq(3).text(), `${visit.employeeShareSale}.00 Kč + ${visit.employeeShareService}.00 Kč = ${visit.employeeShareSale + visit.employeeShareService}.00 Kč`, `Row #${i} employee share is correct`);
     });
   });
 });

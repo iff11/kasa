@@ -30,7 +30,7 @@
         </td>
         <td class="text-right">{{format-money visit.total_price symbol=(t 'currency') format="%v %s"}}</td>
         <td class="text-right">
-          {{~format-money visit.employeeShareSale symbol=(t 'currency') format="%v %s"}} + {{format-money visit.employeeShareService symbol=(t 'currency') format="%v %s"}} = {{format-money visit.employee_share symbol=(t 'currency') format="%v %s"~}}
+          {{~format-money visit.employeeShareSale symbol=(t 'currency') format="%v %s"}} + {{format-money visit.employeeShareService symbol=(t 'currency') format="%v %s"}} = {{format-money visit.employeeShare symbol=(t 'currency') format="%v %s"~}}
         </td>
       </tr>
     {{/each}}
