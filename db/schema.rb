@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802212347) do
+ActiveRecord::Schema.define(version: 20160806150047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -171,7 +171,7 @@ ActiveRecord::Schema.define(version: 20160802212347) do
       name("fix_items_sold") do
     <<-SQL_ACTIONS
       UPDATE items SET sold = (
-        SELECT SUM(count) FROM sells WHERE sells.deleted_at IS NULL AND sells.item_id = NEW.item_id
+        SELECT COALESCE(SUM(count), 0) FROM sells WHERE sells.deleted_at IS NULL AND sells.item_id = NEW.item_id
       ) WHERE items.id = NEW.item_id;
     SQL_ACTIONS
   end
@@ -182,7 +182,7 @@ ActiveRecord::Schema.define(version: 20160802212347) do
       name("fix_items_bought") do
     <<-SQL_ACTIONS
       UPDATE items SET bought = (
-        SELECT SUM(quantity) FROM supplies WHERE supplies.deleted_at IS NULL AND supplies.item_id = NEW.item_id
+        SELECT COALESCE(SUM(quantity), 0) FROM supplies WHERE supplies.deleted_at IS NULL AND supplies.item_id = NEW.item_id
       ) WHERE items.id = NEW.item_id;
     SQL_ACTIONS
   end

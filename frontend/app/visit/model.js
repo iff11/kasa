@@ -18,15 +18,8 @@ export default DS.Model.extend({
   employee: DS.belongsTo('employee', { async: true }),
   sells: DS.hasMany('sell', { async: true }),
 
-  // TODO: Get rid of this garbage
-  'total_price': Ember.computed('sells.[]', 'sells.@each.sum', function() {
-    return this.get('sells').reduce(function(previousvalue, sell) {
-        return previousvalue + sell.get('sum');
-      }, 0);
-  }),
-
-  tip: Ember.computed('price_with_tip', 'total_price', function() {
-    return this.get('price_with_tip') - this.get('total_price');
+  tip: Ember.computed('price_with_tip', 'price', function() {
+    return this.get('price_with_tip') - this.get('price');
   }),
 
   ratio: 0.1,
