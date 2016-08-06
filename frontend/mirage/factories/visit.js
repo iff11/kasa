@@ -5,13 +5,13 @@ export default Factory.extend({
   receivedAmount(i) { return i; },
   price(i) {
     // TODO: This should be sum of all sells
-    return i * 100;
+    return (i + 1) + ((i+2) * 2 - 1);
   },
   note() {
     return faker.lorem.sentence();
   },
-  employeeShareSale(i) { return i; },
-  employeeShareService(i) { return i; },
+  employeeShareSale(i) { return i + 1; },
+  employeeShareService(i) { return (i + 2) * 2 - 1; },
   completed() {
     return faker.random.boolean();
   },
