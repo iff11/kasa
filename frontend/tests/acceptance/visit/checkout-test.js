@@ -18,8 +18,8 @@ test('Basic functionality of /visit/:id/checkout', function(assert) {
 
   let mockItems = server.createList('item', 10);
   let mockCustomer = server.create('customer');
-  let priceWithTip = 10000;
-  let receivedAmount = 20000;
+  let priceWithTip = 500;
+  let receivedAmount = 1000;
 
   let mockVisit = server.create('visit', { customerId: mockCustomer.id, completed: false });
   let sell1 = server.create('sell', { visitId: mockVisit.id, itemId: mockItems[0].id });
