@@ -13,7 +13,7 @@ export default Ember.Component.extend({
       }, 0);
   }),
 
-  sum: Ember.computed('visits.@each.total_price', function() {
+  sum: Ember.computed('visits.@each.employeeShare', function() {
     return this.getWithDefault('visits', []).reduce(function(previousValue, visit) {
         return previousValue + visit.get('employeeShare');
       }, 0);

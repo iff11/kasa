@@ -13,6 +13,7 @@ test('visiting /customer', function(assert) {
   let mockSell = server.create('sell', { visitId: mockClosedVisits[0].id, itemId: mockItems[0].id });
   server.create('sell', { visitId: mockClosedVisits[0].id, itemId: mockItems[1].id });
   server.create('sell', { visitId: mockClosedVisits[0].id, itemId: mockItems[2].id });
+  mockClosedVisits = server.db.visits.where({customerId: mockCustomer.id})
 
   visit(`/customer/${mockCustomer.id}`);
 
@@ -21,9 +22,9 @@ test('visiting /customer', function(assert) {
     assert.equal(find('.customer-visit').length, 3, 'Past visits list of visits is rendered');
     assert.equal(find('.customer-visit:nth-of-type(1) .customer-visit-heading').length, 1, 'First past visit has heading');
     assert.equal(find('.customer-visit:nth-of-type(1) .customer-visit-heading-updated-at').text(), moment(mockClosedVisits[0].updatedAt).format('LLLL'), 'List of last visits has correct date');
-    assert.equal(find('.customer-visit:nth-child(1) .customer-visit-heading-price').text(), `${mockClosedVisits[0].price}.00 Kč`, 'First visit price');
-    assert.equal(find('.customer-visit:nth-child(2) .customer-visit-heading-price').text(), `${mockClosedVisits[1].price}.00 Kč`, 'Second visit price');
-    assert.equal(find('.customer-visit:nth-child(3) .customer-visit-heading-price').text(), `${mockClosedVisits[2].price}.00 Kč`, 'Third visit price');
+    assert.equal(find('.customer-visit:nth-child(1) .customer-visit-heading-price').text(), `${mockClosedVisits[0].price}.00 Kč`, 'First visit - price');
+    assert.equal(find('.customer-visit:nth-child(2) .customer-visit-heading-price').text(), `${mockClosedVisits[1].price}.00 Kč`, 'Second visit - price');
+    assert.equal(find('.customer-visit:nth-child(3) .customer-visit-heading-price').text(), `${mockClosedVisits[2].price}.00 Kč`, 'Third visit - price');
   });
 
   click('.customer-visit:nth-child(1) a');

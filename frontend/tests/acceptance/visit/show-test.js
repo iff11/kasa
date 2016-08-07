@@ -13,14 +13,15 @@ module('Acceptance | visit/show', {
 });
 
 test('Basic layout of /visit/:id/show', function(assert) {
-  assert.expect(20);
+  assert.expect(19);
 
   let mockItems = server.createList('item', 10);
   let mockCustomer = server.create('customer');
-  let mockClosedVisits = server.createList('visit', 3, { customerId: mockCustomer.id, completed: true });
+  let mockClosedVisits = server.createList('visit', 3, { customerId: mockCustomer.id, completed: true }); //.sortBy('updatedAt');
   let mockSell = server.create('sell', { visitId: mockClosedVisits[0].id, itemId: mockItems[0].id });
   server.create('sell', { visitId: mockClosedVisits[0].id, itemId: mockItems[1].id });
   server.create('sell', { visitId: mockClosedVisits[0].id, itemId: mockItems[2].id });
+  mockClosedVisits = server.db.visits.where({completed: true });//.sortBy('updatedAt');
 
   let mockVisit = server.create('visit', { customerId: mockCustomer.id, completed: false });
   server.create('sell', { visitId: mockVisit.id, itemId: mockItems[0].id });
@@ -51,7 +52,6 @@ test('Basic layout of /visit/:id/show', function(assert) {
 
   andThen(function() {
     assert.equal(find('.customer-visit:nth-child(1) .customer-visit-note').text(), mockClosedVisits[0].note, 'First visit note');
-    assert.equal(find('.customer-visit:nth-child(1) .customer-visit-sell').length, 3, 'First visit number of sells');
     assert.equal(find('.customer-visit:nth-child(1) .customer-visit-sell').length, 3, 'First visit number of sells');
     assert.equal(find('.customer-visit:nth-child(1) .customer-visit-sell:nth-child(1) .customer-visit-sell-item-name').text(), mockItems[0].name, 'First visit, first sell item name');
     assert.equal(find('.customer-visit:nth-child(1) .customer-visit-sell:nth-child(1) .customer-visit-sell-count').text(), mockSell.count, 'First visit, first sell count');

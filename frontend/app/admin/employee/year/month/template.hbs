@@ -3,7 +3,7 @@
     <tr>
       <th>{{t 'visit.updatedAt'}}</th>
       <th>{{t 'visit.customer'}}</th>
-      <th class="text-right">{{t 'visit.total_price'}}</th>
+      <th class="text-right">{{t 'visit.price'}}</th>
       <th class="text-right">
         {{fa-icon icon="gift"}}
         +
@@ -28,7 +28,7 @@
             {{~ visit.customer.fullName ~}}
           {{~/link-to~}}
         </td>
-        <td class="text-right">{{format-money visit.total_price symbol=(t 'currency') format="%v %s"}}</td>
+        <td class="text-right">{{format-money visit.price symbol=(t 'currency') format="%v %s"}}</td>
         <td class="text-right">
           {{~format-money visit.employeeShareSale symbol=(t 'currency') format="%v %s"}} + {{format-money visit.employeeShareService symbol=(t 'currency') format="%v %s"}} = {{format-money visit.employeeShare symbol=(t 'currency') format="%v %s"~}}
         </td>

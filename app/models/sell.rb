@@ -7,7 +7,7 @@ class Sell < ActiveRecord::Base
   trigger.after(:insert, :update, :delete).name('fix_items_sold') do
     <<-SQL
       UPDATE items SET sold = (
-        SELECT SUM(count) FROM sells WHERE sells.deleted_at IS NULL AND sells.item_id = NEW.item_id
+        SELECT COALESCE(SUM(count), 0) FROM sells WHERE sells.deleted_at IS NULL AND sells.item_id = NEW.item_id
       ) WHERE items.id = NEW.item_id;
     SQL
   end
