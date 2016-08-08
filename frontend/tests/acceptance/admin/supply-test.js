@@ -43,3 +43,16 @@ test('visiting /admin/supply', function(assert) {
     assert.equal(find('.admin-supply-margin input').val(), margin, 'Margin is calculated correctly');
   });
 });
+
+test('on having inactive items', function(assert) {
+  assert.expect(1);
+  server.create('item', { isActive: true });
+  server.create('item', { isActive: false });
+
+  visit('/admin/supply');
+
+  andThen(function () {
+    let $options = find('.selectize-dropdown-content .option');
+    assert.equal($options.length, 1, 'Not displaying inactive items in dropdown');
+  });
+});

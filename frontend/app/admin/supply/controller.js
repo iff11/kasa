@@ -20,6 +20,10 @@ export default Ember.Controller.extend({
     // item.set('sellingPrice', item.get('sellingPrice'));
   }),
 
+  activeItems: Ember.computed('attrs.items', function() {
+    return this.get('attrs.items').filterBy('isActive', true);
+  }),
+
   onInitNewSupply: function() {
     this.send('initSupply');
   }.on('init'),

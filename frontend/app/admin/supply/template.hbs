@@ -17,7 +17,7 @@
   <div class="form-group admin-supply-item">
     <label>{{t 'supply.item'}}</label>
     {{ember-selectize
-        content=attrs.items
+        content=activeItems
         optionValuePath="content"
         optionLabelPath="content.scannerString"
         selection=heap.item
