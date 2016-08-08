@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
     });
   }.on('init'),
 
-  items: Ember.computed('attrs.items', function() {
+  activeItems: Ember.computed('attrs.items', function() {
     return this.get('attrs.items').filterBy('isActive', true);
   }),
 
