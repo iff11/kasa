@@ -28,7 +28,7 @@
             {{~ visit.customer.fullName ~}}
           {{~/link-to~}}
         </td>
-        <td class="text-right">{{format-money visit.price symbol=(t 'currency') format="%v %s"}}</td>
+        <td class="text-right">{{~format-money visit.price symbol=(t 'currency') format="%v %s"~}}</td>
         <td class="text-right">
           {{~format-money visit.employeeShareSale symbol=(t 'currency') format="%v %s"}} + {{format-money visit.employeeShareService symbol=(t 'currency') format="%v %s"}} = {{format-money visit.employeeShare symbol=(t 'currency') format="%v %s"~}}
         </td>
@@ -40,10 +40,10 @@
     <tr>
       <td colspan="2"></td>
       <td class="text-right">
-        {{x-visits/sum visits=model}}
+        {{~x-visits/sum visits=model~}}
       </td>
       <td class="text-right">
-        {{x-visits/employee-share visits=model}}
+        {{~x-visits/employee-share visits=model~}}
       </td>
     </tr>
   </tfoot>
