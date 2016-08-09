@@ -19,6 +19,11 @@ export default {
   },
 
   customer: {
+    genders: {
+      male: 'Muž',
+      female: 'Žena'
+    },
+    gender: 'Pohlaví',
     firstName: 'Jméno',
     lastName: 'Příjmení',
     'fullName': 'Jméno',
