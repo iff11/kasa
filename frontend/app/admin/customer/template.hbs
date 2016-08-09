@@ -27,6 +27,18 @@
       {{textarea placeholder=(t 'customer.note') rows="5" value=attrs.customer.note class='form-control'}}
     </div>
 
+    <div class="admin-customer-gender">
+      <label>{{t 'customer.gender'}}</label>
+      {{ember-selectize
+        content=genders
+        optionValuePath="content.value"
+        optionLabelPath="content.label"
+        value=attrs.customer.gender
+        placeholder=(t 'customer.gender') }}
+    </div>
+
+    {{attrs.customer.gender}}
+
     <div class="admin-customer-form-first-name">
       <label>{{t 'customer.firstName'}}</label>
       {{input placeholder=(t 'customer.firstName') value=attrs.customer.firstName class='form-control'}}
