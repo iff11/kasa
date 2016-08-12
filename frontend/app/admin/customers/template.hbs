@@ -25,44 +25,46 @@
     action="customersFiltered"
   }}
 
-<table class="admin-customers">
-  <thead>
-    <tr>
-      <th class="admin-customers-col-gender">{{th-sort action="sortBy" title=(t 'customer.gender') current=sortBy value='gender'}}</th>
-      <th class="admin-customers-col-visits-count">{{th-sort action="sortBy" title=(t 'customer.visits_length') current=sortBy value='visitsCount'}}</th>
-      <th class="admin-customers-col-last-visit">{{th-sort action="sortBy" title=(t 'customer.lastVisitDate') current=sortBy value='lastVisitDate'}}</th>
-      <th class="admin-customers-col-first-name">{{th-sort action="sortBy" title=(t 'customer.firstName') current=sortBy value='firstName'}}</th>
-      <th class="admin-customers-col-last-name">{{th-sort action="sortBy" title=(t 'customer.lastName') current=sortBy value='lastName'}}</th>
-      <th class="admin-customers-col-birth">{{th-sort action="sortBy" title=(t 'customer.birthdayIn') current=sortBy value='daysTillNextBirthday'}}</th>
-      <th class="admin-customers-col-phone">{{th-sort action="sortBy" title=(t 'customer.phone') current=sortBy value='phone'}}</th>
-      <th class="admin-customers-col-mail">{{th-sort action="sortBy" title=(t 'customer.mail') current=sortBy value='mail'}}</th>
-      <th class="admin-customers-col-note">{{th-sort action="sortBy" title=(t 'customer.note') current=sortBy value='note'}}</th>
-      <th class="admin-customers-col-action">{{t 'customer.action'}}</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    {{#each pagedCustomers as |customer|}}
+<div class="table-responsive">
+  <table class="admin-customers">
+    <thead>
       <tr>
-        <td>{{~x-customer/gender-icon gender=customer.gender~}}</td>
-        <td>{{customer.visitsCount}}</td>
-        <td>{{x-visit/last-visit customer=customer}}</td>
-        <td>{{customer.firstName}}</td>
-        <td>{{customer.lastName}}</td>
-        <td>
-          {{~x-customer/birthday customer=customer~}}
-        </td>
-        <td>{{customer.phone}}</td>
-        <td>{{customer.mail}}</td>
-        <td>{{customer.note}}</td>
-        <td class="text-right">
-          {{#link-to 'admin.customer' customer class='btn btn-default btn-xs'}}
-            {{fa-icon icon="pencil"}}
-          {{/link-to}}
-        </td>
+        <th class="admin-customers-col-first-name">{{th-sort action="sortBy" title=(t 'customer.firstName') current=sortBy value='firstName'}}</th>
+        <th class="admin-customers-col-last-name">{{th-sort action="sortBy" title=(t 'customer.lastName') current=sortBy value='lastName'}}</th>
+        <th class="admin-customers-col-phone">{{th-sort action="sortBy" title=(t 'customer.phone') current=sortBy value='phone'}}</th>
+        <th class="admin-customers-col-mail">{{th-sort action="sortBy" title=(t 'customer.mail') current=sortBy value='mail'}}</th>
+        <th class="admin-customers-col-last-visit">{{th-sort action="sortBy" title=(t 'customer.lastVisitDate') current=sortBy value='lastVisitDate'}}</th>
+        <th class="admin-customers-col-visits-count">{{th-sort action="sortBy" title=(t 'customer.visits_length') current=sortBy value='visitsCount'}}</th>
+        <th class="admin-customers-col-gender">{{th-sort action="sortBy" title=(t 'customer.gender') current=sortBy value='gender'}}</th>
+        <th class="admin-customers-col-birth">{{th-sort action="sortBy" title=(t 'customer.birthdayIn') current=sortBy value='daysTillNextBirthday'}}</th>
+        <th class="admin-customers-col-note">{{th-sort action="sortBy" title=(t 'customer.note') current=sortBy value='note'}}</th>
+        <th class="admin-customers-col-action">{{t 'customer.action'}}</th>
       </tr>
-    {{/each}}
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      {{#each pagedCustomers as |customer|}}
+        <tr>
+          <td>{{customer.firstName}}</td>
+          <td>{{customer.lastName}}</td>
+          <td>{{customer.phone}}</td>
+          <td>{{customer.mail}}</td>
+          <td>{{x-visit/last-visit customer=customer}}</td>
+          <td>{{customer.visitsCount}}</td>
+          <td>{{~x-customer/gender-icon gender=customer.gender~}}</td>
+          <td>
+            {{~x-customer/birthday customer=customer~}}
+          </td>
+          <td>{{customer.note}}</td>
+          <td class="text-right">
+            {{#link-to 'admin.customer' customer class='btn btn-default btn-xs'}}
+              {{fa-icon icon="pencil"}}
+            {{/link-to}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
 
 {{page-numbers content=pagedCustomers}}

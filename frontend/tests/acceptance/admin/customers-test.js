@@ -27,14 +27,14 @@ test('Basic layout', function(assert) {
     let $row = find('.admin-customers tbody tr:nth-of-type(1)');
     let [c] = customers;
     let expectedCells = [
-      '',
-      c.visitsCount,
-      moment(c.lastVisitDate).fromNow(),
       c.firstName,
       c.lastName,
-      moment(c.nextBirthday).fromNow(),
       c.phone,
       c.mail,
+      moment(c.lastVisitDate).fromNow(),
+      c.visitsCount,
+      '',
+      moment(c.nextBirthday).fromNow(),
       c.note
     ];
     expectedCells.forEach(function(cell, i) {
@@ -44,7 +44,7 @@ test('Basic layout', function(assert) {
 });
 
 test('Table sorting', function(assert) {
-  assert.expect(8);
+  assert.expect(7);
 
   let customersSorted;
   let customers = server.createList('customer', 3);
@@ -55,45 +55,39 @@ test('Table sorting', function(assert) {
 
   andThen(function() {
     customersSorted = customers.sortBy('nextBirthday');
-    assert.equal(find('.admin-customers tbody tr:nth-of-type(1) td:nth-of-type(2)').text(), customersSorted[0].visitsCount, 'Default sorting is by next birthday');
+    let expect = moment(customersSorted[0].nextBirthday).fromNow();
+    assert.equal(find('.admin-customers tbody tr:nth-of-type(1) td:nth-of-type(8)').text(), expect, 'Default sorting is by next birthday');
   });
 
   click('th.admin-customers-col-last-visit .th-sort');
   andThen(function() {
     customersSorted = customers.sortBy('lastVisitDate');
     let expect = moment().to(customersSorted[0].lastVisitDate);
-    assert.equal(find('.admin-customers tbody tr:nth-of-type(1) td:nth-of-type(3)').text(), expect, 'Sorting by last visit date');
+    assert.equal(find('.admin-customers tbody tr:nth-of-type(1) td:nth-of-type(5)').text(), expect, 'Sorting by last visit date');
   });
 
   click('th.admin-customers-col-first-name .th-sort');
   andThen(function() {
     customersSorted = customers.sortBy('firstName');
-    assert.equal(find('.admin-customers tbody tr:nth-of-type(1) td:nth-of-type(4)').text(), customersSorted[0].firstName, 'Sorting by first name');
+    assert.equal(find('.admin-customers tbody tr:nth-of-type(1) td:nth-of-type(1)').text(), customersSorted[0].firstName, 'Sorting by first name');
   });
 
   click('th.admin-customers-col-last-name .th-sort');
   andThen(function() {
     customersSorted = customers.sortBy('lastName');
-    assert.equal(find('.admin-customers tbody tr:nth-of-type(1) td:nth-of-type(5)').text(), customersSorted[0].lastName, 'Sorting by last name');
-  });
-
-  click('th.admin-customers-col-birth .th-sort');
-  andThen(function() {
-    customersSorted = customers.sortBy('birth');
-    let expected = moment(customersSorted[0].nextBirthday).fromNow();
-    assert.equal(find('.admin-customers tbody tr:nth-of-type(1) td:nth-of-type(6)').text(), expected, 'Sorting by birth');
+    assert.equal(find('.admin-customers tbody tr:nth-of-type(1) td:nth-of-type(2)').text(), customersSorted[0].lastName, 'Sorting by last name');
   });
 
   click('th.admin-customers-col-phone .th-sort');
   andThen(function() {
     customersSorted = customers.sortBy('phone');
-    assert.equal(find('.admin-customers tbody tr:nth-of-type(1) td:nth-of-type(7)').text(), customersSorted[0].phone, 'Sorting by phone');
+    assert.equal(find('.admin-customers tbody tr:nth-of-type(1) td:nth-of-type(3)').text(), customersSorted[0].phone, 'Sorting by phone');
   });
 
   click('th.admin-customers-col-mail .th-sort');
   andThen(function() {
     customersSorted = customers.sortBy('mail');
-    assert.equal(find('.admin-customers tbody tr:nth-of-type(1) td:nth-of-type(8)').text(), customersSorted[0].mail, 'Sorting by mail');
+    assert.equal(find('.admin-customers tbody tr:nth-of-type(1) td:nth-of-type(4)').text(), customersSorted[0].mail, 'Sorting by mail');
   });
 
   click('th.admin-customers-col-note .th-sort');
