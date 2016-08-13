@@ -135,7 +135,8 @@ export default {
     add: 'Přidat',
     'all_employees': 'Všichni zaměstnanci',
     'all_visits': 'Všechny zakázky',
-    isActive: 'Aktivní'
+    isActive: 'Aktivní',
+    currentShare: 'Podíl tento měsíc'
   },
 
   supply: {

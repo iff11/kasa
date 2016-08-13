@@ -14,7 +14,7 @@ export default Ember.Route.extend({
           page: {
             size: 1000
           },
-          include: 'customer,sells'
+          include: 'customer'
         };
 
     return this.store.query('visit', query);

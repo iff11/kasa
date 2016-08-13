@@ -5,18 +5,18 @@
     <tr>
       <th class="col-xs-4">{{t 'employee.firstName'}}</th>
       <th class="col-xs-4">{{t 'employee.lastName'}}</th>
-      <th class="col-xs-3">{{t 'employee.photoUrl'}}</th>
+      <th class="col-xs-3">{{t 'employee.currentShare'}}</th>
       <th class="col-xs-1 text-right">{{t 'employee.action'}}</th>
     </tr>
   </thead>
 
   <tbody>
-    {{#each attrs.employees as |employee|}}
+    {{#each employeesSorted as |employee|}}
       <tr>
         <td>{{employee.firstName}}</td>
         <td>{{employee.lastName}}</td>
         <td>
-          <img src="{{employee.photoUrl}}" class="employee-avatar-xs" />
+          {{~x-employee/share shareSale=employee.currentShareSale shareService=employee.currentShareService~}}
         </td>
         <td class="text-right">
           {{#link-to 'admin.employee' employee class="btn btn-default btn-xs"}}
@@ -29,8 +29,7 @@
     <tr>
       <td>{{input placeholder=(t 'employee.firstName') value=heap.firstName class='form-control'}}</td>
       <td>{{input placeholder=(t 'employee.lastName') value=heap.lastName class='form-control'}}</td>
-      <td>{{input placeholder=(t 'employee.photoUrl') value=heap.photoUrl class='form-control'}}</td>
-      <td class="text-right">
+      <td class="text-right" colspan="2">
         <button class="btn btn-success" {{action 'createEmployee'}}>
           {{fa-icon icon="plus-square"}} {{t "employee.add"}}
         </button>

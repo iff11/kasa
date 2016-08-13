@@ -1,5 +1,16 @@
 # Change Log
 
+## [v3.1.6](https://github.com/MichalBryxi/kasa/tree/v3.1.6) (2016-08-12)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v3.1.5...v3.1.6)
+
+**Fixed bugs:**
+
+- /admin/customers not usable on mobile [\#119](https://github.com/MichalBryxi/kasa/issues/119)
+
+**Merged pull requests:**
+
+- Customer table horizontal scroll [\#120](https://github.com/MichalBryxi/kasa/pull/120) ([MichalBryxi](https://github.com/MichalBryxi))
+
 ## [v3.1.5](https://github.com/MichalBryxi/kasa/tree/v3.1.5) (2016-08-09)
 [Full Changelog](https://github.com/MichalBryxi/kasa/compare/v3.1.4...v3.1.5)
 
@@ -252,126 +263,249 @@
 - Travis integration [\#1](https://github.com/MichalBryxi/kasa/pull/1) ([MichalBryxi](https://github.com/MichalBryxi))
 
 ## [v2.0.2](https://github.com/MichalBryxi/kasa/tree/v2.0.2) (2015-11-15)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v2.0.1...v2.0.2)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/2.0.2...v2.0.2)
+
+## [2.0.2](https://github.com/MichalBryxi/kasa/tree/2.0.2) (2015-11-15)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v2.0.1...2.0.2)
 
 ## [v2.0.1](https://github.com/MichalBryxi/kasa/tree/v2.0.1) (2015-10-12)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v2.0.0...v2.0.1)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/2.0.1...v2.0.1)
+
+## [2.0.1](https://github.com/MichalBryxi/kasa/tree/2.0.1) (2015-10-12)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v2.0.0...2.0.1)
 
 ## [v2.0.0](https://github.com/MichalBryxi/kasa/tree/v2.0.0) (2015-10-11)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.8.1...v2.0.0)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/2.0.0...v2.0.0)
+
+## [2.0.0](https://github.com/MichalBryxi/kasa/tree/2.0.0) (2015-10-11)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.8.1...2.0.0)
 
 ## [v1.8.1](https://github.com/MichalBryxi/kasa/tree/v1.8.1) (2015-08-25)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.8.0...v1.8.1)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.8.1...v1.8.1)
+
+## [1.8.1](https://github.com/MichalBryxi/kasa/tree/1.8.1) (2015-08-25)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.8.0...1.8.1)
 
 ## [v1.8.0](https://github.com/MichalBryxi/kasa/tree/v1.8.0) (2015-08-24)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.7.4...v1.8.0)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.8.0...v1.8.0)
+
+## [1.8.0](https://github.com/MichalBryxi/kasa/tree/1.8.0) (2015-08-24)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.7.4...1.8.0)
 
 ## [v1.7.4](https://github.com/MichalBryxi/kasa/tree/v1.7.4) (2015-06-23)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.7.3...v1.7.4)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.7.4...v1.7.4)
+
+## [1.7.4](https://github.com/MichalBryxi/kasa/tree/1.7.4) (2015-06-23)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.7.3...1.7.4)
 
 ## [v1.7.3](https://github.com/MichalBryxi/kasa/tree/v1.7.3) (2015-06-16)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.7.2...v1.7.3)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.7.3...v1.7.3)
+
+## [1.7.3](https://github.com/MichalBryxi/kasa/tree/1.7.3) (2015-06-16)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.7.2...1.7.3)
 
 ## [v1.7.2](https://github.com/MichalBryxi/kasa/tree/v1.7.2) (2015-06-16)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.7.1...v1.7.2)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.7.2...v1.7.2)
+
+## [1.7.2](https://github.com/MichalBryxi/kasa/tree/1.7.2) (2015-06-16)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.7.1...1.7.2)
+
+## [1.7.1](https://github.com/MichalBryxi/kasa/tree/1.7.1) (2015-06-09)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.7.1...1.7.1)
 
 ## [v1.7.1](https://github.com/MichalBryxi/kasa/tree/v1.7.1) (2015-06-09)
 [Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.7.0...v1.7.1)
 
 ## [v1.7.0](https://github.com/MichalBryxi/kasa/tree/v1.7.0) (2015-06-04)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.6.2...v1.7.0)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.7.0...v1.7.0)
+
+## [1.7.0](https://github.com/MichalBryxi/kasa/tree/1.7.0) (2015-06-04)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.6.2...1.7.0)
+
+## [1.6.2](https://github.com/MichalBryxi/kasa/tree/1.6.2) (2015-05-23)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.6.2...1.6.2)
 
 ## [v1.6.2](https://github.com/MichalBryxi/kasa/tree/v1.6.2) (2015-05-23)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.6.1...v1.6.2)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.6.1...v1.6.2)
+
+## [1.6.1](https://github.com/MichalBryxi/kasa/tree/1.6.1) (2015-05-11)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.6.1...1.6.1)
 
 ## [v1.6.1](https://github.com/MichalBryxi/kasa/tree/v1.6.1) (2015-05-11)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.6.0...v1.6.1)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.6.0...v1.6.1)
+
+## [1.6.0](https://github.com/MichalBryxi/kasa/tree/1.6.0) (2015-05-10)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.6.0...1.6.0)
 
 ## [v1.6.0](https://github.com/MichalBryxi/kasa/tree/v1.6.0) (2015-05-10)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.5.4...v1.6.0)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.5.4...v1.6.0)
+
+## [1.5.4](https://github.com/MichalBryxi/kasa/tree/1.5.4) (2015-04-27)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.5.4...1.5.4)
 
 ## [v1.5.4](https://github.com/MichalBryxi/kasa/tree/v1.5.4) (2015-04-27)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.5.3...v1.5.4)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.5.3...v1.5.4)
+
+## [1.5.3](https://github.com/MichalBryxi/kasa/tree/1.5.3) (2015-04-26)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.5.3...1.5.3)
 
 ## [v1.5.3](https://github.com/MichalBryxi/kasa/tree/v1.5.3) (2015-04-26)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.5.2...v1.5.3)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.5.2...v1.5.3)
+
+## [1.5.2](https://github.com/MichalBryxi/kasa/tree/1.5.2) (2015-04-20)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.5.2...1.5.2)
 
 ## [v1.5.2](https://github.com/MichalBryxi/kasa/tree/v1.5.2) (2015-04-20)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.5.1...v1.5.2)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.5.1...v1.5.2)
+
+## [1.5.1](https://github.com/MichalBryxi/kasa/tree/1.5.1) (2015-04-20)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.5.1...1.5.1)
 
 ## [v1.5.1](https://github.com/MichalBryxi/kasa/tree/v1.5.1) (2015-04-20)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.5.0...v1.5.1)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.5.0...v1.5.1)
+
+## [1.5.0](https://github.com/MichalBryxi/kasa/tree/1.5.0) (2015-04-17)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.5.0...1.5.0)
 
 ## [v1.5.0](https://github.com/MichalBryxi/kasa/tree/v1.5.0) (2015-04-17)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.4.2...v1.5.0)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.4.2...v1.5.0)
+
+## [1.4.2](https://github.com/MichalBryxi/kasa/tree/1.4.2) (2015-04-14)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.4.2...1.4.2)
 
 ## [v1.4.2](https://github.com/MichalBryxi/kasa/tree/v1.4.2) (2015-04-14)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.4.1...v1.4.2)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.4.1...v1.4.2)
+
+## [1.4.1](https://github.com/MichalBryxi/kasa/tree/1.4.1) (2015-04-13)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.4.1...1.4.1)
 
 ## [v1.4.1](https://github.com/MichalBryxi/kasa/tree/v1.4.1) (2015-04-13)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.4.0...v1.4.1)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.4.0...v1.4.1)
+
+## [1.4.0](https://github.com/MichalBryxi/kasa/tree/1.4.0) (2015-04-07)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.4.0...1.4.0)
 
 ## [v1.4.0](https://github.com/MichalBryxi/kasa/tree/v1.4.0) (2015-04-07)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.10...v1.4.0)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.3.10...v1.4.0)
+
+## [1.3.10](https://github.com/MichalBryxi/kasa/tree/1.3.10) (2015-04-01)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.10...1.3.10)
 
 ## [v1.3.10](https://github.com/MichalBryxi/kasa/tree/v1.3.10) (2015-04-01)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.9...v1.3.10)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.3.9...v1.3.10)
+
+## [1.3.9](https://github.com/MichalBryxi/kasa/tree/1.3.9) (2015-04-01)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.9...1.3.9)
 
 ## [v1.3.9](https://github.com/MichalBryxi/kasa/tree/v1.3.9) (2015-04-01)
 [Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.8...v1.3.9)
 
 ## [v1.3.8](https://github.com/MichalBryxi/kasa/tree/v1.3.8) (2015-04-01)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.7...v1.3.8)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.3.8...v1.3.8)
+
+## [1.3.8](https://github.com/MichalBryxi/kasa/tree/1.3.8) (2015-04-01)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.3.7...1.3.8)
+
+## [1.3.7](https://github.com/MichalBryxi/kasa/tree/1.3.7) (2015-03-29)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.7...1.3.7)
 
 ## [v1.3.7](https://github.com/MichalBryxi/kasa/tree/v1.3.7) (2015-03-29)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.6...v1.3.7)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.3.6...v1.3.7)
+
+## [1.3.6](https://github.com/MichalBryxi/kasa/tree/1.3.6) (2015-03-27)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.6...1.3.6)
 
 ## [v1.3.6](https://github.com/MichalBryxi/kasa/tree/v1.3.6) (2015-03-27)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.5...v1.3.6)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.3.5...v1.3.6)
+
+## [1.3.5](https://github.com/MichalBryxi/kasa/tree/1.3.5) (2015-03-26)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.5...1.3.5)
 
 ## [v1.3.5](https://github.com/MichalBryxi/kasa/tree/v1.3.5) (2015-03-26)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.4...v1.3.5)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.3.4...v1.3.5)
+
+## [1.3.4](https://github.com/MichalBryxi/kasa/tree/1.3.4) (2015-03-24)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.4...1.3.4)
 
 ## [v1.3.4](https://github.com/MichalBryxi/kasa/tree/v1.3.4) (2015-03-24)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.3...v1.3.4)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.3.3...v1.3.4)
+
+## [1.3.3](https://github.com/MichalBryxi/kasa/tree/1.3.3) (2015-03-24)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.3...1.3.3)
 
 ## [v1.3.3](https://github.com/MichalBryxi/kasa/tree/v1.3.3) (2015-03-24)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.2...v1.3.3)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.3.2...v1.3.3)
+
+## [1.3.2](https://github.com/MichalBryxi/kasa/tree/1.3.2) (2015-03-24)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.2...1.3.2)
 
 ## [v1.3.2](https://github.com/MichalBryxi/kasa/tree/v1.3.2) (2015-03-24)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.1...v1.3.2)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.3.1...v1.3.2)
+
+## [1.3.1](https://github.com/MichalBryxi/kasa/tree/1.3.1) (2015-03-23)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.1...1.3.1)
 
 ## [v1.3.1](https://github.com/MichalBryxi/kasa/tree/v1.3.1) (2015-03-23)
 [Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.3.0...v1.3.1)
 
 ## [v1.3.0](https://github.com/MichalBryxi/kasa/tree/v1.3.0) (2015-03-21)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.2.4...v1.3.0)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.3.0...v1.3.0)
+
+## [1.3.0](https://github.com/MichalBryxi/kasa/tree/1.3.0) (2015-03-21)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.2.4...1.3.0)
 
 ## [v1.2.4](https://github.com/MichalBryxi/kasa/tree/v1.2.4) (2015-03-19)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.2.3...v1.2.4)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.2.4...v1.2.4)
+
+## [1.2.4](https://github.com/MichalBryxi/kasa/tree/1.2.4) (2015-03-19)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.2.3...1.2.4)
 
 ## [v1.2.3](https://github.com/MichalBryxi/kasa/tree/v1.2.3) (2015-03-19)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.2.2...v1.2.3)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.2.3...v1.2.3)
+
+## [1.2.3](https://github.com/MichalBryxi/kasa/tree/1.2.3) (2015-03-19)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.2.2...1.2.3)
+
+## [1.2.2](https://github.com/MichalBryxi/kasa/tree/1.2.2) (2015-03-19)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.2.2...1.2.2)
 
 ## [v1.2.2](https://github.com/MichalBryxi/kasa/tree/v1.2.2) (2015-03-19)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.2.1...v1.2.2)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.2.1...v1.2.2)
+
+## [1.2.1](https://github.com/MichalBryxi/kasa/tree/1.2.1) (2015-03-18)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.2.1...1.2.1)
 
 ## [v1.2.1](https://github.com/MichalBryxi/kasa/tree/v1.2.1) (2015-03-18)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.2.0...v1.2.1)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.2.0...v1.2.1)
+
+## [1.2.0](https://github.com/MichalBryxi/kasa/tree/1.2.0) (2015-03-18)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.2.0...1.2.0)
 
 ## [v1.2.0](https://github.com/MichalBryxi/kasa/tree/v1.2.0) (2015-03-18)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.1.0...v1.2.0)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.1.0...v1.2.0)
+
+## [1.1.0](https://github.com/MichalBryxi/kasa/tree/1.1.0) (2015-03-15)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.1.0...1.1.0)
 
 ## [v1.1.0](https://github.com/MichalBryxi/kasa/tree/v1.1.0) (2015-03-15)
 [Full Changelog](https://github.com/MichalBryxi/kasa/compare/v1.0.0...v1.1.0)
 
 ## [v1.0.0](https://github.com/MichalBryxi/kasa/tree/v1.0.0) (2015-03-15)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v0.2.0...v1.0.0)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/1.0.0...v1.0.0)
+
+## [1.0.0](https://github.com/MichalBryxi/kasa/tree/1.0.0) (2015-03-15)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v0.2.0...1.0.0)
 
 ## [v0.2.0](https://github.com/MichalBryxi/kasa/tree/v0.2.0) (2015-03-14)
-[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v0.1.0...v0.2.0)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/0.2.0...v0.2.0)
+
+## [0.2.0](https://github.com/MichalBryxi/kasa/tree/0.2.0) (2015-03-14)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/v0.1.0...0.2.0)
 
 ## [v0.1.0](https://github.com/MichalBryxi/kasa/tree/v0.1.0) (2015-03-12)
+[Full Changelog](https://github.com/MichalBryxi/kasa/compare/0.1.0...v0.1.0)
+
+## [0.1.0](https://github.com/MichalBryxi/kasa/tree/0.1.0) (2015-03-12)
 
 
 \* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*

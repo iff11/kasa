@@ -4,6 +4,10 @@ export default Ember.Controller.extend({
   attrs: {},
   heap: {},
 
+  employeesSorted: Ember.computed('attrs.employees.[]', function () {
+    return this.get('attrs.employees').sortBy('isActive');
+  }),
+
   actions: {
     createEmployee() {
       let employee = this.store.createRecord('employee', {
