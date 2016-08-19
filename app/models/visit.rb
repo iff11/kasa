@@ -15,6 +15,13 @@ class Visit < ActiveRecord::Base
     "UPDATE customers SET last_visit_date = NEW.created_at WHERE customers.id = NEW.customer_id;"
   end
 
+  trigger.after(:insert, :update, :delete) do
+    <<-SQL
+      INSERT INTO payslips (employee_id, period, share_sale, share_service) VALUES (NEW.employee_id)
+      ON CONFLICT DO UPDATE;
+    SQL
+  end
+
   # trigger.after(:update).of(:deleted_at).where('NEW.deleted_at IS NOT NULL').name('fix_last_visit') do
   #   <<-SQL
   #     UPDATE users SET last_visit_id = (

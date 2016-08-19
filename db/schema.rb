@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160808211740) do
+ActiveRecord::Schema.define(version: 20160818162104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,17 @@ ActiveRecord::Schema.define(version: 20160808211740) do
   end
 
   add_index "items", ["deleted_at"], name: "index_items_on_deleted_at", using: :btree
+
+  create_table "payslips", force: :cascade do |t|
+    t.integer  "employee_id",                 null: false
+    t.date     "period",                      null: false
+    t.decimal  "share_sale",    default: 0.0
+    t.decimal  "share_service", default: 0.0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "payslips", ["employee_id", "period"], name: "index_payslips_on_employee_id_and_period", unique: true, using: :btree
 
   create_table "sells", force: :cascade do |t|
     t.integer  "item_id"
