@@ -49,7 +49,7 @@
     </div>
     <div class="admin-customer-form-birth">
       <label>{{t 'customer.birth'}}</label>
-      {{pikaday-input placeholder='1984-12-24' value=attrs.customer.birth class="form-control" useUTC=true format="DD.MM.YYYY"}}
+      {{pikaday-input placeholder='1984-12-24' value=attrs.customer.birth class="form-control" useUTC=true format="DD.MM.YYYY" onSelection=(action 'birthdayChanged')}}
     </div>
     <div class="admin-customer-form-phone">
       <label>{{t 'customer.phone'}}</label>

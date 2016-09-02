@@ -9,5 +9,11 @@ export default Ember.Controller.extend({
       { label: this.get('i18n').t('customer.genders.male'), value: 'male' },
       { label: this.get('i18n').t('customer.genders.female'), value: 'female' }
     ];
-  })
+  }),
+
+  actions: {
+    birthdayChanged(newBirthday) {
+      this.set('attrs.customer.birth', newBirthday);
+    }
+  }
 });
