@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818162104) do
+ActiveRecord::Schema.define(version: 20160926192630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,14 +65,21 @@ ActiveRecord::Schema.define(version: 20160818162104) do
 
   create_table "payslips", force: :cascade do |t|
     t.integer  "employee_id",                 null: false
-    t.date     "period",                      null: false
+    t.integer  "period_id",                   null: false
     t.decimal  "share_sale",    default: 0.0
     t.decimal  "share_service", default: 0.0
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end
 
-  add_index "payslips", ["employee_id", "period"], name: "index_payslips_on_employee_id_and_period", unique: true, using: :btree
+  add_index "payslips", ["employee_id", "period_id"], name: "index_payslips_on_employee_id_and_period_id", unique: true, using: :btree
+
+  create_table "periods", force: :cascade do |t|
+    t.date     "start_date",                 null: false
+    t.boolean  "is_active",  default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   create_table "sells", force: :cascade do |t|
     t.integer  "item_id"
@@ -138,6 +145,7 @@ ActiveRecord::Schema.define(version: 20160818162104) do
     t.decimal  "price",                  default: 0.0,   null: false
     t.decimal  "employee_share_sale",    default: 0.0,   null: false
     t.decimal  "employee_share_service", default: 0.0,   null: false
+    t.integer  "payslip_id"
   end
 
   add_index "visits", ["deleted_at"], name: "index_visits_on_deleted_at", using: :btree
@@ -196,6 +204,41 @@ ActiveRecord::Schema.define(version: 20160818162104) do
       UPDATE items SET bought = (
         SELECT COALESCE(SUM(quantity), 0) FROM supplies WHERE supplies.deleted_at IS NULL AND supplies.item_id = NEW.item_id
       ) WHERE items.id = NEW.item_id;
+    SQL_ACTIONS
+  end
+
+  create_trigger("visits_before_insert_row_tr", :generated => true, :compatibility => 1).
+      on("visits").
+      before(:insert) do
+    <<-SQL_ACTIONS
+      INSERT INTO payslips (
+        employee_id,
+        period_id,
+        created_at,
+        updated_at
+      ) VALUES (
+        NEW.employee_id,
+        (SELECT id FROM periods WHERE is_active = true),
+        NOW(),
+        NOW()
+      ) ON CONFLICT DO NOTHING;
+
+      NEW.payslip_id := (SELECT id FROM payslips WHERE
+        employee_id = NEW.employee_id AND
+        period_id = (SELECT id FROM periods WHERE is_active = true)
+      );
+    SQL_ACTIONS
+  end
+
+  create_trigger("visits_after_insert_update_delete_row_tr", :generated => true, :compatibility => 1).
+      on("visits").
+      after(:insert, :update, :delete) do
+    <<-SQL_ACTIONS
+      UPDATE payslips SET
+        share_sale = (SELECT COALESCE(SUM(employee_share_sale)) FROM visits WHERE payslip_id = NEW.payslip_id),
+        share_service = (SELECT COALESCE(SUM(employee_share_service)) FROM visits WHERE payslip_id = NEW.payslip_id)
+      WHERE
+        id = NEW.payslip_id;
     SQL_ACTIONS
   end
 

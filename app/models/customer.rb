@@ -4,5 +4,4 @@ class Customer < ActiveRecord::Base
   enum gender: [ :male, :female ]
 
   has_many :visits
-  has_many :payslips
 end
