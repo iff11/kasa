@@ -16,6 +16,14 @@
         <td>{{employee.firstName}}</td>
         <td>{{employee.lastName}}</td>
         <td>
+          -
+          {{#each employee.payslips as |payslip|}}
+            {{payslip.period.id}}
+            {{!-- {{#if payslip.period.isActive}}
+              {{payslip.id}} - {{payslip.shareSale}}
+            {{/if}} --}}
+          {{/each}}
+          -
           {{~x-employee/share shareSale=employee.currentShareSale shareService=employee.currentShareService~}}
         </td>
         <td class="text-right">

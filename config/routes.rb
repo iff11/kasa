@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       jsonapi_resources :supplies
       jsonapi_resources :visits
       jsonapi_resources :statuses
+      jsonapi_resources :payslips
+      jsonapi_resources :periods
     end
   end
 

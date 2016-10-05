@@ -2,6 +2,7 @@ class Employee < ActiveRecord::Base
   acts_as_paranoid
 
   has_many :visits
+  has_many :payslips
 
   def current_share_sale
     month = Date.today.month

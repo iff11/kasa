@@ -6,10 +6,9 @@ export default DS.Model.extend({
   lastName: DS.attr('string'),
   photoUrl: DS.attr('string'),
   isActive: DS.attr('boolean'),
-  currentShareSale: DS.attr('number'),
-  currentShareService: DS.attr('number'),
 
   visits: DS.hasMany('visit', { async: true }),
+  payslips: DS.hasMany('payslip', { async: true}),
 
   fullName: Ember.computed('firstName', 'lastName', function() {
     let firstName = this.get('firstName');
