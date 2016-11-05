@@ -18,6 +18,7 @@ class Visit < ActiveRecord::Base
 
   # If there is new period, create new payslip for our employee
   # Autofill current payslip_id to current visit
+  # Set current_payslip on employee to that new payslip
   trigger.before(:insert) do
     <<-SQL
       INSERT INTO payslips (
@@ -36,6 +37,8 @@ class Visit < ActiveRecord::Base
         employee_id = NEW.employee_id AND
         period_id = (SELECT id FROM periods WHERE is_active = true)
       );
+
+      UDPATE employees SET current_payslip = NEW.payslip_id WHERE employees.id = NEW.employee_id;
     SQL
   end
 

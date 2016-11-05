@@ -5,6 +5,7 @@ module Api
 
       has_many :visits
       has_many :payslips
+      has_one :current_payslip
 
       filters :is_active
     end
