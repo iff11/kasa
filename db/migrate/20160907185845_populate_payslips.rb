@@ -20,7 +20,7 @@ class PopulatePayslips < ActiveRecord::Migration
 
     # Set all payslips from last period as current payslips
     Payslip.where(period: lastPeriod).each do |payslip|
-      payslip.employee.current_payslip = payslip
+      payslip.employee.current_payslip_id = payslip
     end
 
     # change_column_default :visits, :payslip_id, nil

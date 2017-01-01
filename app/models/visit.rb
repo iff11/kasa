@@ -38,7 +38,7 @@ class Visit < ActiveRecord::Base
         period_id = (SELECT id FROM periods WHERE is_active = true)
       );
 
-      UDPATE employees SET current_payslip = NEW.payslip_id WHERE employees.id = NEW.employee_id;
+      UPDATE employees SET current_payslip_id = NEW.payslip_id WHERE employees.id = NEW.employee_id;
     SQL
   end
 

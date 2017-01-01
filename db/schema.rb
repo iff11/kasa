@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926192630) do
+ActiveRecord::Schema.define(version: 20170101234654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,10 +37,11 @@ ActiveRecord::Schema.define(version: 20160926192630) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "photo_url"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.datetime "deleted_at"
-    t.boolean  "is_active",  default: true, null: false
+    t.boolean  "is_active",          default: true, null: false
+    t.integer  "current_payslip_id"
   end
 
   add_index "employees", ["deleted_at"], name: "index_employees_on_deleted_at", using: :btree
@@ -227,6 +228,8 @@ ActiveRecord::Schema.define(version: 20160926192630) do
         employee_id = NEW.employee_id AND
         period_id = (SELECT id FROM periods WHERE is_active = true)
       );
+
+      UPDATE employees SET current_payslip_id = NEW.payslip_id WHERE employees.id = NEW.employee_id;
     SQL_ACTIONS
   end
 

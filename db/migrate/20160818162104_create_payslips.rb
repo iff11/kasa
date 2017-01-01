@@ -18,6 +18,6 @@ class CreatePayslips < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_column :employees, :current_payslip_id, :integer, null: true, default: null
+    add_column :employees, :current_payslip_id, :integer, null: true, default: nil
   end
 end

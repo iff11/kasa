@@ -2,11 +2,6 @@
 # While you can edit this file, any changes you make to the definitions here
 # will be undone by the next auto-generated trigger migration.
 
-
-#TODO: delete this file
-#delete schema
-# run hair trigger migrations 
-
 class CreateTriggersVisitsInsertOrVisitsInsertUpdateDelete < ActiveRecord::Migration
   def up
     create_trigger("visits_before_insert_row_tr", :generated => true, :compatibility => 1).
@@ -29,6 +24,8 @@ class CreateTriggersVisitsInsertOrVisitsInsertUpdateDelete < ActiveRecord::Migra
         employee_id = NEW.employee_id AND
         period_id = (SELECT id FROM periods WHERE is_active = true)
       );
+
+      UPDATE employees SET current_payslip_id = NEW.payslip_id WHERE employees.id = NEW.employee_id;
       SQL_ACTIONS
     end
 
