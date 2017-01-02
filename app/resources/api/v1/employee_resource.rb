@@ -5,7 +5,8 @@ module Api
 
       has_many :visits
       has_many :payslips
-      has_one :current_payslip
+      has_one :current_payslip, class_name: "payslip"
+      # has_one :current_payslip
 
       filters :is_active
     end

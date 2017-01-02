@@ -8,7 +8,8 @@ export default DS.Model.extend({
   isActive: DS.attr('boolean'),
 
   visits: DS.hasMany('visit', { async: true }),
-  payslips: DS.hasMany('payslip', { async: true}),
+  payslips: DS.hasMany('payslip', { async: true }),
+  currentPayslip: DS.belongsTo('payslip', { async: true }),
 
   fullName: Ember.computed('firstName', 'lastName', function() {
     let firstName = this.get('firstName');

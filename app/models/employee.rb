@@ -3,7 +3,8 @@ class Employee < ActiveRecord::Base
 
   has_many :visits
   has_many :payslips
-  has_one :current_payslip, class_name: "payslip"
+  has_one :current_payslip, class_name: :Payslip
+  # has_one :current_payslip
 
   def current_share_sale
     month = Date.today.month
