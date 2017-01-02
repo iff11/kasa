@@ -26,6 +26,8 @@ gem 'hairtrigger'
 
 gem 'devise'
 gem 'cancan'
+gem 'pundit'
+gem 'jsonapi-authorization'
 
 gem 'nokogiri'
 
