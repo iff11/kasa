@@ -136,7 +136,7 @@ export default {
     'all_employees': 'Všichni zaměstnanci',
     'all_visits': 'Všechny zakázky',
     isActive: 'Aktivní',
-    currentShare: 'Podíl tento měsíc'
+    currentShare: 'Podíl od'
   },
 
   supply: {

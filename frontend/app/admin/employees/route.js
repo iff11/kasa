@@ -2,8 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
+    return Ember.RSVP.hash({
+      employees: this.store.findAll('employee'),
+      periods: this.store.findAll('period')
+    })
     // this.store.findAll('period');
-    return this.store.findAll('employee');
 
     // let query = {
     //   include: 'payslips'
@@ -12,6 +15,7 @@ export default Ember.Route.extend({
   },
 
   setupController(controller, model) {
-    controller.set('attrs.employees', model);
+    controller.set('attrs.employees', model.employees);
+    controller.set('attrs.periods', model.periods);
   }
 });

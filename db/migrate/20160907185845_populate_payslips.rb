@@ -4,8 +4,8 @@ class PopulatePayslips < ActiveRecord::Migration
 
     # Fix payslip_id.
     # Also as side effect, this will autogenerate historical periods and payslips.
-    Visit.all.each do |visit|
-      day = visit.created_at.to_date # I need just first day of month here, not all days
+    Visit.order(:created_at).each do |visit|
+      day = visit.created_at.to_date.at_beginning_of_month # I need just first day of month here, not all days
       period = Period.where(start_date: day).first_or_create
       payslip = Payslip.where(period_id: period, employee_id: visit.employee_id).first_or_create
 
@@ -14,7 +14,7 @@ class PopulatePayslips < ActiveRecord::Migration
     end
 
     # Set some period as active
-    lastPeriod = Period.last
+    lastPeriod = Period.order(:start_date).last
     lastPeriod.is_active = true
     lastPeriod.save!
 

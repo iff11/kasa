@@ -5,7 +5,7 @@
     <tr>
       <th class="col-xs-4">{{t 'employee.firstName'}}</th>
       <th class="col-xs-4">{{t 'employee.lastName'}}</th>
-      <th class="col-xs-3">{{t 'employee.currentShare'}}</th>
+      <th class="col-xs-3">{{t 'employee.currentShare'}} {{moment-format currentPeriod.startDate 'l'}}</th>
       <th class="col-xs-1 text-right">{{t 'employee.action'}}</th>
     </tr>
   </thead>
@@ -16,15 +16,13 @@
         <td>{{employee.firstName}}</td>
         <td>{{employee.lastName}}</td>
         <td>
-          -
           {{#with employee.currentPayslip as |payslip|}}
-            {{payslip.period.id}}
-            {{!-- {{#if payslip.period.isActive}}
-              {{payslip.id}} - {{payslip.shareSale}}
-            {{/if}} --}}
+            {{#if (eq employee.currentPayslip.period.id currentPeriod.id)}}
+              {{~x-employee/share shareSale=payslip.shareSale shareService=payslip.shareService~}}
+            {{else}}
+             -
+            {{/if}}
           {{/with}}
-          -
-          {{~x-employee/share shareSale=employee.currentShareSale shareService=employee.currentShareService~}}
         </td>
         <td class="text-right">
           {{#link-to 'admin.employee' employee class="btn btn-default btn-xs"}}

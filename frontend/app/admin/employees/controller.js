@@ -8,6 +8,10 @@ export default Ember.Controller.extend({
     return this.get('attrs.employees').sortBy('isActive');
   }),
 
+  currentPeriod: Ember.computed(function() {
+    return this.get('attrs.periods').filterBy('isActive', true).get('firstObject');
+  }),
+
   actions: {
     createEmployee() {
       let employee = this.store.createRecord('employee', {
