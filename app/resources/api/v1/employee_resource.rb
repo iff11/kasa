@@ -1,6 +1,6 @@
 module Api
   module V1
-    class EmployeeResource < JSONAPI::Resource
+    class EmployeeResource < ApplicationResource
       attributes :first_name, :last_name, :photo_url, :is_active
 
       has_many :visits

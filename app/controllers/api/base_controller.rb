@@ -8,11 +8,14 @@ class Api::BaseController < ApplicationController
   before_filter :authenticate_user!
 
   # No auth
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-  
+  # TODO: We don't want this on dev (easier debugging), but do want on production (hiding stack trace)
+  # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   private
+    # http://jsonapi-resources.com/v0.8/guide/resources.html
+    # We need to inject current_user to context of the resource. To update .company_id in some cases
     def context
-      {user: current_user}
+      {current_user: current_user}
     end
 
     def user_not_authorized

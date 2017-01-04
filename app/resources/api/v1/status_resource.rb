@@ -1,7 +1,7 @@
 module Api
   module V1
-    class StatusResource < JSONAPI::Resource
+    class StatusResource < ApplicationResource
       attributes :name, :value
     end
-  end 
+  end
 end

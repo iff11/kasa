@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/elabs/pundit.git
+  revision: 01e497ae0b5ee864e3975e1c57aad43428b295d7
+  tag: v1.1.0
+  specs:
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
+
+GIT
   remote: https://github.com/radar/paranoia.git
   revision: 3502f4520bedc66cc89c31520be12356126c0c75
   branch: rails4
@@ -97,8 +105,6 @@ GEM
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
     pg (0.18.4)
-    pundit (1.1.0)
-      activesupport (>= 3.0.0)
     rack (1.6.5)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -206,7 +212,7 @@ DEPENDENCIES
   nokogiri
   paranoia!
   pg
-  pundit
+  pundit!
   rails
   rails-erd
   rails_12factor

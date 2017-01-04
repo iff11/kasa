@@ -26,7 +26,7 @@ gem 'hairtrigger'
 
 gem 'devise'
 gem 'cancan'
-gem 'pundit'
+gem 'pundit', :git => 'https://github.com/elabs/pundit.git', :tag => 'v1.1.0'
 gem 'jsonapi-authorization'
 
 gem 'nokogiri'
