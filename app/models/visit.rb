@@ -3,6 +3,7 @@ class Visit < ActiveRecord::Base
 
   acts_as_paranoid
 
+  # TODO: Get rid of that in favor of triggers
   belongs_to :customer, counter_cache: true
   belongs_to :employee
   has_many :sells, dependent: :destroy
