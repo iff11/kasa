@@ -5,4 +5,5 @@ class Item < ActiveRecord::Base
   has_many :supplies
   # belongs_to :last_supply
   belongs_to :last_supply, class_name: 'Supply'#, foreign_key: 'last_supply'
+  belongs_to :company
 end
