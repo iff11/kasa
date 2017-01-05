@@ -1,16 +1,16 @@
 class CustomerPolicy < ApplicationPolicy
-  def update?
-    puts "@user: "
-    puts @user.to_yaml
-    puts "@record: "
-    puts @record.to_yaml
-    puts "-0-0----"
+  def create?
+    # TODO: We want to authorize this, but we won't get current data
     true
+  end
+
+  def update?
+    @user.company_id == @record.company_id
   end
 
   class Scope < Scope
     def resolve
-      scope
+      @scope.where(company_id: @user.company_id)
     end
   end
 end
