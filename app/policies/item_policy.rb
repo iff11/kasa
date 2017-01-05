@@ -9,8 +9,15 @@ class ItemPolicy < ApplicationPolicy
   end
 
   class Scope < Scope
+    attr_reader :user, :scope
+
+    def initialize(user, scope)
+      @user  = user
+      @scope = scope
+    end
+
     def resolve
-      scope
+      @scope.where(company_id: @user.company_id)
     end
   end
 end
