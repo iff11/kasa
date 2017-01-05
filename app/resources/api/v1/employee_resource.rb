@@ -1,6 +1,6 @@
 module Api
   module V1
-    class EmployeeResource < ApplicationResource
+    class EmployeeResource < CompanyDependentResource
       attributes :first_name, :last_name, :photo_url, :is_active
 
       has_many :visits
