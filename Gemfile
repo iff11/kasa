@@ -26,6 +26,8 @@ gem 'hairtrigger'
 
 gem 'devise'
 gem 'cancan'
+gem 'pundit', :git => 'https://github.com/elabs/pundit.git', :tag => 'v1.1.0'
+gem 'jsonapi-authorization'
 
 gem 'nokogiri'
 
@@ -41,6 +43,7 @@ group :development do
   gem 'seed_dump'
   gem 'rails-erd'
   gem "awesome_print", require:"ap"
+  gem 'pry-rails'
 end
 
 group :production do

@@ -1,0 +1,2 @@
+class CustomerPolicy < CompanyDependentPolicy
+end

@@ -1,6 +1,6 @@
 module Api
   module V1
-    class VisitResource < JSONAPI::Resource
+    class VisitResource < ApplicationResource
       paginator :paged
 
       attributes :note, :completed, :price_with_tip, :received_amount, :updated_at, :employee_share_sale, :employee_share_service, :price

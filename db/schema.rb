@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160808211740) do
+ActiveRecord::Schema.define(version: 20170104150325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "companies", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string   "first_name"
@@ -29,8 +35,10 @@ ActiveRecord::Schema.define(version: 20160808211740) do
     t.integer  "visits_count",               default: 0, null: false
     t.datetime "last_visit_date"
     t.integer  "gender",                     default: 0
+    t.integer  "company_id"
   end
 
+  add_index "customers", ["company_id"], name: "index_customers_on_company_id", using: :btree
   add_index "customers", ["deleted_at"], name: "index_customers_on_deleted_at", using: :btree
 
   create_table "employees", force: :cascade do |t|
@@ -41,8 +49,10 @@ ActiveRecord::Schema.define(version: 20160808211740) do
     t.datetime "updated_at",                null: false
     t.datetime "deleted_at"
     t.boolean  "is_active",  default: true, null: false
+    t.integer  "company_id"
   end
 
+  add_index "employees", ["company_id"], name: "index_employees_on_company_id", using: :btree
   add_index "employees", ["deleted_at"], name: "index_employees_on_deleted_at", using: :btree
 
   create_table "items", force: :cascade do |t|
@@ -59,8 +69,10 @@ ActiveRecord::Schema.define(version: 20160808211740) do
     t.integer  "last_supply_id"
     t.boolean  "is_active",         default: true,  null: false
     t.boolean  "is_service",        default: false, null: false
+    t.integer  "company_id"
   end
 
+  add_index "items", ["company_id"], name: "index_items_on_company_id", using: :btree
   add_index "items", ["deleted_at"], name: "index_items_on_deleted_at", using: :btree
 
   create_table "sells", force: :cascade do |t|
@@ -108,8 +120,10 @@ ActiveRecord::Schema.define(version: 20160808211740) do
     t.string   "authentication_token"
     t.datetime "deleted_at"
     t.boolean  "is_admin",               default: false, null: false
+    t.integer  "company_id"
   end
 
+  add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree
   add_index "users", ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

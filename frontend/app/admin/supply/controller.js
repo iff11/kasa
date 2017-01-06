@@ -10,8 +10,12 @@ export default Ember.Controller.extend({
 
     if (!Ember.isEmpty(item)) {
       item.get('lastSupply').then((lastSupply) => {
-        newSupply.set('quantity', lastSupply.get('quantity'));
-        newSupply.set('purchasePrice', lastSupply.get('purchasePrice'));
+        if(lastSupply) {
+          newSupply.setProperties({
+            quantity: lastSupply.get('quantity'),
+            purchasePrice: lastSupply.get('purchasePrice')
+          });
+        }
         item.set('lastSupply', newSupply);
       });
       this.set('attrs.newSupply.item', item);
