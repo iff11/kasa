@@ -43,6 +43,7 @@ group :development do
   gem 'seed_dump'
   gem 'rails-erd'
   gem "awesome_print", require:"ap"
+  gem 'pry-rails'
 end
 
 group :production do
