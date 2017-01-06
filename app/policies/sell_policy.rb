@@ -5,11 +5,13 @@ class SellPolicy < ApplicationPolicy
     true
   end
 
+  def destroy?
+    @user.company_id == Item.find(@record.item_id).company_id
+  end
+
   def update?
-    puts @record.inspect
-    # TODO: Check that customer and employee are visible?
-    # Problem is that @scope or @record does not give us current data
-    true
+    # Update and destroy should have the same policy
+    destroy?
   end
 
   class Scope < Scope
