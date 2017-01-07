@@ -15,7 +15,8 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       return Ember.RSVP.hash({
         // items: this.store.findAll('item'),
         // visits: this.store.filter('visit', { completed: false }, function() { return true; }),
-        customers: this.store.findAll('customer')
+        customers: this.store.findAll('customer'),
+        company: this.store.findAll('company')
         // sells: this.store.findAll('sell'),
         // supplies: this.store.findAll('supply'),
         // emplyees: this.store.findAll('employee')
@@ -26,6 +27,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   setupController(controller, model) {
     if (this.get('session.isAuthenticated')) {
       controller.set('attrs.customers', model.customers);
+      controller.set('attrs.company', model.company);
     }
   }
 });
