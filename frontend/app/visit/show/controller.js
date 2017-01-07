@@ -51,6 +51,7 @@ export default Ember.Controller.extend({
 
       sell.deleteRecord();
       sell.save().then(() => {
+        this.get('attrs.visit').reload();
         flash.success(`${name} ✗ ${fullName}`);
       }, (response) => {
         flash.danger(`${name} ⌫ ${fullName} ${response.message}`);
@@ -63,6 +64,7 @@ export default Ember.Controller.extend({
       let fullName = sell.get('visit.customer.fullName');
 
       sell.save().then(() => {
+        this.get('attrs.visit').reload();
         flash.success(`${name} ✎ ${fullName}`);
       }, (response) => {
         flash.danger(`${name} ✎ ${fullName} ${response.message}`);
