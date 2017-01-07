@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :entities
   devise_for :users, controllers: { sessions: 'sessions' }
 
   namespace :api do
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
       jsonapi_resources :supplies
       jsonapi_resources :visits
       jsonapi_resources :statuses
+      jsonapi_resources :entities
+      jsonapi_resources :companies
     end
   end
 

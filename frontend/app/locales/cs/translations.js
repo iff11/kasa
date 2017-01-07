@@ -161,6 +161,10 @@ export default {
   },
 
   admin: {
+    companies: {
+      heading: 'Moje firma',
+      companyNameLabel: 'Název firmy'
+    },
     statuses: {
       heading: 'Stav systému'
     },
@@ -180,6 +184,7 @@ export default {
       employees: 'Zaměstnanci',
       supply: 'Naskladnění',
       statuses: 'Stav systému',
+      companies: 'Firma',
       visits: 'Zakázky'
     },
     heading: {

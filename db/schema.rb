@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104150325) do
+ActiveRecord::Schema.define(version: 20170107141622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,15 @@ ActiveRecord::Schema.define(version: 20170104150325) do
   add_index "employees", ["company_id"], name: "index_employees_on_company_id", using: :btree
   add_index "employees", ["deleted_at"], name: "index_employees_on_deleted_at", using: :btree
 
+  create_table "entities", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "entities", ["company_id"], name: "index_entities_on_company_id", using: :btree
+
   create_table "items", force: :cascade do |t|
     t.string   "name",                              null: false
     t.float    "selling_price",     default: 0.0,   null: false
@@ -70,10 +79,12 @@ ActiveRecord::Schema.define(version: 20170104150325) do
     t.boolean  "is_active",         default: true,  null: false
     t.boolean  "is_service",        default: false, null: false
     t.integer  "company_id"
+    t.integer  "entity_id"
   end
 
   add_index "items", ["company_id"], name: "index_items_on_company_id", using: :btree
   add_index "items", ["deleted_at"], name: "index_items_on_deleted_at", using: :btree
+  add_index "items", ["entity_id"], name: "index_items_on_entity_id", using: :btree
 
   create_table "sells", force: :cascade do |t|
     t.integer  "item_id"
@@ -145,6 +156,7 @@ ActiveRecord::Schema.define(version: 20170104150325) do
 
   add_index "visits", ["deleted_at"], name: "index_visits_on_deleted_at", using: :btree
 
+  add_foreign_key "entities", "companies"
   create_trigger("visits_after_insert_row_tr", :generated => true, :compatibility => 1).
       on("visits").
       after(:insert) do
