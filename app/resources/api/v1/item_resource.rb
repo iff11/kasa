@@ -7,6 +7,7 @@ module Api
       has_many :supplies
 
       has_one :last_supply
+      has_one :entity
     end
   end
 end

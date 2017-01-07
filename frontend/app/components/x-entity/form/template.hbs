@@ -1,0 +1,10 @@
+<div class="form-group">
+  <label for="{{concat 'entity-name-' entity.id}}">{{t 'admin.companies.entityName'}}</label>
+  <div class="input-group">
+
+    {{input value=entity.name id=(concat 'entity-name-' entity.id) class="form-control"}}
+    <span class="input-group-addon" {{action "saveEntity"}}>
+      {{fa-icon icon="floppy-o"}}
+    </span>
+  </div>
+</div>

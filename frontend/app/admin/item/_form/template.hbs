@@ -26,6 +26,16 @@
   </div>
 </div>
 
+<div class="form-group">
+  <label>{{t 'item.newItemEntity'}}</label>
+  {{ember-selectize
+      content=attrs.entities
+      optionValuePath="content"
+      optionLabelPath="content.name"
+      selection=item.entity
+      placeholder=(t 'item.newItemEntity') }}
+</div>
+
 <div class="checkbox">
   <label>
     {{input checked=item.unlimited type="checkbox"}}
