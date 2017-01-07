@@ -43,6 +43,7 @@ Router.map(function() {
 
     this.route('statuses');
     this.route('visits');
+    this.route('companies');
   });
 });
 

@@ -121,6 +121,7 @@ export default {
     sold: 'Prodáno',
     bought: 'Naskladněno',
     warningThreshold: 'Minimálně skladem',
+    newItemEntity: 'Ekonomický subjekt',
     edit: 'Upravit',
     margin: 'Marže',
     isActive: 'Aktivní',
@@ -161,6 +162,12 @@ export default {
   },
 
   admin: {
+    companies: {
+      heading: 'Moje firma',
+      companyNameLabel: 'Název firmy',
+      entities: 'Ekonomické entity',
+      entityName: 'Název entity'
+    },
     statuses: {
       heading: 'Stav systému'
     },
@@ -180,6 +187,7 @@ export default {
       employees: 'Zaměstnanci',
       supply: 'Naskladnění',
       statuses: 'Stav systému',
+      companies: 'Firma',
       visits: 'Zakázky'
     },
     heading: {

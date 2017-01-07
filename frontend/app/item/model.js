@@ -15,6 +15,7 @@ export default DS.Model.extend({
   sells: DS.hasMany('sell', { async: true }),
   supplies: DS.hasMany('supply', { async: true }),
   lastSupply: DS.belongsTo('supply', { async: true, inverse: 'lastSupplyFor' }),
+  entity: DS.belongsTo('entity', { async: true }),
 
   lowStock: Ember.computed('name', 'barcode', function() {
     return this.get('stock') <= this.get('warningThreshold');

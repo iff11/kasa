@@ -1,0 +1,25 @@
+<h2>{{t 'admin.companies.heading'}}</h2>
+
+{{#each model as |company|}}
+  <div class="form-group">
+    <label for="{{concat 'company-name-' company.id}}">{{t 'admin.companies.companyNameLabel'}}</label>
+    <div class="input-group">
+
+      {{input value=company.name id=(concat 'company-name-' company.id) class="form-control"}}
+      <span class="input-group-addon" {{action "saveCompanyName" company}}>
+        {{fa-icon icon="floppy-o"}}
+      </span>
+    </div>
+  </div>
+
+  <h3>
+    {{t 'admin.companies.entities'}}
+    <button class="admin-customers-header-button-add" {{action 'addNewEntity'}}>
+      {{fa-icon icon="plus-square"}}
+    </button>
+  </h3>
+  {{#each company.entities as |entity|}}
+    {{x-entity/form entity=entity saveEntityName=(action "saveEntityName")}}
+  {{/each}}
+  <hr />
+{{/each}}

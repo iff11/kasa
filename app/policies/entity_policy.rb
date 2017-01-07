@@ -1,0 +1,2 @@
+class EntityPolicy < CompanyDependentPolicy
+end
