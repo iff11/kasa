@@ -3,8 +3,8 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   attrs: {},
 
-  returnAmount: Ember.computed('attrs.visit.price_with_tip', 'attrs.visit.received_amount', function() {
-    return this.get('attrs.visit.received_amount') - this.get('attrs.visit.price_with_tip');
+  returnAmount: Ember.computed('attrs.visit.price_with_tip', 'attrs.visit.receivedAmount', function() {
+    return this.get('attrs.visit.receivedAmount') - this.get('attrs.visit.price_with_tip');
   }),
 
   actions: {
