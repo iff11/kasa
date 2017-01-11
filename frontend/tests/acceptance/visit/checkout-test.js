@@ -19,7 +19,7 @@ test('Basic functionality of /visit/:id/checkout', function(assert) {
   let mockItems = server.createList('item', 10);
   let mockCustomer = server.create('customer');
   let priceWithTip = 500;
-  let receivedAmount = 1000;
+  let paidInCash = 1000;
 
   let mockVisit = server.create('visit', { customerId: mockCustomer.id, completed: false });
   let sell1 = server.create('sell', { visitId: mockVisit.id, itemId: mockItems[0].id });
@@ -35,11 +35,11 @@ test('Basic functionality of /visit/:id/checkout', function(assert) {
   });
 
   fillIn('.visit-checkout-price-with-tip', priceWithTip);
-  fillIn('.visit-checkout-received-amount', receivedAmount);
+  fillIn('.visit-checkout-received-amount', paidInCash);
 
   andThen(function() {
     let expectedTip = formatMoney(priceWithTip - sell1.price * sell1.count - sell2.price * sell2.count - sell3.price * sell3.count, { symbol: 'Kč', format: '%v %s' });
-    let expectedReturnAmount = formatMoney(receivedAmount - priceWithTip, { symbol: 'Kč', format: '%v %s' });
+    let expectedReturnAmount = formatMoney(paidInCash - priceWithTip, { symbol: 'Kč', format: '%v %s' });
     assert.equal(find('.visit-checkout-tip').text(), expectedTip, `Tip amount should be ${expectedTip}`);
     assert.equal(find('.visit-checkout-return-amount').text(), expectedReturnAmount, `To return amount should be ${expectedReturnAmount}`);
   });

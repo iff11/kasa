@@ -61,7 +61,7 @@ export default {
     'visit_of': 'Návštěva',
     element: 'Položka',
     number: 'Hodnota',
-    'received_amount': 'Přijatá částka',
+    'paid_in_cash': 'Přijatá částka',
     'return_amount': 'K vrácení',
     updatedAt: 'Datum',
     'employee_margin': 'Podíl zaměstnance',

@@ -4,7 +4,7 @@ export default Factory.extend({
   price_with_tip() {
     return faker.random.number({min: 1000, max: 9999});
   },
-  receivedAmount() {
+  paidInCash() {
     return Math.ceil(this.price_with_tip / 50) * 50;
   },
   price() {
