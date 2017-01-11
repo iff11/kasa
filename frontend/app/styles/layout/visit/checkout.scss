@@ -6,6 +6,10 @@
 .visit-checkout-sells {
   @extend .table;
   @extend .table-hover;
+
+  tfoot {
+    border-top: 6px double #ddd;
+  }
 }
 
 .visit-checkout-price-with-tip,

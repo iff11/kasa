@@ -41,6 +41,8 @@ export default {
   },
 
   visit: {
+    priceSection: 'Částka',
+    paymentSection: 'Platba',
     selectAnItem: 'Vyberte položku',
     'all_visits': 'Všechny otevřené zakázky',
     checkout: 'K pokladně',
@@ -53,7 +55,7 @@ export default {
     close: 'Uzavřít',
     note: 'Poznámka k zakázce',
     'back_to_visit': 'Zpátky do zakázky',
-    'sum_price_is': 'Celková částka k zaplacení',
+    'sum_price_is': 'Celková částka',
     'sum_with_tip_is': 'Celková částka i s dýškem',
     tip: 'Dýško',
     'back_to_customer': 'Zpátky na zákazníka',

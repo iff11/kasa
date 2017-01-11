@@ -9,6 +9,7 @@
 
 <div class="row">
   <div class="col-xs-6">
+    <h3>{{t 'visit.priceSection'}}</h3>
     <table class="visit-checkout-sells">
       <thead>
         <tr>
@@ -29,10 +30,35 @@
         </tr>
         {{/each}}
       </tbody>
+
+      <tfoot>
+        <tr>
+          <td colspan="3">{{t 'visit.sum_price_is'}}</td>
+          <td class="text-right">{{~x-visit/total-price visit=attrs.visit~}}</td>
+        </tr>
+
+        <tr>
+          <td colspan="3">{{t 'visit.tip'}}</td>
+          <td class="visit-checkout-tip">
+            {{~format-money attrs.visit.tip symbol=(t 'currency') format="%v %s"~}}
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="3">{{t 'visit.sum_with_tip_is'}}</td>
+          <td class="text-right">
+            <div class="input-group">
+              {{~input class='visit-checkout-price-with-tip' value=attrs.visit.price_with_tip~}}
+              <span class="input-group-addon">{{t 'currency'}}</span>
+            </div>
+          </td>
+        </tr>
+      </tfoot>
     </table>
   </div>
 
   <div class="col-xs-6">
+    <h3>{{t 'visit.paymentSection'}}</h3>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -43,31 +69,12 @@
 
       <tbody>
         <tr>
-          <td>{{t 'visit.sum_price_is'}}</td>
-          <td class="text-right">{{~x-visit/total-price visit=attrs.visit~}}</td>
-        </tr>
-        <tr>
-          <td>{{t 'visit.sum_with_tip_is'}}</td>
-          <td class="text-right">
-            <div class="input-group">
-              {{~input class='visit-checkout-price-with-tip' value=attrs.visit.price_with_tip~}}
-              <span class="input-group-addon">{{t 'currency'}}</span>
-            </div>
-          </td>
-        </tr>
-        <tr>
           <td>{{t 'visit.paid_in_cash'}}</td>
           <td class="text-right">
             <div class="input-group">
               {{~input class='visit-checkout-received-amount' value=attrs.visit.paidInCash~}}
               <span class="input-group-addon">{{t 'currency'}}</span>
             </div>
-          </td>
-        </tr>
-        <tr>
-          <td>{{t 'visit.tip'}}</td>
-          <td class="visit-checkout-tip">
-            {{~format-money attrs.visit.tip symbol=(t 'currency') format="%v %s"~}}
           </td>
         </tr>
         <tr>
