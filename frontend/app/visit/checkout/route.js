@@ -11,7 +11,7 @@ export default Ember.Route.extend({
         let defaultPrice = sells.reduce(function(previousValue, enumerable) {
           return previousValue + enumerable.get('sum');
         }, 0);
-        model.set('price_with_tip', defaultPrice);
+        model.set('priceWithTip', defaultPrice);
       });
     }
 
