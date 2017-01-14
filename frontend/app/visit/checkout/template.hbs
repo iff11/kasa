@@ -53,7 +53,26 @@
           <td class="col-xs-7">{{t 'visit.sum_with_tip_is'}}</td>
           <td class="col-xs-5 text-right">
             <div class="input-group">
-              {{~input class='visit-checkout-price-with-tip' value=attrs.visit.priceWithTip autofocus=true~}}
+              {{~input class='visit-checkout-price-with-tip' value=attrs.visit.priceWithTip autofocus=true type="number"~}}
+              <span class="input-group-addon">{{t 'currency'}}</span>
+            </div>
+          </td>
+        </tr>
+        {{!-- <tr>
+          <td colspan="2" class="text-right">
+            <div class="checkbox">
+              <label>
+                {{input type="checkbox" name="isAdmin" checked=isAdmin}}
+                {{t 'visit.enablePaymentByCard'}}
+              </label>
+            </div>
+          </td>
+        </tr> --}}
+        <tr>
+          <td>{{t 'visit.paidByCard'}}</td>
+          <td class="text-right">
+            <div class="input-group">
+              {{~input class='visit-checkout-received-amount' value=attrs.visit.paidByCard type="number"~}}
               <span class="input-group-addon">{{t 'currency'}}</span>
             </div>
           </td>
@@ -62,20 +81,25 @@
           <td>{{t 'visit.paid_in_cash'}}</td>
           <td class="text-right">
             <div class="input-group">
-              {{~input class='visit-checkout-received-amount' value=attrs.visit.paidInCash~}}
+              {{~input class='visit-checkout-received-amount' value=attrs.visit.paidInCash type="number"~}}
               <span class="input-group-addon">{{t 'currency'}}</span>
             </div>
           </td>
         </tr>
         <tr>
           <td>{{t 'visit.return_amount'}}</td>
-          <td class="visit-checkout-return-amount">
-            {{~format-money returnAmount symbol=(t 'currency') format="%v %s"~}}
+          <td class="text-right">
+            <div class="input-group {{returnAmountClass}}">
+              {{~input class='visit-checkout-received-amount' value=returnAmount type="number" disabled=true~}}
+              <span class="input-group-addon">{{t 'currency'}}</span>
+            </div>
           </td>
         </tr>
       </tbody>
     </table>
 
-    <button class="btn btn-primary" {{action "confirmCheckout"}}>{{t 'visit.close'}}</button>
+    <button class="btn btn-primary" disabled={{isReturnAmountInvalid}} {{action "confirmCheckout"}}>
+      {{t 'visit.close'}}
+    </button>
   </div>
 </div>
