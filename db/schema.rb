@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170107141622) do
+ActiveRecord::Schema.define(version: 20170114190203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,11 +147,13 @@ ActiveRecord::Schema.define(version: 20170107141622) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.datetime "deleted_at"
-    t.float    "price_with_tip",         default: 0.0,   null: false
-    t.float    "received_amount",        default: 0.0,   null: false
+    t.decimal  "price_with_tip",         default: 0.0,   null: false
+    t.decimal  "received_cash",          default: 0.0,   null: false
     t.decimal  "price",                  default: 0.0,   null: false
     t.decimal  "employee_share_sale",    default: 0.0,   null: false
     t.decimal  "employee_share_service", default: 0.0,   null: false
+    t.decimal  "paid_by_card",           default: 0.0,   null: false
+    t.decimal  "paid_in_cash",           default: 0.0,   null: false
   end
 
   add_index "visits", ["deleted_at"], name: "index_visits_on_deleted_at", using: :btree
