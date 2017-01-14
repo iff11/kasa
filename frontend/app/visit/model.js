@@ -3,6 +3,7 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   priceWithTip: DS.attr('number', { defaultValue: 0 }),
+  receivedCash: DS.attr('number', { defaultValue: 0 }),
   paidInCash: DS.attr('number', { defaultValue: 0 }),
   paidByCard: DS.attr('number', { defaultValue: 0 }),
   price: DS.attr('number', { defaultValue: 0 }),
