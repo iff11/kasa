@@ -6,7 +6,7 @@ export default Ember.Route.extend({
   },
 
   setupController(controller, model) {
-    if(Ember.isNone(model.get('priceWithTip'))) {
+    if(model.get('priceWithTip') === 0) {
       model.get('sells').then(function(sells) {
         let defaultPrice = sells.reduce(function(previousValue, enumerable) {
           return previousValue + enumerable.get('sum');

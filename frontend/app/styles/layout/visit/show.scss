@@ -8,6 +8,16 @@
   @extend .col-md-12;
 }
 
+.visit-amount {
+  @extend .col-lg-7;
+  @extend .col-md-12;
+}
+
+.visit-payment {
+  @extend .col-lg-5;
+  @extend .col-md-12;
+}
+
 .visit-navigation {
   &-back {
     @extend .col-xs-6;

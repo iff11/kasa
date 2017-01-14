@@ -8,25 +8,16 @@
 </div>
 
 <div class="row">
-  <div class="col-xs-6">
+  <div class="visit-amount">
     <h3>{{t 'visit.priceSection'}}</h3>
     <table class="visit-checkout-sells">
-      <thead>
-        <tr>
-          <th class="col-xs-4">{{t 'sell.item'}}</th>
-          <th class="col-xs-2 text-right">{{t 'sell.count'}}</th>
-          <th class="col-xs-3 text-right">{{t 'sell.unit_price'}}</th>
-          <th class="col-xs-3 text-right">{{t 'sell.sum_price'}}</th>
-        </tr>
-      </thead>
-
       <tbody>
         {{#each attrs.visit.sells as |sell|}}
         <tr>
-          <td>{{sell.item.name}}</td>
-          <td class="text-right">{{sell.count}}</td>
-          <td class="text-right">{{x-item/price value=sell.price}}</td>
-          <td class="text-right">{{x-sell/sum sell=sell}}</td>
+          <td class="col-xs-4">{{sell.item.name}}</td>
+          <td class="col-xs-2 text-right">{{sell.count}} {{fa-icon icon="times"}}</td>
+          <td class="col-xs-3 text-right">{{x-item/price value=sell.price}}</td>
+          <td class="col-xs-3 text-right">{{x-sell/sum sell=sell}}</td>
         </tr>
         {{/each}}
       </tbody>
@@ -47,27 +38,26 @@
         <tr>
           <td colspan="3">{{t 'visit.sum_with_tip_is'}}</td>
           <td class="text-right">
-            <div class="input-group">
-              {{~input class='visit-checkout-price-with-tip' value=attrs.visit.price_with_tip~}}
-              <span class="input-group-addon">{{t 'currency'}}</span>
-            </div>
+            {{~format-money attrs.visit.priceWithTip symbol=(t 'currency') format="%v %s"~}}
           </td>
         </tr>
       </tfoot>
     </table>
   </div>
 
-  <div class="col-xs-6">
+  <div class="visit-payment">
     <h3>{{t 'visit.paymentSection'}}</h3>
     <table class="table table-hover">
-      <thead>
-        <tr>
-          <th class="col-xs-7">{{t 'visit.element'}}</th>
-          <th class="col-xs-5 text-right">{{t 'visit.number'}}</th>
-        </tr>
-      </thead>
-
       <tbody>
+        <tr>
+          <td class="col-xs-7">{{t 'visit.sum_with_tip_is'}}</td>
+          <td class="col-xs-5 text-right">
+            <div class="input-group">
+              {{~input class='visit-checkout-price-with-tip' value=attrs.visit.priceWithTip autofocus=true~}}
+              <span class="input-group-addon">{{t 'currency'}}</span>
+            </div>
+          </td>
+        </tr>
         <tr>
           <td>{{t 'visit.paid_in_cash'}}</td>
           <td class="text-right">
