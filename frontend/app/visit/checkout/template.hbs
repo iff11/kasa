@@ -88,7 +88,7 @@
       </tbody>
     </table>
 
-    <button class="btn btn-primary" {{action "confirmCheckout"}}>
+    <button disabled={{isReturnCashInvalid}} class="btn btn-primary" {{action "confirmCheckout"}}>
       {{t 'visit.close'}}
     </button>
   </div>
