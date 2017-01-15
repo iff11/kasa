@@ -27,9 +27,9 @@ export default Ember.Controller.extend({
 
   actions: {
     confirmCheckout() {
-      let receivedCash = parseInt(this.get('attrs.visit.receivedCash'));
-      let returnCash = this.get('returnCash');
-      let paidInCash = receivedCash - returnCash;
+      let priceWithTip = parseInt(this.get('attrs.visit.priceWithTip'));
+      let paidByCard = parseInt(this.get('attrs.visit.paidByCard'));
+      let paidInCash = priceWithTip - paidByCard;
 
       let visit = this.get('attrs.visit');
       visit.set('paidInCash', paidInCash)
