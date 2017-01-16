@@ -11,11 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< 3b56b0db26391bc392ffa7f14b694f1241139596
 ActiveRecord::Schema.define(version: 20170208124715) do
+=======
+ActiveRecord::Schema.define(version: 20170122002021) do
+>>>>>>> #54 - initial fill bug fix
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< 3b56b0db26391bc392ffa7f14b694f1241139596
+=======
+  create_table "cashbooks", force: :cascade do |t|
+    t.date     "date"
+    t.decimal  "paid_by_card", default: 0.0, null: false
+    t.decimal  "paid_in_cash", default: 0.0, null: false
+    t.integer  "company_id",                 null: false
+    t.integer  "visit_id",                   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "cashbooks", ["date", "visit_id"], name: "index_cashbooks_on_date_and_visit_id", unique: true, using: :btree
+
+>>>>>>> #54 - initial fill bug fix
   create_table "companies", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",                                             null: false
@@ -198,6 +217,7 @@ ActiveRecord::Schema.define(version: 20170208124715) do
     SQL_ACTIONS
   end
 
+<<<<<<< 3b56b0db26391bc392ffa7f14b694f1241139596
   create_trigger("fix_items_sold", :generated => true, :compatibility => 1).
       on("sells").
       after(:insert, :update, :delete).
@@ -217,6 +237,27 @@ ActiveRecord::Schema.define(version: 20170208124715) do
       UPDATE items SET bought = (
         SELECT COALESCE(SUM(quantity), 0) FROM supplies WHERE supplies.deleted_at IS NULL AND supplies.item_id = NEW.item_id
       ) WHERE items.id = NEW.item_id;
+=======
+  create_trigger("fix_money_in_cashbook", :generated => true, :compatibility => 1).
+      on("visits").
+      after(:insert, :update).
+      name("fix_money_in_cashbook") do
+    <<-SQL_ACTIONS
+      INSERT INTO cashbooks (date, visit_id, company_id, paid_by_card, paid_in_cash, created_at, updated_at)
+      VALUES (
+        NEW.created_at,
+        NEW.id,
+        (SELECT company_id FROM employees WHERE employees.id = NEW.employee_id),
+        (SELECT COALESCE(SUM(visits.paid_by_card), 0) FROM visits WHERE visits.id = NEW.id),
+        (SELECT COALESCE(SUM(visits.paid_in_cash), 0) FROM visits WHERE visits.id = NEW.id),
+        NOW(),
+        NOW()
+      )
+      ON CONFLICT (date, visit_id) DO UPDATE SET
+        paid_by_card = (SELECT COALESCE(SUM(visits.paid_by_card), 0) FROM visits WHERE visits.id = NEW.id),
+        paid_in_cash = (SELECT COALESCE(SUM(visits.paid_in_cash), 0) FROM visits WHERE visits.id = NEW.id),
+        updated_at = NOW();
+>>>>>>> #54 - initial fill bug fix
     SQL_ACTIONS
   end
 
