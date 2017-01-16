@@ -9,6 +9,10 @@ class VisitPolicy < ApplicationPolicy
     @user.company_id == Employee.find(@record.employee_id).company_id
   end
 
+  def destroy?
+    @user.company_id = Employee.find(@record.employee_id).company_id
+  end
+
   class Scope < Scope
     def resolve
       @scope.joins(:employee).where(employees: { company_id: @user.company_id })
