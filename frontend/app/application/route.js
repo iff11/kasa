@@ -13,12 +13,6 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     }
   },
 
-  beforeModel() {
-    if(this.get('session.data.authenticated.role') === 'registrar') {
-      this.transitionTo('registration');
-    }
-  },
-
   actions: {
     logout() {
       this.get('session').invalidate();
@@ -31,6 +25,10 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
   sessionAuthenticated() {
     this._super();
-    this.loadLayoutData();
+    if(this.get('session.data.authenticated.role') === 'registrar') {
+      this.transitionTo('registration');
+    } else {
+      this.loadLayoutData();
+    }
   }
 });
