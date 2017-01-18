@@ -17,12 +17,18 @@ export default Ember.Controller.extend({
     ];
   }),
 
-  isFormInvalid: Ember.computed('attrs.customer.firstName', 'attrs.customer.lastName', 'attrs.customer.phone', function () {
-    let firstName = this.get('attrs.customer.firstName');
-    let lastName = this.get('attrs.customer.lastName');
-    let phone = this.get('attrs.customer.phone');
+  isFormValid: Ember.computed('isFirstNameValid', 'isLastNameValid', 'isPhoneValid', function () {
+    return this.get('isFirstNameValid') && this.get('isLastNameValid') && this.get('isPhoneValid');
+  }),
 
-    return Ember.isEmpty(firstName) || Ember.isEmpty(lastName) || Ember.isEmpty(phone);
+  isFirstNameValid: Ember.computed('attrs.customer.firstName', function () {
+    return !Ember.isEmpty(this.get('attrs.customer.firstName'));
+  }),
+  isLastNameValid: Ember.computed('attrs.customer.lastName', function () {
+    return !Ember.isEmpty(this.get('attrs.customer.lastName'));
+  }),
+  isPhoneValid: Ember.computed('attrs.customer.phone', function () {
+    return !Ember.isEmpty(this.get('attrs.customer.phone'));
   }),
 
   resetLogoutAttempts() {
