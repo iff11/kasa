@@ -1,16 +1,16 @@
 <div id="wrapper">
-  {{#if session.isAuthenticated}}
-    {{app-menu customers=attrs.customers company=company logout="logout"}}
+  {{#if (and session.isAuthenticated (not-eq session.data.authenticated.role "registrar")) }}
+      {{app-menu customers=attrs.customers company=company logout="logout"}}
 
-    <div id="page-wrapper">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-12">
-            {{liquid-outlet}}
+      <div id="page-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+              {{liquid-outlet}}
+            </div>
           </div>
         </div>
       </div>
-    </div>
   {{else}}
     {{liquid-outlet}}
   {{/if}}

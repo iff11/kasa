@@ -1,6 +1,12 @@
 class User < ActiveRecord::Base
   acts_as_paranoid
 
+  enum role: {
+    employee: 0,
+    admin: 1,
+    registrar: 2
+  }
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,

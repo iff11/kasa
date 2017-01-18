@@ -9,6 +9,11 @@ export default {
   //
   // "key.with.interpolation": "Text with { {anInterpolation }}"
 
+  'registration.heading': 'Registrace',
+  'registration.save': 'Uložit',
+  'registration.success': 'Registrace proběhla úspěšně',
+  'registration.failure': 'Při registraci došlo k chybě',
+
   customers: {
     all: 'Všichni zákazníci',
     newsletter: 'Newsletter',
@@ -23,6 +28,7 @@ export default {
       male: 'Muž',
       female: 'Žena'
     },
+    isApproved: 'Schválen',
     gender: 'Pohlaví',
     firstName: 'Jméno',
     lastName: 'Příjmení',

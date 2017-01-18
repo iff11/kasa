@@ -40,7 +40,7 @@
       </li>
 
     </ul>
-    {{#if session.data.authenticated.isAdmin}}
+    {{#if (eq session.data.authenticated.role "admin")}}
       <h3 class="heading-admin">
         {{t 'sidebar.heading.admin'}}
       </h3>

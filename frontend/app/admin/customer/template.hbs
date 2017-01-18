@@ -37,8 +37,6 @@
         placeholder=(t 'customer.gender') }}
     </div>
 
-    {{attrs.customer.gender}}
-
     <div class="admin-customer-form-first-name">
       <label>{{t 'customer.firstName'}}</label>
       {{input placeholder=(t 'customer.firstName') value=attrs.customer.firstName class='form-control'}}
@@ -58,6 +56,10 @@
     <div class="admin-customer-form-mail">
       <label>{{t 'customer.mail'}}</label>
       {{input placeholder=(t 'customer.mail') value=attrs.customer.mail class="form-control"}}
+    </div>
+    <div class="admin-customer-form-is-approved">
+      <label>{{t 'customer.isApproved'}}</label>
+      {{input checked=attrs.customer.isApproved type="checkbox"}}
     </div>
   </div>
 
