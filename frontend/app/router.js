@@ -45,6 +45,7 @@ Router.map(function() {
     this.route('visits');
     this.route('companies');
   });
+  this.route('registration');
 });
 
 export default Router;
