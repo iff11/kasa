@@ -2,8 +2,10 @@ import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  'price_with_tip': DS.attr('number', { defaultValue: 0 }),
-  receivedAmount: DS.attr('number', { defaultValue: 0 }),
+  priceWithTip: DS.attr('number', { defaultValue: 0 }),
+  receivedCash: DS.attr('number', { defaultValue: 0 }),
+  paidInCash: DS.attr('number', { defaultValue: 0 }),
+  paidByCard: DS.attr('number', { defaultValue: 0 }),
   price: DS.attr('number', { defaultValue: 0 }),
   updatedAt: DS.attr(),
   completed: DS.attr(),
@@ -18,8 +20,8 @@ export default DS.Model.extend({
   employee: DS.belongsTo('employee', { async: true }),
   sells: DS.hasMany('sell', { async: true }),
 
-  tip: Ember.computed('price_with_tip', 'price', function() {
-    return this.get('price_with_tip') - this.get('price');
+  tip: Ember.computed('priceWithTip', 'price', function() {
+    return this.get('priceWithTip') - this.get('price');
   }),
 
   ratio: 0.1,

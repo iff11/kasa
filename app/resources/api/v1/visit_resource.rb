@@ -3,7 +3,7 @@ module Api
     class VisitResource < ApplicationResource
       paginator :paged
 
-      attributes :note, :completed, :price_with_tip, :received_amount, :updated_at, :employee_share_sale, :employee_share_service, :price
+      attributes :note, :completed, :price_with_tip, :paid_in_cash, :paid_by_card, :received_cash, :updated_at, :employee_share_sale, :employee_share_service, :price
 
       has_one :customer
       has_one :employee

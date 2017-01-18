@@ -1,11 +1,11 @@
 import { Factory } from 'ember-cli-mirage';
 
 export default Factory.extend({
-  price_with_tip() {
+  priceWithTip() {
     return faker.random.number({min: 1000, max: 9999});
   },
-  receivedAmount() {
-    return Math.ceil(this.price_with_tip / 50) * 50;
+  paidInCash() {
+    return Math.ceil(this.priceWithTip / 50) * 50;
   },
   price() {
     // Will be re-calculated when new sell is added

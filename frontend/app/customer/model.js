@@ -11,6 +11,7 @@ export default DS.Model.extend({
   visitsCount: DS.attr('number', { defaultValue: 0 }),
   lastVisitDate: DS.attr('date'),
   gender: DS.attr('string'),
+  isApproved: DS.attr('boolean'),
   visits: DS.hasMany('visit', { async: true }),
 
   'fullName': Ember.computed('firstName', 'lastName', function() {

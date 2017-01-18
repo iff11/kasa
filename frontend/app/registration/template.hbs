@@ -1,0 +1,53 @@
+<div class="container register-form">
+  <h1 {{action "tryLogout"}}>
+    {{t 'registration.heading'}}
+  </h1>
+
+  {{#if flashMessages.queue.length}}
+    {{#each flashMessages.queue as |flash|}}
+      <div class="alert alert-{{flash.type}}" role="alert">
+        {{flash.message}}
+      </div>
+    {{/each}}
+  {{/if}}
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group {{if isFirstNameValid 'has-success' 'has-error'}}">
+        <label>{{t 'customer.firstName'}}*</label>
+        {{input placeholder=(t 'customer.firstName') value=attrs.customer.firstName}}
+      </div>
+      <div class="form-group {{if isLastNameValid 'has-success' 'has-error'}}">
+        <label>{{t 'customer.lastName'}}*</label>
+        {{input placeholder=(t 'customer.lastName') value=attrs.customer.lastName class='form-control'}}
+      </div>
+      <div class="form-group {{if isPhoneValid 'has-success' 'has-error'}}">
+        <label>{{t 'customer.phone'}}*</label>
+        {{input placeholder=(t 'customer.phone') value=attrs.customer.phone class='form-control'}}
+      </div>
+      <div class="form-group">
+        <label>{{t 'customer.birth'}}</label>
+        {{pikaday-input placeholder='1984-12-24' value=attrs.customer.birth class="form-control" useUTC=true format="DD.MM.YYYY" onSelection=(action 'birthdayChanged')}}
+      </div>
+      <div class="admin-customer-gender">
+        <label>{{t 'customer.gender'}}</label>
+        {{ember-selectize
+          content=genders
+          optionValuePath="content.value"
+          optionLabelPath="content.label"
+          value=attrs.customer.gender
+          placeholder=(t 'customer.gender') }}
+      </div>
+      <div class="form-group">
+        <label>{{t 'customer.mail'}}</label>
+        {{input placeholder=(t 'customer.mail') value=attrs.customer.mail class="form-control"}}
+      </div>
+      <div class="form-group">
+        <button disabled={{not isFormValid}} class="btn btn-primary" {{action 'saveCustomer' attrs.customer}}>
+          {{t 'registration.save'}}
+          {{fa-icon icon="check"}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

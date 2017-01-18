@@ -4,30 +4,31 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 export default Ember.Route.extend(ApplicationRouteMixin, {
   session: Ember.inject.service(),
 
-  actions: {
-    logout() {
-      this.get('session').invalidate();
-    }
-  },
-
-  model() {
-    if (this.get('session.isAuthenticated')) {
-      return Ember.RSVP.hash({
-        // items: this.store.findAll('item'),
-        // visits: this.store.filter('visit', { completed: false }, function() { return true; }),
-        customers: this.store.findAll('customer'),
-        company: this.store.findAll('company')
-        // sells: this.store.findAll('sell'),
-        // supplies: this.store.findAll('supply'),
-        // emplyees: this.store.findAll('employee')
+  loadLayoutData() {
+    if(this.get('session.isAuthenticated')) {
+      this.controller.setProperties({
+        'attrs.companies': this.store.findAll('company'),
+        'attrs.customers': this.store.findAll('customer')
       });
     }
   },
 
-  setupController(controller, model) {
-    if (this.get('session.isAuthenticated')) {
-      controller.set('attrs.customers', model.customers);
-      controller.set('attrs.company', model.company);
+  actions: {
+    logout() {
+      this.get('session').invalidate();
+    },
+    didTransition: function() {
+      this.loadLayoutData();
+      return true;
+    }
+  },
+
+  sessionAuthenticated() {
+    this._super();
+    if(this.get('session.data.authenticated.role') === 'registrar') {
+      this.transitionTo('registration');
+    } else {
+      this.loadLayoutData();
     }
   }
 });

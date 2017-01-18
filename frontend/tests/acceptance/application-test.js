@@ -17,7 +17,7 @@ module('Acceptance | application', {
 test('Application layout for administrator', function(assert) {
   assert.expect(3);
 
-  authenticateSession(this.application, { isAdmin: true });
+  authenticateSession(this.application, { role: 'admin' });
 
   visit('/');
 
@@ -31,7 +31,7 @@ test('Application layout for administrator', function(assert) {
 test('Application layout for employee', function(assert) {
   assert.expect(2);
 
-  authenticateSession(this.application, { isAdmin: false });
+  authenticateSession(this.application, { role: 'employee' });
 
   visit('/');
 
