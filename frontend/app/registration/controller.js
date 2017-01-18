@@ -2,6 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   i18n: Ember.inject.service(),
+  session: Ember.inject.service(),
+
+  logoutAttempts: 0,
   attrs: {
     customer: {}
   },
@@ -22,7 +25,19 @@ export default Ember.Controller.extend({
     return Ember.isEmpty(firstName) || Ember.isEmpty(lastName) || Ember.isEmpty(phone);
   }),
 
+  resetLogoutAttempts() {
+    this.set('logoutAttempts', 0);
+  },
+
   actions: {
+    tryLogout() {
+      let attempts = this.incrementProperty('logoutAttempts');
+      if(attempts >= 5) {
+        this.get('session').invalidate();
+      }
+
+      Ember.run.debounce(this, this.resetLogoutAttempts, 500);
+    },
     birthdayChanged(newBirthday) {
       this.set('attrs.customer.birth', newBirthday);
     },
