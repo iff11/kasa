@@ -28,6 +28,7 @@ export default {
       male: 'Muž',
       female: 'Žena'
     },
+    isApproved: 'Schválen',
     gender: 'Pohlaví',
     firstName: 'Jméno',
     lastName: 'Příjmení',

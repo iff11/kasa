@@ -29,6 +29,7 @@
   <table class="admin-customers">
     <thead>
       <tr>
+        <th class="admin-customers-col-is-approved">{{th-sort action="sortBy" title=(t 'customer.isApproved') current=sortBy value='isApproved'}}</th>
         <th class="admin-customers-col-first-name">{{th-sort action="sortBy" title=(t 'customer.firstName') current=sortBy value='firstName'}}</th>
         <th class="admin-customers-col-last-name">{{th-sort action="sortBy" title=(t 'customer.lastName') current=sortBy value='lastName'}}</th>
         <th class="admin-customers-col-phone">{{th-sort action="sortBy" title=(t 'customer.phone') current=sortBy value='phone'}}</th>
@@ -45,6 +46,7 @@
     <tbody>
       {{#each pagedCustomers as |customer|}}
         <tr>
+          <td>{{user-approved isApproved=customer.isApproved}}</td>
           <td>{{customer.firstName}}</td>
           <td>{{customer.lastName}}</td>
           <td>{{customer.phone}}</td>

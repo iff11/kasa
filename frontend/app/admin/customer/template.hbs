@@ -57,6 +57,10 @@
       <label>{{t 'customer.mail'}}</label>
       {{input placeholder=(t 'customer.mail') value=attrs.customer.mail class="form-control"}}
     </div>
+    <div class="admin-customer-form-is-approved">
+      <label>{{t 'customer.isApproved'}}</label>
+      {{input checked=attrs.customer.isApproved type="checkbox"}}
+    </div>
   </div>
 
   <div class="col-xs-9">
