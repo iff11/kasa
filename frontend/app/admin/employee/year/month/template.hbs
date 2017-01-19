@@ -1,7 +1,7 @@
 <table class="admin-employee-visits table table-hover">
   <thead>
     <tr>
-      <th>{{t 'visit.updatedAt'}}</th>
+      <th>{{t 'visit.createdAt'}}</th>
       <th>{{t 'visit.customer'}}</th>
       <th class="text-right">{{t 'visit.price'}}</th>
       <th class="text-right">
@@ -20,7 +20,7 @@
         <td>
           {{~#link-to 'admin.visit' visit.id~}}
             {{~ x-visit/completed visit=visit ~}}
-            {{~ moment-format visit.updatedAt 'LLL' ~}}
+            {{~ moment-format visit.createdAt 'LLL' ~}}
           {{~/link-to~}}
         </td>
         <td>

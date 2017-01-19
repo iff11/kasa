@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
     return this.get('model').map(function(visit) {
       return {
         title: visit.get('customer.fullName'),
-        start: visit.get('updatedAt'),
+        start: visit.get('createdAt'),
         id: visit.get('id')
       };
     });
