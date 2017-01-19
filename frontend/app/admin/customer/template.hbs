@@ -73,8 +73,8 @@
 
             {{#link-to 'admin.visit' visit}}
               <span class="admin-customer-visits-updated-at">
-                {{~# if visit.updatedAt~}}
-                  {{~ moment-format visit.updatedAt "DD.MM." ~}}
+                {{~# if visit.createdAt~}}
+                  {{~ moment-format visit.createdAt "DD.MM." ~}}
                 {{~/if~}}
               </span>
               -

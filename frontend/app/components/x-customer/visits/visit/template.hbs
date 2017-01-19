@@ -7,12 +7,16 @@
     {{/if}}
 
     <span class="customer-visit-heading-updated-at">
-      {{~ moment-format visit.updatedAt "LLLL" ~}}
+      {{~ moment-format visit.createdAt "LLLL" ~}}
     </span>
 
     <span class="customer-visit-heading-price">
       {{~format-money visit.price symbol=(t 'currency') format="%v %s"~}}
     </span>
+
+    {{#link-to 'admin.visit' visit.id}}
+    X
+    {{/link-to}}
   </a>
 </div>
 
