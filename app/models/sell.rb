@@ -3,6 +3,7 @@ class Sell < ActiveRecord::Base
 
   belongs_to :item
   belongs_to :visit
+  belongs_to :entity
 
   trigger.after(:insert, :update).name('fix_items_sold') do
     <<-SQL
