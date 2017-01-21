@@ -33,10 +33,9 @@ export default DS.Model.extend({
   }),
 
   margin: Ember.computed('sellingPrice', 'lastSupply.purchasePriceWithVat', function() {
-    let employeeMargin = 0.1;
     let sellingPrice = this.get('sellingPrice');
     let purchasePriceWithVat = this.get('lastSupply.purchasePriceWithVat');
-    let roughMargin = ((1 - employeeMargin) * sellingPrice - purchasePriceWithVat) / purchasePriceWithVat * 100;
+    let roughMargin = (sellingPrice - purchasePriceWithVat) / purchasePriceWithVat * 100;
     let margin = Math.round(roughMargin).toFixed(1);
 
     return margin;
