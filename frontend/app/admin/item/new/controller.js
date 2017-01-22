@@ -6,7 +6,8 @@ export default Ember.Controller.extend({
   heap: {
     unlimited: false,
     isActive: true,
-    warningThreshold: 0
+    warningThreshold: 0,
+    isService: false
   },
 
   actions: {
@@ -19,6 +20,7 @@ export default Ember.Controller.extend({
         // sellingPrice: this.get('heap.sellingPrice'),
         unlimited: this.get('heap.unlimited'),
         isActive: this.get('heap.isActive'),
+        isService: this.get('heap.isService'),
         warningThreshold: this.get('heap.warningThreshold'),
         entity: this.get('heap.entity')
       });
@@ -30,6 +32,7 @@ export default Ember.Controller.extend({
         that.set('heap', {
           unlimited: false,
           isActive: true,
+          isService: false,
           warningThreshold: 0,
           entity: that.get('attrs.entities.firstObject')
         });
