@@ -4,11 +4,12 @@ class CreateCashbook < ActiveRecord::Migration
       t.date :date
       t.decimal :cash, default: 0.0, null: false
       t.decimal :credit, default: 0.0, null: false
-      t.integer :entity_id, null: false
+      t.integer :company_id, null: false
+      t.integer :visit_id, null: false
 
       t.timestamps null: false
     end
 
-    add_index :cashbooks, [:date, :entity_id], unique: true
+    add_index :cashbooks, [:date, :visit_id], unique: true
   end
 end

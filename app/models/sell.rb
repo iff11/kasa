@@ -34,16 +34,4 @@ class Sell < ActiveRecord::Base
         WHERE visits.id = NEW.visit_id;
     SQL
   end
-
-  # trigger.after(:insert, :update).name('fix_money_in_cashbook') do
-  #   <<-SQL
-  #     INSERT INTO cashbooks (date, entity_id, cash, credit)
-  #     VALUES (
-  #       NEW.created_at,
-  #       SELECT entity_id from items LEFT JOIN sells ON sells.item_id = items.id WHERE sells.id = NEW.id,
-  #
-  #     )
-  #     ON CONFLICT DO UPDATE;
-  #   SQL
-  # end
 end

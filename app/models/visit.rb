@@ -16,6 +16,22 @@ class Visit < ActiveRecord::Base
     "UPDATE customers SET last_visit_date = NEW.created_at WHERE customers.id = NEW.customer_id;"
   end
 
+  trigger.after(:insert, :update).name('fix_money_in_cashbook') do
+    <<-SQL
+      INSERT INTO cashbooks (date, visit_id, company_id, credit, cash)
+      VALUES (
+        NEW.created_at,
+        NEW.id,
+        (SELECT company_id FROM employees WHERE employees.id = NEW.employee_id),
+        (SELECT COALESCE(SUM(visit.paid_by_card), 0) FROM visits WHERE visit.id = NEW.id),
+        (SELECT COALESCE(SUM(visit.paid_in_cash), 0) FROM visits WHERE visit.id = NEW.id)
+      )
+      ON CONFLICT DO UPDATE SET
+        credit = (SELECT COALESCE(SUM(visit.paid_by_card), 0) FROM visits WHERE visit.id = NEW.id),
+        cash = (SELECT COALESCE(SUM(visit.paid_in_cash), 0) FROM visits WHERE visit.id = NEW.id);
+    SQL
+  end
+
   # trigger.after(:update).of(:deleted_at).where('NEW.deleted_at IS NOT NULL').name('fix_last_visit') do
   #   <<-SQL
   #     UPDATE users SET last_visit_id = (
