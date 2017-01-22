@@ -14,12 +14,12 @@ class CreateTriggerVisitsInsertUpdate < ActiveRecord::Migration
         NEW.created_at,
         NEW.id,
         (SELECT company_id FROM employees WHERE employees.id = NEW.employee_id),
-        (SELECT COALESCE(SUM(visit.paid_by_card), 0) FROM visits WHERE visit.id = NEW.id),
-        (SELECT COALESCE(SUM(visit.paid_in_cash), 0) FROM visits WHERE visit.id = NEW.id)
+        (SELECT COALESCE(SUM(visits.paid_by_card), 0) FROM visits WHERE visits.id = NEW.id),
+        (SELECT COALESCE(SUM(visits.paid_in_cash), 0) FROM visits WHERE visits.id = NEW.id)
       )
-      ON CONFLICT DO UPDATE SET
-        credit = (SELECT COALESCE(SUM(visit.paid_by_card), 0) FROM visits WHERE visit.id = NEW.id),
-        cash = (SELECT COALESCE(SUM(visit.paid_in_cash), 0) FROM visits WHERE visit.id = NEW.id);
+      ON CONFLICT (date, visit_id) DO UPDATE SET
+        credit = (SELECT COALESCE(SUM(visits.paid_by_card), 0) FROM visits WHERE visits.id = NEW.id),
+        cash = (SELECT COALESCE(SUM(visits.paid_in_cash), 0) FROM visits WHERE visits.id = NEW.id);
       SQL_ACTIONS
     end
   end
