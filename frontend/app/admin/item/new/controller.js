@@ -5,7 +5,8 @@ export default Ember.Controller.extend({
 
   heap: {
     unlimited: false,
-    isActive: true
+    isActive: true,
+    warningThreshold: 0
   },
 
   actions: {
@@ -29,6 +30,7 @@ export default Ember.Controller.extend({
         that.set('heap', {
           unlimited: false,
           isActive: true,
+          warningThreshold: 0,
           entity: that.get('attrs.entities.firstObject')
         });
         flash.success(`${item.name} ✓`);
