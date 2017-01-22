@@ -1,4 +1,4 @@
-class TouchAllVisits < ActiveRecord::Migration
+class TouchAllVisits2 < ActiveRecord::Migration
   def change
     Visit.all.each do |visit|
       visit.received_cash -= 1
