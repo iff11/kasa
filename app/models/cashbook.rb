@@ -1,5 +1,4 @@
 class Cashbook < ActiveRecord::Base
-  belongs_to :entity
-
-  
+  belongs_to :company
+  belongs_to :visit
 end
