@@ -43,7 +43,7 @@
         {{input placeholder=(t 'customer.mail') value=attrs.customer.mail class="form-control"}}
       </div>
       <div class="form-group">
-        <button disabled={{not isFormValid}} class="btn btn-primary" {{action 'saveCustomer' attrs.customer}}>
+        <button disabled={{isSubmitButtonDisabled}} class="btn btn-primary" {{action 'saveCustomer' attrs.customer}}>
           {{t 'registration.save'}}
           {{fa-icon icon="check"}}
         </button>
