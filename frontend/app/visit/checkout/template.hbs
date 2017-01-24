@@ -52,7 +52,7 @@
         <tr>
           <td class="col-xs-7">{{t 'visit.sum_with_tip_is'}}</td>
           <td class="col-xs-5 text-right">
-            <div class="input-group">
+            <div class="input-group {{priceWithTipClass}}">
               {{~input class='visit-checkout-price-with-tip' value=attrs.visit.priceWithTip autofocus=true type="number"~}}
               <span class="input-group-addon">{{t 'currency'}}</span>
             </div>
