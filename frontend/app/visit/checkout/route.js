@@ -6,6 +6,8 @@ export default Ember.Route.extend({
   },
 
   setupController(controller, model) {
+    model.rollbackAttributes();
+
     if(model.get('priceWithTip') === 0) {
       model.get('sells').then(function(sells) {
         let defaultPrice = sells.reduce(function(previousValue, enumerable) {

@@ -20,6 +20,15 @@ export default Ember.Controller.extend({
     return (returnCash < 0) || isAnyEmpty;
   }),
 
+  priceWithTipClass: Ember.computed('attrs.visit.priceWithTip', 'attrs.visit.price', function () {
+    let priceWithTip = this.get('attrs.visit.priceWithTip');
+    let price = this.get('attrs.visit.price');
+
+    if(priceWithTip < price) {
+      return 'has-error';
+    }
+  }),
+
   returnCashClass: Ember.computed('isReturnCashInvalid', function () {
     let isReturnCashInvalid = this.get('isReturnCashInvalid');
     if(isReturnCashInvalid) {
