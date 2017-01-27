@@ -12,26 +12,40 @@ class Visit < ActiveRecord::Base
     where(completed: false)
   end
 
-  trigger.after(:insert) do
+  trigger.after(:insert).name('update_customer_last_visit') do
     "UPDATE customers SET last_visit_date = NEW.created_at WHERE customers.id = NEW.customer_id;"
+  end
+
+  trigger.after(:insert).name('check_and_create_new_cashbook') do
+    <<-SQL
+      DECLARE
+        my_company_id int;
+      BEGIN
+        my_company_id := (SELECT company_id FROM employees WHERE employees.id = NEW.employee_id);
+        INSERT INTO cashbooks (date, company_id, created_at, updated_at)
+        VALUES (
+          NEW.created_at,
+          my_company_id,
+        )
+        ON CONFLICT DO NOTHING;
+      END;
+    SQL
   end
 
   trigger.after(:insert, :update).name('fix_money_in_cashbook') do
     <<-SQL
-      SET @company_id = (SELECT company_id FROM employees WHERE employees.id = NEW.employee_id);
-      INSERT INTO cashbooks (date, company_id, paid_by_card, paid_in_cash, created_at, updated_at)
-      VALUES (
-        NEW.created_at,
-        @company_id,
-        (SELECT COALESCE(SUM(visits.paid_by_card), 0) FROM visits LEFT JOIN employees ON visits.employee_id = employee.id WHERE employees.company_id = @company_id),
-        (SELECT COALESCE(SUM(visits.paid_in_cash), 0) FROM visits LEFT JOIN employees ON visits.employee_id = employee.id WHERE employees.company_id = @company_id),
-        NOW(),
-        NOW()
-      )
-      ON CONFLICT (date, company_id) DO UPDATE SET
-        paid_by_card = (SELECT COALESCE(SUM(visits.paid_by_card), 0) FROM visits LEFT JOIN employees ON visits.employee_id = employee.id WHERE employees.company_id = @company_id),
-        paid_in_cash = (SELECT COALESCE(SUM(visits.paid_in_cash), 0) FROM visits LEFT JOIN employees ON visits.employee_id = employee.id WHERE employees.company_id = @company_id),
-        updated_at = NOW();
+      DECLARE
+        my_company_id int;
+      BEGIN
+        my_company_id := (SELECT company_id FROM employees WHERE employees.id = NEW.employee_id);
+        UPDATE cashbooks SET
+          paid_by_card = (SELECT COALESCE(SUM(visits.paid_by_card), 0) FROM visits LEFT JOIN employees ON visits.employee_id = employees.id WHERE employees.company_id = my_company_id),
+          paid_in_cash = (SELECT COALESCE(SUM(visits.paid_in_cash), 0) FROM visits LEFT JOIN employees ON visits.employee_id = employees.id WHERE employees.company_id = my_company_id),
+          updated_at = NOW()
+        WHERE
+          date = NEW.created_at AND
+          company_id = my_company_id;
+      END;
     SQL
   end
 
