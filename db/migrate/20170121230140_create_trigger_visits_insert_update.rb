@@ -11,19 +11,19 @@ class CreateTriggerVisitsInsertUpdate < ActiveRecord::Migration
         after(:insert, :update).
         name("fix_money_in_cashbook") do
       <<-SQL_ACTIONS
-      INSERT INTO cashbooks (date, visit_id, company_id, paid_by_card, paid_in_cash, created_at, updated_at)
+      SET @company_id = (SELECT company_id FROM employees WHERE employees.id = NEW.employee_id);
+      INSERT INTO cashbooks (date, company_id, paid_by_card, paid_in_cash, created_at, updated_at)
       VALUES (
         NEW.created_at,
-        NEW.id,
-        (SELECT company_id FROM employees WHERE employees.id = NEW.employee_id),
-        (SELECT COALESCE(SUM(visits.paid_by_card), 0) FROM visits WHERE visits.id = NEW.id),
-        (SELECT COALESCE(SUM(visits.paid_in_cash), 0) FROM visits WHERE visits.id = NEW.id),
+        @company_id,
+        (SELECT COALESCE(SUM(visits.paid_by_card), 0) FROM visits LEFT JOIN employees ON visits.employee_id = employee.id WHERE employees.company_id = @company_id),
+        (SELECT COALESCE(SUM(visits.paid_in_cash), 0) FROM visits LEFT JOIN employees ON visits.employee_id = employee.id WHERE employees.company_id = @company_id),
         NOW(),
         NOW()
       )
-      ON CONFLICT (date, visit_id) DO UPDATE SET
-        paid_by_card = (SELECT COALESCE(SUM(visits.paid_by_card), 0) FROM visits WHERE visits.id = NEW.id),
-        paid_in_cash = (SELECT COALESCE(SUM(visits.paid_in_cash), 0) FROM visits WHERE visits.id = NEW.id),
+      ON CONFLICT (date, company_id) DO UPDATE SET
+        paid_by_card = (SELECT COALESCE(SUM(visits.paid_by_card), 0) FROM visits LEFT JOIN employees ON visits.employee_id = employee.id WHERE employees.company_id = @company_id),
+        paid_in_cash = (SELECT COALESCE(SUM(visits.paid_in_cash), 0) FROM visits LEFT JOIN employees ON visits.employee_id = employee.id WHERE employees.company_id = @company_id),
         updated_at = NOW();
       SQL_ACTIONS
     end
@@ -37,7 +37,7 @@ class CreateTriggerVisitsInsertUpdate < ActiveRecord::Migration
         after(:insert, :update).
         name("fix_money_in_cashbook") do
       <<-SQL_ACTIONS
-      INSERT INTO cashbooks (date, visit_id, company_id, credit, cash, created_at, updated_at)
+      INSERT INTO cashbooks (date, visit_id, company_id, paid_by_card, paid_in_cash, created_at, updated_at)
       VALUES (
         NEW.created_at,
         NEW.id,
@@ -48,8 +48,8 @@ class CreateTriggerVisitsInsertUpdate < ActiveRecord::Migration
         NOW()
       )
       ON CONFLICT (date, visit_id) DO UPDATE SET
-        credit = (SELECT COALESCE(SUM(visits.paid_by_card), 0) FROM visits WHERE visits.id = NEW.id),
-        cash = (SELECT COALESCE(SUM(visits.paid_in_cash), 0) FROM visits WHERE visits.id = NEW.id),
+        paid_by_card = (SELECT COALESCE(SUM(visits.paid_by_card), 0) FROM visits WHERE visits.id = NEW.id),
+        paid_in_cash = (SELECT COALESCE(SUM(visits.paid_in_cash), 0) FROM visits WHERE visits.id = NEW.id),
         updated_at = NOW();
       SQL_ACTIONS
     end
