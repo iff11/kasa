@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(version: 20170122002021) do
 =======
   create_table "cashbooks", force: :cascade do |t|
     t.date     "date"
-    t.decimal  "cash",       default: 0.0, null: false
-    t.decimal  "credit",     default: 0.0, null: false
-    t.integer  "company_id",               null: false
-    t.integer  "visit_id",                 null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.decimal  "paid_by_card", default: 0.0, null: false
+    t.decimal  "paid_in_cash", default: 0.0, null: false
+    t.integer  "company_id",                 null: false
+    t.integer  "visit_id",                   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "cashbooks", ["date", "visit_id"], name: "index_cashbooks_on_date_and_visit_id", unique: true, using: :btree
@@ -243,7 +243,7 @@ ActiveRecord::Schema.define(version: 20170122002021) do
       after(:insert, :update).
       name("fix_money_in_cashbook") do
     <<-SQL_ACTIONS
-      INSERT INTO cashbooks (date, visit_id, company_id, credit, cash, created_at, updated_at)
+      INSERT INTO cashbooks (date, visit_id, company_id, paid_by_card, paid_in_cash, created_at, updated_at)
       VALUES (
         NEW.created_at,
         NEW.id,
@@ -254,8 +254,8 @@ ActiveRecord::Schema.define(version: 20170122002021) do
         NOW()
       )
       ON CONFLICT (date, visit_id) DO UPDATE SET
-        credit = (SELECT COALESCE(SUM(visits.paid_by_card), 0) FROM visits WHERE visits.id = NEW.id),
-        cash = (SELECT COALESCE(SUM(visits.paid_in_cash), 0) FROM visits WHERE visits.id = NEW.id),
+        paid_by_card = (SELECT COALESCE(SUM(visits.paid_by_card), 0) FROM visits WHERE visits.id = NEW.id),
+        paid_in_cash = (SELECT COALESCE(SUM(visits.paid_in_cash), 0) FROM visits WHERE visits.id = NEW.id),
         updated_at = NOW();
 >>>>>>> #54 - initial fill bug fix
     SQL_ACTIONS

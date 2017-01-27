@@ -1,0 +1,2 @@
+class CashbookPolicy < CompanyDependentPolicy
+end

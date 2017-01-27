@@ -44,6 +44,7 @@ Router.map(function() {
     this.route('statuses');
     this.route('visits');
     this.route('companies');
+    this.route('cashbooks');
   });
   this.route('registration');
 });
