@@ -18,7 +18,7 @@ class Visit < ActiveRecord::Base
 
   trigger.after(:insert, :update).name('fix_money_in_cashbook') do
     <<-SQL
-      INSERT INTO cashbooks (date, visit_id, company_id, credit, cash, created_at, updated_at)
+      INSERT INTO cashbooks (date, visit_id, company_id, paid_by_card, paid_in_cash, created_at, updated_at)
       VALUES (
         NEW.created_at,
         NEW.id,
@@ -29,8 +29,8 @@ class Visit < ActiveRecord::Base
         NOW()
       )
       ON CONFLICT (date, visit_id) DO UPDATE SET
-        credit = (SELECT COALESCE(SUM(visits.paid_by_card), 0) FROM visits WHERE visits.id = NEW.id),
-        cash = (SELECT COALESCE(SUM(visits.paid_in_cash), 0) FROM visits WHERE visits.id = NEW.id),
+        paid_by_card = (SELECT COALESCE(SUM(visits.paid_by_card), 0) FROM visits WHERE visits.id = NEW.id),
+        paid_in_cash = (SELECT COALESCE(SUM(visits.paid_in_cash), 0) FROM visits WHERE visits.id = NEW.id),
         updated_at = NOW();
     SQL
   end
