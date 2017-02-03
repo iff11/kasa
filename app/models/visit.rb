@@ -16,6 +16,7 @@ class Visit < ActiveRecord::Base
     "UPDATE customers SET last_visit_date = NEW.created_at WHERE customers.id = NEW.customer_id;"
   end
 
+  # TODO: Join to one trigger
   trigger.after(:insert).name('check_and_create_new_cashbook') do
     <<-SQL
       DECLARE
