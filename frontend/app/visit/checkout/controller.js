@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  settings: Ember.inject.service(),
+
+  isInvoicePrintingActive: Ember.computed.oneWay('settings.isInvoicePrintingActive'),
   attrs: {},
 
   returnCash: Ember.computed('attrs.visit.paidByCard', 'attrs.visit.priceWithTip', 'attrs.visit.receivedCash', function() {
@@ -51,7 +54,12 @@ export default Ember.Controller.extend({
       let flash = Ember.get(this, 'flashMessages');
       visit.save().then(() => {
         flash.success('Successfully saved!');
-        this.transitionToRoute('visits');
+
+        if(this.get('isInvoicePrintingActive')) {
+          this.transitionToRoute('visit.print', visit.get('id'));
+        } else {
+          this.transitionToRoute('visits');
+        }
       }, function(response) {
         flash.danger('Something went wrong!', response);
       });

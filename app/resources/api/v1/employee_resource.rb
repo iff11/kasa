@@ -4,6 +4,7 @@ module Api
       attributes :first_name, :last_name, :photo_url, :is_active
 
       has_many :visits
+      has_one :company
 
       filters :is_active
     end
