@@ -32,6 +32,7 @@ Router.map(function() {
 
     this.route('customers');
     this.route('employees');
+    this.route('visit', { path: 'visit/:id' });
     this.route('customer', { path: 'customer/:id' });
     this.route('employee', { path: 'employee/:id' }, function() {
       this.route('year', { path: '/:year' }, function() {
