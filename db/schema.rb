@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170205210631) do
+ActiveRecord::Schema.define(version: 20170208081555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -161,7 +161,6 @@ ActiveRecord::Schema.define(version: 20170205210631) do
 
   add_index "visits", ["deleted_at"], name: "index_visits_on_deleted_at", using: :btree
 
-  add_foreign_key "entities", "companies"
   create_trigger("visits_after_insert_row_tr", :generated => true, :compatibility => 1).
       on("visits").
       after(:insert) do

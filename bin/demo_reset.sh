@@ -1,5 +1,5 @@
 #!/bin/bash
 
-APP='kasa-pudr-com'
+APP='demo-beauty-pay-cz'
 
 heroku run rake db:reset --app=${APP}
