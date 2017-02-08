@@ -1,0 +1,16 @@
+.receipt {
+  @extend .visible-print-block;
+
+  .item-table {
+    @extend .table;
+    @extend .table-condensed;
+
+    tbody tr:nth-of-type(even) td {
+      border: 0;
+    }
+  }
+
+  small {
+    font-size: 50%;
+  }
+}
