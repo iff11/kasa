@@ -1,7 +1,7 @@
 class Company < ActiveRecord::Base
-  has_many :users
-  has_many :customers
-  has_many :items
-  has_many :employees
-  has_many :entities
+  has_many :users, dependent: :destroy
+  has_many :customers, dependent: :destroy
+  has_many :items, dependent: :destroy
+  has_many :employees, dependent: :destroy
+  has_many :entities, dependent: :destroy
 end
