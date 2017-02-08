@@ -69,11 +69,7 @@
 
     <ul class="list-unstyled">
       {{#each visit.employee.company.entities as |entity|}}
-        <li>
-          <small>
-            {{entity.id}}) {{entity.name}} - {{entity.invoiceHeader}}
-          </small>
-        </li>
+        {{x-receipt/entity-sum entity=entity sells=visit.sells}}
       {{/each}}
     </ul>
     {{!-- <h3>{{t "visit.print.eetHeading"}}</h3> --}}
