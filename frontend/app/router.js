@@ -19,6 +19,7 @@ Router.map(function() {
   this.route('visit', { path: '/visit/:id' }, function() {
     this.route('show');
     this.route('checkout');
+    this.route('print');
   });
 
   this.route('admin', function() {
@@ -31,7 +32,6 @@ Router.map(function() {
 
     this.route('customers');
     this.route('employees');
-
     this.route('visit', { path: 'visit/:id' });
     this.route('customer', { path: 'customer/:id' });
     this.route('employee', { path: 'employee/:id' }, function() {

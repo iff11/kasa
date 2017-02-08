@@ -1,0 +1,74 @@
+<div class="visible-print-block">
+  {{#with attrs.visit as |visit|}}
+    <p class="text-center">
+      {{visit.employee.company.invoiceHeader}}
+    </p>
+
+    <hr />
+
+    <div class="row">
+      <div class="col-xs-6">
+        {{visit.employee.firstName}} {{visit.employee.lastName}}
+      </div>
+      <div class="col-xs-6 text-right">
+        {{visit.createdAt}}
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+      {{#each visit.sells as |sell|}}
+        <div class="col-xs-12">
+          {{sell.item.name}}
+        </div>
+        <div class="col-xs-4 text-right">
+          {{sell.count}}{{fa-icon "times"}}
+        </div>
+        <div class="col-xs-4 text-right">
+          {{sell.price}}
+        </div>
+        <div class="col-xs-4 text-right">
+          {{sell.sum}}
+        </div>
+      {{/each}}
+    </div>
+
+    <hr />
+
+    <div class="row">
+      <div class="col-xs-6">
+        {{t 'visit.print.sum'}}
+      </div>
+      <div class="col-xs-6 text-right">
+        {{visit.price}}
+      </div>
+    </div>
+
+    <hr />
+
+    {{!-- <h3>{{t "visit.print.eetHeading"}}</h3> --}}
+
+    {{!-- <hr /> --}}
+
+    <p class="text-center">
+      {{t "visit.print.footer"}}
+    </p>
+  {{/with}}
+</div>
+
+<div class="hidden-print text-center">
+  <div class="row">
+    <button {{action "print"}} class="btn btn-info">
+      {{fa-icon "print" size=5 }}
+    </button>
+  </div>
+
+  <hr />
+
+  <div class="row">
+    {{#link-to 'visits' class="btn btn-primary"}}
+      {{t "visit.print.goToVisits"}}
+    {{/link-to}}
+  </div>
+</div>

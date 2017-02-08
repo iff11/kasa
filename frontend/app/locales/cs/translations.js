@@ -47,6 +47,12 @@ export default {
   },
 
   visit: {
+    print: {
+      footer: 'vytvořeno pomocí systému www.beauty-pay.cz',
+      sum: 'Celkem cena Kč:',
+      goToVisits: 'Zpátky na seznam zakázek'
+    },
+    isInvoicePrintingActive: 'Tisknout účtenku',
     priceSection: 'Částka',
     paymentSection: 'Platba',
     selectAnItem: 'Vyberte položku',
@@ -176,7 +182,9 @@ export default {
       heading: 'Moje firma',
       companyNameLabel: 'Název firmy',
       entities: 'Ekonomické entity',
-      entityName: 'Název entity'
+      entityName: 'Název entity',
+      isInvoicePrintingActive: 'Tisknout účtenky',
+      invoiceHeader: 'Hlavička na účtence'
     },
     statuses: {
       heading: 'Stav systému'
