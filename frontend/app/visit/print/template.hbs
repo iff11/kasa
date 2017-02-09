@@ -12,11 +12,11 @@
     <hr />
 
     <div class="row">
-      <div class="col-xs-6">
-        {{visit.employee.firstName}} {{visit.employee.lastName}}
+      <div class="col-xs-4">
+        {{visit.employee.firstName}}
       </div>
-      <div class="col-xs-6 text-right">
-        {{moment-format visit.createdAt "LLLL"}}
+      <div class="col-xs-8 text-right">
+        {{moment-format visit.createdAt "LLL"}}
       </div>
     </div>
 
