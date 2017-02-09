@@ -1,5 +1,10 @@
-<div class="visible-print-block">
+<div class="receipt">
   {{#with attrs.visit as |visit|}}
+
+    {{#if visit.employee.company.invoiceLogo}}
+      <img src={{visit.employee.company.invoiceLogo}}>
+    {{/if}}
+
     <p class="text-center">
       {{visit.employee.company.invoiceHeader}}
     </p>
@@ -11,45 +16,65 @@
         {{visit.employee.firstName}} {{visit.employee.lastName}}
       </div>
       <div class="col-xs-6 text-right">
-        {{visit.createdAt}}
+        {{moment-format visit.createdAt "LLLL"}}
       </div>
     </div>
 
     <hr />
 
-    <div class="row">
-      {{#each visit.sells as |sell|}}
-        <div class="col-xs-12">
-          {{sell.item.name}}
-        </div>
-        <div class="col-xs-4 text-right">
-          {{sell.count}}{{fa-icon "times"}}
-        </div>
-        <div class="col-xs-4 text-right">
-          {{sell.price}}
-        </div>
-        <div class="col-xs-4 text-right">
-          {{sell.sum}}
-        </div>
+    <table class="item-table">
+      <thead>
+        <tr>
+          <th>{{t "visit.print.count"}}</th>
+          <th class="text-right">{{t "visit.print.unitPrice"}}</th>
+          <th class="text-right">{{t "visit.print.price"}}</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each visit.sells as |sell|}}
+          <tr class="active">
+            <td colspan="3">
+              {{sell.item.name}}
+              <sup>{{sell.item.entity.id}}</sup>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              {{sell.count}}&nbsp;{{fa-icon "times"}}
+            </td>
+            <td class="text-right">
+              {{sell.price}}
+            </td>
+            <td class="text-right">
+              {{sell.sum}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <th colspan="2">
+            {{t 'visit.print.sum'}}
+          </th>
+          <th class="text-right">
+            {{visit.price}}
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+
+    <hr />
+
+    <ul class="list-unstyled">
+      {{#each visit.employee.company.entities as |entity|}}
+        {{x-receipt/entity-sum entity=entity sells=visit.sells}}
       {{/each}}
-    </div>
-
-    <hr />
-
-    <div class="row">
-      <div class="col-xs-6">
-        {{t 'visit.print.sum'}}
-      </div>
-      <div class="col-xs-6 text-right">
-        {{visit.price}}
-      </div>
-    </div>
-
-    <hr />
-
+    </ul>
     {{!-- <h3>{{t "visit.print.eetHeading"}}</h3> --}}
 
-    {{!-- <hr /> --}}
+    <hr />
 
     <p class="text-center">
       {{t "visit.print.footer"}}

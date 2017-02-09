@@ -18,6 +18,11 @@
     {{textarea rows=5 value=company.invoiceHeader id="invoice-header" class="form-control"}}
   </div>
 
+  <div class="form-group">
+    <label for="invoice-logo">{{t 'admin.companies.invoiceLogo'}}</label>
+    {{input value=company.invoiceLogo id="invoice-logo" class="form-control"}}
+  </div>
+
   <button class="btn btn-primary" {{action "saveCompanyName" company}}>
     {{fa-icon icon="floppy-o"}}
   </button>

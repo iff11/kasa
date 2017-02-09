@@ -1,10 +1,15 @@
-<div class="form-group">
-  <label for="{{concat 'entity-name-' entity.id}}">{{t 'admin.companies.entityName'}}</label>
-  <div class="input-group">
-
-    {{input value=entity.name id=(concat 'entity-name-' entity.id) class="form-control"}}
-    <span class="input-group-addon" {{action "saveEntity"}}>
-      {{fa-icon icon="floppy-o"}}
-    </span>
+<form class="form-inline">
+  <div class="form-group">
+    <label>{{t 'admin.companies.entityName'}}</label>
+    {{input value=entity.name class="form-control"}}
   </div>
-</div>
+
+  <div class="form-group">
+    <label>{{t 'admin.companies.entityInvoiceHeader'}}</label>
+    {{input value=entity.invoiceHeader class="form-control"}}
+  </div>
+
+  <button class="btn btn-primary" {{action "saveEntity"}}>
+    {{fa-icon icon="floppy-o"}}
+  </button>
+</form>
