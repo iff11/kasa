@@ -5,9 +5,14 @@ export default Ember.Controller.extend({
   session: Ember.inject.service(),
 
   logoutAttempts: 0,
+  isSavingData: false,
   attrs: {
     customer: {}
   },
+
+  isSubmitButtonDisabled: Ember.computed('isSavingData', 'isFormValid', function () {
+    return this.get('isSavingData') || !this.get('isFormValid');
+  }),
 
   // TODO: this is copy-paste, DRY this
   genders: Ember.computed(function () {
@@ -48,14 +53,17 @@ export default Ember.Controller.extend({
       this.set('attrs.customer.birth', newBirthday);
     },
     saveCustomer(data) {
+      this.set('isSavingData', true);
       let customer = this.store.createRecord('customer', data);
       let flash = Ember.get(this, 'flashMessages');
 
       customer.save().then(() => {
         flash.success(this.get('i18n').t('registration.success'), { timeout: 5000, sticky: false });
         this.set('attrs.customer', {});
+        this.set('isSavingData', false);
       }, function() {
         flash.danger(this.get('i18n').t('registration.failure'), { timeout: 5000, sticky: false });
+        this.set('isSavingData', false);
       });
     }
   }

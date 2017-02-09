@@ -1,7 +1,7 @@
 module Api
   module V1
     class EntityResource < CompanyDependentResource
-      attributes :name
+      attributes :name, :invoice_header
 
       has_many :items
     end

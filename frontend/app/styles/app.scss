@@ -1,4 +1,4 @@
-@import "bower_components/font-awesome/scss/font-awesome";
+@import 'bower_components/font-awesome/scss/font-awesome';
 @import 'theme/sb-admin-2/variables';
 @import 'bootstrap';
 @import 'theme/sb-admin-2/index';
@@ -7,7 +7,7 @@
 @import 'module/customer-visits';
 @import 'module/avatar';
 @import 'module/gender';
-@import 'module/print';
+@import 'module/receipt';
 
 @import 'layout/navbar';
 @import 'layout/visits';

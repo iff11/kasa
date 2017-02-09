@@ -11,17 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208081555) do
+ActiveRecord::Schema.define(version: 20170208124715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
-    t.boolean  "is_invoice_printing_active", default: false, null: false
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
+    t.boolean  "is_invoice_printing_active",             default: false, null: false
     t.text     "invoice_header"
+    t.string   "invoice_logo",               limit: 255
   end
 
   create_table "customers", force: :cascade do |t|
@@ -61,8 +62,9 @@ ActiveRecord::Schema.define(version: 20170208081555) do
   create_table "entities", force: :cascade do |t|
     t.string   "name"
     t.integer  "company_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.text     "invoice_header"
   end
 
   add_index "entities", ["company_id"], name: "index_entities_on_company_id", using: :btree
