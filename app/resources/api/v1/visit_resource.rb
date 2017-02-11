@@ -8,7 +8,15 @@ module Api
       has_one :customer
       has_one :employee
 
+      # has_one :cashbook_entry, foreign_key_on: :related
+      # relationship :cashbook_entry, to: :one, foreign_key_on: :related
+      belongs_to :cashbook_entry
       has_many :sells
+
+      # https://github.com/cerebris/jsonapi-resources/issues/391
+      def cashbook_entry_id=(_value)
+        # TODO: Remove once it's fixed
+      end
 
       filters :customer_id, :completed, :month, :year, :employee_id
 

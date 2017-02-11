@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208124715) do
+ActiveRecord::Schema.define(version: 20170212200918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cashbook_entries", force: :cascade do |t|
+    t.decimal  "amount",     null: false
+    t.integer  "kind",       null: false
+    t.datetime "touched_at", null: false
+    t.string   "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "company_id", null: false
+    t.integer  "visit_id"
+  end
+
+  add_index "cashbook_entries", ["company_id"], name: "index_cashbook_entries_on_company_id", using: :btree
+  add_index "cashbook_entries", ["visit_id"], name: "index_cashbook_entries_on_visit_id", unique: true, using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -23,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170208124715) do
     t.boolean  "is_invoice_printing_active",             default: false, null: false
     t.text     "invoice_header"
     t.string   "invoice_logo",               limit: 255
+    t.decimal  "cashbook_balance",                       default: 0.0,   null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -217,6 +232,38 @@ ActiveRecord::Schema.define(version: 20170208124715) do
       UPDATE items SET bought = (
         SELECT COALESCE(SUM(quantity), 0) FROM supplies WHERE supplies.deleted_at IS NULL AND supplies.item_id = NEW.item_id
       ) WHERE items.id = NEW.item_id;
+    SQL_ACTIONS
+  end
+
+  create_trigger("visits_after_update_row_tr", :generated => true, :compatibility => 1).
+      on("visits").
+      after(:update) do
+    <<-SQL_ACTIONS
+      INSERT INTO cashbook_entries (company_id, visit_id, amount, touched_at, kind, created_at, updated_at) VALUES
+      (
+        (SELECT company_id FROM visits LEFT JOIN employees ON (visits.employee_id = employees.id) WHERE visits.id = NEW.id),
+        NEW.id,
+        NEW.paid_in_cash,
+        NOW(),
+        0,
+        NEW.created_at,
+        NEW.updated_at
+      ) ON CONFLICT (visit_id) DO UPDATE SET
+        amount = NEW.paid_in_cash,
+        touched_at = NOW();
+    SQL_ACTIONS
+  end
+
+  create_trigger("cashbook_entries_after_insert_update_delete_row_tr", :generated => true, :compatibility => 1).
+      on("cashbook_entries").
+      after(:insert, :update, :delete) do
+    <<-SQL_ACTIONS
+      IF TG_OP = 'DELETE' THEN
+        UPDATE companies SET cashbook_balance = (SELECT SUM(amount) FROM cashbook_entries WHERE company_id = OLD.company_id) WHERE id = OLD.company_id;
+      END IF;
+      IF TG_OP = 'INSERT' OR TG_OP = 'UPDATE' THEN
+        UPDATE companies SET cashbook_balance = (SELECT SUM(amount) FROM cashbook_entries WHERE company_id = NEW.company_id) WHERE id = NEW.company_id;
+      END IF;
     SQL_ACTIONS
   end
 

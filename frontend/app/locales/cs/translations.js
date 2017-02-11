@@ -181,6 +181,15 @@ export default {
   },
 
   admin: {
+    cashbook: {
+      heading: 'Pokladní kniha',
+      createdAt: 'Datum',
+      amount: 'Částka',
+      note: 'Poznámka',
+      kind: 'Typ / Akce',
+      isVisit: 'Zakázka',
+      disclaimer: 'Výběr z pokladní knihy dělejte přes zápornou částku.'
+    },
     companies: {
       heading: 'Moje firma',
       companyNameLabel: 'Název firmy',
@@ -211,7 +220,8 @@ export default {
       supply: 'Naskladnění',
       statuses: 'Stav systému',
       companies: 'Firma',
-      visits: 'Zakázky'
+      visits: 'Zakázky',
+      cashbook: 'Pokladní kniha'
     },
     heading: {
       navigation: 'Navigace',

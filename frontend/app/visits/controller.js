@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  settings: Ember.inject.service(),
+
   attrs: [],
   heap: {},
 
@@ -10,10 +12,9 @@ export default Ember.Controller.extend({
         customer: this.get('heap.customer'),
         employee: this.get('heap.employee')
       });
-      let that = this;
 
-      visit.save().then(function() {
-        that.transitionToRoute('visit.show', visit);
+      visit.save().then(() => {
+        this.transitionToRoute('visit.show', visit);
       });
     }
   }
