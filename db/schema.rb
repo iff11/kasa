@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208124715) do
+ActiveRecord::Schema.define(version: 20170211154211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cashbook_entries", force: :cascade do |t|
+    t.decimal  "amount",     null: false
+    t.integer  "kind",       null: false
+    t.datetime "when",       null: false
+    t.string   "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "company_id", null: false
+    t.integer  "visit_id"
+  end
+
+  add_index "cashbook_entries", ["company_id"], name: "index_cashbook_entries_on_company_id", using: :btree
+  add_index "cashbook_entries", ["visit_id"], name: "index_cashbook_entries_on_visit_id", using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
