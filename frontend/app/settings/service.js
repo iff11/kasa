@@ -13,5 +13,9 @@ export default Ember.Service.extend({
 
   isInvoicePrintingActive: Ember.computed('company', function () {
     return this.get('company.isInvoicePrintingActive');
+  }),
+
+  cashbookBalance: Ember.computed('company', function () {
+    return this.get('company.cashbookBalance');
   })
 });

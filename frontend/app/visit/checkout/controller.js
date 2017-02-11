@@ -55,11 +55,18 @@ export default Ember.Controller.extend({
       visit.save().then(() => {
         flash.success('Successfully saved!');
 
-        if(this.get('isInvoicePrintingActive')) {
-          this.transitionToRoute('visit.print', visit.get('id'));
-        } else {
-          this.transitionToRoute('visits');
-        }
+        visit.get('cashbookEntry').then((cashbookEntry) => {
+          console.log(cashbookEntry.get('amount'));
+          cashbookEntry.set('amount', visit.get('paidInCash'));
+          cashbookEntry.set('when', new Date());
+          cashbookEntry.save().then(() => {
+            if(this.get('isInvoicePrintingActive')) {
+              this.transitionToRoute('visit.print', visit.get('id'));
+            } else {
+              this.transitionToRoute('visits');
+            }
+          });
+        });
       }, function(response) {
         flash.danger('Something went wrong!', response);
       });

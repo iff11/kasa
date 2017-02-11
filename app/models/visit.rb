@@ -7,6 +7,7 @@ class Visit < ActiveRecord::Base
   belongs_to :customer, counter_cache: true
   belongs_to :employee
   has_many :sells, dependent: :destroy
+  has_one :cashbook_entry
 
   def self.opened
     where(completed: false)
@@ -15,6 +16,16 @@ class Visit < ActiveRecord::Base
   trigger.after(:insert) do
     "UPDATE customers SET last_visit_date = NEW.created_at WHERE customers.id = NEW.customer_id;"
   end
+  #
+  # trigger.after(:update) do
+  #   <<-SQL_ACTIONS
+  #     UPDATE cashbook_entries SET
+  #       amount = NEW.paid_in_cash,
+  #       when = NOW()
+  #     WHERE
+  #       visit_id = NEW.id;
+  #   SQL_ACTIONS
+  # end
 
   # trigger.after(:update).of(:deleted_at).where('NEW.deleted_at IS NOT NULL').name('fix_last_visit') do
   #   <<-SQL
