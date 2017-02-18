@@ -14,6 +14,30 @@ export default Ember.Controller.extend({
     });
   }),
 
+  sumCash: Ember.computed('attrs.visits.[]', function () {
+    let visits = this.get('attrs.visits');
+
+    return visits.reduce((prev, curr) => {
+      return prev + curr.get('paidInCash');
+    }, 0);
+  }),
+
+  sumCard: Ember.computed('attrs.visits.[]', function () {
+    let visits = this.get('attrs.visits');
+
+    return visits.reduce((prev, curr) => {
+      return prev + curr.get('paidByCard');
+    }, 0);
+  }),
+
+  sum: Ember.computed('attrs.visits.[]', function () {
+    let visits = this.get('attrs.visits');
+
+    return visits.reduce((prev, curr) => {
+      return prev + curr.get('priceWithTip');
+    }, 0);
+  }),
+
   pikadayDate: Ember.computed('date.[]', function () {
     let date = this.get('date');
     return {
