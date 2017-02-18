@@ -208,7 +208,10 @@ export default {
       month: 'Měsíc'
     },
     visits: {
-      heading: 'Všechny zakázky'
+      heading: 'Všechny zakázky',
+      paidByCard: 'Kartou',
+      paidInCash: 'Hotově',
+      priceWithTip: 'Celkem'
     }
   },
 

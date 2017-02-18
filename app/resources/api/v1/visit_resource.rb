@@ -18,13 +18,16 @@ module Api
         # TODO: Remove once it's fixed
       end
 
-      filters :customer_id, :completed, :month, :year, :employee_id
+      filters :customer_id, :completed, :month, :year, :day, :employee_id
 
       filter :month, apply: ->(records, value, _options) {
         records.where('EXTRACT( MONTH FROM visits.created_at ) = ?', value)
       }
       filter :year, apply: ->(records, value, _options) {
         records.where('EXTRACT( YEAR FROM visits.created_at ) = ?', value)
+      }
+      filter :day, apply: ->(records, value, _options) {
+        records.where('EXTRACT( DAY FROM visits.created_at) = ?', value)
       }
     end
   end

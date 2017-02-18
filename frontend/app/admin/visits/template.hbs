@@ -10,3 +10,33 @@
     </div>
   </div>
 </h2>
+
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="text-right">{{t 'admin.visits.paidByCard'}}</th>
+          <th class="text-right">{{t 'admin.visits.paidInCash'}}</th>
+          <th class="text-right">{{t 'admin.visits.priceWithTip'}}</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each attrs.visits as |visit|}}
+          <tr>
+            <td class="text-right">
+              {{format-money visit.paidByCard symbol="Kč" format="%v %s"}}
+            </td>
+            <td class="text-right">
+              {{format-money visit.paidInCash symbol="Kč" format="%v %s"}}
+            </td>
+            <td class="text-right">
+              {{format-money visit.priceWithTip symbol="Kč" format="%v %s"}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

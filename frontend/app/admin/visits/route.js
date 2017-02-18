@@ -2,18 +2,15 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    let now = moment();
-    let year = moment().year();
-    // let month = 3;
+    let now = new Date();
+
     let query = {
-          filter: {
-            year
-          },
-          page: {
-            size: 1000
-          },
-          include: 'customer'
-        };
+      filter: {
+        year: now.getUTCFullYear(),
+        month: now.getUTCMonth() + 1,
+        day: now.getUTCDate()
+      }
+    };
 
     return Ember.RSVP.hash({
       visits: this.store.query('visit', query),
