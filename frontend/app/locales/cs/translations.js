@@ -180,6 +180,12 @@ export default {
     header: 'Přihlášení'
   },
 
+  datepickerRow: {
+    year: 'Rok',
+    month: 'Měsíc',
+    day: 'Den'
+  },
+
   admin: {
     cashbook: {
       heading: 'Pokladní kniha',

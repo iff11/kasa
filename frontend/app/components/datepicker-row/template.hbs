@@ -1,0 +1,47 @@
+<ul class="nav nav-tabs" role="tablist">
+  <li class="disabled">
+    <a>
+      {{t 'datepickerRow.year'}}:
+    </a>
+  </li>
+
+  {{#each years as |year|}}
+    <li {{action "makeSelection" year 1 1}} role="presentation" class="{{if (eq year selected.year) 'active'}}">
+      <a href="" role="tab">
+        {{year}}
+      </a>
+    </li>
+  {{/each}}
+</ul>
+
+<ul class="nav nav-tabs" role="tablist">
+  <li class="disabled">
+    <a>
+      {{t 'datepickerRow.month'}}:
+    </a>
+  </li>
+
+  {{#each months as |month|}}
+    <li {{action "makeSelection" selected.year month 1}} role="presentation" class="{{if (eq month selected.month) 'active'}}">
+      <a href="" role="tab">
+        {{month}}
+      </a>
+    </li>
+  {{/each}}
+</ul>
+
+<ul class="nav nav-tabs" role="tablist">
+  <li class="disabled">
+    <a>
+      {{t 'datepickerRow.day'}}:
+    </a>
+  </li>
+
+  {{#each days as |day|}}
+    <li {{action "makeSelection" selected.year selected.month day}} role="presentation" class="{{if (eq day selected.day) 'active'}}">
+      <a href="" role="tab">
+        {{day}}
+      </a>
+    </li>
+  {{/each}}
+</ul>
