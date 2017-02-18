@@ -43,7 +43,9 @@ Router.map(function() {
     this.route('supply');
 
     this.route('statuses');
-    this.route('visits');
+    this.route('visits', function() {
+      this.route('day', { path: '/:year/:month/:day' });
+    });
     this.route('companies');
   });
   this.route('registration');

@@ -1,27 +1,25 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model() {
-    let now = new Date();
-
+  model(params) {
     let query = {
       filter: {
-        year: now.getUTCFullYear(),
-        month: now.getUTCMonth() + 1,
-        day: now.getUTCDate()
+        year: params.year,
+        month: params.month,
+        day: params.day
       }
     };
 
     return Ember.RSVP.hash({
       visits: this.store.query('visit', query),
-      now: now
+      date: params
     });
   },
 
   setupController(controller, model) {
     controller.setProperties({
       'attrs.visits': model.visits,
-      'selected': model.now
+      'date': model.date
     });
   }
 });
