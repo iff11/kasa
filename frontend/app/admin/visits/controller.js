@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  attrs: {},
+  selected: null,
+
   currentEvents: Ember.computed('model.[]', function() {
     return this.get('model').map(function(visit) {
       return {
@@ -12,8 +15,8 @@ export default Ember.Controller.extend({
   }),
 
   actions: {
-    eventClicked(visit) {
-      this.transitionTo('admin.visit', visit.id);
+    dateSelected(date) {
+
     }
   }
 });

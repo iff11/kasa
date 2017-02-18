@@ -1,8 +1,12 @@
-<h2>{{t 'admin.visits.heading'}}</h2>
+<h2 class="row">
+  <div class="col-xs-10">
+    {{t 'admin.visits.heading'}}
+  </div>
 
-{{full-calendar
-    events=currentEvents
-    defaultView="agendaWeek"
-    lang="cs"
-    timeFormat="H:mm"
-    eventClick=(action "eventClicked")}}
+  <div class="col-xs-2 text-right">
+    <div class="input-group">
+      <span class="input-group-addon">{{fa-icon "calendar"}}</span>
+      {{pikaday-input value=selected class="form-control text-right" useUTC=true format="DD.MM.YYYY" onSelection=(action 'dateSelected')}}
+    </div>
+  </div>
+</h2>
