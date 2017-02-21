@@ -22,6 +22,10 @@ Router.map(function() {
     this.route('print');
   });
 
+  this.route('overview', function() {
+    this.route('day', { path: '/:year/:month/:day' });
+  });
+
   this.route('admin', function() {
     this.route('cashbook');
     this.route('items');
@@ -43,9 +47,6 @@ Router.map(function() {
     this.route('supply');
 
     this.route('statuses');
-    this.route('visits', function() {
-      this.route('day', { path: '/:year/:month/:day' });
-    });
     this.route('companies');
   });
   this.route('registration');

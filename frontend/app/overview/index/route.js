@@ -7,6 +7,6 @@ export default Ember.Route.extend({
     let month = now.getUTCMonth() + 1;
     let day = now.getUTCDate();
 
-    this.transitionTo('admin.visits.day', year, month, day);
+    this.transitionTo('overview.day', year, month, day);
   }
 });

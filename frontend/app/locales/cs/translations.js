@@ -23,6 +23,13 @@ export default {
     newCustomer: 'Nový zákazník'
   },
 
+  overview: {
+    heading: 'Všechny zakázky',
+    paidByCard: 'Kartou',
+    paidInCash: 'Hotově',
+    priceWithTip: 'Celkem'
+  },
+
   customer: {
     genders: {
       male: 'Muž',
@@ -206,12 +213,6 @@ export default {
     employee: {
       year: 'Rok',
       month: 'Měsíc'
-    },
-    visits: {
-      heading: 'Všechny zakázky',
-      paidByCard: 'Kartou',
-      paidInCash: 'Hotově',
-      priceWithTip: 'Celkem'
     }
   },
 
@@ -223,7 +224,6 @@ export default {
       supply: 'Naskladnění',
       statuses: 'Stav systému',
       companies: 'Firma',
-      visits: 'Zakázky',
       cashbook: 'Pokladní kniha'
     },
     heading: {
@@ -232,6 +232,7 @@ export default {
       admin: 'Administrátor',
       profile: 'Profil'
     },
+    overview: 'Zakázky',
     customers: 'Zákazníci',
     items: 'Sklad',
     visits: 'Otevřené zakázky',

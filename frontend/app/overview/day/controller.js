@@ -49,7 +49,7 @@ export default Ember.Controller.extend({
 
   actions: {
     dateSelected(date) {
-      this.transitionToRoute('admin.visits.day', date.getUTCFullYear(), date.getUTCMonth() + 1, date.getUTCDate());
+      this.transitionToRoute('overview.day', date.getUTCFullYear(), date.getUTCMonth() + 1, date.getUTCDate());
     }
   }
 });

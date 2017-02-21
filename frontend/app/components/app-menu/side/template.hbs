@@ -12,6 +12,13 @@
       </li>
 
       <li>
+        {{#link-to 'overview'}}
+        {{fa-icon icon="calendar"}}
+        {{t 'sidebar.overview'}}
+        {{/link-to}}
+      </li>
+
+      <li>
         {{#link-to 'customers'}}
           {{fa-icon icon="users"}}
           {{t 'sidebar.customers'}}
@@ -73,12 +80,6 @@
           {{#link-to 'admin.employees'}}
             {{fa-icon icon="scissors"}}
             {{t 'sidebar.admin.employees'}}
-          {{/link-to}}
-        </li>
-        <li>
-          {{#link-to 'admin.visits'}}
-            {{fa-icon icon="calendar"}}
-            {{t 'sidebar.admin.visits'}}
           {{/link-to}}
         </li>
         <li>
