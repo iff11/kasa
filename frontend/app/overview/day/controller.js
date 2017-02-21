@@ -45,11 +45,5 @@ export default Ember.Controller.extend({
       month: date.month - 1,
       day: date.day
     };
-  }),
-
-  actions: {
-    dateSelected(date) {
-      this.transitionToRoute('overview.day', date.getUTCFullYear(), date.getUTCMonth() + 1, date.getUTCDate());
-    }
-  }
+  })
 });
