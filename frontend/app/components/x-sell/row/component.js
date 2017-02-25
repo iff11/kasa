@@ -26,6 +26,10 @@ export default Ember.Component.extend({
     return `visit-sell-row-${type }`;
   }),
 
+  isInvalid: Ember.computed('sell.item.id', function () {
+    return Ember.isEmpty(this.get('sell.item.id'));
+  }),
+
   actions: {
     create() {
       this.sendAction('create', this.get('sell'));

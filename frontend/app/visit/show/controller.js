@@ -35,13 +35,14 @@ export default Ember.Controller.extend({
       let flash = Ember.get(this, 'flashMessages');
 
       sell.save().then(() => {
-        this.resetHeap();
         let name = sell.get('item.name');
         let fullName = sell.get('visit.customer.fullName');
         flash.success(`${name} ✓ ${fullName}`);
       }, (response) => {
+        sell.unloadRecord();
         flash.danger(`${name} ✓ ${fullName} - ${response.message}`);
       });
+      this.resetHeap();
     },
 
     deleteSell(sell) {
