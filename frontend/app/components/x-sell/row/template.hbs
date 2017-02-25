@@ -26,12 +26,12 @@
       <button class="visit-sell-delete" {{action "delete" on="doubleClick"}}>
         {{fa-icon icon="times"}}
       </button>
-      <button class="visit-sell-update" {{action 'update'}}>
+      <button disabled={{isInvalid}} class="visit-sell-update" {{action 'update'}}>
         {{fa-icon icon="check"}}
       </button>
     {{else}}
       {{x-sell/sum sell=sell}}
-      <button class="visit-sell-create" {{action "create"}}>
+      <button disabled={{isInvalid}} class="visit-sell-create" {{action "create"}}>
         {{fa-icon icon="plus"}}
       </button>
     {{/if}}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208124715) do
+ActiveRecord::Schema.define(version: 20170225094937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,8 +92,8 @@ ActiveRecord::Schema.define(version: 20170208124715) do
   add_index "items", ["entity_id"], name: "index_items_on_entity_id", using: :btree
 
   create_table "sells", force: :cascade do |t|
-    t.integer  "item_id"
-    t.integer  "visit_id"
+    t.integer  "item_id",    null: false
+    t.integer  "visit_id",   null: false
     t.integer  "count",      null: false
     t.float    "price",      null: false
     t.datetime "created_at", null: false
@@ -169,46 +169,6 @@ ActiveRecord::Schema.define(version: 20170208124715) do
     "UPDATE customers SET last_visit_date = NEW.created_at WHERE customers.id = NEW.customer_id;"
   end
 
-  create_trigger("fix_sells_price", :generated => true, :compatibility => 1).
-      on("sells").
-      after(:insert, :update, :delete).
-      name("fix_sells_price") do
-    "      UPDATE visits SET price = (SELECT COALESCE(SUM(price * count), 0) FROM sells WHERE visit_id = NEW.visit_id AND deleted_at IS NULL) WHERE visits.id = NEW.visit_id;"
-  end
-
-  create_trigger("fix_sells_employee_share_sale", :generated => true, :compatibility => 1).
-      on("sells").
-      after(:insert, :update, :delete).
-      name("fix_sells_employee_share_sale") do
-    <<-SQL_ACTIONS
-      UPDATE visits SET employee_share_sale = (
-        SELECT COALESCE(SUM(sells.price * sells.count), 0) FROM sells LEFT JOIN items ON items.id = sells.item_id WHERE sells.visit_id = NEW.visit_id AND sells.deleted_at IS NULL AND items.is_service = false) * 0.1
-        WHERE visits.id = NEW.visit_id;
-    SQL_ACTIONS
-  end
-
-  create_trigger("fix_sells_employee_share_service", :generated => true, :compatibility => 1).
-      on("sells").
-      after(:insert, :update, :delete).
-      name("fix_sells_employee_share_service") do
-    <<-SQL_ACTIONS
-      UPDATE visits SET employee_share_service = (
-        SELECT COALESCE(SUM(sells.price * sells.count), 0) FROM sells LEFT JOIN items ON items.id = sells.item_id WHERE sells.visit_id = NEW.visit_id AND sells.deleted_at IS NULL AND items.is_service = true) * 0.1
-        WHERE visits.id = NEW.visit_id;
-    SQL_ACTIONS
-  end
-
-  create_trigger("fix_items_sold", :generated => true, :compatibility => 1).
-      on("sells").
-      after(:insert, :update, :delete).
-      name("fix_items_sold") do
-    <<-SQL_ACTIONS
-      UPDATE items SET sold = (
-        SELECT COALESCE(SUM(count), 0) FROM sells WHERE sells.deleted_at IS NULL AND sells.item_id = NEW.item_id
-      ) WHERE items.id = NEW.item_id;
-    SQL_ACTIONS
-  end
-
   create_trigger("fix_items_bought", :generated => true, :compatibility => 1).
       on("supplies").
       after(:insert, :update, :delete).
@@ -217,6 +177,86 @@ ActiveRecord::Schema.define(version: 20170208124715) do
       UPDATE items SET bought = (
         SELECT COALESCE(SUM(quantity), 0) FROM supplies WHERE supplies.deleted_at IS NULL AND supplies.item_id = NEW.item_id
       ) WHERE items.id = NEW.item_id;
+    SQL_ACTIONS
+  end
+
+  create_trigger("fix_items_sold_a", :generated => true, :compatibility => 1).
+      on("sells").
+      after(:insert, :update).
+      name("fix_items_sold_a") do
+    <<-SQL_ACTIONS
+      UPDATE items SET sold = (
+        SELECT COALESCE(SUM(count), 0) FROM sells WHERE sells.deleted_at IS NULL AND sells.item_id = NEW.item_id
+      ) WHERE items.id = NEW.item_id;
+    SQL_ACTIONS
+  end
+
+  create_trigger("fix_items_sold_b", :generated => true, :compatibility => 1).
+      on("sells").
+      after(:delete).
+      name("fix_items_sold_b") do
+    <<-SQL_ACTIONS
+      UPDATE items SET sold = (
+        SELECT COALESCE(SUM(count), 0) FROM sells WHERE sells.deleted_at IS NULL AND sells.item_id = OLD.item_id
+      ) WHERE items.id = OLD.item_id;
+    SQL_ACTIONS
+  end
+
+  create_trigger("fix_visit_price_a", :generated => true, :compatibility => 1).
+      on("sells").
+      after(:insert, :update).
+      name("fix_visit_price_a") do
+    "      UPDATE visits SET price = (SELECT COALESCE(SUM(price * count), 0) FROM sells WHERE visit_id = NEW.visit_id AND deleted_at IS NULL) WHERE visits.id = NEW.visit_id;"
+  end
+
+  create_trigger("fix_visit_price_b", :generated => true, :compatibility => 1).
+      on("sells").
+      after(:delete).
+      name("fix_visit_price_b") do
+    "      UPDATE visits SET price = (SELECT COALESCE(SUM(price * count), 0) FROM sells WHERE visit_id = OLD.visit_id AND deleted_at IS NULL) WHERE visits.id = OLD.visit_id;"
+  end
+
+  create_trigger("fix_sells_employee_share_sale_a", :generated => true, :compatibility => 1).
+      on("sells").
+      after(:insert, :update).
+      name("fix_sells_employee_share_sale_a") do
+    <<-SQL_ACTIONS
+      UPDATE visits SET employee_share_sale = (
+        SELECT COALESCE(SUM(sells.price * sells.count), 0) FROM sells LEFT JOIN items ON items.id = sells.item_id WHERE sells.visit_id = NEW.visit_id AND sells.deleted_at IS NULL AND items.is_service = false) * 0.1
+        WHERE visits.id = NEW.visit_id;
+    SQL_ACTIONS
+  end
+
+  create_trigger("fix_sells_employee_share_sale_b", :generated => true, :compatibility => 1).
+      on("sells").
+      after(:delete).
+      name("fix_sells_employee_share_sale_b") do
+    <<-SQL_ACTIONS
+      UPDATE visits SET employee_share_sale = (
+        SELECT COALESCE(SUM(sells.price * sells.count), 0) FROM sells LEFT JOIN items ON items.id = sells.item_id WHERE sells.visit_id = OLD.visit_id AND sells.deleted_at IS NULL AND items.is_service = false) * 0.1
+        WHERE visits.id = OLD.visit_id;
+    SQL_ACTIONS
+  end
+
+  create_trigger("fix_sells_employee_share_service_a", :generated => true, :compatibility => 1).
+      on("sells").
+      after(:insert, :update).
+      name("fix_sells_employee_share_service_a") do
+    <<-SQL_ACTIONS
+      UPDATE visits SET employee_share_service = (
+        SELECT COALESCE(SUM(sells.price * sells.count), 0) FROM sells LEFT JOIN items ON items.id = sells.item_id WHERE sells.visit_id = NEW.visit_id AND sells.deleted_at IS NULL AND items.is_service = true) * 0.1
+        WHERE visits.id = NEW.visit_id;
+    SQL_ACTIONS
+  end
+
+  create_trigger("fix_sells_employee_share_service_b", :generated => true, :compatibility => 1).
+      on("sells").
+      after(:delete).
+      name("fix_sells_employee_share_service_b") do
+    <<-SQL_ACTIONS
+      UPDATE visits SET employee_share_service = (
+        SELECT COALESCE(SUM(sells.price * sells.count), 0) FROM sells LEFT JOIN items ON items.id = sells.item_id WHERE sells.visit_id = OLD.visit_id AND sells.deleted_at IS NULL AND items.is_service = true) * 0.1
+        WHERE visits.id = OLD.visit_id;
     SQL_ACTIONS
   end
 
