@@ -1,5 +1,6 @@
 .receipt {
   @extend .visible-print-block;
+  @extend .small;
 
   .item-table {
     @extend .table;

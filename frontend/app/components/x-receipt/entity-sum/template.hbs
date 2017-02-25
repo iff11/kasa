@@ -1,10 +1,8 @@
-<small>
-  {{entity.id}}) {{entity.name}} - {{entity.invoiceHeader}} -
-  <strong>
-    {{#if sum.isFulfilled}}
-      {{format-money sum.content symbol=(t 'currency') format="%v %s"}}
-    {{else}}
-      ???
-    {{/if}}
-  </strong>
-</small>
+{{entity.id}}) {{entity.name}} - {{entity.invoiceHeader}} -
+<strong>
+  {{#if sum.isFulfilled}}
+    {{format-money sum.content symbol=(t 'currency') format="%v %s"}}
+  {{else}}
+    ???
+  {{/if}}
+</strong>
