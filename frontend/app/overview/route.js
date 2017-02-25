@@ -19,7 +19,9 @@ export default Ember.Route.extend({
   setupController(controller, model) {
     controller.setProperties({
       'attrs.visits': model.visits,
-      'date': model.date
+      date: model.date
     });
+    // controller.setDate('from', moment().subtract(1, 'months'));
+    // controller.setDate('to', moment());
   }
 });

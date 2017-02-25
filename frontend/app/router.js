@@ -22,9 +22,7 @@ Router.map(function() {
     this.route('print');
   });
 
-  this.route('overview', function() {
-    this.route('day', { path: '/:year/:month/:day' });
-  });
+  this.route('overview');
 
   this.route('admin', function() {
     this.route('cashbook');

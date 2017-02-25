@@ -1,14 +1,64 @@
-<h2 class="row">
-  <div class="col-xs-10">
+<div class="row">
+  <h2 class="col-xs-12 col-md-6">
     {{t 'overview.heading'}}
-  </div>
+  </h2>
 
-  <div class="col-xs-2 text-right">
+  <div class="overview-date-picker">
     <div class="input-group">
-      <span class="input-group-addon">{{fa-icon "calendar"}}</span>
-      {{pikaday-input value=pikadayDate class="form-control text-right" useUTC=true format="DD.MM.YYYY" onSelection=(action 'dateSelected')}}
+      <span class="input-group-addon">{{fa-icon "step-backward"}}</span>
+      {{pikaday-input value=from class="form-control text-right" useUTC=true format="DD.MM.YYYY" onSelection=(action "dateSelected" "from")}}
     </div>
   </div>
-</h2>
+  <div class="overview-date-picker">
+    <div class="input-group">
+      <span class="input-group-addon">{{fa-icon "step-forward"}}</span>
+      {{pikaday-input value=to class="form-control text-right" useUTC=true format="DD.MM.YYYY" onSelection=(action "dateSelected" "to")}}
+    </div>
+  </div>
+</div>
 
-{{outlet}}
+<div class="row">
+  <div class="col-xs-12">
+    <table class="admin-visits-table">
+
+      <thead>
+        <tr>
+          <th>{{t 'overview.paidByCard'}}</th>
+          <th>{{t 'overview.paidInCash'}}</th>
+          <th>{{t 'overview.priceWithTip'}}</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each attrs.visits as |visit|}}
+          <tr>
+            <td>
+              {{format-money visit.paidByCard symbol="Kč" format="%v %s"}}
+            </td>
+            <td>
+              {{format-money visit.paidInCash symbol="Kč" format="%v %s"}}
+            </td>
+            <td>
+              {{format-money visit.priceWithTip symbol="Kč" format="%v %s"}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <th>
+            {{format-money sumCard symbol="Kč" format="%v %s"}}
+          </th>
+          <th>
+            {{format-money sumCash symbol="Kč" format="%v %s"}}
+          </th>
+          <th>
+            {{format-money sum symbol="Kč" format="%v %s"}}
+          </th>
+        </tr>
+      </tfoot>
+
+    </table>
+  </div>
+</div>
