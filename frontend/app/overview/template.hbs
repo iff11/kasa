@@ -1,8 +1,21 @@
-<div class="row">
-  <h2 class="col-xs-12 col-md-6">
-    {{t 'overview.heading'}}
-  </h2>
+<h2 class="">
+  {{t 'overview.heading'}}
+</h2>
 
+<div class="row">
+  <div class="overview-quick-links">
+    <div class="btn-group" role="group">
+      {{#link-to 'overview' (query-params from=links.now to=links.now)}}
+        {{t 'overview.today'}}
+      {{/link-to}}
+      {{#link-to 'overview' (query-params from=links.week to=links.now)}}
+        {{t 'overview.thisWeek'}}
+      {{/link-to}}
+      {{#link-to 'overview' (query-params from=links.month to=links.now)}}
+        {{t 'overview.thisMonth'}}
+      {{/link-to}}
+    </div>
+  </div>
   <div class="overview-date-picker">
     <div class="input-group">
       <span class="input-group-addon">{{fa-icon "step-backward"}}</span>
@@ -23,6 +36,7 @@
 
       <thead>
         <tr>
+          <th>{{t 'overview.date'}}</th>
           <th>{{t 'overview.paidByCard'}}</th>
           <th>{{t 'overview.paidInCash'}}</th>
           <th>{{t 'overview.priceWithTip'}}</th>
@@ -32,6 +46,9 @@
       <tbody>
         {{#each attrs.visits as |visit|}}
           <tr>
+            <td>
+              {{~ moment-format visit.createdAt "LLL" ~}}
+            </td>
             <td>
               {{format-money visit.paidByCard symbol="Kč" format="%v %s"}}
             </td>
@@ -48,12 +65,13 @@
       <tfoot>
         {{#if isPagingExceeded}}
           <tr class="danger">
-            <th colspan="3">
+            <th colspan="4">
               {{t 'overview.isPagingExceeded' max=maxPerPage}}
             </th>
           </tr>
         {{else}}
           <tr>
+            <th></th>
             <th>
               {{format-money sumCard symbol="Kč" format="%v %s"}}
             </th>

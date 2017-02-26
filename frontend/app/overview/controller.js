@@ -10,9 +10,22 @@ export default Ember.Controller.extend({
   attrs: {},
   date: null,
 
-  setDate(type, date) {
+  links: Ember.computed(function () {
+    return {
+      now: this.formatDate(moment()),
+      day: this.formatDate(moment().subtract(1, 'days')),
+      week: this.formatDate(moment().startOf('week')),
+      month: this.formatDate(moment().startOf('month'))
+    };
+  }),
+
+  formatDate(date) {
     let dateFormat = ENV.app.dateFormat;
-    this.set(type, moment(date).format(dateFormat));
+    return moment(date).format(dateFormat);
+  },
+
+  setDate(type, date) {
+    this.set(type, this.formatDate(date));
   },
 
   isPagingExceeded: Ember.computed('attrs.visits.[]', function () {

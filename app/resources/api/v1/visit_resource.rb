@@ -21,10 +21,10 @@ module Api
       filters :customer_id, :completed, :from, :to, :employee_id
 
       filter :from, apply: ->(records, value, _options) {
-        records.where('visits.created_at > ?', value)
+        records.where('visits.created_at >= ?', value)
       }
       filter :to, apply: ->(records, value, _options) {
-        records.where('visits.created_at < ?', value)
+        records.where("visits.created_at <= (TO_DATE(?, 'YYYY-MM-DD') + interval '1' day)", value)
       }
     end
   end

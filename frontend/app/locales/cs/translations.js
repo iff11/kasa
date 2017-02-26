@@ -28,7 +28,11 @@ export default {
     paidByCard: 'Kartou',
     paidInCash: 'Hotově',
     priceWithTip: 'Celkem',
-    isPagingExceeded: 'Ve vybraném období je více než {{max}} zakázek. Součet nelze vypočítat. Prosím, zadejte kratší období.'
+    isPagingExceeded: 'Ve vybraném období je více než {{max}} zakázek. Součet nelze vypočítat. Prosím, zadejte kratší období.',
+    date: 'Datum',
+    today: 'dnes',
+    thisWeek: 'tento týden',
+    thisMonth: 'tento měsíc'
   },
 
   customer: {
