@@ -3,6 +3,7 @@ class Sell < ActiveRecord::Base
 
   belongs_to :item
   belongs_to :visit
+  belongs_to :entity
 
   # TODO: Move this to some saner structure
   trigger.after(:insert, :update).name('fix_items_sold_a') do
