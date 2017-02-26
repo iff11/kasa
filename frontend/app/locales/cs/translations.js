@@ -23,6 +23,18 @@ export default {
     newCustomer: 'Nový zákazník'
   },
 
+  overview: {
+    heading: 'Všechny zakázky',
+    paidByCard: 'Kartou',
+    paidInCash: 'Hotově',
+    priceWithTip: 'Celkem',
+    isPagingExceeded: 'Ve vybraném období je více než {{max}} zakázek. Součet nelze vypočítat. Prosím, zadejte kratší období.',
+    date: 'Datum',
+    today: 'dnes',
+    thisWeek: 'tento týden',
+    thisMonth: 'tento měsíc'
+  },
+
   customer: {
     genders: {
       male: 'Muž',
@@ -181,6 +193,15 @@ export default {
   },
 
   admin: {
+    cashbook: {
+      heading: 'Pokladní kniha',
+      createdAt: 'Datum',
+      amount: 'Částka',
+      note: 'Poznámka',
+      kind: 'Typ / Akce',
+      isVisit: 'Zakázka',
+      disclaimer: 'Výběr z pokladní knihy dělejte přes zápornou částku.'
+    },
     companies: {
       heading: 'Moje firma',
       companyNameLabel: 'Název firmy',
@@ -197,9 +218,6 @@ export default {
     employee: {
       year: 'Rok',
       month: 'Měsíc'
-    },
-    visits: {
-      heading: 'Všechny zakázky'
     }
   },
 
@@ -211,7 +229,7 @@ export default {
       supply: 'Naskladnění',
       statuses: 'Stav systému',
       companies: 'Firma',
-      visits: 'Zakázky'
+      cashbook: 'Pokladní kniha'
     },
     heading: {
       navigation: 'Navigace',
@@ -219,6 +237,7 @@ export default {
       admin: 'Administrátor',
       profile: 'Profil'
     },
+    overview: 'Zakázky',
     customers: 'Zákazníci',
     items: 'Sklad',
     visits: 'Otevřené zakázky',

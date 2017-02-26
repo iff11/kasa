@@ -1,0 +1,65 @@
+<h2>
+  {{t 'admin.cashbook.heading'}}:
+  {{format-money cashbookBalance symbol="Kč" format="%v %s"}}
+</h2>
+
+<p>
+  <small>
+    {{t 'admin.cashbook.disclaimer'}}
+  </small>
+</p>
+
+<div class="form-inline">
+  <div class="form-group">
+    <label>{{t 'admin.cashbook.amount'}}</label>
+    {{input value=attrs.entry.amount type="number" class='form-control'}}
+  </div>
+
+  <div class="form-group">
+    <label>{{t 'admin.cashbook.note'}}</label>
+    {{input value=attrs.entry.note class='form-control'}}
+  </div>
+
+  <button class="btn btn-success" {{action "createNewEntry"}}>
+    {{fa-icon icon="plus"}}
+  </button>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>{{t 'admin.cashbook.createdAt'}}</th>
+      <th class="text-right">{{t 'admin.cashbook.amount'}}</th>
+      <th>{{t 'admin.cashbook.note'}}</th>
+      <th class="text-right">{{t 'admin.cashbook.kind'}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each pagedCashbookEntries as |entry|}}
+    <tr>
+      <td>
+        {{moment-format entry.touchedAt 'LLL'}}
+      </td>
+      <td class="text-right">
+        {{format-money entry.amount symbol="Kč" format="%v %s"}}
+      </td>
+      <td>
+        {{entry.note}}
+      </td>
+      <td class="text-right">
+        {{#if (eq entry.kind "visit")}}
+          {{#link-to 'admin.visit' entry.visit.id}}
+            {{t 'admin.cashbook.isVisit'}}
+          {{/link-to}}
+        {{else if (eq entry.kind "manual")}}
+          <button class="btn btn-danger" {{action "deleteCashbookEntry" entry on="doubleClick"}}>
+            {{fa-icon "minus"}}
+          </button>
+        {{/if}}
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+{{page-numbers content=pagedCashbookEntries}}

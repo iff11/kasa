@@ -1,0 +1,7 @@
+.admin-visits-table {
+  @extend .table;
+
+  th, td {
+    @extend .text-right;
+  }
+}

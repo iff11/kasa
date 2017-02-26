@@ -12,6 +12,13 @@
       </li>
 
       <li>
+        {{#link-to 'overview'}}
+        {{fa-icon icon="calendar"}}
+        {{t 'sidebar.overview'}}
+        {{/link-to}}
+      </li>
+
+      <li>
         {{#link-to 'customers'}}
           {{fa-icon icon="users"}}
           {{t 'sidebar.customers'}}
@@ -46,6 +53,12 @@
       </h3>
       <ul class="nav nav-pills nav-stacked">
         <li>
+          {{#link-to 'admin.cashbook'}}
+            {{fa-icon icon="money"}}
+            {{t 'sidebar.admin.cashbook'}}
+          {{/link-to}}
+        </li>
+        <li>
           {{#link-to 'admin.items'}}
             {{fa-icon icon="dropbox"}}
             {{t 'sidebar.admin.items'}}
@@ -67,12 +80,6 @@
           {{#link-to 'admin.employees'}}
             {{fa-icon icon="scissors"}}
             {{t 'sidebar.admin.employees'}}
-          {{/link-to}}
-        </li>
-        <li>
-          {{#link-to 'admin.visits'}}
-            {{fa-icon icon="calendar"}}
-            {{t 'sidebar.admin.visits'}}
           {{/link-to}}
         </li>
         <li>

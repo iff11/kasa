@@ -1,0 +1,15 @@
+.overview-date-picker {
+  @extend .col-xs-6;
+  @extend .col-md-3;
+  @extend .text-right;
+}
+
+.overview-quick-links {
+  @extend .col-xs-12;
+  @extend .col-md-6;
+
+  a {
+    @extend .btn;
+    @extend .btn-default;
+  }
+}

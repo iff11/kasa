@@ -8,15 +8,23 @@ module Api
       has_one :customer
       has_one :employee
 
+      # has_one :cashbook_entry, foreign_key_on: :related
+      # relationship :cashbook_entry, to: :one, foreign_key_on: :related
+      belongs_to :cashbook_entry
       has_many :sells
 
-      filters :customer_id, :completed, :month, :year, :employee_id
+      # https://github.com/cerebris/jsonapi-resources/issues/391
+      def cashbook_entry_id=(_value)
+        # TODO: Remove once it's fixed
+      end
 
-      filter :month, apply: ->(records, value, _options) {
-        records.where('EXTRACT( MONTH FROM visits.created_at ) = ?', value)
+      filters :customer_id, :completed, :from, :to, :employee_id
+
+      filter :from, apply: ->(records, value, _options) {
+        records.where('visits.created_at >= ?', value)
       }
-      filter :year, apply: ->(records, value, _options) {
-        records.where('EXTRACT( YEAR FROM visits.created_at ) = ?', value)
+      filter :to, apply: ->(records, value, _options) {
+        records.where("visits.created_at <= (TO_DATE(?, 'YYYY-MM-DD') + interval '1' day)", value)
       }
     end
   end

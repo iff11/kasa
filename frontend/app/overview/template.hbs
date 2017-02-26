@@ -1,0 +1,90 @@
+<h2 class="">
+  {{t 'overview.heading'}}
+</h2>
+
+<div class="row">
+  <div class="overview-quick-links">
+    <div class="btn-group" role="group">
+      {{#link-to 'overview' (query-params from=links.now to=links.now)}}
+        {{t 'overview.today'}}
+      {{/link-to}}
+      {{#link-to 'overview' (query-params from=links.week to=links.now)}}
+        {{t 'overview.thisWeek'}}
+      {{/link-to}}
+      {{#link-to 'overview' (query-params from=links.month to=links.now)}}
+        {{t 'overview.thisMonth'}}
+      {{/link-to}}
+    </div>
+  </div>
+  <div class="overview-date-picker">
+    <div class="input-group">
+      <span class="input-group-addon">{{fa-icon "step-backward"}}</span>
+      {{pikaday-input value=from class="form-control text-right" useUTC=true format="DD.MM.YYYY" onSelection=(action "dateSelected" "from")}}
+    </div>
+  </div>
+  <div class="overview-date-picker">
+    <div class="input-group">
+      <span class="input-group-addon">{{fa-icon "step-forward"}}</span>
+      {{pikaday-input value=to class="form-control text-right" useUTC=true format="DD.MM.YYYY" onSelection=(action "dateSelected" "to")}}
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <table class="admin-visits-table">
+
+      <thead>
+        <tr>
+          <th>{{t 'overview.date'}}</th>
+          <th>{{t 'overview.paidByCard'}}</th>
+          <th>{{t 'overview.paidInCash'}}</th>
+          <th>{{t 'overview.priceWithTip'}}</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each attrs.visits as |visit|}}
+          <tr>
+            <td>
+              {{~ moment-format visit.createdAt "LLL" ~}}
+            </td>
+            <td>
+              {{format-money visit.paidByCard symbol="Kč" format="%v %s"}}
+            </td>
+            <td>
+              {{format-money visit.paidInCash symbol="Kč" format="%v %s"}}
+            </td>
+            <td>
+              {{format-money visit.priceWithTip symbol="Kč" format="%v %s"}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+
+      <tfoot>
+        {{#if isPagingExceeded}}
+          <tr class="danger">
+            <th colspan="4">
+              {{t 'overview.isPagingExceeded' max=maxPerPage}}
+            </th>
+          </tr>
+        {{else}}
+          <tr>
+            <th></th>
+            <th>
+              {{format-money sumCard symbol="Kč" format="%v %s"}}
+            </th>
+            <th>
+              {{format-money sumCash symbol="Kč" format="%v %s"}}
+            </th>
+            <th>
+              {{format-money sum symbol="Kč" format="%v %s"}}
+            </th>
+          </tr>
+        {{/if}}
+      </tfoot>
+
+    </table>
+  </div>
+</div>

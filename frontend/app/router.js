@@ -22,7 +22,10 @@ Router.map(function() {
     this.route('print');
   });
 
+  this.route('overview');
+
   this.route('admin', function() {
+    this.route('cashbook');
     this.route('items');
     this.route('item', function() {
       this.route('new');
@@ -42,7 +45,6 @@ Router.map(function() {
     this.route('supply');
 
     this.route('statuses');
-    this.route('visits');
     this.route('companies');
   });
   this.route('registration');
