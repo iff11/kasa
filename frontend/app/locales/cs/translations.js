@@ -27,7 +27,8 @@ export default {
     heading: 'Všechny zakázky',
     paidByCard: 'Kartou',
     paidInCash: 'Hotově',
-    priceWithTip: 'Celkem'
+    priceWithTip: 'Celkem',
+    isPagingExceeded: 'Ve vybraném období je více než {{max}} zakázek. Součet nelze vypočítat. Prosím, zadejte kratší období.'
   },
 
   customer: {

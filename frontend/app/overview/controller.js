@@ -1,27 +1,22 @@
 import Ember from 'ember';
+import ENV from 'frontend/config/environment';
 
 export default Ember.Controller.extend({
   queryParams: ['from', 'to'],
+  maxPerPage: 1000,
   from: null,
   to: null,
-  dateFormat: 'YYYY-MM-DD',
 
   attrs: {},
   date: null,
 
   setDate(type, date) {
-    let dateFormat = this.get('dateFormat');
+    let dateFormat = ENV.app.dateFormat;
     this.set(type, moment(date).format(dateFormat));
   },
 
-  currentEvents: Ember.computed('model.[]', function() {
-    return this.get('model').map(function(visit) {
-      return {
-        title: visit.get('customer.fullName'),
-        start: visit.get('createdAt'),
-        id: visit.get('id')
-      };
-    });
+  isPagingExceeded: Ember.computed('attrs.visits.[]', function () {
+    return this.get('attrs.visits.length') >= this.get('maxPerPage');
   }),
 
   sumCash: Ember.computed('attrs.visits.[]', function () {
@@ -31,7 +26,6 @@ export default Ember.Controller.extend({
       return prev + curr.get('paidInCash');
     }, 0);
   }),
-
   sumCard: Ember.computed('attrs.visits.[]', function () {
     let visits = this.get('attrs.visits');
 

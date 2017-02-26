@@ -1,15 +1,14 @@
 import Ember from 'ember';
+import ENV from 'frontend/config/environment';
 
 export default Ember.Route.extend({
-  dateFormat: 'YYYY-MM-DD',
-
   queryParams: {
     from: { refreshModel: true },
     to: { refreshModel: true }
   },
 
   model(params) {
-    let dateFormat = this.get('dateFormat');
+    let dateFormat = ENV.app.dateFormat;
     let from, to;
     if(Ember.isEmpty(params.from)) {
       from = moment().subtract(1, 'weeks').format(dateFormat);
@@ -25,7 +24,10 @@ export default Ember.Route.extend({
     let query = {
       filter: {
         from: from,
-        to: to
+        to: to,
+      },
+      page: {
+        size: 1000
       }
     };
 

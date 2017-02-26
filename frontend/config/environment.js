@@ -2,6 +2,9 @@
 
 module.exports = function(environment) {
   var ENV = {
+    app: {
+      dateFormat: 'YYYY-MM-DD'
+    },
     moment: {
       outputFormat: 'L'
     },

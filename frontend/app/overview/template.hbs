@@ -46,17 +46,25 @@
       </tbody>
 
       <tfoot>
-        <tr>
-          <th>
-            {{format-money sumCard symbol="Kč" format="%v %s"}}
-          </th>
-          <th>
-            {{format-money sumCash symbol="Kč" format="%v %s"}}
-          </th>
-          <th>
-            {{format-money sum symbol="Kč" format="%v %s"}}
-          </th>
-        </tr>
+        {{#if isPagingExceeded}}
+          <tr class="danger">
+            <th colspan="3">
+              {{t 'overview.isPagingExceeded' max=maxPerPage}}
+            </th>
+          </tr>
+        {{else}}
+          <tr>
+            <th>
+              {{format-money sumCard symbol="Kč" format="%v %s"}}
+            </th>
+            <th>
+              {{format-money sumCash symbol="Kč" format="%v %s"}}
+            </th>
+            <th>
+              {{format-money sum symbol="Kč" format="%v %s"}}
+            </th>
+          </tr>
+        {{/if}}
       </tfoot>
 
     </table>
