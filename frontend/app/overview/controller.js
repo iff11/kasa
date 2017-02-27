@@ -46,7 +46,14 @@ export default Ember.Controller.extend({
       return prev + curr.get('paidByCard');
     }, 0);
   }),
-  sum: Ember.computed('attrs.visits.[]', function () {
+  sumPrice: Ember.computed('attrs.visits.[]', function () {
+    let visits = this.get('attrs.visits');
+
+    return visits.reduce((prev, curr) => {
+      return prev + curr.get('price');
+    }, 0);
+  }),
+  sumPriceWithTip: Ember.computed('attrs.visits.[]', function () {
     let visits = this.get('attrs.visits');
 
     return visits.reduce((prev, curr) => {

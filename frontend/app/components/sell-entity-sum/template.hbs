@@ -1,0 +1,5 @@
+{{#if sum.isFulfilled}}
+  {{format-money sum.content symbol=(t 'currency') format="%v %s"}}
+{{else}}
+  {{fa-icon 'gear' spin=true}}
+{{/if}}

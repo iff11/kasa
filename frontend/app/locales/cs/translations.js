@@ -25,9 +25,10 @@ export default {
 
   overview: {
     heading: 'Všechny zakázky',
-    paidByCard: 'Kartou',
-    paidInCash: 'Hotově',
-    priceWithTip: 'Celkem',
+    paidByCard: 'Zaplaceno kartou',
+    paidInCash: 'Zaplaceno hotově',
+    priceWithTip: 'Celkem + dýško',
+    price: 'Cena za položky',
     isPagingExceeded: 'Ve vybraném období je více než {{max}} zakázek. Součet nelze vypočítat. Prosím, zadejte kratší období.',
     date: 'Datum',
     today: 'dnes',
@@ -100,6 +101,7 @@ export default {
     noLastVisit: '---',
     employeeShareService: 'Podíl zaměstnance služby',
     employeeShareSale: 'Podíl zaměstnance prodej',
+    receivedCash: 'Přijato v hotovosti',
     new: {
       selectCustomer: '-- Vyber --',
       selectEmployee: '-- Vyber --',

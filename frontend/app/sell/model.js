@@ -8,6 +8,7 @@ export default DS.Model.extend({
 
   item: DS.belongsTo('item', { async: true }),
   visit: DS.belongsTo('visit', { async: true }),
+  entity: DS.belongsTo('entity', { async: true }),
 
   sum: Ember.computed('count', 'price', function() {
     return this.get('count') * this.get('price');
