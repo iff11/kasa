@@ -33,6 +33,8 @@ export default Ember.Route.extend({
 
     return Ember.RSVP.hash({
       visits: this.store.query('visit', query),
+      entities: this.store.findAll('entity'),
+      sells: this.store.query('sell', query),
       date: params,
       from: from,
       to: to
@@ -41,7 +43,11 @@ export default Ember.Route.extend({
 
   setupController(controller, model) {
     controller.setProperties({
-      'attrs.visits': model.visits,
+      attrs: {
+        visits: model.visits,
+        entities: model.entities,
+        sells: model.sells
+      },
       date: model.date
     });
     controller.setDate('from', model.from);

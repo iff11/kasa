@@ -1,8 +1,4 @@
 {{entity.id}}) {{entity.name}} - {{entity.invoiceHeader}} -
 <strong>
-  {{#if sum.isFulfilled}}
-    {{format-money sum.content symbol=(t 'currency') format="%v %s"}}
-  {{else}}
-    ???
-  {{/if}}
+  {{sell-entity-sum sells=sells entity=entity}}
 </strong>

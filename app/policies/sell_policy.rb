@@ -16,7 +16,7 @@ class SellPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope
+      @scope.joins(:entity).where(entities: { company_id: @user.company_id })
     end
   end
 end

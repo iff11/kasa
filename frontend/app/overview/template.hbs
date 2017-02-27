@@ -1,6 +1,4 @@
-<h2 class="">
-  {{t 'overview.heading'}}
-</h2>
+<h2>{{t 'overview.heading'}}</h2>
 
 <div class="row">
   <div class="overview-quick-links">
@@ -29,6 +27,18 @@
     </div>
   </div>
 </div>
+
+<hr />
+
+<div class="row">
+  {{#each attrs.entities as |entity|}}
+    <div class="col-xs-4">
+      {{entity-card entity=entity sells=attrs.sells}}
+    </div>
+  {{/each}}
+</div>
+
+<hr />
 
 <div class="row">
   <div class="col-xs-12">
