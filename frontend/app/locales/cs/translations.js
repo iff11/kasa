@@ -100,6 +100,7 @@ export default {
     noLastVisit: '---',
     employeeShareService: 'Podíl zaměstnance služby',
     employeeShareSale: 'Podíl zaměstnance prodej',
+    receivedCash: 'Přijato v hotovosti',
     new: {
       selectCustomer: '-- Vyber --',
       selectEmployee: '-- Vyber --',
