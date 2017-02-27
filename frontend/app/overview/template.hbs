@@ -47,6 +47,7 @@
       <thead>
         <tr>
           <th>{{t 'overview.date'}}</th>
+          <th>{{t 'overview.price'}}</th>
           <th>{{t 'overview.paidByCard'}}</th>
           <th>{{t 'overview.paidInCash'}}</th>
           <th>{{t 'overview.priceWithTip'}}</th>
@@ -58,6 +59,9 @@
           <tr>
             <td>
               {{~ moment-format visit.createdAt "LLL" ~}}
+            </td>
+            <td>
+              {{format-money visit.price symbol="Kč" format="%v %s"}}
             </td>
             <td>
               {{format-money visit.paidByCard symbol="Kč" format="%v %s"}}
@@ -83,13 +87,16 @@
           <tr>
             <th></th>
             <th>
+              {{format-money sumPrice symbol="Kč" format="%v %s"}}
+            </th>
+            <th>
               {{format-money sumCard symbol="Kč" format="%v %s"}}
             </th>
             <th>
               {{format-money sumCash symbol="Kč" format="%v %s"}}
             </th>
             <th>
-              {{format-money sum symbol="Kč" format="%v %s"}}
+              {{format-money sumPriceWithTip symbol="Kč" format="%v %s"}}
             </th>
           </tr>
         {{/if}}
