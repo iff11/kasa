@@ -16,15 +16,20 @@ User.create!([
   }
 ])
 
+entities = Entity.create!([
+  {name: "Nové s.r.o.", company: companies[0], invoice_header: nil},
+  {name: "New entity", company: companies[0], invoice_header: nil}
+])
+
 items = Item.create!([
-  {name: "Šamponová lázeň na barvené vlasy", selling_price: 900.0, unlimited: false, barcode: "9876543", bought: 10, sold: 0, warning_threshold: 1, last_supply_id: 4562, is_active: true, is_service: false, company: companies[0], entity_id: 4},
-  {name: "Dámský střih - krátké vlasy", selling_price: 150.0, unlimited: true, barcode: "3", bought: 0, sold: 1, warning_threshold: 0, last_supply_id: nil, is_active: true, is_service: true, company: companies[0], entity_id: 4},
-  {name: "Pánský střih", selling_price: 200.0, unlimited: true, barcode: "1", bought: 0, sold: 4, warning_threshold: 0, last_supply_id: nil, is_active: true, is_service: true, company: companies[0], entity_id: 4},
-  {name: "Střih vousů", selling_price: 100.0, unlimited: true, barcode: "12", bought: 0, sold: 7, warning_threshold: 0, last_supply_id: nil, is_active: true, is_service: true, company: companies[0], entity_id: 4},
-  {name: "Dámský střih - dlouhé vlasy", selling_price: 300.0, unlimited: true, barcode: "2", bought: 0, sold: 4, warning_threshold: 0, last_supply_id: nil, is_active: true, is_service: true, company: companies[0], entity_id: 4},
-  {name: "Nasazení pásku", selling_price: 10.0, unlimited: true, barcode: "33", bought: 0, sold: 30, warning_threshold: 0, last_supply_id: nil, is_active: true, is_service: true, company: companies[0], entity_id: 4},
-  {name: "Šampon na barvené vlasy", selling_price: 600.0, unlimited: false, barcode: "4567890", bought: 40, sold: 6, warning_threshold: 5, last_supply_id: 4561, is_active: true, is_service: false, company: companies[0], entity_id: 4},
-  {name: "Inoa 7,31", selling_price: 10.0, unlimited: false, barcode: "23456789", bought: 120, sold: 21, warning_threshold: 60, last_supply_id: 4563, is_active: true, is_service: false, company: companies[0], entity_id: 4}
+  {name: "Šamponová lázeň na barvené vlasy", selling_price: 900.0, unlimited: false, barcode: "9876543", warning_threshold: 1, is_active: true, is_service: false, company: companies[0], entity: entities[0]},
+  {name: "Dámský střih - krátké vlasy", selling_price: 150.0, unlimited: true, barcode: "3", warning_threshold: 0, last_supply_id: nil, is_active: true, is_service: true, company: companies[0], entity: entities[0]},
+  {name: "Pánský střih", selling_price: 200.0, unlimited: true, barcode: "1", warning_threshold: 0, last_supply_id: nil, is_active: true, is_service: true, company: companies[0], entity: entities[0]},
+  {name: "Střih vousů", selling_price: 100.0, unlimited: true, barcode: "12", warning_threshold: 0, last_supply_id: nil, is_active: true, is_service: true, company: companies[0], entity: entities[0]},
+  {name: "Dámský střih - dlouhé vlasy", selling_price: 300.0, unlimited: true, barcode: "2", warning_threshold: 0, last_supply_id: nil, is_active: true, is_service: true, company: companies[0], entity: entities[0]},
+  {name: "Nasazení pásku", selling_price: 10.0, unlimited: true, barcode: "33", warning_threshold: 0, last_supply_id: nil, is_active: true, is_service: true, company: companies[0], entity: entities[0]},
+  {name: "Šampon na barvené vlasy", selling_price: 600.0, unlimited: false, barcode: "4567890", warning_threshold: 5, is_active: true, is_service: false, company: companies[0], entity: entities[0]},
+  {name: "Inoa 7,31", selling_price: 10.0, unlimited: false, barcode: "23456789", warning_threshold: 60, is_active: true, is_service: false, company: companies[0], entity: entities[1]}
 ])
 customers = Customer.create!([
   {first_name: "Karel", last_name: "Funda", note: nil, birth: "1972-01-01", phone: nil, mail: nil, visits_count: 8, last_visit_date: "2017-02-27 13:03:30", gender: nil, company: companies[0], is_approved: true},
@@ -55,30 +60,30 @@ visits = Visit.create!([
   {note: nil, customer: customers[0], employee: employees[0], completed: false, price_with_tip: "0.0", received_cash: "0.0", price: "1200.0", employee_share_sale: "60.0", employee_share_service: "60.0", paid_by_card: "0.0", paid_in_cash: "0.0"}
 ])
 Sell.create!([
-  {item: items[0], visit: visits[0], count: 1, price: 150.0, entity_id: 4},
-  {item: items[2], visit: visits[0], count: 1, price: 200.0, entity_id: 4},
-  {item: items[3], visit: visits[0], count: 1, price: 200.0, entity_id: 4},
-  {item: items[4], visit: visits[0], count: 1, price: 200.0, entity_id: 4},
-  {item: items[5], visit: visits[0], count: 1, price: 200.0, entity_id: 4},
-  {item: items[0], visit: visits[0], count: 2, price: 100.0, entity_id: 4},
-  {item: items[2], visit: visits[0], count: 1, price: 100.0, entity_id: 4},
-  {item: items[3], visit: visits[0], count: 1, price: 100.0, entity_id: 4},
-  {item: items[4], visit: visits[0], count: 1, price: 100.0, entity_id: 4},
-  {item: items[5], visit: visits[0], count: 1, price: 100.0, entity_id: 4},
-  {item: items[0], visit: visits[0], count: 1, price: 100.0, entity_id: 4},
-  {item: items[2], visit: visits[0], count: 1, price: 300.0, entity_id: 4},
-  {item: items[3], visit: visits[0], count: 1, price: 300.0, entity_id: 4},
-  {item: items[4], visit: visits[0], count: 1, price: 300.0, entity_id: 4},
-  {item: items[5], visit: visits[0], count: 1, price: 300.0, entity_id: 4},
-  {item: items[0], visit: visits[0], count: 30, price: 10.0, entity_id: 4},
-  {item: items[2], visit: visits[0], count: 1, price: 600.0, entity_id: 4},
-  {item: items[3], visit: visits[0], count: 2, price: 600.0, entity_id: 4},
-  {item: items[4], visit: visits[0], count: 1, price: 600.0, entity_id: 4},
-  {item: items[5], visit: visits[0], count: 1, price: 600.0, entity_id: 4},
-  {item: items[2], visit: visits[0], count: 1, price: 600.0, entity_id: 4},
-  {item: items[3], visit: visits[0], count: 1, price: 10.0, entity_id: 4},
-  {item: items[4], visit: visits[0], count: 10, price: 10.0, entity_id: 4},
-  {item: items[5], visit: visits[0], count: 10, price: 10.0, entity_id: 4}
+  {item: items[0], visit: visits[0], count: 1, price: 150.0, entity: entities[0]},
+  {item: items[2], visit: visits[0], count: 1, price: 200.0, entity: entities[0]},
+  {item: items[3], visit: visits[0], count: 1, price: 200.0, entity: entities[0]},
+  {item: items[4], visit: visits[0], count: 1, price: 200.0, entity: entities[0]},
+  {item: items[5], visit: visits[0], count: 1, price: 200.0, entity: entities[0]},
+  {item: items[0], visit: visits[0], count: 2, price: 100.0, entity: entities[0]},
+  {item: items[2], visit: visits[0], count: 1, price: 100.0, entity: entities[0]},
+  {item: items[3], visit: visits[0], count: 1, price: 100.0, entity: entities[0]},
+  {item: items[4], visit: visits[0], count: 1, price: 100.0, entity: entities[0]},
+  {item: items[5], visit: visits[0], count: 1, price: 100.0, entity: entities[0]},
+  {item: items[0], visit: visits[0], count: 1, price: 100.0, entity: entities[0]},
+  {item: items[2], visit: visits[0], count: 1, price: 300.0, entity: entities[0]},
+  {item: items[3], visit: visits[0], count: 1, price: 300.0, entity: entities[0]},
+  {item: items[4], visit: visits[0], count: 1, price: 300.0, entity: entities[0]},
+  {item: items[5], visit: visits[0], count: 1, price: 300.0, entity: entities[0]},
+  {item: items[0], visit: visits[0], count: 30, price: 10.0, entity: entities[0]},
+  {item: items[2], visit: visits[0], count: 1, price: 600.0, entity: entities[0]},
+  {item: items[3], visit: visits[0], count: 2, price: 600.0, entity: entities[0]},
+  {item: items[4], visit: visits[0], count: 1, price: 600.0, entity: entities[0]},
+  {item: items[5], visit: visits[0], count: 1, price: 600.0, entity: entities[0]},
+  {item: items[2], visit: visits[0], count: 1, price: 600.0, entity: entities[0]},
+  {item: items[3], visit: visits[0], count: 1, price: 10.0, entity: entities[0]},
+  {item: items[4], visit: visits[0], count: 10, price: 10.0, entity: entities[0]},
+  {item: items[5], visit: visits[0], count: 10, price: 10.0, entity: entities[0]}
 ])
 Supply.create!([
   {purchase_price: 0.0, quantity: 0, item: items[0], vat: 21, deleted_at: nil},
@@ -100,10 +105,6 @@ Supply.create!([
   {purchase_price: 300.0, quantity: 40, item: items[2], vat: 21, deleted_at: nil},
   {purchase_price: 500.0, quantity: 10, item: items[3], vat: 21, deleted_at: nil},
   {purchase_price: 2.4, quantity: 120, item: items[4], vat: 21, deleted_at: nil}
-])
-Entity.create!([
-  {name: "Nové s.r.o.", company: companies[0], invoice_header: nil},
-  {name: "New entity", company: companies[0], invoice_header: nil}
 ])
 # CashbookEntry.create!([
 #   {amount: "0.0", kind: 0, touched_at: "2017-02-27 13:04:14", note: nil, company: companies[0], visit: visits[0]},
