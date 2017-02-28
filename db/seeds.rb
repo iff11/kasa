@@ -54,23 +54,23 @@ m2m = Time.now - 2.months
 m3m = Time.now - 3.months
 
 visits = Visit.create!([
-  {note: "Dneska byla změna - vzadu a strany strojkem", customer: customers[0], employee: employees[0], completed: true, price_with_tip: "250.0", received_cash: "250.0", paid_by_card: "0.0", paid_in_cash: "250.0"},
-  {note: nil, customer: customers[1], employee: employees[1], completed: true, price_with_tip: "750.0", received_cash: "750.0", paid_by_card: "0.0", paid_in_cash: "750.0"},
-  {note: nil, customer: customers[2], employee: employees[0], completed: true, price_with_tip: "100.0", received_cash: "0.0", paid_by_card: "100.0", paid_in_cash: "0.0"},
-  {created_at: m1d, note: nil, customer: customers[0], employee: employees[1], completed: true, price_with_tip: "350.0", received_cash: "400.0", paid_by_card: "0.0", paid_in_cash: "350.0"},
-  {created_at: m2d, note: nil, customer: customers[1], employee: employees[0], completed: true, price_with_tip: "200.0", received_cash: "200.0", paid_by_card: "0.0", paid_in_cash: "200.0"},
-  {created_at: m3d, note: nil, customer: customers[2], employee: employees[1], completed: true, price_with_tip: "900.0", received_cash: "900.0", paid_by_card: "0.0", paid_in_cash: "900.0"},
-  {created_at: m1w, note: nil, customer: customers[0], employee: employees[0], completed: true, price_with_tip: "100.0", received_cash: "0.0", paid_by_card: "100.0", paid_in_cash: "0.0"},
-  {created_at: m2w, note: nil, customer: customers[1], employee: employees[1], completed: true, price_with_tip: "100.0", received_cash: "0.0", paid_by_card: "2000.0", paid_in_cash: "-1900.0"},
-  {created_at: m3w, note: nil, customer: customers[2], employee: employees[0], completed: true, price_with_tip: "1000.0", received_cash: "1000.0", paid_by_card: "0.0", paid_in_cash: "1000.0"},
-  {created_at: m1m, note: nil, customer: customers[0], employee: employees[1], completed: true, price_with_tip: "300.0", received_cash: "0.0", paid_by_card: "300.0", paid_in_cash: "0.0"},
-  {created_at: m2m, note: nil, customer: customers[1], employee: employees[0], completed: true, price_with_tip: "100.0", received_cash: "0.0", paid_by_card: "200.0", paid_in_cash: "-100.0"},
-  {created_at: m3m, note: nil, customer: customers[2], employee: employees[1], completed: true, price_with_tip: "200.0", received_cash: "0.0", paid_by_card: "200.0", paid_in_cash: "0.0"},
-  {created_at: m1d, note: nil, customer: customers[0], employee: employees[0], completed: true, price_with_tip: "500.0", received_cash: "0.0", paid_by_card: "500.0", paid_in_cash: "0.0"},
-  {created_at: m2d, note: nil, customer: customers[1], employee: employees[1], completed: true, price_with_tip: "0.0", received_cash: "0.0", paid_by_card: "0.0", paid_in_cash: "0.0"},
-  {created_at: m3d, note: nil, customer: customers[2], employee: employees[0], completed: true, price_with_tip: "1200.0", received_cash: "0.0", paid_by_card: "1200.0", paid_in_cash: "0.0"},
-  {created_at: m1w, note: nil, customer: customers[0], employee: employees[1], completed: true, price_with_tip: "10.0", received_cash: "0.0", paid_by_card: "10.0", paid_in_cash: "0.0"},
-  {created_at: m2w, note: nil, customer: customers[1], employee: employees[0], completed: false, price_with_tip: "0.0", received_cash: "0.0", paid_by_card: "0.0", paid_in_cash: "0.0"}
+  {note: "Dneska byla změna - vzadu a strany strojkem", customer: customers[0], employee: employees[0], completed: true},
+  {note: nil, customer: customers[1], employee: employees[1], completed: true},
+  {note: nil, customer: customers[2], employee: employees[0], completed: true},
+  {created_at: m1d, note: nil, customer: customers[0], employee: employees[1], completed: true},
+  {created_at: m2d, note: nil, customer: customers[1], employee: employees[0], completed: true},
+  {created_at: m3d, note: nil, customer: customers[2], employee: employees[1], completed: true},
+  {created_at: m1w, note: nil, customer: customers[0], employee: employees[0], completed: true},
+  {created_at: m2w, note: nil, customer: customers[1], employee: employees[1], completed: true},
+  {created_at: m3w, note: nil, customer: customers[2], employee: employees[0], completed: true},
+  {created_at: m1m, note: nil, customer: customers[0], employee: employees[1], completed: true},
+  {created_at: m2m, note: nil, customer: customers[1], employee: employees[0], completed: true},
+  {created_at: m3m, note: nil, customer: customers[2], employee: employees[1], completed: true},
+  {created_at: m1d, note: nil, customer: customers[0], employee: employees[0], completed: true},
+  {created_at: m2d, note: nil, customer: customers[1], employee: employees[1], completed: true},
+  {created_at: m3d, note: nil, customer: customers[2], employee: employees[0], completed: true},
+  {created_at: m1w, note: nil, customer: customers[0], employee: employees[1], completed: true},
+  {created_at: m2w, note: nil, customer: customers[1], employee: employees[0], completed: false}
 ])
 
 Sell.create!([
@@ -99,6 +99,19 @@ Sell.create!([
   {item: items[6], visit: visits[5], count: 10, price: 10.0, entity: entities[0]},
   {item: items[7], visit: visits[6], count: 10, price: 10.0, entity: entities[1]}
 ])
+
+def roundup(number, power = 100.0)
+  (number / power).ceil * power
+end
+
+Visit.all.each do |visit|
+  visit.price_with_tip = roundup(visit.price)
+  by_card = [0, 25, 50, 100].sample.to_f
+  visit.paid_by_card = (by_card / 100) * visit.price_with_tip
+  visit.paid_in_cash = visit.price_with_tip - visit.paid_by_card
+  visit.received_cash = roundup(visit.paid_in_cash)
+  visit.save!
+end
 
 Supply.create!([
   {purchase_price: 0.0, quantity: 0, item: items[0], vat: 21, deleted_at: nil},
