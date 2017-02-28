@@ -43,24 +43,34 @@ employees = Employee.create!([
   {first_name: "Prokop", last_name: "Buben", photo_url: "https://s-media-cache-ak0.pinimg.com/736x/15/d6/d8/15d6d8761fb566122edd26c2eeeeb994.jpg", is_active: true, company: companies[0]}
 ])
 
+m1d = Time.now - 1.days
+m2d = Time.now - 2.days
+m3d = Time.now - 3.days
+m1w = Time.now - 1.weeks
+m2w = Time.now - 2.weeks
+m3w = Time.now - 3.weeks
+m1m = Time.now - 1.months
+m2m = Time.now - 2.months
+m3m = Time.now - 3.months
+
 visits = Visit.create!([
   {note: "Dneska byla změna - vzadu a strany strojkem", customer: customers[0], employee: employees[0], completed: true, price_with_tip: "250.0", received_cash: "250.0", paid_by_card: "0.0", paid_in_cash: "250.0"},
   {note: nil, customer: customers[1], employee: employees[1], completed: true, price_with_tip: "750.0", received_cash: "750.0", paid_by_card: "0.0", paid_in_cash: "750.0"},
   {note: nil, customer: customers[2], employee: employees[0], completed: true, price_with_tip: "100.0", received_cash: "0.0", paid_by_card: "100.0", paid_in_cash: "0.0"},
-  {note: nil, customer: customers[0], employee: employees[1], completed: true, price_with_tip: "350.0", received_cash: "400.0", paid_by_card: "0.0", paid_in_cash: "350.0"},
-  {note: nil, customer: customers[1], employee: employees[0], completed: true, price_with_tip: "200.0", received_cash: "200.0", paid_by_card: "0.0", paid_in_cash: "200.0"},
-  {note: nil, customer: customers[2], employee: employees[1], completed: true, price_with_tip: "900.0", received_cash: "900.0", paid_by_card: "0.0", paid_in_cash: "900.0"},
-  {note: nil, customer: customers[0], employee: employees[0], completed: true, price_with_tip: "100.0", received_cash: "0.0", paid_by_card: "100.0", paid_in_cash: "0.0"},
-  {note: nil, customer: customers[1], employee: employees[1], completed: true, price_with_tip: "100.0", received_cash: "0.0", paid_by_card: "2000.0", paid_in_cash: "-1900.0"},
-  {note: nil, customer: customers[2], employee: employees[0], completed: true, price_with_tip: "1000.0", received_cash: "1000.0", paid_by_card: "0.0", paid_in_cash: "1000.0"},
-  {note: nil, customer: customers[0], employee: employees[1], completed: true, price_with_tip: "300.0", received_cash: "0.0", paid_by_card: "300.0", paid_in_cash: "0.0"},
-  {note: nil, customer: customers[1], employee: employees[0], completed: true, price_with_tip: "100.0", received_cash: "0.0", paid_by_card: "200.0", paid_in_cash: "-100.0"},
-  {note: nil, customer: customers[2], employee: employees[1], completed: true, price_with_tip: "200.0", received_cash: "0.0", paid_by_card: "200.0", paid_in_cash: "0.0"},
-  {note: nil, customer: customers[0], employee: employees[0], completed: true, price_with_tip: "500.0", received_cash: "0.0", paid_by_card: "500.0", paid_in_cash: "0.0"},
-  {note: nil, customer: customers[1], employee: employees[1], completed: true, price_with_tip: "0.0", received_cash: "0.0", paid_by_card: "0.0", paid_in_cash: "0.0"},
-  {note: nil, customer: customers[2], employee: employees[0], completed: true, price_with_tip: "1200.0", received_cash: "0.0", paid_by_card: "1200.0", paid_in_cash: "0.0"},
-  {note: nil, customer: customers[0], employee: employees[1], completed: true, price_with_tip: "10.0", received_cash: "0.0", paid_by_card: "10.0", paid_in_cash: "0.0"},
-  {note: nil, customer: customers[1], employee: employees[0], completed: false, price_with_tip: "0.0", received_cash: "0.0", paid_by_card: "0.0", paid_in_cash: "0.0"}
+  {created_at: m1d, note: nil, customer: customers[0], employee: employees[1], completed: true, price_with_tip: "350.0", received_cash: "400.0", paid_by_card: "0.0", paid_in_cash: "350.0"},
+  {created_at: m2d, note: nil, customer: customers[1], employee: employees[0], completed: true, price_with_tip: "200.0", received_cash: "200.0", paid_by_card: "0.0", paid_in_cash: "200.0"},
+  {created_at: m3d, note: nil, customer: customers[2], employee: employees[1], completed: true, price_with_tip: "900.0", received_cash: "900.0", paid_by_card: "0.0", paid_in_cash: "900.0"},
+  {created_at: m1w, note: nil, customer: customers[0], employee: employees[0], completed: true, price_with_tip: "100.0", received_cash: "0.0", paid_by_card: "100.0", paid_in_cash: "0.0"},
+  {created_at: m2w, note: nil, customer: customers[1], employee: employees[1], completed: true, price_with_tip: "100.0", received_cash: "0.0", paid_by_card: "2000.0", paid_in_cash: "-1900.0"},
+  {created_at: m3w, note: nil, customer: customers[2], employee: employees[0], completed: true, price_with_tip: "1000.0", received_cash: "1000.0", paid_by_card: "0.0", paid_in_cash: "1000.0"},
+  {created_at: m1m, note: nil, customer: customers[0], employee: employees[1], completed: true, price_with_tip: "300.0", received_cash: "0.0", paid_by_card: "300.0", paid_in_cash: "0.0"},
+  {created_at: m2m, note: nil, customer: customers[1], employee: employees[0], completed: true, price_with_tip: "100.0", received_cash: "0.0", paid_by_card: "200.0", paid_in_cash: "-100.0"},
+  {created_at: m3m, note: nil, customer: customers[2], employee: employees[1], completed: true, price_with_tip: "200.0", received_cash: "0.0", paid_by_card: "200.0", paid_in_cash: "0.0"},
+  {created_at: m1d, note: nil, customer: customers[0], employee: employees[0], completed: true, price_with_tip: "500.0", received_cash: "0.0", paid_by_card: "500.0", paid_in_cash: "0.0"},
+  {created_at: m2d, note: nil, customer: customers[1], employee: employees[1], completed: true, price_with_tip: "0.0", received_cash: "0.0", paid_by_card: "0.0", paid_in_cash: "0.0"},
+  {created_at: m3d, note: nil, customer: customers[2], employee: employees[0], completed: true, price_with_tip: "1200.0", received_cash: "0.0", paid_by_card: "1200.0", paid_in_cash: "0.0"},
+  {created_at: m1w, note: nil, customer: customers[0], employee: employees[1], completed: true, price_with_tip: "10.0", received_cash: "0.0", paid_by_card: "10.0", paid_in_cash: "0.0"},
+  {created_at: m2w, note: nil, customer: customers[1], employee: employees[0], completed: false, price_with_tip: "0.0", received_cash: "0.0", paid_by_card: "0.0", paid_in_cash: "0.0"}
 ])
 
 Sell.create!([
@@ -110,4 +120,9 @@ Supply.create!([
   {purchase_price: 300.0, quantity: 40, item: items[0], vat: 21, deleted_at: nil},
   {purchase_price: 500.0, quantity: 10, item: items[1], vat: 21, deleted_at: nil},
   {purchase_price: 2.4, quantity: 120, item: items[2], vat: 21, deleted_at: nil}
+])
+
+CashbookEntry.create!([
+  {amount: -123.0, kind: 1, touched_at: Time.now, note: "Zaplacená pizza", company: companies[0]},
+  {amount: 100.0, kind: 1, touched_at: m1w, note: "Vklad od managera", company: companies[0]}
 ])
