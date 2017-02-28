@@ -1,9 +1,9 @@
 companies = Company.create!([
   {
     name: "DEMO",
-    is_invoice_printing_active: false,
+    is_invoice_printing_active: true,
     invoice_header: "Adresa 123, Plzeň\nwww.beauty-pay.cz\nFacebook: beauty-pay.cz\ntel.: 123 456 789",
-    invoice_logo: "https://cdn.pixabay.com/photo/2012/04/11/16/06/scissors-28698_960_720.png",
+    invoice_logo: "https://cdn.pixabay.com/photo/2015/06/11/23/57/scissors-806369_960_720.png",
   }
 ])
 
@@ -17,8 +17,8 @@ User.create!([
 ])
 
 entities = Entity.create!([
-  {name: "Nové s.r.o.", company: companies[0], invoice_header: nil},
-  {name: "New entity", company: companies[0], invoice_header: nil}
+  {name: "beauty-pay.cz s.r.o.", company: companies[0], invoice_header: "IČO: 123456789"},
+  {name: "druhá firma s.r.o.", company: companies[0], invoice_header: "IČO: 987654321"}
 ])
 
 items = Item.create!([
