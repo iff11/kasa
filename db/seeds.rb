@@ -40,7 +40,7 @@ customers = Customer.create!([
 
 employees = Employee.create!([
   {first_name: "Karolína", last_name: "Hezká", photo_url: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ0mk0OimYgpp7qDUrd2FA8FUamMBQoWAu7kXwYhevd63bqectjZA", is_active: true, company: companies[0]},
-  {first_name: "Prokop", last_name: "Buben", photo_url: "http://maxpixel.freegreatpicture.com/static/photo/1x/Mustache-Model-Beard-Face-Portrait-Person-Man-1845166.jpg", is_active: true, company: companies[0]}
+  {first_name: "Prokop", last_name: "Buben", photo_url: "https://s-media-cache-ak0.pinimg.com/736x/15/d6/d8/15d6d8761fb566122edd26c2eeeeb994.jpg", is_active: true, company: companies[0]}
 ])
 
 visits = Visit.create!([
