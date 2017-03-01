@@ -28,17 +28,72 @@
   </div>
 </div>
 
-<hr />
+<h3>{{t 'overview.sums'}}</h3>
 
 <div class="row">
-  {{#each attrs.entities as |entity|}}
-    <div class="col-xs-4">
-      {{entity-card entity=entity sells=attrs.sells}}
-    </div>
-  {{/each}}
+  <div class="col-xs-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>{{t 'overview.entityName'}}</th>
+          <th class="text-right">{{t 'overview.amount'}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each attrs.entities as |entity|}}
+          {{entity-sum-row entity=entity sells=attrs.sells}}
+        {{/each}}
+      </tbody>
+      <tfoot>
+        <tr>
+          <th></th>
+          <th class="text-right">
+            {{format-money sumPrice symbol="Kč" format="%v %s"}}
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <div class="col-xs-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>{{t 'overview.typeOfPayment'}}</th>
+          <th class="text-right">{{t 'overview.amount'}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            {{t 'overview.paidByCard'}}
+          </td>
+          <td class="text-right">
+            {{format-money sumCard symbol="Kč" format="%v %s"}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            {{t 'overview.paidInCash'}}
+          </td>
+          <td class="text-right">
+            {{format-money sumCash symbol="Kč" format="%v %s"}}
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th></th>
+          <th class="text-right">
+            {{format-money sumPriceWithTip symbol="Kč" format="%v %s"}}
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
 </div>
 
-<hr />
+<h3>{{t 'overview.visits'}}</h3>
 
 <div class="row">
   <div class="col-xs-12">

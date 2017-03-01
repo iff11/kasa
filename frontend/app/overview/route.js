@@ -11,7 +11,7 @@ export default Ember.Route.extend({
     let dateFormat = ENV.app.dateFormat;
     let from, to;
     if(Ember.isEmpty(params.from)) {
-      from = moment().subtract(1, 'weeks').format(dateFormat);
+      from = moment().format(dateFormat);
     } else {
       from = params.from;
     }
@@ -21,7 +21,7 @@ export default Ember.Route.extend({
       to = params.to;
     }
 
-    let query = {
+    let visitsQuery = {
       filter: {
         from: from,
         to: to,
@@ -30,11 +30,20 @@ export default Ember.Route.extend({
         size: 1000
       }
     };
+    let sellsQuery = {
+      filter: {
+        visitsFrom: from,
+        visitsTo: to,
+      },
+      page: {
+        size: 1000
+      }
+    };
 
     return Ember.RSVP.hash({
-      visits: this.store.query('visit', query),
+      visits: this.store.query('visit', visitsQuery),
       entities: this.store.findAll('entity'),
-      sells: this.store.query('sell', query),
+      sells: this.store.query('sell', sellsQuery),
       date: params,
       from: from,
       to: to

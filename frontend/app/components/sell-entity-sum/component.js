@@ -6,10 +6,8 @@ export default Ember.Component.extend({
     let entityId = this.get('entity.id');
 
     const promise = Ember.RSVP.filter(this.get('sells').toArray(), (sell) => {
-        return sell.get('item').then((item) => {
-          return item.get('entity').then((entity) => {
-            return entity.get('id') === entityId;
-          });
+        return sell.get('entity').then((entity) => {
+          return entity.get('id') === entityId;
         });
       }).then(function(sellsForCurrentEntity) {
         return sellsForCurrentEntity.reduce((prev, curr) => {
