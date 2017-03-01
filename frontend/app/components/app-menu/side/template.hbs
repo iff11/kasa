@@ -12,6 +12,13 @@
       </li>
 
       <li>
+        {{#link-to 'cashbook'}}
+        {{fa-icon icon="money"}}
+        {{t 'sidebar.cashbook'}}
+        {{/link-to}}
+      </li>
+
+      <li>
         {{#link-to 'overview'}}
         {{fa-icon icon="calendar"}}
         {{t 'sidebar.overview'}}
@@ -52,12 +59,6 @@
         {{t 'sidebar.heading.admin'}}
       </h3>
       <ul class="nav nav-pills nav-stacked">
-        <li>
-          {{#link-to 'admin.cashbook'}}
-            {{fa-icon icon="money"}}
-            {{t 'sidebar.admin.cashbook'}}
-          {{/link-to}}
-        </li>
         <li>
           {{#link-to 'admin.items'}}
             {{fa-icon icon="dropbox"}}
