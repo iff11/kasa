@@ -23,9 +23,9 @@ Router.map(function() {
   });
 
   this.route('overview');
+  this.route('cashbook');
 
   this.route('admin', function() {
-    this.route('cashbook');
     this.route('items');
     this.route('item', function() {
       this.route('new');

@@ -1,22 +1,22 @@
 <h2>
-  {{t 'admin.cashbook.heading'}}:
+  {{t 'cashbook.heading'}}:
   {{format-money cashbookBalance symbol="Kč" format="%v %s"}}
 </h2>
 
 <p>
   <small>
-    {{t 'admin.cashbook.disclaimer'}}
+    {{t 'cashbook.disclaimer'}}
   </small>
 </p>
 
 <div class="form-inline">
   <div class="form-group">
-    <label>{{t 'admin.cashbook.amount'}}</label>
+    <label>{{t 'cashbook.amount'}}</label>
     {{input value=attrs.entry.amount type="number" class='form-control'}}
   </div>
 
   <div class="form-group">
-    <label>{{t 'admin.cashbook.note'}}</label>
+    <label>{{t 'cashbook.note'}}</label>
     {{input value=attrs.entry.note class='form-control'}}
   </div>
 
@@ -28,10 +28,10 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>{{t 'admin.cashbook.createdAt'}}</th>
-      <th class="text-right">{{t 'admin.cashbook.amount'}}</th>
-      <th>{{t 'admin.cashbook.note'}}</th>
-      <th class="text-right">{{t 'admin.cashbook.kind'}}</th>
+      <th>{{t 'cashbook.createdAt'}}</th>
+      <th class="text-right">{{t 'cashbook.amount'}}</th>
+      <th>{{t 'cashbook.note'}}</th>
+      <th class="text-right">{{t 'cashbook.kind'}}</th>
     </tr>
   </thead>
   <tbody>
@@ -49,7 +49,7 @@
       <td class="text-right">
         {{#if (eq entry.kind "visit")}}
           {{#link-to 'admin.visit' entry.visit.id}}
-            {{t 'admin.cashbook.isVisit'}}
+            {{t 'cashbook.isVisit'}}
           {{/link-to}}
         {{else if (eq entry.kind "manual")}}
           <button class="btn btn-danger" {{action "deleteCashbookEntry" entry on="doubleClick"}}>

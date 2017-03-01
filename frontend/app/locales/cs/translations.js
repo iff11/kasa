@@ -199,17 +199,18 @@ export default {
   login: {
     header: 'Přihlášení'
   },
+  
+  cashbook: {
+    heading: 'Pokladní kniha',
+    createdAt: 'Datum',
+    amount: 'Částka',
+    note: 'Poznámka',
+    kind: 'Typ / Akce',
+    isVisit: 'Zakázka',
+    disclaimer: 'Výběr z pokladní knihy dělejte přes zápornou částku.'
+  },
 
   admin: {
-    cashbook: {
-      heading: 'Pokladní kniha',
-      createdAt: 'Datum',
-      amount: 'Částka',
-      note: 'Poznámka',
-      kind: 'Typ / Akce',
-      isVisit: 'Zakázka',
-      disclaimer: 'Výběr z pokladní knihy dělejte přes zápornou částku.'
-    },
     companies: {
       heading: 'Moje firma',
       companyNameLabel: 'Název firmy',
@@ -236,8 +237,7 @@ export default {
       employees: 'Zaměstnanci',
       supply: 'Naskladnění',
       statuses: 'Stav systému',
-      companies: 'Firma',
-      cashbook: 'Pokladní kniha'
+      companies: 'Firma'
     },
     heading: {
       navigation: 'Navigace',
@@ -245,6 +245,7 @@ export default {
       admin: 'Administrátor',
       profile: 'Profil'
     },
+    cashbook: 'Pokladní kniha',
     overview: 'Zakázky',
     customers: 'Zákazníci',
     items: 'Sklad',
