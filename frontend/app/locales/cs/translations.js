@@ -24,16 +24,21 @@ export default {
   },
 
   overview: {
-    heading: 'Všechny zakázky',
-    paidByCard: 'Zaplaceno kartou',
-    paidInCash: 'Zaplaceno hotově',
-    priceWithTip: 'Celkem + dýško',
-    price: 'Cena za položky',
+    entityName: 'Název entity',
+    amount: 'Částka',
+    typeOfPayment: 'Typ platby',
+    heading: 'Přehled zakázek',
+    paidByCard: 'Kartou',
+    paidInCash: 'Hotově',
+    priceWithTip: 'Celková částka i s dýškem',
+    price: 'Celková částka',
     isPagingExceeded: 'Ve vybraném období je více než {{max}} zakázek. Součet nelze vypočítat. Prosím, zadejte kratší období.',
     date: 'Datum',
     today: 'dnes',
     thisWeek: 'tento týden',
-    thisMonth: 'tento měsíc'
+    thisMonth: 'tento měsíc',
+    sums: 'Součty',
+    visits: 'Zakázky'
   },
 
   customer: {

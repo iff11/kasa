@@ -7,6 +7,7 @@
 .overview-quick-links {
   @extend .col-xs-12;
   @extend .col-md-6;
+  @extend .hidden-print;
 
   a {
     @extend .btn;
