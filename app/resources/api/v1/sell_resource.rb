@@ -9,13 +9,16 @@ module Api
       has_one :visit
       has_one :entity
 
-      filters :visits_from, :visits_to
+      filters :visits_from, :visits_to, :visits_completed
 
       filter :visits_from, apply: ->(records, value, _options) {
         records.joins(:visit).where('visits.created_at >= ?', value)
       }
       filter :visits_to, apply: ->(records, value, _options) {
         records.joins(:visit).where("visits.created_at <= (TO_DATE(?, 'YYYY-MM-DD') + interval '1' day)", value)
+      }
+      filter :visits_completed, apply: ->(records, value, _options) {
+        records.joins(:visit).where("visits.completed = ?", value)
       }
 
       private

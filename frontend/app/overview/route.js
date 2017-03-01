@@ -25,6 +25,7 @@ export default Ember.Route.extend({
       filter: {
         from: from,
         to: to,
+        completed: true
       },
       page: {
         size: 1000
@@ -34,6 +35,7 @@ export default Ember.Route.extend({
       filter: {
         visitsFrom: from,
         visitsTo: to,
+        visitsCompleted: true
       },
       page: {
         size: 1000
