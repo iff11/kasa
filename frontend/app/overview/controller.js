@@ -53,6 +53,13 @@ export default Ember.Controller.extend({
       return prev + curr.get('price');
     }, 0);
   }),
+  sumTips: Ember.computed('attrs.visits.[]', function () {
+    let visits = this.get('attrs.visits');
+
+    return visits.reduce((prev, curr) => {
+      return prev + curr.get('tip');
+    }, 0);
+  }),
   sumPriceWithTip: Ember.computed('attrs.visits.[]', function () {
     let visits = this.get('attrs.visits');
 

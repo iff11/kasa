@@ -31,10 +31,11 @@ export default {
     paidByCard: 'Kartou',
     paidInCash: 'Hotově',
     priceWithTip: 'Celková částka i s dýškem',
-    price: 'Celková částka',
+    price: 'Cena za položky',
     isPagingExceeded: 'Ve vybraném období je více než {{max}} zakázek. Součet nelze vypočítat. Prosím, zadejte kratší období.',
     date: 'Datum',
     today: 'dnes',
+    tip: 'Dýško',
     thisWeek: 'tento týden',
     thisMonth: 'tento měsíc',
     sums: 'Součty',
@@ -199,7 +200,7 @@ export default {
   login: {
     header: 'Přihlášení'
   },
-  
+
   cashbook: {
     heading: 'Pokladní kniha',
     createdAt: 'Datum',

@@ -97,12 +97,15 @@
 
 <div class="row">
   <div class="col-xs-12">
+    <pre>({{t 'overview.price'}} + {{t 'overview.tip'}}) = ({{t 'overview.paidByCard'}} + {{t 'overview.paidInCash'}}) = {{t 'overview.priceWithTip'}}</pre>
+
     <table class="admin-visits-table">
 
       <thead>
         <tr>
           <th>{{t 'overview.date'}}</th>
           <th>{{t 'overview.price'}}</th>
+          <th>{{t 'overview.tip'}}</th>
           <th>{{t 'overview.paidByCard'}}</th>
           <th>{{t 'overview.paidInCash'}}</th>
           <th>{{t 'overview.priceWithTip'}}</th>
@@ -117,6 +120,9 @@
             </td>
             <td>
               {{format-money visit.price symbol="Kč" format="%v %s"}}
+            </td>
+            <td>
+              {{format-money visit.tip symbol="Kč" format="%v %s"}}
             </td>
             <td>
               {{format-money visit.paidByCard symbol="Kč" format="%v %s"}}
@@ -143,6 +149,9 @@
             <th></th>
             <th>
               {{format-money sumPrice symbol="Kč" format="%v %s"}}
+            </th>
+            <th>
+              {{format-money sumTips symbol="Kč" format="%v %s"}}
             </th>
             <th>
               {{format-money sumCard symbol="Kč" format="%v %s"}}
