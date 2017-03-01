@@ -11,7 +11,7 @@ export default Ember.Route.extend({
     let dateFormat = ENV.app.dateFormat;
     let from, to;
     if(Ember.isEmpty(params.from)) {
-      from = moment().subtract(1, 'weeks').format(dateFormat);
+      from = moment().format(dateFormat);
     } else {
       from = params.from;
     }
