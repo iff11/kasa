@@ -73,6 +73,7 @@ export default {
       sum: 'Cena celkem v Kč:',
       goToVisits: 'Zpátky na seznam zakázek'
     },
+    createdAt: 'Datum',
     isInvoicePrintingActive: 'Tisknout účtenku',
     priceSection: 'Částka',
     paymentSection: 'Platba',
