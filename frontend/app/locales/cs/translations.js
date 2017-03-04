@@ -213,9 +213,9 @@ export default {
 
   admin: {
     companies: {
-      heading: 'Moje firma',
+      companyHeading: 'Moje firma',
+      entitiesHeading: 'Ekonomické entity',
       companyNameLabel: 'Název firmy',
-      entities: 'Ekonomické entity',
       entityName: 'Název entity',
       isInvoicePrintingActive: 'Tisknout účtenky',
       invoiceHeader: 'Hlavička na účtence',
