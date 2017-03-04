@@ -39,6 +39,8 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'taps'
+  # https://github.com/rails/rails/issues/26658
+  gem 'rb-readline'
 end
 
 group :development do

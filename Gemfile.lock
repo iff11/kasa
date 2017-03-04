@@ -170,6 +170,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.17.0)
     rake (12.0.0)
+    rb-readline (0.5.4)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
     rest-client (1.6.9)
@@ -258,6 +259,7 @@ DEPENDENCIES
   rails
   rails-erd
   rails_12factor
+  rb-readline
   ruby-eet-cz!
   sass-rails (~> 5.0)
   seed_dump
