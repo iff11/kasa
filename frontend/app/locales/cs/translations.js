@@ -220,7 +220,10 @@ export default {
       isInvoicePrintingActive: 'Tisknout účtenky',
       invoiceHeader: 'Hlavička na účtence',
       invoiceLogo: 'Logo na účtence',
-      entityInvoiceHeader: 'Patička na účtence'
+      entityInvoiceHeader: 'Patička na účtence',
+      vatid: 'DIČ',
+      premisesid: 'Číslo provozovny',
+      registerid: 'Číslo pokladny'
     },
     statuses: {
       heading: 'Stav systému'
