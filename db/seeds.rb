@@ -28,8 +28,11 @@ User.create!([
   }
 ])
 
+certificate_path = Rails.root.join('bin', 'cert', 'EET_CA1_Playground-CZ00000019.p12')
+certificate = IO.binread(certificate_path)
+
 entities = Entity.create!([
-  {name: "beauty-pay.cz s.r.o.", company: companies[0], invoice_header: "IČO: 123456789"},
+  {name: "beauty-pay.cz s.r.o.", company: companies[0], invoice_header: "IČO: 123456789", vatid: "CZ00000019", premisesid: "123", registerid: "456", certificate: certificate, certificate_password: "eet"},
   {name: "druhá firma s.r.o.", company: companies[0], invoice_header: "IČO: 987654321"}
 ])
 
