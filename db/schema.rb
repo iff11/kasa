@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170305103258) do
+ActiveRecord::Schema.define(version: 20170305170639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,14 +106,15 @@ ActiveRecord::Schema.define(version: 20170305103258) do
   end
 
   create_table "revenues", force: :cascade do |t|
-    t.decimal  "amount",     null: false
-    t.text     "response",   null: false
-    t.string   "fik",        null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "visit_id",   null: false
-    t.integer  "entity_id",  null: false
+    t.decimal  "amount",     default: "0.0", null: false
+    t.text     "response",   default: "",    null: false
+    t.string   "fik",        default: "",    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "visit_id",                   null: false
+    t.integer  "entity_id",                  null: false
     t.index ["entity_id"], name: "index_revenues_on_entity_id", using: :btree
+    t.index ["visit_id", "entity_id"], name: "by_visit_entity", unique: true, using: :btree
     t.index ["visit_id"], name: "index_revenues_on_visit_id", using: :btree
   end
 
@@ -159,8 +160,8 @@ ActiveRecord::Schema.define(version: 20170305103258) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "authentication_token"
     t.datetime "deleted_at"
+    t.string   "authentication_token"
     t.integer  "company_id"
     t.integer  "role",                   default: 0
     t.index ["company_id"], name: "index_users_on_company_id", using: :btree
@@ -313,6 +314,25 @@ ActiveRecord::Schema.define(version: 20170305103258) do
       UPDATE visits SET employee_share_service = (
         SELECT COALESCE(SUM(sells.price * sells.count), 0) FROM sells LEFT JOIN items ON items.id = sells.item_id WHERE sells.visit_id = OLD.visit_id AND sells.deleted_at IS NULL AND items.is_service = true) * 0.1
         WHERE visits.id = OLD.visit_id;
+    SQL_ACTIONS
+  end
+
+  create_trigger("create_or_update_revenue_a", :generated => true, :compatibility => 1).
+      on("sells").
+      after(:insert, :update).
+      name("create_or_update_revenue_a") do
+    <<-SQL_ACTIONS
+      INSERT INTO revenues (visit_id, entity_id, amount, created_at, updated_at) VALUES
+      (
+        NEW.visit_id,
+        NEW.entity_id,
+        (SELECT SUM(count * price) FROM sells WHERE entity_id = NEW.entity_id AND visit_id = NEW.visit_id),
+        NOW(),
+        NOW()
+      ) ON CONFLICT (visit_id, entity_id) DO UPDATE SET
+        amount = (SELECT SUM(count * price) FROM sells WHERE entity_id = NEW.entity_id AND visit_id = NEW.visit_id),
+        created_at = NOW(),
+        updated_at = NOW();
     SQL_ACTIONS
   end
 

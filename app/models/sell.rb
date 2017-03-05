@@ -66,13 +66,19 @@ class Sell < ApplicationRecord
     SQL
   end
 
-  # trigger.after(:insert, :update).name('create_or_update_revenue_a') do
-  #   <<-SQL
-  #     INSERT INTO revenues () VALUES
-  #     (
-  #
-  #     ) ON CONFLICT (visit_id, entity_id) DO UPDATE SET
-  #
-  #   SQL
-  # end
+  trigger.after(:insert, :update).name('create_or_update_revenue_a') do
+    <<-SQL
+      INSERT INTO revenues (visit_id, entity_id, amount, created_at, updated_at) VALUES
+      (
+        NEW.visit_id,
+        NEW.entity_id,
+        (SELECT SUM(count * price) FROM sells WHERE entity_id = NEW.entity_id AND visit_id = NEW.visit_id),
+        NOW(),
+        NOW()
+      ) ON CONFLICT (visit_id, entity_id) DO UPDATE SET
+        amount = (SELECT SUM(count * price) FROM sells WHERE entity_id = NEW.entity_id AND visit_id = NEW.visit_id),
+        created_at = NOW(),
+        updated_at = NOW();
+    SQL
+  end
 end
