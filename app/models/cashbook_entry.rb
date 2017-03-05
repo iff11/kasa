@@ -1,4 +1,4 @@
-class CashbookEntry < ActiveRecord::Base
+class CashbookEntry < ApplicationRecord
   default_scope { order(touched_at: :desc) }
 
   enum kind: {

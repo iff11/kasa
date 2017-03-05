@@ -1,4 +1,4 @@
-class Sell < ActiveRecord::Base
+class Sell < ApplicationRecord
   acts_as_paranoid
 
   belongs_to :item

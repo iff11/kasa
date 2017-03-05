@@ -1,4 +1,4 @@
-class Visit < ActiveRecord::Base
+class Visit < ApplicationRecord
   default_scope { order(created_at: :desc) }
 
   acts_as_paranoid
