@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304194510) do
+ActiveRecord::Schema.define(version: 20170305103258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,18 @@ ActiveRecord::Schema.define(version: 20170304194510) do
     t.index ["company_id"], name: "index_items_on_company_id", using: :btree
     t.index ["deleted_at"], name: "index_items_on_deleted_at", using: :btree
     t.index ["entity_id"], name: "index_items_on_entity_id", using: :btree
+  end
+
+  create_table "revenues", force: :cascade do |t|
+    t.decimal  "amount",     null: false
+    t.text     "response",   null: false
+    t.string   "fik",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "visit_id",   null: false
+    t.integer  "entity_id",  null: false
+    t.index ["entity_id"], name: "index_revenues_on_entity_id", using: :btree
+    t.index ["visit_id"], name: "index_revenues_on_visit_id", using: :btree
   end
 
   create_table "sells", force: :cascade do |t|

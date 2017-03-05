@@ -7,6 +7,7 @@ class Visit < ActiveRecord::Base
   belongs_to :customer, counter_cache: true
   belongs_to :employee
   has_many :sells, dependent: :destroy
+  has_many :revenues
   has_one :cashbook_entry
 
   def self.opened

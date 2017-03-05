@@ -65,4 +65,14 @@ class Sell < ActiveRecord::Base
         WHERE visits.id = OLD.visit_id;
     SQL
   end
+
+  # trigger.after(:insert, :update).name('create_or_update_revenue_a') do
+  #   <<-SQL
+  #     INSERT INTO revenues () VALUES
+  #     (
+  #
+  #     ) ON CONFLICT (visit_id, entity_id) DO UPDATE SET
+  #
+  #   SQL
+  # end
 end
