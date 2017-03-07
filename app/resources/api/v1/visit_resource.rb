@@ -12,6 +12,7 @@ module Api
       # relationship :cashbook_entry, to: :one, foreign_key_on: :related
       belongs_to :cashbook_entry
       has_many :sells
+      has_many :revenues
 
       # https://github.com/cerebris/jsonapi-resources/issues/391
       def cashbook_entry_id=(_value)

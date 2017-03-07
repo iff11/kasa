@@ -4,6 +4,7 @@ module Api
       attributes :name, :invoice_header, :vatid, :premisesid, :registerid
 
       has_many :items
+      has_many :revenues
     end
   end
 end

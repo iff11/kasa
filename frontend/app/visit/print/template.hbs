@@ -97,3 +97,9 @@
     {{/link-to}}
   </div>
 </div>
+
+<ul>
+{{#each attrs.visit.revenues as |revenue|}}
+<li>{{revenue.amount}}</li>
+{{/each}}
+</ul>
