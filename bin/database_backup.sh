@@ -3,7 +3,7 @@
 PROJECT='topstylesalon.cz'
 NOW=$(date +"%Y.%m.%d_%H:%M")
 FILE="/Users/michal/Google Drive/Project/${PROJECT}/backups/backup_${NOW}"
-APP='kasa-topstylesalon-cz'
+APP='production-beauty-pay-cz'
 
 echo "> Creating backup"
 heroku pg:backups capture --app=${APP}
