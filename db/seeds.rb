@@ -3,7 +3,7 @@ companies = Company.create!([
     name: "DEMO",
     is_invoice_printing_active: true,
     invoice_header: "Adresa 123, Plzeň\nwww.beauty-pay.cz\nFacebook: beauty-pay.cz\ntel.: 123 456 789",
-    invoice_logo: "https://cdn.pixabay.com/photo/2015/06/11/23/57/scissors-806369_960_720.png",
+    invoice_logo: "http://bit.ly/2lB1l4d",
   }
 ])
 
