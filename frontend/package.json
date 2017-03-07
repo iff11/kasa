@@ -43,7 +43,7 @@
     "ember-cli-sass": "5.3.1",
     "ember-cli-selectize": "0.5.5",
     "ember-cli-sri": "^2.1.0",
-    "ember-cli-uglify": "2.7.5",
+    "ember-cli-uglify": "^1.2.0",
     "ember-data": "^2.6.0",
     "ember-data-filter": "1.13.0",
     "ember-export-application-global": "^1.0.5",
@@ -60,5 +60,8 @@
     "eslint": "^3.1.1",
     "liquid-fire": "0.24.1",
     "loader.js": "^4.0.1"
+  },
+  "dependencies": {
+    "uglify-js": "2.7.5"
   }
 }
