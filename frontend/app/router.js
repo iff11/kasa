@@ -22,10 +22,10 @@ Router.map(function() {
     this.route('print');
   });
 
-  this.route('overview');
   this.route('cashbook');
 
   this.route('admin', function() {
+    this.route('overview');
     this.route('items');
     this.route('item', function() {
       this.route('new');
