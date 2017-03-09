@@ -22,7 +22,6 @@ export default Ember.Service.extend({
   cashbookBalance: Ember.computed.oneWay('company.cashbookBalance'),
 
   refreshCompanies() {
-    console.log('refreshing');
     this.set('companies', this.get('store').findAll('company'));
   }
 });

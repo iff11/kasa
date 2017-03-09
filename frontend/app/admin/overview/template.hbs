@@ -3,13 +3,13 @@
 <div class="row">
   <div class="overview-quick-links">
     <div class="btn-group" role="group">
-      {{#link-to 'overview' (query-params from=links.now to=links.now)}}
+      {{#link-to 'admin.overview' (query-params from=links.now to=links.now)}}
         {{t 'overview.today'}}
       {{/link-to}}
-      {{#link-to 'overview' (query-params from=links.week to=links.now)}}
+      {{#link-to 'admin.overview' (query-params from=links.week to=links.now)}}
         {{t 'overview.thisWeek'}}
       {{/link-to}}
-      {{#link-to 'overview' (query-params from=links.month to=links.now)}}
+      {{#link-to 'admin.overview' (query-params from=links.month to=links.now)}}
         {{t 'overview.thisMonth'}}
       {{/link-to}}
     </div>
