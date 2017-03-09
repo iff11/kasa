@@ -13,6 +13,18 @@ User.create!([
     password: "demo@beauty-pay.cz",
     company: companies[0],
     role: 1
+  },
+  {
+    email: "kadernik@beauty-pay.cz",
+    password: "kadernik@beauty-pay.cz",
+    company: companies[0],
+    role: 0
+  },
+  {
+    email: "registrace@beauty-pay.cz",
+    password: "registrace@beauty-pay.cz",
+    company: companies[0],
+    role: 2
   }
 ])
 
