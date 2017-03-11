@@ -8,7 +8,7 @@ export default Ember.Route.extend({
     let employeeId = this.paramsFor('admin.employee').id;
     let year = this.paramsFor('admin.employee.year').year;
     let month = this.paramsFor('admin.employee.year.month').month;
-    let selected = moment(`${year}-${month}-01`)
+    let selected = moment({ year: year, month: month, day: '01' });
     let from = selected.clone();
     let to = selected.clone().endOf('month');
     let query = {
