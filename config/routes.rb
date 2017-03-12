@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       jsonapi_resources :entities
       jsonapi_resources :companies
       jsonapi_resources :cashbook_entries
+      jsonapi_resources :revenues
     end
   end
 

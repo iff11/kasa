@@ -1,4 +1,4 @@
-class Sell < ActiveRecord::Base
+class Sell < ApplicationRecord
   acts_as_paranoid
 
   belongs_to :item
@@ -63,6 +63,22 @@ class Sell < ActiveRecord::Base
       UPDATE visits SET employee_share_service = (
         SELECT COALESCE(SUM(sells.price * sells.count), 0) FROM sells LEFT JOIN items ON items.id = sells.item_id WHERE sells.visit_id = OLD.visit_id AND sells.deleted_at IS NULL AND items.is_service = true) * 0.1
         WHERE visits.id = OLD.visit_id;
+    SQL
+  end
+
+  trigger.after(:insert, :update).name('create_or_update_revenue_a') do
+    <<-SQL
+      INSERT INTO revenues (visit_id, entity_id, amount, created_at, updated_at) VALUES
+      (
+        NEW.visit_id,
+        NEW.entity_id,
+        (SELECT SUM(count * price) FROM sells WHERE entity_id = NEW.entity_id AND visit_id = NEW.visit_id),
+        NOW(),
+        NOW()
+      ) ON CONFLICT (visit_id, entity_id) DO UPDATE SET
+        amount = (SELECT SUM(count * price) FROM sells WHERE entity_id = NEW.entity_id AND visit_id = NEW.visit_id),
+        created_at = NOW(),
+        updated_at = NOW();
     SQL
   end
 end

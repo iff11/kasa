@@ -213,14 +213,18 @@ export default {
 
   admin: {
     companies: {
-      heading: 'Moje firma',
+      sendEet: 'Odesílat EET',
+      companyHeading: 'Moje firma',
+      entitiesHeading: 'Ekonomické entity',
       companyNameLabel: 'Název firmy',
-      entities: 'Ekonomické entity',
       entityName: 'Název entity',
       isInvoicePrintingActive: 'Tisknout účtenky',
       invoiceHeader: 'Hlavička na účtence',
       invoiceLogo: 'Logo na účtence',
-      entityInvoiceHeader: 'Patička na účtence'
+      entityInvoiceHeader: 'Patička na účtence',
+      vatid: 'DIČ',
+      premisesid: 'Číslo provozovny',
+      registerid: 'Číslo pokladny'
     },
     statuses: {
       heading: 'Stav systému'

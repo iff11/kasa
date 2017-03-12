@@ -20,6 +20,7 @@ export default DS.Model.extend({
   }),
   employee: DS.belongsTo('employee', { async: true }),
   sells: DS.hasMany('sell', { async: true }),
+  revenues: DS.hasMany('revenue', { async: true }),
   cashbookEntry: DS.belongsTo('cashbookEntry', { async: true }),
 
   tip: Ember.computed('priceWithTip', 'price', function() {
