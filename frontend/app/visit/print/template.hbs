@@ -68,8 +68,8 @@
     <hr />
 
     <ul class="list-unstyled">
-      {{#each visit.employee.company.entities as |entity|}}
-        {{x-receipt/entity-sum entity=entity sells=visit.sells}}
+      {{#each visit.revenues as |revenue|}}
+        {{x-receipt/revenue entity=revenue.entity revenue=revenue}}
       {{/each}}
     </ul>
     {{!-- <h3>{{t "visit.print.eetHeading"}}</h3> --}}
@@ -97,9 +97,3 @@
     {{/link-to}}
   </div>
 </div>
-
-<ul>
-{{#each attrs.visit.revenues as |revenue|}}
-<li>{{revenue.amount}}</li>
-{{/each}}
-</ul>

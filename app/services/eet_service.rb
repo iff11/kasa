@@ -48,7 +48,10 @@ class EetService
         request.run
       end
 
-      @revenue.eet_response = response.as_json
+      response_json = response.as_json
+
+      @revenue.eet_response = response_json
+      @revenue.eet_fik = response_json['fik']
       @revenue.save!
 
       puts JSON.pretty_generate(response.as_json)
