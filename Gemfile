@@ -33,7 +33,7 @@ gem 'nokogiri'
 
 gem 'pg'
 
-gem 'ruby-eet-cz', github: 'ruby-eet-cz', branch: 'master'
+gem 'ruby-eet-cz', git: 'https://github.com/ciihla/ruby-eet-cz', branch: 'master'
 
 group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
