@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/ciihla/ruby-eet-cz
+  revision: eb19a1f0075781ffaf7584a348b089b32885c925
+  branch: master
+  specs:
+    ruby-eet-cz (1.0.0.pre)
+      activemodel (>= 4.2)
+      activesupport (>= 4.2)
+      savon (~> 2.11.0)
+
+GIT
   remote: https://github.com/elabs/pundit.git
   revision: 01e497ae0b5ee864e3975e1c57aad43428b295d7
   tag: v1.1.0
@@ -13,16 +23,6 @@ GIT
   specs:
     paranoia (2.2.0.alpha)
       activerecord (>= 4.0, < 5.1)
-
-GIT
-  remote: https://github.com/ruby-eet-cz/ruby-eet-cz.git
-  revision: eb19a1f0075781ffaf7584a348b089b32885c925
-  branch: master
-  specs:
-    ruby-eet-cz (1.0.0.pre)
-      activemodel (>= 4.2)
-      activesupport (>= 4.2)
-      savon (~> 2.11.0)
 
 GEM
   remote: https://rubygems.org/
