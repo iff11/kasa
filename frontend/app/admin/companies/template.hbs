@@ -41,7 +41,11 @@
       <div class="row">
         {{#each company.entities as |entity|}}
           <div class="col-xs-12">
-            {{x-entity/form entity=entity saveEntityName=(action "saveEntityName")}}
+            <div class="panel panel-default">
+              <div class="panel-body">
+                {{x-entity/form entity=entity saveEntityName=(action "saveEntityName")}}
+              </div>
+            </div>
           </div>
         {{/each}}
       </div>

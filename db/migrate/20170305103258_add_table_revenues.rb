@@ -2,8 +2,9 @@ class AddTableRevenues < ActiveRecord::Migration[5.0]
   def change
     create_table :revenues do |t|
       t.decimal :amount, null: false, default: 0.0
-      t.text :response, null: false, default: ''
-      t.string :fik, null: false, default: ''
+      t.text :eet_response, null: true
+      t.string :eet_fik, null: true
+      t.integer :eet_attempts, null: false, default: 0
 
       t.timestamps null: false
     end

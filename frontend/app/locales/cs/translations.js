@@ -213,6 +213,7 @@ export default {
 
   admin: {
     companies: {
+      sendEet: 'Odesílat EET',
       companyHeading: 'Moje firma',
       entitiesHeading: 'Ekonomické entity',
       companyNameLabel: 'Název firmy',

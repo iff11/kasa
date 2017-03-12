@@ -3,6 +3,8 @@ module Api
     class VisitResource < ApplicationResource
       paginator :paged
 
+      before_save :check_eet
+
       attributes :note, :completed, :price_with_tip, :paid_in_cash, :paid_by_card, :received_cash, :updated_at, :employee_share_sale, :employee_share_service, :price, :created_at
 
       has_one :customer
@@ -27,6 +29,33 @@ module Api
       filter :to, apply: ->(records, value, _options) {
         records.where("visits.created_at <= (TO_DATE(?, 'YYYY-MM-DD') + interval '1' day)", value)
       }
+
+      private
+        def check_eet
+          puts "-------"
+          if closing_visit?
+            puts "A"
+            Visit.find(@model.id).revenues.each do |revenue|
+              puts "B"
+              if revenue.eet_fik.nil? and revenue.entity.send_eet?
+                puts "C"
+                EetService.new({revenue: revenue}).call
+              end
+            end
+          end
+        end
+
+        def closing_visit?
+          if @model.id
+            if @model.completed == true
+              if Visit.find(@model.id).completed == false
+                return true
+              end
+            end
+          end
+
+          false
+        end
     end
   end
 end

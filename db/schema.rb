@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170305170639) do
+ActiveRecord::Schema.define(version: 20170311204250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,14 +73,15 @@ ActiveRecord::Schema.define(version: 20170305170639) do
   create_table "entities", force: :cascade do |t|
     t.string   "name"
     t.integer  "company_id"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.text     "invoice_header"
-    t.string   "vatid",                default: "", null: false
-    t.string   "premisesid",           default: "", null: false
-    t.string   "registerid",           default: "", null: false
-    t.binary   "certificate",          default: "", null: false
-    t.string   "certificate_password", default: "", null: false
+    t.string   "vatid",                default: "",    null: false
+    t.string   "premisesid",           default: "",    null: false
+    t.string   "registerid",           default: "",    null: false
+    t.binary   "certificate",          default: "",    null: false
+    t.string   "certificate_password", default: "",    null: false
+    t.boolean  "send_eet",             default: false, null: false
     t.index ["company_id"], name: "index_entities_on_company_id", using: :btree
   end
 
@@ -106,13 +107,14 @@ ActiveRecord::Schema.define(version: 20170305170639) do
   end
 
   create_table "revenues", force: :cascade do |t|
-    t.decimal  "amount",     default: "0.0", null: false
-    t.text     "response",   default: "",    null: false
-    t.string   "fik",        default: "",    null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.integer  "visit_id",                   null: false
-    t.integer  "entity_id",                  null: false
+    t.decimal  "amount",       default: "0.0", null: false
+    t.text     "eet_response"
+    t.string   "eet_fik"
+    t.integer  "eet_attempts", default: 0,     null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "visit_id",                     null: false
+    t.integer  "entity_id",                    null: false
     t.index ["entity_id"], name: "index_revenues_on_entity_id", using: :btree
     t.index ["visit_id", "entity_id"], name: "by_visit_entity", unique: true, using: :btree
     t.index ["visit_id"], name: "index_revenues_on_visit_id", using: :btree
