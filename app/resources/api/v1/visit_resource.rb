@@ -3,7 +3,7 @@ module Api
     class VisitResource < ApplicationResource
       paginator :paged
 
-      before_save :check_eet
+      before_save :process_eet
 
       attributes :note, :completed, :price_with_tip, :paid_in_cash, :paid_by_card, :received_cash, :updated_at, :employee_share_sale, :employee_share_service, :price, :created_at
 
@@ -31,15 +31,11 @@ module Api
       }
 
       private
-        def check_eet
-          puts "-------"
+        def process_eet
           if closing_visit?
-            puts "A"
             Visit.find(@model.id).revenues.each do |revenue|
-              puts "B"
               if revenue.eet_fik.nil? and revenue.entity.send_eet?
-                puts "C"
-                EetService.new({revenue: revenue}).call
+                EetService.new({revenue: revenue, entity: revenue.entity}).call
               end
             end
           end
