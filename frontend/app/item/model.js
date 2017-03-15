@@ -25,7 +25,11 @@ export default DS.Model.extend({
     let name = this.get('name');
     let barcode = this.get('barcode');
 
-    return `${name} - ${barcode}`;
+    if(barcode) {
+      return `${name} - ${barcode}`;
+    } else {
+      return name;
+    }
   }),
 
   stock: Ember.computed('bought', 'sold', function() {
