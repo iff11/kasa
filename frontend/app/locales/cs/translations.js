@@ -13,6 +13,7 @@ export default {
   'registration.save': 'Uložit',
   'registration.success': 'Registrace proběhla úspěšně',
   'registration.failure': 'Při registraci došlo k chybě',
+  'application.title': 'kasa',
 
   customers: {
     all: 'Všichni zákazníci',

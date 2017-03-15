@@ -1,3 +1,6 @@
+{{title (t 'application.title')}}
+{{title company.name}}
+
 <div id="wrapper">
   {{#if (and session.isAuthenticated (not-eq session.data.authenticated.role "registrar")) }}
       {{app-menu customers=attrs.customers company=company logout="logout"}}
