@@ -106,6 +106,7 @@ export default {
     'employee_margin': 'Podíl zaměstnance',
     isDirty: 'Neuložili jste položku zakázky. Klikněte na zelené plus, nebo položku smažte.',
     noLastVisit: '---',
+    noteUpdated: 'Poznámka uložena',
     employeeShareService: 'Podíl zaměstnance služby',
     employeeShareSale: 'Podíl zaměstnance prodej',
     receivedCash: 'Přijato v hotovosti',
