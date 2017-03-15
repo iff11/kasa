@@ -2,6 +2,8 @@ import Ember from 'ember';
 // import formatMoney from "accounting/format-money";
 
 export default Ember.Controller.extend({
+  i18n: Ember.inject.service(),
+
   attrs: [],
 
   heap: {},
@@ -75,8 +77,8 @@ export default Ember.Controller.extend({
     saveNote() {
       let flash = Ember.get(this, 'flashMessages');
 
-      this.get('attrs.visit').save().then(function() {
-        flash.success('Note updated');
+      this.get('attrs.visit').save().then(() => {
+        flash.success(this.get('i18n').t('visit.noteUpdated'));
       }, function(response) {
         flash.danger(`Note cannot be updated! ${response.message}`);
       });
