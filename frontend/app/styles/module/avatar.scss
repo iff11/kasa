@@ -34,7 +34,7 @@
 }
 
 .employee-avatar-in-sidebar {
-  @include employee-avatar-xs;
   @extend .pull-right;
+  @include employee-avatar-xs;
   margin-top: -.35em;
 }
