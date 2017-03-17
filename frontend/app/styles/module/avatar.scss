@@ -1,26 +1,26 @@
-@mixin employee-avatar() {
+%employee-avatar {
   @extend .img-circle;
 }
 
-@mixin employee-avatar-bordered() {
-  @include employee-avatar;
+%employee-avatar-bordered {
+  @extend %employee-avatar;
   @extend .img-thumbnail;
 }
 
-@mixin employee-avatar-xs() {
-  @include employee-avatar;
+%employee-avatar-xs {
+  @extend %employee-avatar;
   width: 2em;
   height: 2em;
 }
 
 .employee-avatar-in-visit {
-  @include employee-avatar-bordered;
+  @extend %employee-avatar-bordered;
   width: 3em;
   height: 3em;
 }
 
 .employee-avatar-in-visits {
-  @include employee-avatar-bordered;
+  @extend %employee-avatar-bordered;
 
   position: absolute;
   top: -10px;
@@ -30,11 +30,11 @@
 }
 
 .employee-avatar-in-visit-list {
-  @include employee-avatar-xs;
+  @extend %employee-avatar-xs;
 }
 
 .employee-avatar-in-sidebar {
   @extend .pull-right;
-  @include employee-avatar-xs;
+  @extend %employee-avatar-xs;
   margin-top: -.35em;
 }
