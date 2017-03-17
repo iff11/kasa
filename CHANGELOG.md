@@ -6,10 +6,12 @@
  - Every entity has hidden field for EET certificate & EET certificate password. This has to be set manually directly in database.
  - When *closing* visit, system will check whether it should send receipt to EET, if yes then the request(s) are made and corresponding FIK retrieved & stored. FIK is then displayed on receipt. System will store whole response from EET for future needs.
  - `<title>` HTML tag of the page is now "kasa | [your-company-name]". You can change your company name in admin->company
+ - Added Rollbar integration - tracking of errors.
 
 ### Changed
  - Introduced new caching table - revenue. Sum per entity on each receipt is displayed in such way. As with every change - hope there are no bugs.
  - Admin->employees->employee->employee shares in right column: Sum row is not more explicitly marked.
+ - Updated Skylight integration - performance tracking.
 
 ### Fixed
  - When note field in visit loses focus, the value is saved. Corresponding notification message is now translated.

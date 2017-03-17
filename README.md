@@ -54,6 +54,7 @@ ember install ember-simple-auth
 ember install liquid-fire
 ember install ember-data-filter
 ember install ember-cli-eslint
+ember install ember-cli-rollbar
 
 ember install ember-lodash
 bower install lodash --save
