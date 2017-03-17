@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :entities
   devise_for :users, controllers: { sessions: 'sessions' }
 
   namespace :api do
@@ -17,6 +16,8 @@ Rails.application.routes.draw do
       jsonapi_resources :revenues
     end
   end
+
+  get '/version', to: 'version#index'
 
   # root 'application#landing_page'
   mount_ember_app :frontend, to: "/"
