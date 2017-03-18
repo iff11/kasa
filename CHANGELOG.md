@@ -13,6 +13,7 @@
  - Introduced new caching table - revenue. Sum per entity on each receipt is displayed in such way. As with every change - hope there are no bugs.
  - Admin->employees->employee->employee shares in right column: Sum row is not more explicitly marked.
  - Updated Skylight integration - performance tracking.
+ - In demo application, customers are created in a way that they have birthday: tomorrow, in a week, in a month.
 
 ### Fixed
  - When note field in visit loses focus, the value is saved. Corresponding notification message is now translated.
