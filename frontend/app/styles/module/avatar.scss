@@ -29,7 +29,8 @@
   height: 5em;
 }
 
-.employee-avatar-in-visit-list {
+.employee-avatar-in-visit-list,
+.employee-avatar-list-of-employees {
   @extend %employee-avatar-xs;
 }
 

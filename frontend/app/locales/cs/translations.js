@@ -177,7 +177,7 @@ export default {
   employee: {
     firstName: 'Jméno',
     lastName: 'Příjmení',
-    photoUrl: 'Odkaz na fotku',
+    photoUrl: 'Fotografie',
     action: 'Akce',
     add: 'Přidat',
     'all_employees': 'Všichni zaměstnanci',
