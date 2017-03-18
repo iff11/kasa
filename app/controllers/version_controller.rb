@@ -2,6 +2,6 @@ class VersionController < ApplicationController
   layout false
 
   def index
-    @version = ENV.to_h.to_yaml
+    @version = ENV['SOURCE_VERSION']
   end
 end

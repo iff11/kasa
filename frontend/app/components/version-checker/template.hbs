@@ -1,0 +1,8 @@
+{{#new-version-notifier updateInterval=600000 as |versionChecker oldVersion reload close|}}
+  <div class="version-checker" role="alert">
+    {{t 'versionChecker.text' oldVersion=oldVersion versionChecker=versionChecker}}
+    <a type="button" onclick={{action reload}}>
+      {{t 'versionChecker.reload'}}
+    </a>
+  </div>
+{{/new-version-notifier}}
