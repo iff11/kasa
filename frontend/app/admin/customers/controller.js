@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
   filterBy: ['firstName', 'lastName', 'note', 'phone', 'mail'],
   filteredCustomers: [],
 
-  sortBy: ['daysTillNextBirthday'],
+  sortBy: ['lastName'],
   sortedCustomers: Ember.computed.sort('filteredCustomers', 'sortBy'),
 
   page: 1,
