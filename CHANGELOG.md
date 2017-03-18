@@ -14,6 +14,7 @@
  - Admin->employees->employee->employee shares in right column: Sum row is not more explicitly marked.
  - Updated Skylight integration - performance tracking.
  - In demo application, customers are created in a way that they have birthday: tomorrow, in a week, in a month.
+ - Admin->Customer is by default sorted by last name.
 
 ### Fixed
  - When note field in visit loses focus, the value is saved. Corresponding notification message is now translated.
