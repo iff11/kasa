@@ -8,8 +8,10 @@ export default {
   // },
   //
   // "key.with.interpolation": "Text with { {anInterpolation }}"
-  'versionChecker.text': 'Aplikace byla aktualizována z verze {{oldVersion}} na verzi {{versionChecker}}. Prosím, dokončete svou práci a poté obnovte stránku.',
-  'versionChecker.reload': 'Obnovit',
+  'versionChecker.textReload': 'Aplikace byla aktualizována. Prosím, dokončete svou práci a poté klikněte na',
+  'versionChecker.reload': 'obnovit',
+  'versionChecker.textChangelog': 'Seznam změn je k dispozici v',
+  'versionChecker.changelog': 'change logu',
 
   'registration.heading': 'Registrace',
   'registration.save': 'Uložit',

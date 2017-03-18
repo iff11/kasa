@@ -1,8 +1,12 @@
-{{#new-version-notifier updateInterval=600000 as |versionChecker oldVersion reload close|}}
+{{#new-version-notifier updateInterval=600000 as |newVersion oldVersion reload close|}}
   <div class="version-checker" role="alert">
-    {{t 'versionChecker.text' oldVersion=oldVersion versionChecker=versionChecker}}
+    {{t 'versionChecker.textReload'}}:
     <a type="button" onclick={{action reload}}>
-      {{t 'versionChecker.reload'}}
-    </a>
+      {{~t 'versionChecker.reload'~}}
+    </a>.
+    {{t 'versionChecker.textChangelog'}}
+    <a href="https://github.com/MichalBryxi/kasa/blob/master/CHANGELOG.md">
+      {{~t 'versionChecker.changelog'~}}
+    </a>.
   </div>
 {{/new-version-notifier}}

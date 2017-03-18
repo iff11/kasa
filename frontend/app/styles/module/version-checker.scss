@@ -2,7 +2,7 @@
   @extend .alert;
   @extend .alert-info;
 
-  &>a {
+  > a {
     @extend .alert-link;
     cursor: pointer;
   }
