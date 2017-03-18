@@ -8,6 +8,10 @@ module.exports = function(defaults) {
     emberCliFontAwesome: {
       useScss: true
     },
+    'ember-cli-bootstrap-sassy': {
+      'glyphicons': false,
+      'js': ['dropdown']
+    },
     'ember-cli-selectize': {
       'theme': 'bootstrap3'
     }
