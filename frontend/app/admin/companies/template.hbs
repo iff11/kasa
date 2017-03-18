@@ -3,31 +3,31 @@
     <div class="col-xs-6">
       <h2>{{t 'admin.companies.companyHeading'}}</h2>
 
-        <div class="form-group">
-          <label for="{{concat 'company-name-' company.id}}">{{t 'admin.companies.companyNameLabel'}}</label>
-          {{input value=company.name id=(concat 'company-name-' company.id) class="form-control"}}
-        </div>
+      <div class="form-group">
+        <label for="{{concat 'company-name-' company.id}}">{{t 'admin.companies.companyNameLabel'}}</label>
+        {{input value=company.name id=(concat 'company-name-' company.id) class="form-control"}}
+      </div>
 
-        <div class="checkbox">
-          <label>
-            {{input checked=company.isInvoicePrintingActive type="checkbox"}}
-            {{t 'admin.companies.isInvoicePrintingActive'}}
-          </label>
-        </div>
+      <div class="checkbox">
+        <label>
+          {{input checked=company.isInvoicePrintingActive type="checkbox"}}
+          {{t 'admin.companies.isInvoicePrintingActive'}}
+        </label>
+      </div>
 
-        <div class="form-group">
-          <label for="invoice-header">{{t 'admin.companies.invoiceHeader'}}</label>
-          {{textarea rows=5 value=company.invoiceHeader id="invoice-header" class="form-control"}}
-        </div>
+      <div class="form-group">
+        <label for="invoice-header">{{t 'admin.companies.invoiceHeader'}}</label>
+        {{textarea rows=5 value=company.invoiceHeader id="invoice-header" class="form-control"}}
+      </div>
 
-        <div class="form-group">
-          <label for="invoice-logo">{{t 'admin.companies.invoiceLogo'}}</label>
-          {{input value=company.invoiceLogo id="invoice-logo" class="form-control"}}
-        </div>
+      <div class="form-group">
+        <label for="invoice-logo">{{t 'admin.companies.invoiceLogo'}}</label>
+        {{input value=company.invoiceLogo id="invoice-logo" class="form-control"}}
+      </div>
 
-        <button class="btn btn-primary" {{action "saveCompanyName" company}}>
-          {{fa-icon icon="floppy-o"}}
-        </button>
+      <button class="btn btn-primary" {{action "saveCompanyName" company}}>
+        {{fa-icon icon="floppy-o"}}
+      </button>
     </div>
 
     <div class="col-xs-6">

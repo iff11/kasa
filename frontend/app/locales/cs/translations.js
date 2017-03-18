@@ -8,6 +8,8 @@ export default {
   // },
   //
   // "key.with.interpolation": "Text with { {anInterpolation }}"
+  'Login': 'Login',
+  'Password': 'Password',
   'versionChecker.textReload': 'Aplikace byla aktualizována. Prosím, dokončete svou práci a poté klikněte na',
   'versionChecker.reload': 'obnovit',
   'versionChecker.textChangelog': 'Seznam změn je k dispozici v',

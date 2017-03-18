@@ -7,5 +7,5 @@ export default DS.Model.extend({
   note: DS.attr('string'),
 
   company: DS.belongsTo('company', { async: true }),
-  visit: DS.belongsTo('visit', { async: true }),
+  visit: DS.belongsTo('visit', { async: true })
 });

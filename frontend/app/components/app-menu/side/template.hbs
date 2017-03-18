@@ -13,8 +13,8 @@
 
       <li>
         {{#link-to 'cashbook'}}
-        {{fa-icon icon="money"}}
-        {{t 'sidebar.cashbook'}}
+          {{fa-icon icon="money"}}
+          {{t 'sidebar.cashbook'}}
         {{/link-to}}
       </li>
 
@@ -23,7 +23,7 @@
           {{fa-icon icon="users"}}
           {{t 'sidebar.customers'}}
           <span class="pull-right label label-success">
-            {{birthdaysInWeek.length}}x
+            {{birthdaysInWeek.length}}{{fa-icon "times"}}
             {{fa-icon icon="birthday-cake"}}
           </span>
         {{/link-to}}
@@ -39,7 +39,7 @@
             <li>
               {{#link-to 'visit.show' visit}}
                 {{visit.customer.fullName}}
-                <img class="employee-avatar-in-sidebar" src={{visit.employee.photoUrl}} />
+                <img class="employee-avatar-in-sidebar" src={{visit.employee.photoUrl}} alt="">
               {{/link-to}}
             </li>
           {{/each}}
@@ -54,8 +54,8 @@
       <ul class="nav nav-pills nav-stacked">
         <li>
           {{#link-to 'admin.overview'}}
-          {{fa-icon icon="calendar"}}
-          {{t 'sidebar.overview'}}
+            {{fa-icon icon="calendar"}}
+            {{t 'sidebar.overview'}}
           {{/link-to}}
         </li>
 
@@ -91,8 +91,5 @@
         </li>
       </ul>
     {{/if}}
-
   </div>
-  <!-- /.sidebar-collapse -->
 </div>
-<!-- /.navbar-static-side -->

@@ -1,14 +1,14 @@
 <form {{action 'authenticate' on='submit'}}>
   <div class="form-group">
-    <label for="identification">Login</label>
+    <label for="identification">{{t 'Login'}}</label>
     {{input class="form-control" value=identification placeholder='Enter Login'}}
   </div>
 
   <div class="form-group">
-    <label for="password">Password</label>
+    <label for="password">{{t 'Password'}}</label>
     {{input class="form-control" value=password placeholder='Enter Password' type='password'}}
   </div>
-  <button type="submit" class="btn btn-primary">Login</button>
+  <button type="submit" class="btn btn-primary">{{t 'Login'}}</button>
 </form>
 
 {{#if errorMessage}}
