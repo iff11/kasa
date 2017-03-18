@@ -47,10 +47,11 @@ items = Item.create!([
   {name: "Inoa 7,31", selling_price: 10.0, unlimited: false, barcode: "23456789", warning_threshold: 60, is_active: true, is_service: false, company: companies[0], entity: entities[1]}
 ])
 
+now = DateTime.now - 33.years
 customers = Customer.create!([
-  {first_name: "Karel", last_name: "Funda", note: nil, birth: "1972-01-01", phone: nil, mail: nil, gender: nil, company: companies[0], is_approved: true},
-  {first_name: "Klára", last_name: "Nováková", note: nil, birth: "1987-02-01", phone: nil, mail: nil, gender: 1, company: companies[0], is_approved: true},
-  {first_name: "Jan", last_name: "Novák", note: "Má rád presso bez cukru bez mléka", birth: "1985-07-05", phone: "723501243", mail: "novakhonza1@gmail.com", gender: 0, company: companies[0], is_approved: true}
+  {first_name: "Karel", last_name: "Funda", note: nil, birth: now + 1.day, phone: nil, mail: nil, gender: nil, company: companies[0], is_approved: true},
+  {first_name: "Klára", last_name: "Nováková", note: nil, birth: now + 1.week, phone: nil, mail: nil, gender: 1, company: companies[0], is_approved: true},
+  {first_name: "Jan", last_name: "Novák", note: "Má rád presso bez cukru bez mléka", birth: now + 1.month, phone: "723501243", mail: "novakhonza1@gmail.com", gender: 0, company: companies[0], is_approved: true}
 ])
 
 employees = Employee.create!([
