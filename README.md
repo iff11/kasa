@@ -56,6 +56,7 @@ ember install ember-data-filter
 ember install ember-cli-eslint
 ember install ember-cli-rollbar
 ember install ember-cli-new-version
+ember install ember-cli-template-lint
 
 ember install ember-lodash
 bower install lodash --save

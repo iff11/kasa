@@ -57,11 +57,13 @@
           {{/link-to}}
         </td>
         <td class="admin-items-col-stock">
+          {{! template-lint-disable bare-strings }}
           {{#if item.unlimited}}
             &#8734; - {{item.sold}} = &#8734;
           {{else}}
             {{item.bought}} - {{item.sold}} = {{x-item/stock-icon item=item}}
           {{/if}}
+          {{! template-lint-enable bare-strings }}
         </td>
         <td class="admin-items-col-purchase-price">
           {{~x-item/price value=item.lastSupply.purchasePrice~}}

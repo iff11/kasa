@@ -22,12 +22,12 @@
     <table class="visit-checkout-sells">
       <tbody>
         {{#each attrs.visit.sells as |sell|}}
-        <tr>
-          <td class="col-xs-4">{{sell.item.name}}</td>
-          <td class="col-xs-2 text-right">{{sell.count}} {{fa-icon icon="times"}}</td>
-          <td class="col-xs-3 text-right">{{x-item/price value=sell.price}}</td>
-          <td class="col-xs-3 text-right">{{x-sell/sum sell=sell}}</td>
-        </tr>
+          <tr>
+            <td class="col-xs-4">{{sell.item.name}}</td>
+            <td class="col-xs-2 text-right">{{sell.count}} {{fa-icon icon="times"}}</td>
+            <td class="col-xs-3 text-right">{{x-item/price value=sell.price}}</td>
+            <td class="col-xs-3 text-right">{{x-sell/sum sell=sell}}</td>
+          </tr>
         {{/each}}
       </tbody>
 

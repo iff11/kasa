@@ -1,10 +1,9 @@
 <h2>
   {{t 'visit.visit_of'}}:
   {{attrs.visit.customer.fullName}}
-  @
   <small class="admin-visit-updated-at">{{moment-format attrs.visit.createdAt "LLLL"}}</small>
   &nbsp;
-  <img class="avatar img-circle img-thumbnail" src={{attrs.visit.employee.photoUrl}} />
+  <img class="avatar img-circle img-thumbnail" src={{attrs.visit.employee.photoUrl}} alt="">
 </h2>
 
 <div class="row padding-bottom">

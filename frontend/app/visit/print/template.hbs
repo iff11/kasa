@@ -2,14 +2,14 @@
   {{#with attrs.visit as |visit|}}
 
     {{#if visit.employee.company.invoiceLogo}}
-      <img src={{visit.employee.company.invoiceLogo}}>
+      <img src={{visit.employee.company.invoiceLogo}} alt="">
     {{/if}}
 
     <p class="text-center">
       {{visit.employee.company.invoiceHeader}}
     </p>
 
-    <hr />
+    <hr>
 
     <div class="row">
       <div class="col-xs-4">
@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <hr />
+    <hr>
 
     <table class="item-table">
       <thead>
@@ -65,7 +65,7 @@
       </tfoot>
     </table>
 
-    <hr />
+    <hr>
 
     <ul class="list-unstyled">
       {{#each visit.revenues as |revenue|}}
@@ -74,7 +74,7 @@
     </ul>
     {{!-- <h3>{{t "visit.print.eetHeading"}}</h3> --}}
 
-    <hr />
+    <hr>
 
     <p class="text-center">
       {{t "visit.print.footer"}}
@@ -89,7 +89,7 @@
     </button>
   </div>
 
-  <hr />
+  <hr>
 
   <div class="row">
     {{#link-to 'visits' class="btn btn-primary"}}

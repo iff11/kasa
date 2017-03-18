@@ -36,30 +36,30 @@
   </thead>
   <tbody>
     {{#each pagedCashbookEntries as |entry|}}
-    <tr>
-      <td>
-        {{moment-format entry.touchedAt 'LLL'}}
-      </td>
-      <td class="text-right">
-        {{format-money entry.amount symbol="Kč" format="%v %s"}}
-      </td>
-      <td>
-        {{entry.note}}
-      </td>
-      <td class="text-right">
-        {{#if (eq entry.kind "visit")}}
-          {{#if (eq session.data.authenticated.role "admin")}}
-            {{#link-to 'admin.visit' entry.visit.id}}
-              {{t 'cashbook.isVisit'}}
-            {{/link-to}}
+      <tr>
+        <td>
+          {{moment-format entry.touchedAt 'LLL'}}
+        </td>
+        <td class="text-right">
+          {{format-money entry.amount symbol="Kč" format="%v %s"}}
+        </td>
+        <td>
+          {{entry.note}}
+        </td>
+        <td class="text-right">
+          {{#if (eq entry.kind "visit")}}
+            {{#if (eq session.data.authenticated.role "admin")}}
+              {{#link-to 'admin.visit' entry.visit.id}}
+                {{t 'cashbook.isVisit'}}
+              {{/link-to}}
+            {{/if}}
+          {{else if (eq entry.kind "manual")}}
+            <button class="btn btn-danger" {{action "deleteCashbookEntry" entry on="doubleClick"}}>
+              {{fa-icon "minus"}}
+            </button>
           {{/if}}
-        {{else if (eq entry.kind "manual")}}
-          <button class="btn btn-danger" {{action "deleteCashbookEntry" entry on="doubleClick"}}>
-            {{fa-icon "minus"}}
-          </button>
-        {{/if}}
-      </td>
-    </tr>
+        </td>
+      </tr>
     {{/each}}
   </tbody>
 </table>

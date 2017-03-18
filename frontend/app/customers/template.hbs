@@ -1,6 +1,6 @@
 <h2>{{t 'customers.all'}}</h2>
 
-<hr />
+<hr>
 
 <div class="row">
   <div class="col-xs-6">
@@ -13,32 +13,32 @@
         action="customersFiltered"
       }}
 
-      <table class='table table-hover'>
-        <thead>
-          <tr>
-            <th>
-              {{th-sort action="sortBy" title=(t 'customer.lastName') current=sortBy value="lastName"}}
-            </th>
-            <th>
-              {{th-sort action="sortBy" title=(t 'customer.firstName') current=sortBy value="firstName"}}
-            </th>
-            <th>
-              {{th-sort action="sortBy" title=(t 'customer.note') current=sortBy value="note"}}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each pagedCustomers as |customer|}}
-            {{#link-to 'customer.show' customer tagName='tr'}}
-              <td>{{customer.lastName}}</td>
-              <td>{{customer.firstName}}</td>
-              <td>{{customer.note}}</td>
-            {{/link-to}}
-          {{/each}}
-        </tbody>
-      </table>
-      
-      {{page-numbers content=pagedCustomers}}
+    <table class='table table-hover'>
+      <thead>
+        <tr>
+          <th>
+            {{th-sort action="sortBy" title=(t 'customer.lastName') current=sortBy value="lastName"}}
+          </th>
+          <th>
+            {{th-sort action="sortBy" title=(t 'customer.firstName') current=sortBy value="firstName"}}
+          </th>
+          <th>
+            {{th-sort action="sortBy" title=(t 'customer.note') current=sortBy value="note"}}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each pagedCustomers as |customer|}}
+          {{#link-to 'customer.show' customer tagName='tr'}}
+            <td>{{customer.lastName}}</td>
+            <td>{{customer.firstName}}</td>
+            <td>{{customer.note}}</td>
+          {{/link-to}}
+        {{/each}}
+      </tbody>
+    </table>
+
+    {{page-numbers content=pagedCustomers}}
   </div>
 
   <div class="col-xs-6 text-center">

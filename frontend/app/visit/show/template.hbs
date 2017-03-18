@@ -20,7 +20,7 @@
         <table>
           <tbody>
             {{#each attrs.visit.sells as |sell|}}
-                {{x-sell/row sell=sell items=activeItems update="updateSell" delete="deleteSell"}}
+              {{x-sell/row sell=sell items=activeItems update="updateSell" delete="deleteSell"}}
             {{/each}}
 
             {{x-sell/row sell=heap items=activeItems firstChange=false isEditting=true create="createSell"}}
