@@ -1,0 +1,9 @@
+.version-checker {
+  @extend .alert;
+  @extend .alert-info;
+
+  &>a {
+    @extend .alert-link;
+    cursor: pointer;
+  }
+}

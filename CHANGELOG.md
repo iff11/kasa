@@ -7,6 +7,7 @@
  - When *closing* visit, system will check whether it should send receipt to EET, if yes then the request(s) are made and corresponding FIK retrieved & stored. FIK is then displayed on receipt. System will store whole response from EET for future needs.
  - `<title>` HTML tag of the page is now "kasa | [your-company-name]". You can change your company name in admin->company
  - Added Rollbar integration - tracking of errors.
+ - Application checks every 10 minutes whether there has been new version released. If yes, then significant notification on top of screen is displayed asking the user to reload page.
 
 ### Changed
  - Introduced new caching table - revenue. Sum per entity on each receipt is displayed in such way. As with every change - hope there are no bugs.
