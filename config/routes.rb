@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/version', to: 'version#index'
+  get '/VERSION', to: 'version#index'
 
   # root 'application#landing_page'
   mount_ember_app :frontend, to: "/"
