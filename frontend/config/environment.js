@@ -6,6 +6,7 @@ module.exports = function(environment) {
       fallbackLng: 'cs',
       // any options supported by i18next
       backend: {
+        loadPath: '/assets/locales/{{lng}}/{{ns}}.json'
         // any options supported by i18next-xhr-backend
       }
     },

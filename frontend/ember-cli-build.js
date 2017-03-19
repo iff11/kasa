@@ -20,7 +20,7 @@ module.exports = function(defaults) {
 
   var locales = funnel('app/locales', {
     srcDir: '/',
-    destDir:  '/locales'
+    destDir:  '/assets/locales'
   });
 
   // Use `app.import` to add additional libraries to the generated
