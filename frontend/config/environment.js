@@ -2,6 +2,14 @@
 
 module.exports = function(environment) {
   var ENV = {
+    i18nextOptions: {
+      fallbackLng: 'cs',
+      // any options supported by i18next
+      backend: {
+        loadPath: '/assets/locales/{{lng}}/{{ns}}.json'
+        // any options supported by i18next-xhr-backend
+      }
+    },
     app: {
       dateFormat: 'YYYY-MM-DD'
     },

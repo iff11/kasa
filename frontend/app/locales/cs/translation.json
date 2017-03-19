@@ -1,0 +1,249 @@
+{
+  "Login": "Login",
+  "Password": "Password",
+  "admin": {
+    "companies": {
+      "companyHeading": "Moje firma",
+      "companyNameLabel": "Název firmy",
+      "entitiesHeading": "Ekonomické entity",
+      "entityInvoiceHeader": "Patička na účtence",
+      "entityName": "Název entity",
+      "invoiceHeader": "Hlavička na účtence",
+      "invoiceLogo": "Logo na účtence",
+      "isInvoicePrintingActive": "Tisknout účtenky",
+      "premisesid": "Číslo provozovny",
+      "registerid": "Číslo pokladny",
+      "sendEet": "Odesílat EET",
+      "vatid": "DIČ"
+    },
+    "employee": {
+      "month": "Měsíc",
+      "year": "Rok"
+    },
+    "statuses": {
+      "heading": "Stav systému"
+    }
+  },
+  "application.title": "kasa",
+  "cashbook": {
+    "amount": "Částka",
+    "createdAt": "Datum",
+    "disclaimer": "Výběr z pokladní knihy dělejte přes zápornou částku.",
+    "heading": "Pokladní kniha",
+    "isVisit": "Zakázka",
+    "kind": "Typ / Akce",
+    "note": "Poznámka"
+  },
+  "currency": "Kč",
+  "customer": {
+    "action": "Akce",
+    "add": "Přidat zákazníka",
+    "allCustomers": "Seznam zákazníků",
+    "all_visits": "Seznam návštěv",
+    "birth": "Datum narození",
+    "birthdayIn": "Narozeniny",
+    "firstName": "Jméno",
+    "fullName": "Jméno",
+    "gender": "Pohlaví",
+    "genders": {
+      "female": "Žena",
+      "male": "Muž"
+    },
+    "isApproved": "Schválen",
+    "lastName": "Příjmení",
+    "lastVisitDate": "Poslední návštěva",
+    "mail": "E-mail",
+    "note": "Poznámka",
+    "phone": "Telefon",
+    "visits_length": "Návštěv"
+  },
+  "customers": {
+    "all": "Všichni zákazníci",
+    "filterBy": {
+      "placeholder": "Jan Novák..."
+    },
+    "newCustomer": "Nový zákazník",
+    "newsletter": "Newsletter"
+  },
+  "employee": {
+    "action": "Akce",
+    "add": "Přidat",
+    "all_employees": "Všichni zaměstnanci",
+    "all_visits": "Všechny zakázky",
+    "firstName": "Jméno",
+    "isActive": "Aktivní",
+    "lastName": "Příjmení",
+    "photoUrl": "Fotografie"
+  },
+  "employees": {
+    "all": "Zaměstnanci"
+  },
+  "item": {
+    "action": "Akce",
+    "actualCount": "Skladem",
+    "barcode": "Čárový kód",
+    "bought": "Naskladněno",
+    "edit": "Upravit",
+    "isActive": "Aktivní",
+    "isService": "Služba",
+    "margin": "Marže",
+    "name": "Název",
+    "new": "Nová položka skladu",
+    "newItemEntity": "Ekonomický subjekt",
+    "purchasePrice": "Nákup",
+    "sellingPrice": "Prodejní cena (s DPH)",
+    "sold": "Prodáno",
+    "stock": "Skladem",
+    "unlimited": "Neomezené množství",
+    "unlimited_or_stock": "Koupeno - Prodáno = Skladem",
+    "warningThreshold": "Minimálně skladem"
+  },
+  "items": {
+    "active": "Aktivní",
+    "add": "Přidat",
+    "all": "Sklad",
+    "filterBy": {
+      "count": "kusů",
+      "label": "Filtrace",
+      "placeholder": "Šampón...",
+      "showing": "Zobrazeno"
+    },
+    "inactive": "Neaktivní",
+    "newBarcode": "123456789",
+    "newName": "Nová položka",
+    "newSellingPrice": "100",
+    "newStock": "10",
+    "newWarningThreshold": "5"
+  },
+  "loadMore": "Více...",
+  "loading": "... načítám ...",
+  "login": {
+    "header": "Přihlášení"
+  },
+  "noNewNotifications": "Žádné nové notifikace",
+  "overview": {
+    "amount": "Částka",
+    "date": "Datum",
+    "entityName": "Název entity",
+    "heading": "Přehled zakázek",
+    "isPagingExceeded": "Ve vybraném období je více než {{max}} zakázek. Součet nelze vypočítat. Prosím, zadejte kratší období.",
+    "paidByCard": "Kartou",
+    "paidInCash": "Hotově",
+    "price": "Cena za položky",
+    "priceWithTip": "Celková částka i s dýškem",
+    "sums": "Součty",
+    "thisMonth": "tento měsíc",
+    "thisWeek": "tento týden",
+    "tip": "Dýško",
+    "today": "dnes",
+    "typeOfPayment": "Typ platby",
+    "visits": "Zakázky"
+  },
+  "pieces": "ks",
+  "registration.failure": "Při registraci došlo k chybě",
+  "registration.heading": "Registrace",
+  "registration.save": "Uložit",
+  "registration.success": "Registrace proběhla úspěšně",
+  "sell": {
+    "action": "Akce",
+    "count": "Kusů",
+    "customer": "Zákazník",
+    "date": "Datum",
+    "employee": "Zeměstnanec",
+    "item": "Položka",
+    "select_item": "-- Vyber položku --",
+    "sum_price": "Cena",
+    "unit_price": "Cena / ks",
+    "visit": "Zakázka"
+  },
+  "sidebar": {
+    "admin": {
+      "companies": "Firma",
+      "customers": "Zákazníci",
+      "employees": "Zaměstnanci",
+      "items": "Sklad",
+      "statuses": "Stav systému",
+      "supply": "Naskladnění"
+    },
+    "cashbook": "Pokladní kniha",
+    "customers": "Zákazníci",
+    "heading": {
+      "admin": "Administrátor",
+      "employee": "Zaměstnanec",
+      "navigation": "Navigace",
+      "profile": "Profil"
+    },
+    "items": "Sklad",
+    "logout": "Odhlásit",
+    "overview": "Zakázky",
+    "visits": "Otevřené zakázky"
+  },
+  "supply": {
+    "create": "Naskladnit",
+    "created_at": "Naskladněno",
+    "heading": "Naskladnění",
+    "item": "Položka skladu",
+    "lastPurchasePrice": "Poslední nákupní cena",
+    "lastPurchasePriceWithVat": "Poslední nákupní cena s DPH",
+    "purchasePrice": "Nákupní cena (bez DPH)",
+    "quantity": "Množství",
+    "sum": "Celková cena",
+    "sumWithVat": "Celková cena s DPH",
+    "vat": "DPH nákupu"
+  },
+  "versionChecker.changelog": "change logu",
+  "versionChecker.reload": "obnovit",
+  "versionChecker.textChangelog": "Seznam změn je k dispozici v",
+  "versionChecker.textReload": "Aplikace byla aktualizována. Prosím, dokončete svou práci a poté klikněte na",
+  "visit": {
+    "all_open": "Všechny otevřené zakázky",
+    "all_visits": "Všechny otevřené zakázky",
+    "auto_complete": "Hledej...",
+    "back_to_customer": "Zpátky na zákazníka",
+    "back_to_visit": "Zpátky do zakázky",
+    "checkout": "K pokladně",
+    "close": "Uzavřít",
+    "close_warning": "Zakázka bude uzavřena. Již nebude možno přidávat, odebírat ani měnit položky.",
+    "createdAt": "Datum",
+    "customer": "Zákazník",
+    "element": "Položka",
+    "employee": "Zaměstnanec",
+    "employeeShareSale": "Podíl zaměstnance prodej",
+    "employeeShareService": "Podíl zaměstnance služby",
+    "employee_margin": "Podíl zaměstnance",
+    "enablePaymentByCard": "platba kartou",
+    "isDirty": "Neuložili jste položku zakázky. Klikněte na zelené plus, nebo položku smažte.",
+    "isInvoicePrintingActive": "Tisknout účtenku",
+    "new": {
+      "confirm": "Přidat",
+      "selectCustomer": "-- Vyber --",
+      "selectEmployee": "-- Vyber --"
+    },
+    "noLastVisit": "---",
+    "note": "Poznámka k zakázce",
+    "noteUpdated": "Poznámka uložena",
+    "number": "Hodnota",
+    "paidByCard": "Zaplaceno kartou",
+    "paid_in_cash": "Přijato v hotovosti",
+    "paymentSection": "Platba",
+    "price": "Celková cena",
+    "priceSection": "Částka",
+    "print": {
+      "count": "Množství",
+      "footer": "vytvořeno pomocí systému www.beauty-pay.cz",
+      "goToVisits": "Zpátky na seznam zakázek",
+      "price": "Celkem",
+      "sum": "Cena celkem v Kč:",
+      "unitPrice": "JC"
+    },
+    "receivedCash": "Přijato v hotovosti",
+    "reopen": "Znovu otevřít",
+    "return_amount": "K vrácení",
+    "selectAnItem": "Vyberte položku",
+    "sum_price_is": "Celková částka",
+    "sum_with_tip_is": "Celková částka i s dýškem",
+    "tip": "Dýško",
+    "updatedAt": "Datum",
+    "visit_of": "Návštěva"
+  }
+}

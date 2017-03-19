@@ -3,6 +3,13 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
   session: Ember.inject.service(),
+  i18n: Ember.inject.service(),
+
+  init() {
+    this._super(...arguments);
+
+    this.get('i18n').initLibraryAsync();
+  },
 
   loadLayoutData() {
     if(this.get('session.isAuthenticated')) {
@@ -13,13 +20,13 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     }
   },
 
+  setupController() {
+    this.loadLayoutData();
+  },
+
   actions: {
     logout() {
       this.get('session').invalidate();
-    },
-    didTransition: function() {
-      this.loadLayoutData();
-      return true;
     }
   },
 
