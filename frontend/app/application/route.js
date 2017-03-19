@@ -5,9 +5,13 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   session: Ember.inject.service(),
   i18n: Ember.inject.service(),
 
-  loadLayoutData() {
+  init() {
+    this._super(...arguments);
+
     this.get('i18n').initLibraryAsync();
-    
+  },
+
+  loadLayoutData() {
     if(this.get('session.isAuthenticated')) {
       this.controller.setProperties({
         'attrs.companies': this.store.findAll('company'),
@@ -16,13 +20,13 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     }
   },
 
+  setupController(controller) {
+    controller.loadLayoutData();
+  },
+
   actions: {
     logout() {
       this.get('session').invalidate();
-    },
-    didTransition: function() {
-      this.loadLayoutData();
-      return true;
     }
   },
 
