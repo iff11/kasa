@@ -24,7 +24,9 @@
       "heading": "Stav systému"
     }
   },
-  "application.title": "kasa",
+  "application": {
+    "title": "kasa"
+  },
   "cashbook": {
     "amount": "Částka",
     "createdAt": "Datum",
@@ -140,10 +142,12 @@
     "visits": "Zakázky"
   },
   "pieces": "ks",
-  "registration.failure": "Při registraci došlo k chybě",
-  "registration.heading": "Registrace",
-  "registration.save": "Uložit",
-  "registration.success": "Registrace proběhla úspěšně",
+  "registration": {
+    "failure": "Při registraci došlo k chybě",
+    "heading": "Registrace",
+    "save": "Uložit",
+    "success": "Registrace proběhla úspěšně"
+  },
   "sell": {
     "action": "Akce",
     "count": "Kusů",
@@ -191,10 +195,12 @@
     "sumWithVat": "Celková cena s DPH",
     "vat": "DPH nákupu"
   },
-  "versionChecker.changelog": "change logu",
-  "versionChecker.reload": "obnovit",
-  "versionChecker.textChangelog": "Seznam změn je k dispozici v",
-  "versionChecker.textReload": "Aplikace byla aktualizována. Prosím, dokončete svou práci a poté klikněte na",
+  "versionChecker": {
+    "changelog": "change logu",
+    "reload": "obnovit",
+    "textChangelog": "Seznam změn je k dispozici v",
+    "textReload": "Aplikace byla aktualizována. Prosím, dokončete svou práci a poté klikněte na"
+  },
   "visit": {
     "all_open": "Všechny otevřené zakázky",
     "all_visits": "Všechny otevřené zakázky",
