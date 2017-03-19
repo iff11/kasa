@@ -47,7 +47,6 @@ ember install ember-cli-pagination
 ember install ember-cli-rails-addon
 ember install ember-cli-sass
 ember install ember-cli-selectize
-ember install ember-i18n
 ember install ember-moment
 ember install ember-pikaday
 ember install ember-simple-auth
@@ -62,6 +61,7 @@ ember install ember-lodash
 bower install lodash --save
 
 npm install --save-dev ember-cli-full-calendar
+npm install --save-dev ember-cli-i18next
 
 npm install --save-dev ember-cli-es5-shim
 ember generate ember-cli-es5-shim
