@@ -20,7 +20,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     }
   },
 
-  setupController(controller) {
+  setupController() {
     this.loadLayoutData();
   },
 
