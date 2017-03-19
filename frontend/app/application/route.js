@@ -3,8 +3,11 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
   session: Ember.inject.service(),
+  i18n: Ember.inject.service(),
 
   loadLayoutData() {
+    this.get('i18n').initLibraryAsync();
+    
     if(this.get('session.isAuthenticated')) {
       this.controller.setProperties({
         'attrs.companies': this.store.findAll('company'),

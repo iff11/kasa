@@ -1,6 +1,7 @@
 /*jshint node:true*/
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var funnel = require('broccoli-funnel');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
@@ -15,6 +16,11 @@ module.exports = function(defaults) {
     'ember-cli-selectize': {
       'theme': 'bootstrap3'
     }
+  });
+
+  var locales = funnel('app/locales', {
+    srcDir: '/',
+    destDir:  '/locales'
   });
 
   // Use `app.import` to add additional libraries to the generated
@@ -34,5 +40,5 @@ module.exports = function(defaults) {
   app.import(app.bowerDirectory + '/moment/locale/cs.js');
   app.import(app.bowerDirectory + '/lodash/dist/lodash.js')
 
-  return app.toTree();
+  return app.toTree(locales);
 };
