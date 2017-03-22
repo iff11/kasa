@@ -22,3 +22,4 @@
  - During visit creation the select box for items had "null" string when there was no barcode. Now it's hidden in such case.
  - All avatars in the system are now round in all cases. If the original picture is non-rectangular, it will be deformed.
  - Removed unnecessary loading of some data on each click. Site should load faster.
+ - Fixed confirmation message after adding new item. Was some gibberish.
