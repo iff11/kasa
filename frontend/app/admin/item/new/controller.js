@@ -28,17 +28,18 @@ export default Ember.Controller.extend({
       let that = this;
       let flash = Ember.get(this, 'flashMessages');
 
-      item.save().then(function() {
+      item.save().then(function(newItem) {
         that.set('heap', {
           unlimited: false,
           isActive: true,
           isService: false,
           warningThreshold: 0,
           entity: that.get('attrs.entities.firstObject')
-        });
-        flash.success(`${item.name} ✓`);
+        })
+        let name = newItem.get('name');
+        flash.success(`✓ ${name}`);
       }, function(response) {
-        flash.danger(`${item.name} ✓ ${response}`);
+        flash.danger(response);
       });
     }
   }
