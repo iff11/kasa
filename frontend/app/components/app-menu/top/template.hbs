@@ -37,6 +37,8 @@
   </li>
 </ul>
 
-<p class="navbar-text navbar-right text-info text-nowrap" id="last-flash">
-  {{liquid-bind lastError.message class=lastError.type}}
-</p>
+{{#if lastError}}
+  <p class="navbar-text navbar-right text-info text-nowrap" id="last-flash">
+    {{liquid-bind lastError.message class=lastError.type}}
+  </p>
+{{/if}}

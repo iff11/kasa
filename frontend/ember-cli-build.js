@@ -11,7 +11,7 @@ module.exports = function(defaults) {
     },
     'ember-cli-bootstrap-sassy': {
       'glyphicons': false,
-      'js': ['dropdown']
+      'js': ['dropdown', 'collapse', 'transition']
     },
     'ember-cli-selectize': {
       'theme': 'bootstrap3'
