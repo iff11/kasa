@@ -16,6 +16,8 @@
  - In demo application, customers are created in a way that they have birthday: tomorrow, in a week, in a month.
  - Admin->Customer is by default sorted by last name.
  - Removed unnecessary JS + CSS files. Site should load faster.
+ - Sidebar is by default collapsed in mobile version.
+ - List of open visits behaves nicely on smaller / bigger resolutions.
 
 ### Fixed
  - When note field in visit loses focus, the value is saved. Corresponding notification message is now translated.

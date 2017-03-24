@@ -1,16 +1,24 @@
-.visits-item {
-  @extend .panel;
-  @extend .panel-default;
+.visits-box {
+  @extend .col-xs-12;
+  @extend .col-sm-6;
+  @extend .col-md-4;
+  @extend .col-lg-3;
+
+  .visits-item {
+    @extend .panel;
+    @extend .panel-default;
+
+    .visits-item-heading {
+      @extend .panel-heading;
+    }
+  }
+
+  .visits-item-new {
+    @extend .visits-item;
+    margin-bottom: 12em;
+  }
 }
 
-.visits-item-new {
-  @extend .visits-item;
-  margin-bottom: 12em;
-}
-
-.visits-item-heading {
-  @extend .panel-heading;
-}
 
 .visits-item-body {
   @extend .panel-body;

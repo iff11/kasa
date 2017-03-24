@@ -2,7 +2,7 @@
 
 <div class="row">
   {{#each attrs.visits as |visit|}}
-    <div class="col-xs-4">
+    <div class="visits-box">
       <div class="visits-item">
         <div class="visits-item-heading">
           {{#link-to 'visit.show' visit}}
@@ -19,7 +19,7 @@
     </div>
   {{/each}}
 
-  <div class="col-xs-4">
+  <div class="visits-box">
     <div class="visits-item-new">
       <div class="visits-item-body">
         <div class="row">
