@@ -18,3 +18,13 @@
 .visit-checkout-return-amount {
   @extend .text-right;
 }
+
+.visit-checkout-amount {
+  @extend .col-lg-7;
+  @extend .col-md-12;
+}
+
+.visit-checkout-payment {
+  @extend .col-lg-5;
+  @extend .col-md-12;
+}

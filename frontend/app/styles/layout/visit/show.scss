@@ -8,83 +8,66 @@
   @extend .col-md-12;
 }
 
-.visit-amount {
-  @extend .col-lg-7;
-  @extend .col-md-12;
-}
-
-.visit-payment {
-  @extend .col-lg-5;
-  @extend .col-md-12;
-}
-
 .visit-navigation {
-  &-back {
-    @extend .col-xs-6;
-    margin-bottom: 1em;
+  @extend .col-xs-6;
+  margin-bottom: 1em;
+  a {
+    @extend .btn;
+  }
 
+  &-back {
     a {
-      @extend .btn;
       @extend .btn-default;
     }
   }
   &-checkout {
-    @extend .col-xs-6;
     @extend .text-right;
-    margin-bottom: 1em;
 
     a {
-      @extend .btn;
       @extend .btn-primary;
     }
   }
 }
 
+///// LAYOUT //////
 .visit-sells {
   @extend .col-xs-12;
 
-  table {
-    @extend .table;
-    @extend .table-hover;
+  .visit-sell-count,
+  .visit-sell-price,
+  .visit-sell-sum,
+  .visit-sell-action {
+    @extend .text-right;
+  }
+
+  .visit-sell {
+    @extend .row;
+
+    &-item-name {
+      @extend .col-xs-12;
+      @extend .col-sm-3;
+    }
+    &-count {
+      @extend .col-xs-2;
+      @extend .col-sm-2;
+    }
+    &-price {
+      @extend .col-xs-4;
+      @extend .col-sm-3;
+    }
+    &-sum {
+      @extend .col-xs-4;
+      @extend .col-sm-3;
+    }
+    &-action {
+      @extend .col-xs-2;
+      @extend .col-sm-1;
+    }
   }
 }
 
+///// BUTTONS /////
 .visit-sell {
-  input {
-    @extend .text-right;
-    @extend .form-control;
-  }
-
-  td {
-    vertical-align: middle !important;
-  }
-
-  &-count, &-price, &-sum {
-    @extend .text-right;
-  }
-
-  &-item-name {
-    .selectize-input {
-      margin-top: 0;
-      margin-bottom: 0;
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-  }
-  &-count {
-    width: 8em;
-    min-width: 8em;
-  }
-  &-price {
-    width: 8em;
-    min-width: 8em;
-  }
-  &-sum {
-    width: 9em;
-    min-width: 9em;
-    // border-left: double $table-border-color;
-  }
-
   &-create, &-delete, &-update, &-edit {
     @extend .btn;
     @extend .btn-xs;
@@ -104,6 +87,13 @@
     @extend .btn-default;
   }
 }
+
+  input {
+    @extend .text-right;
+    @extend .form-control;
+  }
+
+
 
 .visit-note {
   @extend .col-xs-12;

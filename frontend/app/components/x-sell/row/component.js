@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  tagName: 'tr',
+  tagName: 'div',
   classNames: ['visit-sell'],
   classNameBindings: ['type'],
   isPersisted: Ember.computed.alias('sell.id'),
