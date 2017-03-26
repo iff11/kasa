@@ -31,7 +31,8 @@
 
 ///// LAYOUT //////
 .visit-sells {
-  @extend .col-xs-12;
+  @extend .list-group;
+  // @extend .col-xs-12;
 
   .visit-sell-count,
   .visit-sell-price,
@@ -41,7 +42,8 @@
   }
 
   .visit-sell {
-    @extend .row;
+    @extend .list-group-item;
+    // @extend .row;
 
     &-item-name {
       @extend .col-xs-12;
