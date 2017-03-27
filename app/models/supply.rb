@@ -1,4 +1,4 @@
-class Supply < ActiveRecord::Base
+class Supply < ApplicationRecord
   acts_as_paranoid
 
   belongs_to :item

@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226143914) do
+ActiveRecord::Schema.define(version: 20170311204250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,10 +24,9 @@ ActiveRecord::Schema.define(version: 20170226143914) do
     t.datetime "updated_at", null: false
     t.integer  "company_id", null: false
     t.integer  "visit_id"
+    t.index ["company_id"], name: "index_cashbook_entries_on_company_id", using: :btree
+    t.index ["visit_id"], name: "index_cashbook_entries_on_visit_id", unique: true, using: :btree
   end
-
-  add_index "cashbook_entries", ["company_id"], name: "index_cashbook_entries_on_company_id", using: :btree
-  add_index "cashbook_entries", ["visit_id"], name: "index_cashbook_entries_on_visit_id", unique: true, using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -37,7 +35,7 @@ ActiveRecord::Schema.define(version: 20170226143914) do
     t.boolean  "is_invoice_printing_active",             default: false, null: false
     t.text     "invoice_header"
     t.string   "invoice_logo",               limit: 255
-    t.decimal  "cashbook_balance",                       default: 0.0,   null: false
+    t.decimal  "cashbook_balance",                       default: "0.0", null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -55,10 +53,9 @@ ActiveRecord::Schema.define(version: 20170226143914) do
     t.integer  "gender",                     default: 0
     t.integer  "company_id"
     t.boolean  "is_approved",                default: false, null: false
+    t.index ["company_id"], name: "index_customers_on_company_id", using: :btree
+    t.index ["deleted_at"], name: "index_customers_on_deleted_at", using: :btree
   end
-
-  add_index "customers", ["company_id"], name: "index_customers_on_company_id", using: :btree
-  add_index "customers", ["deleted_at"], name: "index_customers_on_deleted_at", using: :btree
 
   create_table "employees", force: :cascade do |t|
     t.string   "first_name"
@@ -69,20 +66,24 @@ ActiveRecord::Schema.define(version: 20170226143914) do
     t.datetime "deleted_at"
     t.boolean  "is_active",  default: true, null: false
     t.integer  "company_id"
+    t.index ["company_id"], name: "index_employees_on_company_id", using: :btree
+    t.index ["deleted_at"], name: "index_employees_on_deleted_at", using: :btree
   end
-
-  add_index "employees", ["company_id"], name: "index_employees_on_company_id", using: :btree
-  add_index "employees", ["deleted_at"], name: "index_employees_on_deleted_at", using: :btree
 
   create_table "entities", force: :cascade do |t|
     t.string   "name"
     t.integer  "company_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.text     "invoice_header"
+    t.string   "vatid",                default: "",    null: false
+    t.string   "premisesid",           default: "",    null: false
+    t.string   "registerid",           default: "",    null: false
+    t.binary   "certificate",          default: "",    null: false
+    t.string   "certificate_password", default: "",    null: false
+    t.boolean  "send_eet",             default: false, null: false
+    t.index ["company_id"], name: "index_entities_on_company_id", using: :btree
   end
-
-  add_index "entities", ["company_id"], name: "index_entities_on_company_id", using: :btree
 
   create_table "items", force: :cascade do |t|
     t.string   "name",                              null: false
@@ -100,11 +101,24 @@ ActiveRecord::Schema.define(version: 20170226143914) do
     t.boolean  "is_service",        default: false, null: false
     t.integer  "company_id"
     t.integer  "entity_id"
+    t.index ["company_id"], name: "index_items_on_company_id", using: :btree
+    t.index ["deleted_at"], name: "index_items_on_deleted_at", using: :btree
+    t.index ["entity_id"], name: "index_items_on_entity_id", using: :btree
   end
 
-  add_index "items", ["company_id"], name: "index_items_on_company_id", using: :btree
-  add_index "items", ["deleted_at"], name: "index_items_on_deleted_at", using: :btree
-  add_index "items", ["entity_id"], name: "index_items_on_entity_id", using: :btree
+  create_table "revenues", force: :cascade do |t|
+    t.decimal  "amount",       default: "0.0", null: false
+    t.text     "eet_response"
+    t.string   "eet_fik"
+    t.integer  "eet_attempts", default: 0,     null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "visit_id",                     null: false
+    t.integer  "entity_id",                    null: false
+    t.index ["entity_id"], name: "index_revenues_on_entity_id", using: :btree
+    t.index ["visit_id", "entity_id"], name: "by_visit_entity", unique: true, using: :btree
+    t.index ["visit_id"], name: "index_revenues_on_visit_id", using: :btree
+  end
 
   create_table "sells", force: :cascade do |t|
     t.integer  "item_id",    null: false
@@ -115,10 +129,9 @@ ActiveRecord::Schema.define(version: 20170226143914) do
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.integer  "entity_id",  null: false
+    t.index ["deleted_at"], name: "index_sells_on_deleted_at", using: :btree
+    t.index ["entity_id"], name: "index_sells_on_entity_id", using: :btree
   end
-
-  add_index "sells", ["deleted_at"], name: "index_sells_on_deleted_at", using: :btree
-  add_index "sells", ["entity_id"], name: "index_sells_on_entity_id", using: :btree
 
   create_table "statuses", force: :cascade do |t|
     t.string "name"
@@ -133,9 +146,8 @@ ActiveRecord::Schema.define(version: 20170226143914) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_supplies_on_deleted_at", using: :btree
   end
-
-  add_index "supplies", ["deleted_at"], name: "index_supplies_on_deleted_at", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -150,16 +162,15 @@ ActiveRecord::Schema.define(version: 20170226143914) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "authentication_token"
     t.datetime "deleted_at"
+    t.string   "authentication_token"
     t.integer  "company_id"
     t.integer  "role",                   default: 0
+    t.index ["company_id"], name: "index_users_on_company_id", using: :btree
+    t.index ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree
-  add_index "users", ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "visits", force: :cascade do |t|
     t.text     "note"
@@ -169,16 +180,15 @@ ActiveRecord::Schema.define(version: 20170226143914) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.datetime "deleted_at"
-    t.decimal  "price_with_tip",         default: 0.0,   null: false
-    t.decimal  "received_cash",          default: 0.0,   null: false
-    t.decimal  "price",                  default: 0.0,   null: false
-    t.decimal  "employee_share_sale",    default: 0.0,   null: false
-    t.decimal  "employee_share_service", default: 0.0,   null: false
-    t.decimal  "paid_by_card",           default: 0.0,   null: false
-    t.decimal  "paid_in_cash",           default: 0.0,   null: false
+    t.decimal  "price_with_tip",         default: "0.0", null: false
+    t.decimal  "received_cash",          default: "0.0", null: false
+    t.decimal  "price",                  default: "0.0", null: false
+    t.decimal  "employee_share_sale",    default: "0.0", null: false
+    t.decimal  "employee_share_service", default: "0.0", null: false
+    t.decimal  "paid_by_card",           default: "0.0", null: false
+    t.decimal  "paid_in_cash",           default: "0.0", null: false
+    t.index ["deleted_at"], name: "index_visits_on_deleted_at", using: :btree
   end
-
-  add_index "visits", ["deleted_at"], name: "index_visits_on_deleted_at", using: :btree
 
   create_trigger("visits_after_insert_row_tr", :generated => true, :compatibility => 1).
       on("visits").
@@ -306,6 +316,25 @@ ActiveRecord::Schema.define(version: 20170226143914) do
       UPDATE visits SET employee_share_service = (
         SELECT COALESCE(SUM(sells.price * sells.count), 0) FROM sells LEFT JOIN items ON items.id = sells.item_id WHERE sells.visit_id = OLD.visit_id AND sells.deleted_at IS NULL AND items.is_service = true) * 0.1
         WHERE visits.id = OLD.visit_id;
+    SQL_ACTIONS
+  end
+
+  create_trigger("create_or_update_revenue_a", :generated => true, :compatibility => 1).
+      on("sells").
+      after(:insert, :update).
+      name("create_or_update_revenue_a") do
+    <<-SQL_ACTIONS
+      INSERT INTO revenues (visit_id, entity_id, amount, created_at, updated_at) VALUES
+      (
+        NEW.visit_id,
+        NEW.entity_id,
+        (SELECT SUM(count * price) FROM sells WHERE entity_id = NEW.entity_id AND visit_id = NEW.visit_id),
+        NOW(),
+        NOW()
+      ) ON CONFLICT (visit_id, entity_id) DO UPDATE SET
+        amount = (SELECT SUM(count * price) FROM sells WHERE entity_id = NEW.entity_id AND visit_id = NEW.visit_id),
+        created_at = NOW(),
+        updated_at = NOW();
     SQL_ACTIONS
   end
 

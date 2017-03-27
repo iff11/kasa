@@ -1,17 +1,27 @@
-.employee-avatar-xs {
+%employee-avatar {
   @extend .img-circle;
+}
+
+%employee-avatar-bordered {
+  @extend %employee-avatar;
+  @extend .img-thumbnail;
+}
+
+%employee-avatar-xs {
+  @extend %employee-avatar;
+  width: 2em;
   height: 2em;
 }
 
 .employee-avatar-in-visit {
-  @extend .img-circle;
-  @extend .img-thumbnail;
+  @extend %employee-avatar-bordered;
+  width: 3em;
   height: 3em;
 }
 
 .employee-avatar-in-visits {
-  @extend .img-thumbnail;
-  @extend .img-circle;
+  @extend %employee-avatar-bordered;
+
   position: absolute;
   top: -10px;
   right: 20px;
@@ -19,14 +29,13 @@
   height: 5em;
 }
 
-.employee-avatar-in-visit-list {
-  @extend .employee-avatar-xs;
-  margin-top: -1em;
-  margin-bottom: -1em;
+.employee-avatar-in-visit-list,
+.employee-avatar-list-of-employees {
+  @extend %employee-avatar-xs;
 }
 
 .employee-avatar-in-sidebar {
-  @extend .employee-avatar-xs;
   @extend .pull-right;
+  @extend %employee-avatar-xs;
   margin-top: -.35em;
 }

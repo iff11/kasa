@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.1.7"
+ruby "2.2.4"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
@@ -33,10 +33,14 @@ gem 'nokogiri'
 
 gem 'pg'
 
+gem 'ruby-eet-cz', git: 'https://github.com/ciihla/ruby-eet-cz', branch: 'master'
+
 group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'taps'
+  # https://github.com/rails/rails/issues/26658
+  gem 'rb-readline'
 end
 
 group :development do

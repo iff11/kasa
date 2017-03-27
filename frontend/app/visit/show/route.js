@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  i18n: Ember.inject.service(),
+
   model() {
     let { id } = this.paramsFor('visit');
 
@@ -19,7 +21,7 @@ export default Ember.Route.extend({
     willTransition(transition) {
       if (this.controller.get('isDirty')) {
         transition.abort();
-        Ember.get(this, 'flashMessages').danger(this.t('visit.isDirty'));
+        Ember.get(this, 'flashMessages').danger(this.get('i18n').t('visit.isDirty'));
       } else {
         return true;
       }

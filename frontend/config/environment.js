@@ -2,8 +2,21 @@
 
 module.exports = function(environment) {
   var ENV = {
+    i18nextOptions: {
+      fallbackLng: 'cs',
+      // any options supported by i18next
+      backend: {
+        loadPath: '/assets/locales/{{lng}}/{{ns}}.json'
+        // any options supported by i18next-xhr-backend
+      }
+    },
     app: {
       dateFormat: 'YYYY-MM-DD'
+    },
+    rollbar: {
+      accessToken: 'c460fc7fd2984449a1bde79f666d8db1',
+      enabled: true,
+      captureUncaught: true,
     },
     moment: {
       outputFormat: 'L'

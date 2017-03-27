@@ -48,11 +48,13 @@
         </td>
         <td class="items-col-name">{{item.name}}</td>
         <td class="items-col-bought">
+          {{! template-lint-disable bare-strings }}
           {{~#if item.unlimited~}}
             &#8734;
           {{~else~}}
             {{~item.bought~}}
           {{/if~}}
+          {{! template-lint-enable bare-strings }}
         </td>
         <td class="items-col-separator">-</td>
         <td class="items-col-sold">
@@ -60,11 +62,13 @@
         </td>
         <td class="items-col-separator">=</td>
         <td class="items-col-stock">
+          {{! template-lint-disable bare-strings }}
           {{~#if item.unlimited~}}
             &#8734;
           {{~else~}}
             {{~x-item/stock-icon item=item~}}
           {{~/if~}}
+          {{! template-lint-enable bare-strings }}
         </td>
         <td class="items-col-price">
           {{~x-item/price value=item.sellingPrice~}}

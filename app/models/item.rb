@@ -1,4 +1,4 @@
-class Item < ActiveRecord::Base
+class Item < ApplicationRecord
   acts_as_paranoid
 
   has_many :sells

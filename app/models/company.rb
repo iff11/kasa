@@ -1,4 +1,4 @@
-class Company < ActiveRecord::Base
+class Company < ApplicationRecord
   has_many :users
   has_many :customers
   has_many :items

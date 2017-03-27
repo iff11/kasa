@@ -3,7 +3,7 @@ companies = Company.create!([
     name: "DEMO",
     is_invoice_printing_active: true,
     invoice_header: "Adresa 123, Plzeň\nwww.beauty-pay.cz\nFacebook: beauty-pay.cz\ntel.: 123 456 789",
-    invoice_logo: "https://cdn.pixabay.com/photo/2015/06/11/23/57/scissors-806369_960_720.png",
+    invoice_logo: "http://bit.ly/2lB1l4d",
   }
 ])
 
@@ -28,8 +28,11 @@ User.create!([
   }
 ])
 
+certificate_path = Rails.root.join('bin', 'cert', 'EET_CA1_Playground-CZ00000019.p12')
+certificate = IO.binread(certificate_path)
+
 entities = Entity.create!([
-  {name: "beauty-pay.cz s.r.o.", company: companies[0], invoice_header: "IČO: 123456789"},
+  {name: "beauty-pay.cz s.r.o.", company: companies[0], invoice_header: "IČO: 123456789", vatid: "CZ00000019", premisesid: "123", registerid: "456", certificate: certificate, certificate_password: "eet", send_eet: true},
   {name: "druhá firma s.r.o.", company: companies[0], invoice_header: "IČO: 987654321"}
 ])
 
@@ -44,10 +47,11 @@ items = Item.create!([
   {name: "Inoa 7,31", selling_price: 10.0, unlimited: false, barcode: "23456789", warning_threshold: 60, is_active: true, is_service: false, company: companies[0], entity: entities[1]}
 ])
 
+now = DateTime.now - 33.years
 customers = Customer.create!([
-  {first_name: "Karel", last_name: "Funda", note: nil, birth: "1972-01-01", phone: nil, mail: nil, gender: nil, company: companies[0], is_approved: true},
-  {first_name: "Klára", last_name: "Nováková", note: nil, birth: "1987-02-01", phone: nil, mail: nil, gender: 1, company: companies[0], is_approved: true},
-  {first_name: "Jan", last_name: "Novák", note: "Má rád presso bez cukru bez mléka", birth: "1985-07-05", phone: "723501243", mail: "novakhonza1@gmail.com", gender: 0, company: companies[0], is_approved: true}
+  {first_name: "Karel", last_name: "Funda", note: nil, birth: now + 1.day, phone: nil, mail: nil, gender: nil, company: companies[0], is_approved: true},
+  {first_name: "Klára", last_name: "Nováková", note: nil, birth: now + 1.week, phone: nil, mail: nil, gender: 1, company: companies[0], is_approved: true},
+  {first_name: "Jan", last_name: "Novák", note: "Má rád presso bez cukru bez mléka", birth: now + 1.month, phone: "723501243", mail: "novakhonza1@gmail.com", gender: 0, company: companies[0], is_approved: true}
 ])
 
 employees = Employee.create!([
