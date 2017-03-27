@@ -18,18 +18,31 @@
         {{/link-to}}
       </div>
 
-      <div class="visit-sells">
-        {{#each attrs.visit.sells as |sell|}}
-          {{x-sell/row sell=sell items=activeItems update="updateSell" delete="deleteSell"}}
-        {{/each}}
+      <div class="col-xs-12">
+        <div class="visit-sells">
+          {{#each attrs.visit.sells as |sell|}}
+            {{x-sell/row sell=sell items=activeItems update="updateSell" delete="deleteSell"}}
+          {{/each}}
 
-        {{x-sell/row sell=heap items=activeItems firstChange=false isEditting=true create="createSell"}}
+          {{x-sell/row sell=heap items=activeItems firstChange=false isEditting=true create="createSell"}}
 
-        <div>
-          {{t 'visit.price'}}
-        </div>
-        <div>
-          {{x-visit/total-price visit=attrs.visit}}
+          <div class="list-group-item">
+            <div class="row">
+              <div class="visit-sell-item-name">
+                <strong>
+                  {{t 'visit.price'}}
+                </strong>
+              </div>
+              <div class="visit-sell-count"></div>
+              <div class="visit-sell-price"></div>
+              <div class="visit-sell-sum">
+                <strong>
+                  {{x-visit/total-price visit=attrs.visit}}
+                </strong>
+              </div>
+              <div class="visit-sell-action"></div>
+            </div>
+          </div>
         </div>
       </div>
 
