@@ -46,23 +46,23 @@
 
     &-item-name {
       @extend .col-xs-12;
-      @extend .col-sm-3;
+      @extend .col-md-4;
     }
     &-count {
-      @extend .col-xs-2;
-      @extend .col-sm-2;
+      @extend .col-xs-4;
+      @extend .col-md-2;
     }
     &-price {
-      @extend .col-xs-4;
-      @extend .col-sm-3;
+      @extend .col-xs-5;
+      @extend .col-md-3;
     }
     &-sum {
-      @extend .col-xs-4;
-      @extend .col-sm-3;
+      @extend .col-xs-3;
+      @extend .col-md-2;
     }
     &-action {
-      @extend .col-xs-2;
-      @extend .col-sm-1;
+      @extend .col-xs-12;
+      @extend .col-md-1;
     }
   }
 }
