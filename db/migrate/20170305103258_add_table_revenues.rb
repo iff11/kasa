@@ -1,4 +1,4 @@
-class AddTableRevenues < ActiveRecord::Migration[5.0]
+class AddTableRevenues < ActiveRecord::Migration
   def change
     create_table :revenues do |t|
       t.decimal :amount, null: false, default: 0.0

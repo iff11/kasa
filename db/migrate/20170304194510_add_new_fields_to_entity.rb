@@ -1,4 +1,4 @@
-class AddNewFieldsToEntity < ActiveRecord::Migration[5.0]
+class AddNewFieldsToEntity < ActiveRecord::Migration
   def change
     add_column :entities, :vatid, :string, null: false, default: ''
     add_column :entities, :premisesid, :string, null: false, default: ''
