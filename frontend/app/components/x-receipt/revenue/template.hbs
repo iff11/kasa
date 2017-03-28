@@ -2,5 +2,7 @@
 <strong>
   {{format-money revenue.amount symbol=(t 'currency') format="%v %s"}}
 </strong>
--
-{{t 'fik'}}: <em>{{revenue.eetFik}}</em>
+{{#if entity.sendEet}}
+  -
+  {{t 'fik'}}: <em>{{revenue.eetFik}}</em>
+{{/if}}
