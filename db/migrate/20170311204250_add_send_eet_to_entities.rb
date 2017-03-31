@@ -1,4 +1,4 @@
-class AddSendEetToEntities < ActiveRecord::Migration[5.0]
+class AddSendEetToEntities < ActiveRecord::Migration
   def change
     add_column :entities, :send_eet, :boolean, null: false, default: false
   end
