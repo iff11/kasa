@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170311204250) do
+ActiveRecord::Schema.define(version: 20170331164704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,9 +25,10 @@ ActiveRecord::Schema.define(version: 20170311204250) do
     t.datetime "updated_at", null: false
     t.integer  "company_id", null: false
     t.integer  "visit_id"
-    t.index ["company_id"], name: "index_cashbook_entries_on_company_id", using: :btree
-    t.index ["visit_id"], name: "index_cashbook_entries_on_visit_id", unique: true, using: :btree
   end
+
+  add_index "cashbook_entries", ["company_id"], name: "index_cashbook_entries_on_company_id", using: :btree
+  add_index "cashbook_entries", ["visit_id"], name: "index_cashbook_entries_on_visit_id", unique: true, using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -35,7 +37,7 @@ ActiveRecord::Schema.define(version: 20170311204250) do
     t.boolean  "is_invoice_printing_active",             default: false, null: false
     t.text     "invoice_header"
     t.string   "invoice_logo",               limit: 255
-    t.decimal  "cashbook_balance",                       default: "0.0", null: false
+    t.decimal  "cashbook_balance",                       default: 0.0,   null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -53,9 +55,10 @@ ActiveRecord::Schema.define(version: 20170311204250) do
     t.integer  "gender",                     default: 0
     t.integer  "company_id"
     t.boolean  "is_approved",                default: false, null: false
-    t.index ["company_id"], name: "index_customers_on_company_id", using: :btree
-    t.index ["deleted_at"], name: "index_customers_on_deleted_at", using: :btree
   end
+
+  add_index "customers", ["company_id"], name: "index_customers_on_company_id", using: :btree
+  add_index "customers", ["deleted_at"], name: "index_customers_on_deleted_at", using: :btree
 
   create_table "employees", force: :cascade do |t|
     t.string   "first_name"
@@ -66,24 +69,29 @@ ActiveRecord::Schema.define(version: 20170311204250) do
     t.datetime "deleted_at"
     t.boolean  "is_active",  default: true, null: false
     t.integer  "company_id"
-    t.index ["company_id"], name: "index_employees_on_company_id", using: :btree
-    t.index ["deleted_at"], name: "index_employees_on_deleted_at", using: :btree
   end
+
+  add_index "employees", ["company_id"], name: "index_employees_on_company_id", using: :btree
+  add_index "employees", ["deleted_at"], name: "index_employees_on_deleted_at", using: :btree
 
   create_table "entities", force: :cascade do |t|
     t.string   "name"
     t.integer  "company_id"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.text     "invoice_header"
-    t.string   "vatid",                default: "",    null: false
-    t.string   "premisesid",           default: "",    null: false
-    t.string   "registerid",           default: "",    null: false
-    t.binary   "certificate",          default: "",    null: false
-    t.string   "certificate_password", default: "",    null: false
-    t.boolean  "send_eet",             default: false, null: false
-    t.index ["company_id"], name: "index_entities_on_company_id", using: :btree
+    t.string   "vatid",                 default: "",    null: false
+    t.string   "premisesid",            default: "",    null: false
+    t.string   "registerid",            default: "",    null: false
+    t.binary   "certificate",           default: "",    null: false
+    t.string   "certificate_password",  default: "",    null: false
+    t.boolean  "send_eet",              default: false, null: false
+    t.string   "headquarters"
+    t.string   "identification_number"
+    t.string   "business_register"
   end
+
+  add_index "entities", ["company_id"], name: "index_entities_on_company_id", using: :btree
 
   create_table "items", force: :cascade do |t|
     t.string   "name",                              null: false
@@ -101,24 +109,26 @@ ActiveRecord::Schema.define(version: 20170311204250) do
     t.boolean  "is_service",        default: false, null: false
     t.integer  "company_id"
     t.integer  "entity_id"
-    t.index ["company_id"], name: "index_items_on_company_id", using: :btree
-    t.index ["deleted_at"], name: "index_items_on_deleted_at", using: :btree
-    t.index ["entity_id"], name: "index_items_on_entity_id", using: :btree
   end
 
+  add_index "items", ["company_id"], name: "index_items_on_company_id", using: :btree
+  add_index "items", ["deleted_at"], name: "index_items_on_deleted_at", using: :btree
+  add_index "items", ["entity_id"], name: "index_items_on_entity_id", using: :btree
+
   create_table "revenues", force: :cascade do |t|
-    t.decimal  "amount",       default: "0.0", null: false
+    t.decimal  "amount",       default: 0.0, null: false
     t.text     "eet_response"
     t.string   "eet_fik"
-    t.integer  "eet_attempts", default: 0,     null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.integer  "visit_id",                     null: false
-    t.integer  "entity_id",                    null: false
-    t.index ["entity_id"], name: "index_revenues_on_entity_id", using: :btree
-    t.index ["visit_id", "entity_id"], name: "by_visit_entity", unique: true, using: :btree
-    t.index ["visit_id"], name: "index_revenues_on_visit_id", using: :btree
+    t.integer  "eet_attempts", default: 0,   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "visit_id",                   null: false
+    t.integer  "entity_id",                  null: false
   end
+
+  add_index "revenues", ["entity_id"], name: "index_revenues_on_entity_id", using: :btree
+  add_index "revenues", ["visit_id", "entity_id"], name: "by_visit_entity", unique: true, using: :btree
+  add_index "revenues", ["visit_id"], name: "index_revenues_on_visit_id", using: :btree
 
   create_table "sells", force: :cascade do |t|
     t.integer  "item_id",    null: false
@@ -129,9 +139,10 @@ ActiveRecord::Schema.define(version: 20170311204250) do
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.integer  "entity_id",  null: false
-    t.index ["deleted_at"], name: "index_sells_on_deleted_at", using: :btree
-    t.index ["entity_id"], name: "index_sells_on_entity_id", using: :btree
   end
+
+  add_index "sells", ["deleted_at"], name: "index_sells_on_deleted_at", using: :btree
+  add_index "sells", ["entity_id"], name: "index_sells_on_entity_id", using: :btree
 
   create_table "statuses", force: :cascade do |t|
     t.string "name"
@@ -146,8 +157,9 @@ ActiveRecord::Schema.define(version: 20170311204250) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.datetime "deleted_at"
-    t.index ["deleted_at"], name: "index_supplies_on_deleted_at", using: :btree
   end
+
+  add_index "supplies", ["deleted_at"], name: "index_supplies_on_deleted_at", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -162,15 +174,16 @@ ActiveRecord::Schema.define(version: 20170311204250) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "deleted_at"
     t.string   "authentication_token"
+    t.datetime "deleted_at"
     t.integer  "company_id"
     t.integer  "role",                   default: 0
-    t.index ["company_id"], name: "index_users_on_company_id", using: :btree
-    t.index ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
+
+  add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree
+  add_index "users", ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "visits", force: :cascade do |t|
     t.text     "note"
@@ -180,15 +193,16 @@ ActiveRecord::Schema.define(version: 20170311204250) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.datetime "deleted_at"
-    t.decimal  "price_with_tip",         default: "0.0", null: false
-    t.decimal  "received_cash",          default: "0.0", null: false
-    t.decimal  "price",                  default: "0.0", null: false
-    t.decimal  "employee_share_sale",    default: "0.0", null: false
-    t.decimal  "employee_share_service", default: "0.0", null: false
-    t.decimal  "paid_by_card",           default: "0.0", null: false
-    t.decimal  "paid_in_cash",           default: "0.0", null: false
-    t.index ["deleted_at"], name: "index_visits_on_deleted_at", using: :btree
+    t.decimal  "price_with_tip",         default: 0.0,   null: false
+    t.decimal  "received_cash",          default: 0.0,   null: false
+    t.decimal  "price",                  default: 0.0,   null: false
+    t.decimal  "employee_share_sale",    default: 0.0,   null: false
+    t.decimal  "employee_share_service", default: 0.0,   null: false
+    t.decimal  "paid_by_card",           default: 0.0,   null: false
+    t.decimal  "paid_in_cash",           default: 0.0,   null: false
   end
+
+  add_index "visits", ["deleted_at"], name: "index_visits_on_deleted_at", using: :btree
 
   create_trigger("visits_after_insert_row_tr", :generated => true, :compatibility => 1).
       on("visits").

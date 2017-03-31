@@ -7,6 +7,9 @@ export default DS.Model.extend({
   premisesid: DS.attr('string'),
   registerid: DS.attr('string'),
   sendEet: DS.attr('boolean')
+  headquarters: DS.attr('string'),
+  identificationNumber: DS.attr('string'),
+  businessRegister: DS.attr('string')
   // certificate: DS.attr('string'),
   // certificate_password: DS.attr('string')
   // company: DS.belongsTo('company', { async: true })
