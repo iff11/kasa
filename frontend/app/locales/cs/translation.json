@@ -3,6 +3,10 @@
   "Password": "Password",
   "admin": {
     "companies": {
+      "address": "Adresa",
+      "website": "Web",
+      "facebook": "Facebook",
+      "phone": "Telefon",
       "companyHeading": "Moje firma",
       "companyNameLabel": "Název firmy",
       "entitiesHeading": "Ekonomické entity",
