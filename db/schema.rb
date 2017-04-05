@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170331171033) do
+ActiveRecord::Schema.define(version: 20170405194010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,10 @@ ActiveRecord::Schema.define(version: 20170331171033) do
     t.text     "invoice_header"
     t.string   "invoice_logo",               limit: 255
     t.decimal  "cashbook_balance",                       default: 0.0,   null: false
+    t.string   "address",                                default: "",    null: false
+    t.string   "website",                                default: "",    null: false
+    t.string   "facebook",                               default: "",    null: false
+    t.string   "phone",                                  default: "",    null: false
   end
 
   create_table "customers", force: :cascade do |t|
