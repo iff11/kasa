@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405194010) do
+ActiveRecord::Schema.define(version: 20170406110432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20170405194010) do
     t.string   "headquarters"
     t.string   "identification_number"
     t.string   "business_register"
+    t.boolean  "is_vat_payer",          default: false, null: false
   end
 
   add_index "entities", ["company_id"], name: "index_entities_on_company_id", using: :btree

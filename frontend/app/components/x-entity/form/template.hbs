@@ -38,6 +38,13 @@
   {{input value=entity.businessRegister class="form-control"}}
 </div>
 
+<div class="checkbox">
+  <label>
+    {{input checked=entity.isVatPayer type="checkbox"}}
+    {{t 'admin.companies.isVatPayer'}}
+  </label>
+</div>
+
 {{!-- <div class="checkbox">
   <label>
     {{input checked=entity.sendEet type="checkbox"}}

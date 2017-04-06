@@ -3,6 +3,7 @@
   "Password": "Password",
   "admin": {
     "companies": {
+      "isVatPayer": "Plátce DPH",
       "address": "Adresa",
       "website": "Web",
       "facebook": "Facebook",
@@ -242,6 +243,9 @@
     "price": "Celková cena",
     "priceSection": "Částka",
     "print": {
+      "isVatPayer": "plátce DPH",
+      "isNotVatPayer": "není plátcem DPH",
+      "identificationNumber": "IČO",
       "facebook": "Facebook",
       "phone": "tel.",
       "count": "Množství",
