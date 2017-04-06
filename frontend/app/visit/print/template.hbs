@@ -1,13 +1,28 @@
 <div class="receipt">
   {{#with attrs.visit as |visit|}}
 
-    {{#if visit.employee.company.invoiceLogo}}
-      <img src={{visit.employee.company.invoiceLogo}} alt="">
-    {{/if}}
+    <div class="text-center">
+      {{#if visit.employee.company.invoiceLogo}}
+        <img src={{visit.employee.company.invoiceLogo}} alt="">
+      {{/if}}
+    </div>
 
-    <p class="text-center">
-      {{visit.employee.company.invoiceHeader}}
-    </p>
+    <ul class="list-unstyled text-center">
+      {{#with visit.employee.company as |company|}}
+        {{#if company.address}}
+          <li>{{company.address}}</li>
+        {{/if}}
+        {{#if company.website}}
+          <li>{{company.website}}</li>
+        {{/if}}
+        {{#if company.facebook}}
+          <li>{{t 'visit.print.facebook'}}: {{company.facebook}}</li>
+        {{/if}}
+        {{#if company.phone}}
+          <li>{{t 'visit.print.phone'}}: {{company.phone}}</li>
+        {{/if}}
+      {{/with}}
+    </ul>
 
     <hr>
 

@@ -1,6 +1,10 @@
 # Change Log
 
-## [Unreleased]
+## [UNRELEASED]
+
+---
+
+## [v3.4.6]
 ### Added
  - Every entity has configurable VAT-ID, premises ID, register ID, send to EET toggle. Set it in admin->company->entities.
  - Every entity has hidden field for EET certificate & EET certificate password. This has to be set manually directly in database.
