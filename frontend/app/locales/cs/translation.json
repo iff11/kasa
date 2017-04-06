@@ -242,6 +242,8 @@
     "price": "Celková cena",
     "priceSection": "Částka",
     "print": {
+      "facebook": "Facebook",
+      "phone": "tel.",
       "count": "Množství",
       "footer": "vytvořeno pomocí systému www.beauty-pay.cz",
       "goToVisits": "Zpátky na seznam zakázek",
