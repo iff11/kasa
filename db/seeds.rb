@@ -2,8 +2,11 @@ companies = Company.create!([
   {
     name: "DEMO",
     is_invoice_printing_active: true,
-    invoice_header: "Adresa 123, Plzeň\nwww.beauty-pay.cz\nFacebook: beauty-pay.cz\ntel.: 123 456 789",
     invoice_logo: "http://bit.ly/2lB1l4d",
+    address: "Adresa 123, Plzeň",
+    website: "www.beauty-pay.cz",
+    facebook: "beauty-pay.cz",
+    phone: "123 456 789"
   }
 ])
 
@@ -32,8 +35,8 @@ certificate_path = Rails.root.join('bin', 'cert', 'EET_CA1_Playground-CZ00000019
 certificate = IO.binread(certificate_path)
 
 entities = Entity.create!([
-  {name: "beauty-pay.cz s.r.o.", company: companies[0], invoice_header: "IČO: 123456789", vatid: "CZ00000019", premisesid: "123", registerid: "456", certificate: certificate, certificate_password: "eet", send_eet: true},
-  {name: "druhá firma s.r.o.", company: companies[0], invoice_header: "IČO: 987654321"}
+  {name: "beauty-pay.cz s.r.o.", company: companies[0], vatid: "CZ00000019", premisesid: "123", registerid: "456", certificate: certificate, certificate_password: "eet", send_eet: true, headquarters: "Domovní 123, Plzeň", identification_number: "8510101112", business_register: "zapsaná v obchodním rejstříku vedeném Městským soudem v Praze, oddíl B, vložka 12844", is_vat_payer: true},
+  {name: "druhá firma s.r.o.", company: companies[0], headquarters: "Javorová 456, Brno", identification_number: "11223344", business_register: "zapsaná v obchodním rejstříku vedeném u Krajského soudu v Ostravě, oddíl B, vložka 3147", is_vat_payer: false}
 ])
 
 items = Item.create!([

@@ -2,7 +2,11 @@
 
 ## [UNRELEASED]
 
----
+## [v3.4.7]
+### Changed
+ - Each company now has address, website facebook, phone fields.
+ - Each entity now has VAT id, headquaters, identification number, business register, is VAT payer fields.
+ - New fields are displayed on the receipt in the same form as before.
 
 ## [v3.4.6]
 ### Added

@@ -25,6 +25,26 @@
         {{input value=company.invoiceLogo id="invoice-logo" class="form-control"}}
       </div>
 
+      <div class="form-group">
+        <label for="address">{{t 'admin.companies.address'}}</label>
+        {{input value=company.address id="address" class="form-control"}}
+      </div>
+
+      <div class="form-group">
+        <label for="website">{{t 'admin.companies.website'}}</label>
+        {{input value=company.website id="website" class="form-control"}}
+      </div>
+
+      <div class="form-group">
+        <label for="facebook">{{t 'admin.companies.facebook'}}</label>
+        {{input value=company.facebook id="facebook" class="form-control"}}
+      </div>
+
+      <div class="form-group">
+        <label for="phone">{{t 'admin.companies.phone'}}</label>
+        {{input value=company.phone id="phone" class="form-control"}}
+      </div>
+
       <button class="btn btn-primary" {{action "saveCompanyName" company}}>
         {{fa-icon icon="floppy-o"}}
       </button>

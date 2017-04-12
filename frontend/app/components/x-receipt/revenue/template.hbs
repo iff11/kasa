@@ -1,4 +1,18 @@
-{{entity.id}}) {{entity.name}} - {{entity.invoiceHeader}} -
+{{entity.id}}) {{entity.name}} -
+{{#if entity.identificationNumber}}
+  {{t 'visit.print.identificationNumber'}}: {{entity.identificationNumber}} -
+{{/if}}
+{{#if entity.businessRegister}}
+  {{entity.businessRegister}} -
+{{/if}}
+{{#if entity.headquarters}}
+  {{entity.headquarters}} -
+{{/if}}
+{{#if entity.isVatPayer}}
+  {{t 'visit.print.isVatPayer'}} -
+{{else}}
+  {{t 'visit.print.isNotVatPayer'}} -
+{{/if}}
 <strong>
   {{format-money revenue.amount symbol=(t 'currency') format="%v %s"}}
 </strong>
