@@ -1,0 +1,25 @@
+<td>
+  {{input type="text" class="form-control" value=(mut item.name)}}
+</td>
+<td>
+  {{input type="text" class="form-control" value=(mut item.sellingPrice)}}
+</td>
+<td>
+  {{input type="text" class="form-control" value=(mut item.barcode)}}
+</td>
+<td>
+  <button class="btn btn-danger" onclick={{action delete}}>
+    {{fa-icon 'trash'}}
+  </button>
+</td>
+<td>
+  {{#if item.isNew}}
+    {{fa-icon "star"}}
+  {{else}}
+    {{#if item.isSaving}}
+      {{fa-icon "hourglass"}}
+    {{else}}
+      {{fa-icon "check"}}
+    {{/if}}
+  {{/if}}
+</td>

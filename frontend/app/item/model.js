@@ -8,7 +8,7 @@ export default DS.Model.extend({
   sold: DS.attr('number', { defaultValue: 0 }),
   unlimited: DS.attr('boolean'),
   barcode: DS.attr('number'),
-  warningThreshold: DS.attr('number'),
+  warningThreshold: DS.attr('number', { defaultValue: 0 }),
   isActive: DS.attr('boolean'),
   isService: DS.attr('boolean'),
 

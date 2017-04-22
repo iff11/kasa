@@ -31,6 +31,7 @@ Router.map(function() {
       this.route('new');
       this.route('edit', { path: '/edit/:id' });
       this.route('show', { path: '/:id' });
+      this.route('import');
     });
 
     this.route('customers');

@@ -2,6 +2,13 @@
 
 ## [UNRELEASED]
 
+## [v3.4.8]
+### Added
+ - `admin/item/import` is current dark-shipped import of CSV.
+
+### Fixed
+ - Creation of new entity always failed. Fixed now.
+
 ## [v3.4.7]
 ### Changed
  - Each company now has address, website facebook, phone fields.
