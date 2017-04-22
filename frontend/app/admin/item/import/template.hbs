@@ -1,0 +1,32 @@
+{{textarea value=(mut sourceCsv) class="form-control" rows="3"}}
+
+<button class="delete btn btn-primary" {{action "parseCsv"}}>
+  {{fa-icon icon="gears"}}
+</button>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        {{t 'admin.item.import.name'}}
+      </th>
+      <th>
+        {{t 'admin.item.import.sellingPrice'}}
+      </th>
+      <th>
+        {{t 'admin.item.import.barcode'}}
+      </th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each items as |item index|}}
+      {{item-import-row item=item delete=(action "deleteItem" item)}}
+    {{/each}}
+  </tbody>
+</table>
+
+<button class="delete btn btn-success" {{action "saveItems"}}>
+  {{fa-icon icon="floppy-o"}}
+</button>
